@@ -1,1 +1,9 @@
 @import "tailwindcss";
+
+h1, h2, .milonga {
+    font-family: 'Milonga', cursive;
+}
+
+.spectral {
+    font-family: 'Spectral', cursive;
+}

@@ -32,12 +32,16 @@ export default function RootLayout({
   return (
     <html lang="fr">
       <body className="spectral h-screen flex flex-col justify-center text-[#553920] bg-radial from-[#F7EAD9] from-40% to-[#F4D7B7] to-80%">
-        <main className='flex-1 place-content-center text-center'>
+        <main className="flex-1 place-content-center text-center relative">
+          <img src="/corner.png" alt="" className="absolute top-0 left-0 size-20 rotate-90" />
+          <img src="/corner.png" alt="" className="absolute top-0 right-0 size-20 rotate-180" />
           <Suspense fallback={<Loader />}>
             {children}
           </Suspense>
         </main>
         <Footer></Footer>
+        <img src="/corner.png" alt="" className="absolute bottom-0 left-0 size-20" />
+        <img src="/corner.png" alt="" className="absolute bottom-0 right-0 size-20 rotate-270" />
       </body>
     </html>
   );

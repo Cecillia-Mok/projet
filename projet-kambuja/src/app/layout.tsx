@@ -20,7 +20,7 @@ export const spectral = Spectral({
 });
 
 export const metadata: Metadata = {
-  title: 'Kambuja Kingdom Game',
+  title: 'Kambuja Kingdom',
   description: 'Le jeu où vous incarnez le roi de Kambuja.',
 };
 
@@ -31,17 +31,23 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="fr">
-      <body className="spectral h-screen flex flex-col justify-center text-[#553920] bg-radial from-[#F7EAD9] from-40% to-[#F4D7B7] to-80% relative">
-        <img src="/corner.png" alt="" className="absolute top-0 left-0 size-20 rotate-90" />
-        <img src="/corner.png" alt="" className="absolute top-0 right-0 size-20 rotate-180" />
-        <img src="/corner.png" alt="" className="absolute bottom-0 left-0 size-20" />
-        <img src="/corner.png" alt="" className="absolute bottom-0 right-0 size-20 rotate-270" />
-        <main className="flex-1 place-content-center text-center">
-          <Suspense fallback={<Loader />}>
-            {children}
-          </Suspense>
-        </main>
-        <Footer></Footer>
+      <body className="spectral h-screen text-[#553920] bg-radial from-[#F7EAD9] from-40% to-[#F4D7B7] to-80%">
+        <div className="relative flex h-screen overflow-hidden">
+          <div className="w-[48px] h-full absolute left-0 top-0">
+            <div className="h-full bg-[url('/row.png')] bg-repeat-y bg-right bg-contain"></div>
+          </div>
+          <div className="w-[48px] h-full absolute right-0 top-0">
+            <div className="h-full bg-[url('/row.png')] bg-repeat-y bg-left bg-contain scale-x-[-1]"></div>
+          </div>
+          <div className="flex-1 flex flex-col place-content-center text-center">
+            <main className="flex-1 place-content-center text-center">
+              <Suspense fallback={<Loader />}>
+                {children}
+              </Suspense>
+            </main>
+            <Footer></Footer>
+          </div>
+        </div>
       </body>
     </html>
   );

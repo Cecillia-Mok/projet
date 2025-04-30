@@ -5,7 +5,7 @@ import styled from 'styled-components';
 const Loader = () => {
   return (
     <StyledWrapper>
-      <div className="loader flex flex-col items-center justify-center pt-10">
+      <div className="loader flex flex-col items-center pt-10">
         <svg className="container" x="0px" y="0px" viewBox="0 0 50 50" height={50} width={50} preserveAspectRatio="xMidYMid meet">
           <path className="track" fill="none" stroke="#553920" strokeWidth={4} pathLength={100} d={PATH_DATA} />
           <path className="car" fill="none" stroke="#553920" strokeWidth={4} pathLength={100} d={PATH_DATA} />

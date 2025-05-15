@@ -33,13 +33,22 @@ export default function RootLayout({
     <html lang="fr">
       <body className="spectral h-screen text-[#553920] bg-radial from-[#F7EAD9] from-40% to-[#F4D7B7] to-80%">
         <div className="relative flex h-screen overflow-hidden">
-          <div className="w-[48px] h-full absolute left-0 top-0">
-            <div className="h-full bg-[url('/row.png')] bg-repeat-y bg-right bg-contain"></div>
+
+          {/* Décoration haut / gauche */}
+          <div className="absolute h-[48px] w-full sm:top-0 md:w-[48px] md:h-full md:left-0">
+            <div className="bg-contain h-full sm:w-full bg-[url('/row-sm.png')] sm:bg-repeat-x sm:bg-bottom md:bg-[url('/row.png')] md:bg-repeat-y md:bg-right"></div>
           </div>
-          <div className="w-[48px] h-full absolute right-0 top-0">
-            <div className="h-full bg-[url('/row.png')] bg-repeat-y bg-left bg-contain scale-x-[-1]"></div>
+
+          {/* Décoration bas / droite */}
+          {/* <div className="">
+            <div className="md:h-full></div>
+          </div> */}
+          <div className="absolute h-[48px] w-full bottom-0 md:w-[48px] md:h-full md:right-0">
+            <div className="bg-contain h-full sm:w-full bg-[url('/row-sm.png')] sm:bg-repeat-x sm:bg-top scale-y-[-1] md:bg-[url('/row.png')] md:bg-repeat-y md:bg-left scale-x-[-1]"></div>
           </div>
-          <div className="flex-1 flex flex-col place-content-center text-center">
+
+          {/* Main au centre */}
+          <div className="flex-1 flex flex-col place-content-center text-center mx-15 mb-15 md:mb-0">
             <main className="flex-1 place-content-center text-center">
               <Suspense fallback={<Loader />}>
                 {children}

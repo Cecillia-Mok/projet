@@ -1,6 +1,5 @@
 import { useState } from 'react';
-import Input from '../components/input';
-import FormButton from '../components/formButton';
+import Button from './button';
 
 export default function Form() {
   const [email, setEmail] = useState('');
@@ -54,7 +53,7 @@ export default function Form() {
           </div>
         </label>
       </div>
-      <FormButton>Se connecter</FormButton>
+      <Button text="Se Connecter" />
     </form >
     );
   }

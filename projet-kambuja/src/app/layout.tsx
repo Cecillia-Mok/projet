@@ -40,15 +40,12 @@ export default function RootLayout({
           </div>
 
           {/* Décoration bas / droite */}
-          {/* <div className="">
-            <div className="md:h-full></div>
-          </div> */}
           <div className="absolute h-[48px] w-full bottom-0 md:w-[48px] md:h-full md:right-0">
             <div className="bg-contain h-full sm:w-full bg-[url('/row-sm.png')] sm:bg-repeat-x sm:bg-top scale-y-[-1] md:bg-[url('/row.png')] md:bg-repeat-y md:bg-left scale-x-[-1]"></div>
           </div>
 
           {/* Main au centre */}
-          <div className="flex-1 flex flex-col place-content-center text-center mx-15 mb-15 md:mb-0">
+          <div className="flex-1 flex flex-col place-content-center text-center m-15 md:mb-0">
             <main className="flex-1 place-content-center text-center">
               <Suspense fallback={<Loader />}>
                 {children}

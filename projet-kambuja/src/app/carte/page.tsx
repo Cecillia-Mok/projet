@@ -4,9 +4,9 @@ import Gauge from "../components/gauge";
 
 export default function Carte() {
     return (
-            <section className="h-full flex flex-col gap-15">
-                <Gauge></Gauge>
-                <Card />
-            </section>
+        <section className="h-full flex flex-col gap-15">
+            <Gauge></Gauge>
+            <Card />
+        </section>
     )
 }

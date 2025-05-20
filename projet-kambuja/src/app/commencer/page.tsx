@@ -1,9 +1,9 @@
 'use client'
 export default function Commencer() {
-    return (
-      <div>
-        <h1 className="text-4xl mb-10">Page lancer une partie</h1>
-        <p>La page pour lancer... une partie !</p>
-      </div>
-    )
+  return (
+    <main className="flex-1 text-center">
+      <h1 className="text-3xl m-10">C'est maintenant que votre règne débute.</h1>
+      <button>Commencer</button>
+    </main>
+  )
 }

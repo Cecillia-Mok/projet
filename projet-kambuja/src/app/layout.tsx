@@ -2,6 +2,7 @@
 import './globals.css';
 import Footer from '../app/components/footer';
 import Loader from '../app/components/loader';
+import Nav from './components/nav';
 import type { Metadata } from 'next';
 import React, { Suspense } from 'react';
 import { Milonga, Spectral } from 'next/font/google';
@@ -46,11 +47,10 @@ export default function RootLayout({
 
           {/* Main au centre */}
           <div className="flex-1 flex flex-col place-content-center text-center m-15 md:mb-0">
-            <main className="flex-1 place-content-center text-center">
+            <Nav />
               <Suspense fallback={<Loader />}>
                 {children}
               </Suspense>
-            </main>
             <Footer></Footer>
           </div>
         </div>

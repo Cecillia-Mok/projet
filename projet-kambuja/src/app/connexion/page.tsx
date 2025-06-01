@@ -1,7 +1,7 @@
 'use client'
 import Link from 'next/link'
 import { useState } from 'react';
-import Form from '../components/form';
+import Form from '../../components/form';
 
 export default function Connexion() {
   const [error, setError] = useState('');

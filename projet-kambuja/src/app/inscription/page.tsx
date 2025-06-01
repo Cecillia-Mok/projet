@@ -1,7 +1,7 @@
 'use client'
 import Link from 'next/link'
 import { useState } from 'react';
-import Button from '../components/button';
+import Button from '../../components/button';
 
 export default function Inscription() {
   const [email, setEmail] = useState('');

@@ -1,6 +1,6 @@
 'use client'
-import Card from "../components/card";
-import Gauge from "../components/gauge";
+import Card from "../../components/card";
+import Gauge from "../../components/gauge";
 
 export default function Carte() {
     return (

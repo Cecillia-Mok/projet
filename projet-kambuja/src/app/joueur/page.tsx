@@ -8,7 +8,7 @@ export default function Joueur() {
           <p>La page où le joueur peut consulter ses parties passées.</p>
         </div>
         <div>
-          <h2>Chiffres</h2>
+          <h2>Accomplissements</h2>
           <p>Nombre de parties jouées</p>
           <p>Nombre de fin débloquées</p>
         </div>

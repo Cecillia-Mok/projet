@@ -5,6 +5,11 @@ export default function Nav({ onClick }: Readonly<{ onClick?: () => void }>) {
         <nav>
             <ul className="flex flex-wrap gap-3 justify-center">
                 <li>
+                    <Link href="/" onClick={onClick} className="text-[#553920] hover:border-b-2 hover:pb-2">
+                        Accueil
+                    </Link>
+                </li>
+                <li>
                     <Link href="/connexion" onClick={onClick} className="text-[#553920] hover:border-b-2 hover:pb-2">
                         Connexion
                     </Link>

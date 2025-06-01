@@ -1,10 +1,12 @@
 'use client'
-export default function Connexion() {
-    return (
-        <div className=" ">
-            <h1 className="text-center">Général Dara</h1>
+import Card from "../../components/card";
+import Gauge from "../../components/gauge";
 
-            <p>Le pays de l'ouest rassemble ses troupes vers notre frontière !</p>
-        </div>
+export default function Carte() {
+    return (
+        <section className="h-full flex flex-col gap-15">
+            <Gauge></Gauge>
+            <Card />
+        </section>
     )
 }

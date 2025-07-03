@@ -62,12 +62,6 @@ export default function Inscription() {
           </div>
           <Button text="S'inscrire" />
         </form >
-        <div className="flex justify-end mt-5 gap-2">
-          <p>Déjà inscrit(e) ?</p>
-          <Link href="/connexion">
-            <button className="cursor-pointer"> Se connecter »</button>
-          </Link>
-        </div>
       </div >
     </main>
   )

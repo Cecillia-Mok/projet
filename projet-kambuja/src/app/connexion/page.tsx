@@ -51,7 +51,7 @@ export default function Connexion() {
         <div className="flex justify-end mt-5 gap-2">
           <p>Pas de compte ?</p>
           <Link href="/inscription">
-            <button className="cursor-pointer"> S'inscrire »</button>
+            <button className="cursor-pointer"> S'inscrire</button>
           </Link>
         </div>
       </div >

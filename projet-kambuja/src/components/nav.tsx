@@ -10,13 +10,13 @@ export default function Nav({ onClick }: Readonly<{ onClick?: () => void }>) {
                     </Link>
                 </li>
                 <li>
-                    <Link href="/connexion" onClick={onClick} className="text-[#553920] hover:border-b-2 hover:pb-2">
-                        Connexion
+                    <Link href="/admin/accueil" onClick={onClick} className="text-[#553920] hover:border-b-2 hover:pb-2">
+                        Admin
                     </Link>
                 </li>
                 <li>
-                    <Link href="/inscription" onClick={onClick} className="text-[#553920] hover:border-b-2 hover:pb-2">
-                        Inscription
+                    <Link href="/connexion" onClick={onClick} className="text-[#553920] hover:border-b-2 hover:pb-2">
+                        Connexion
                     </Link>
                 </li>
                 <li>

@@ -1,0 +1,56 @@
+generator client {
+  provider = "prisma-client-js"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model Joueur {
+  joueur_id     Int      @id @default(autoincrement())
+  email         String   @unique
+  mdp           String
+  role          String   @default("joueur")
+  date_creation DateTime @default(now())
+
+  parties Partie[] // 1-n relation
+}
+
+model Partie {
+  partie_id         Int       @id @default(autoincrement())
+  date_debut_partie DateTime
+  date_fin_partie   DateTime?
+  statut            String    @default("en cours")
+
+  joueur_id Int
+  joueur    Joueur @relation(fields: [joueur_id], references: [joueur_id], onDelete: Cascade)
+
+  cartes Carte[] // 1-n relation
+}
+
+model Carte {
+  carte_id  Int     @id @default(autoincrement())
+  titre     String
+  image_url String?
+  texte     String
+  is_over   Boolean @default(false)
+
+  partie_id Int
+  partie    Partie @relation(fields: [partie_id], references: [partie_id], onDelete: Cascade)
+
+  choix      Choix[] // 1-n relation
+  suivie_par Choix[] @relation("CarteSuivante")
+}
+
+model Choix {
+  choix_id Int    @id @default(autoincrement())
+  texte    String
+
+  carte_suivante_default Int?
+  carte_suivante         Carte? @relation("CarteSuivante", fields: [carte_suivante_default], references: [carte_id], onDelete: SetNull)
+
+  carte_id Int
+  carte    Carte @relation(fields: [carte_id], references: [carte_id], onDelete: Cascade)
+}

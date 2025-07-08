@@ -1,6 +1,5 @@
 generator client {
   provider = "prisma-client-js"
-  output   = "../src/generated/prisma"
 }
 
 datasource db {
@@ -8,49 +7,49 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model Joueur {
-  joueur_id     Int      @id @default(autoincrement())
+model User {
+  user_id       Int      @id @default(autoincrement())
   email         String   @unique
-  mdp           String
-  role          String   @default("joueur")
-  date_creation DateTime @default(now())
+  password      String
+  role          String   @default("user")
+  creation_date DateTime @default(now())
 
-  parties Partie[] // 1-n relation
+  games Game[] // 1-n relation
 }
 
-model Partie {
-  partie_id         Int       @id @default(autoincrement())
-  date_debut_partie DateTime
-  date_fin_partie   DateTime?
-  statut            String    @default("en cours")
+model Game {
+  game_id         Int       @id @default(autoincrement())
+  game_start_date DateTime
+  game_end_date   DateTime?
+  status          String    @default("en cours")
 
-  joueur_id Int
-  joueur    Joueur @relation(fields: [joueur_id], references: [joueur_id], onDelete: Cascade)
+  user_id Int
+  user    User @relation(fields: [user_id], references: [user_id], onDelete: Cascade)
 
-  cartes Carte[] // 1-n relation
+  cards Card[] // 1-n relation
 }
 
-model Carte {
-  carte_id  Int     @id @default(autoincrement())
+model Card {
+  card_id   Int     @id @default(autoincrement())
   titre     String
   image_url String?
   texte     String
   is_over   Boolean @default(false)
 
-  partie_id Int
-  partie    Partie @relation(fields: [partie_id], references: [partie_id], onDelete: Cascade)
+  game_id Int
+  game    Game @relation(fields: [game_id], references: [game_id], onDelete: Cascade)
 
-  choix      Choix[] // 1-n relation
-  suivie_par Choix[] @relation("CarteSuivante")
+  choice     Choice[] // 1-n relation
+  suivie_par Choice[] @relation("NextCard")
 }
 
-model Choix {
-  choix_id Int    @id @default(autoincrement())
-  texte    String
+model Choice {
+  choice_id Int    @id @default(autoincrement())
+  texte     String
 
-  carte_suivante_default Int?
-  carte_suivante         Carte? @relation("CarteSuivante", fields: [carte_suivante_default], references: [carte_id], onDelete: SetNull)
+  default_next_card Int?
+  next_card         Card? @relation("NextCard", fields: [default_next_card], references: [card_id], onDelete: SetNull)
 
-  carte_id Int
-  carte    Carte @relation(fields: [carte_id], references: [carte_id], onDelete: Cascade)
+  card_id Int
+  card    Card @relation(fields: [card_id], references: [card_id], onDelete: Cascade)
 }

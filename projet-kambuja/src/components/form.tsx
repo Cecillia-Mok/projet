@@ -1,17 +1,66 @@
 import { useState } from 'react';
 import Button from './button';
+import { z } from 'zod';
+
+// Schema pour l'inscription et la connexion
+const zodSchema = z.object({
+  email: z.string()
+    .email({ message: "Vous devez saisir une adresse email." })
+    .trim(),
+  password: z.string()
+    .min(8, { message: "Le mot de passe requiert un minimum de 8 caractères." })
+    .trim(),
+});
+
+// export type ZodSchema = z.infer<typeof zodSchema>
 
 export default function Form() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
+  const [error, setError] = useState<string | null>(null)
   
   const togglePasswordVisibility = () => {
     setShowPassword(!showPassword);
   };
 
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault() // empêche le rechargement de la page
+    setError(null) // réinitialise les erreurs
+    const result = zodSchema.safeParse({ email, password })
+
+    if (!result.success) {
+      const errorMsg = result.error.errors[0]?.message || 'Données invalides'
+      setError(errorMsg)
+      return
+    }
+
+    try {
+      // Envoi des infos de connexion
+      const res = await fetch('/api/connexion', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(result.data),
+        credentials: 'include', // Important pour que le cookie soit bien envoyé
+      })
+
+      const data = await res.json()
+
+      if (!res.ok) {
+        setError(data.error ?? 'Échec de la connexion.')
+        return
+      }
+
+      setEmail('')
+      setPassword('')
+    } catch (err) {
+      console.error('Erreur de connexion :', err)
+      setError('Erreur réseau ou serveur.')
+    }
+  }
+
   return (
-    <form className="space-y-4"> {/* onSubmit={handleLogin} */}
+    <form onSubmit={handleSubmit} className="space-y-4">
       <div className="text-left">
         <label>Email{/* */}
           <div className="relative">

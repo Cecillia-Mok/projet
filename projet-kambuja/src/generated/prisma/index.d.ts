@@ -14,25 +14,25 @@ export type PrismaPromise<T> = $Public.PrismaPromise<T>
 
 
 /**
- * Model Joueur
+ * Model User
  * 
  */
-export type Joueur = $Result.DefaultSelection<Prisma.$JoueurPayload>
+export type User = $Result.DefaultSelection<Prisma.$UserPayload>
 /**
- * Model Partie
+ * Model Game
  * 
  */
-export type Partie = $Result.DefaultSelection<Prisma.$PartiePayload>
+export type Game = $Result.DefaultSelection<Prisma.$GamePayload>
 /**
- * Model Carte
+ * Model Card
  * 
  */
-export type Carte = $Result.DefaultSelection<Prisma.$CartePayload>
+export type Card = $Result.DefaultSelection<Prisma.$CardPayload>
 /**
- * Model Choix
+ * Model Choice
  * 
  */
-export type Choix = $Result.DefaultSelection<Prisma.$ChoixPayload>
+export type Choice = $Result.DefaultSelection<Prisma.$ChoicePayload>
 
 /**
  * ##  Prisma Client ʲˢ
@@ -41,8 +41,8 @@ export type Choix = $Result.DefaultSelection<Prisma.$ChoixPayload>
  * @example
  * ```
  * const prisma = new PrismaClient()
- * // Fetch zero or more Joueurs
- * const joueurs = await prisma.joueur.findMany()
+ * // Fetch zero or more Users
+ * const users = await prisma.user.findMany()
  * ```
  *
  *
@@ -62,8 +62,8 @@ export class PrismaClient<
    * @example
    * ```
    * const prisma = new PrismaClient()
-   * // Fetch zero or more Joueurs
-   * const joueurs = await prisma.joueur.findMany()
+   * // Fetch zero or more Users
+   * const users = await prisma.user.findMany()
    * ```
    *
    *
@@ -160,44 +160,44 @@ export class PrismaClient<
   }>>
 
       /**
-   * `prisma.joueur`: Exposes CRUD operations for the **Joueur** model.
+   * `prisma.user`: Exposes CRUD operations for the **User** model.
     * Example usage:
     * ```ts
-    * // Fetch zero or more Joueurs
-    * const joueurs = await prisma.joueur.findMany()
+    * // Fetch zero or more Users
+    * const users = await prisma.user.findMany()
     * ```
     */
-  get joueur(): Prisma.JoueurDelegate<ExtArgs, ClientOptions>;
+  get user(): Prisma.UserDelegate<ExtArgs, ClientOptions>;
 
   /**
-   * `prisma.partie`: Exposes CRUD operations for the **Partie** model.
+   * `prisma.game`: Exposes CRUD operations for the **Game** model.
     * Example usage:
     * ```ts
-    * // Fetch zero or more Parties
-    * const parties = await prisma.partie.findMany()
+    * // Fetch zero or more Games
+    * const games = await prisma.game.findMany()
     * ```
     */
-  get partie(): Prisma.PartieDelegate<ExtArgs, ClientOptions>;
+  get game(): Prisma.GameDelegate<ExtArgs, ClientOptions>;
 
   /**
-   * `prisma.carte`: Exposes CRUD operations for the **Carte** model.
+   * `prisma.card`: Exposes CRUD operations for the **Card** model.
     * Example usage:
     * ```ts
-    * // Fetch zero or more Cartes
-    * const cartes = await prisma.carte.findMany()
+    * // Fetch zero or more Cards
+    * const cards = await prisma.card.findMany()
     * ```
     */
-  get carte(): Prisma.CarteDelegate<ExtArgs, ClientOptions>;
+  get card(): Prisma.CardDelegate<ExtArgs, ClientOptions>;
 
   /**
-   * `prisma.choix`: Exposes CRUD operations for the **Choix** model.
+   * `prisma.choice`: Exposes CRUD operations for the **Choice** model.
     * Example usage:
     * ```ts
-    * // Fetch zero or more Choixes
-    * const choixes = await prisma.choix.findMany()
+    * // Fetch zero or more Choices
+    * const choices = await prisma.choice.findMany()
     * ```
     */
-  get choix(): Prisma.ChoixDelegate<ExtArgs, ClientOptions>;
+  get choice(): Prisma.ChoiceDelegate<ExtArgs, ClientOptions>;
 }
 
 export namespace Prisma {
@@ -256,8 +256,8 @@ export namespace Prisma {
   export import Exact = $Public.Exact
 
   /**
-   * Prisma Client JS version: 6.6.0
-   * Query Engine version: f676762280b54cd07c770017ed3711ddde35f37a
+   * Prisma Client JS version: 6.11.1
+   * Query Engine version: f40f79ec31188888a2e33acda0ecc8fd10a853a9
    */
   export type PrismaVersion = {
     client: string
@@ -638,10 +638,10 @@ export namespace Prisma {
 
 
   export const ModelName: {
-    Joueur: 'Joueur',
-    Partie: 'Partie',
-    Carte: 'Carte',
-    Choix: 'Choix'
+    User: 'User',
+    Game: 'Game',
+    Card: 'Card',
+    Choice: 'Choice'
   };
 
   export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -660,271 +660,271 @@ export namespace Prisma {
       omit: GlobalOmitOptions
     }
     meta: {
-      modelProps: "joueur" | "partie" | "carte" | "choix"
+      modelProps: "user" | "game" | "card" | "choice"
       txIsolationLevel: Prisma.TransactionIsolationLevel
     }
     model: {
-      Joueur: {
-        payload: Prisma.$JoueurPayload<ExtArgs>
-        fields: Prisma.JoueurFieldRefs
+      User: {
+        payload: Prisma.$UserPayload<ExtArgs>
+        fields: Prisma.UserFieldRefs
         operations: {
           findUnique: {
-            args: Prisma.JoueurFindUniqueArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$JoueurPayload> | null
+            args: Prisma.UserFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$UserPayload> | null
           }
           findUniqueOrThrow: {
-            args: Prisma.JoueurFindUniqueOrThrowArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$JoueurPayload>
+            args: Prisma.UserFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$UserPayload>
           }
           findFirst: {
-            args: Prisma.JoueurFindFirstArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$JoueurPayload> | null
+            args: Prisma.UserFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$UserPayload> | null
           }
           findFirstOrThrow: {
-            args: Prisma.JoueurFindFirstOrThrowArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$JoueurPayload>
+            args: Prisma.UserFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$UserPayload>
           }
           findMany: {
-            args: Prisma.JoueurFindManyArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$JoueurPayload>[]
+            args: Prisma.UserFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$UserPayload>[]
           }
           create: {
-            args: Prisma.JoueurCreateArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$JoueurPayload>
+            args: Prisma.UserCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$UserPayload>
           }
           createMany: {
-            args: Prisma.JoueurCreateManyArgs<ExtArgs>
+            args: Prisma.UserCreateManyArgs<ExtArgs>
             result: BatchPayload
           }
           delete: {
-            args: Prisma.JoueurDeleteArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$JoueurPayload>
+            args: Prisma.UserDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$UserPayload>
           }
           update: {
-            args: Prisma.JoueurUpdateArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$JoueurPayload>
+            args: Prisma.UserUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$UserPayload>
           }
           deleteMany: {
-            args: Prisma.JoueurDeleteManyArgs<ExtArgs>
+            args: Prisma.UserDeleteManyArgs<ExtArgs>
             result: BatchPayload
           }
           updateMany: {
-            args: Prisma.JoueurUpdateManyArgs<ExtArgs>
+            args: Prisma.UserUpdateManyArgs<ExtArgs>
             result: BatchPayload
           }
           upsert: {
-            args: Prisma.JoueurUpsertArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$JoueurPayload>
+            args: Prisma.UserUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$UserPayload>
           }
           aggregate: {
-            args: Prisma.JoueurAggregateArgs<ExtArgs>
-            result: $Utils.Optional<AggregateJoueur>
+            args: Prisma.UserAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateUser>
           }
           groupBy: {
-            args: Prisma.JoueurGroupByArgs<ExtArgs>
-            result: $Utils.Optional<JoueurGroupByOutputType>[]
+            args: Prisma.UserGroupByArgs<ExtArgs>
+            result: $Utils.Optional<UserGroupByOutputType>[]
           }
           count: {
-            args: Prisma.JoueurCountArgs<ExtArgs>
-            result: $Utils.Optional<JoueurCountAggregateOutputType> | number
+            args: Prisma.UserCountArgs<ExtArgs>
+            result: $Utils.Optional<UserCountAggregateOutputType> | number
           }
         }
       }
-      Partie: {
-        payload: Prisma.$PartiePayload<ExtArgs>
-        fields: Prisma.PartieFieldRefs
+      Game: {
+        payload: Prisma.$GamePayload<ExtArgs>
+        fields: Prisma.GameFieldRefs
         operations: {
           findUnique: {
-            args: Prisma.PartieFindUniqueArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$PartiePayload> | null
+            args: Prisma.GameFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$GamePayload> | null
           }
           findUniqueOrThrow: {
-            args: Prisma.PartieFindUniqueOrThrowArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$PartiePayload>
+            args: Prisma.GameFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$GamePayload>
           }
           findFirst: {
-            args: Prisma.PartieFindFirstArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$PartiePayload> | null
+            args: Prisma.GameFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$GamePayload> | null
           }
           findFirstOrThrow: {
-            args: Prisma.PartieFindFirstOrThrowArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$PartiePayload>
+            args: Prisma.GameFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$GamePayload>
           }
           findMany: {
-            args: Prisma.PartieFindManyArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$PartiePayload>[]
+            args: Prisma.GameFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$GamePayload>[]
           }
           create: {
-            args: Prisma.PartieCreateArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$PartiePayload>
+            args: Prisma.GameCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$GamePayload>
           }
           createMany: {
-            args: Prisma.PartieCreateManyArgs<ExtArgs>
+            args: Prisma.GameCreateManyArgs<ExtArgs>
             result: BatchPayload
           }
           delete: {
-            args: Prisma.PartieDeleteArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$PartiePayload>
+            args: Prisma.GameDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$GamePayload>
           }
           update: {
-            args: Prisma.PartieUpdateArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$PartiePayload>
+            args: Prisma.GameUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$GamePayload>
           }
           deleteMany: {
-            args: Prisma.PartieDeleteManyArgs<ExtArgs>
+            args: Prisma.GameDeleteManyArgs<ExtArgs>
             result: BatchPayload
           }
           updateMany: {
-            args: Prisma.PartieUpdateManyArgs<ExtArgs>
+            args: Prisma.GameUpdateManyArgs<ExtArgs>
             result: BatchPayload
           }
           upsert: {
-            args: Prisma.PartieUpsertArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$PartiePayload>
+            args: Prisma.GameUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$GamePayload>
           }
           aggregate: {
-            args: Prisma.PartieAggregateArgs<ExtArgs>
-            result: $Utils.Optional<AggregatePartie>
+            args: Prisma.GameAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateGame>
           }
           groupBy: {
-            args: Prisma.PartieGroupByArgs<ExtArgs>
-            result: $Utils.Optional<PartieGroupByOutputType>[]
+            args: Prisma.GameGroupByArgs<ExtArgs>
+            result: $Utils.Optional<GameGroupByOutputType>[]
           }
           count: {
-            args: Prisma.PartieCountArgs<ExtArgs>
-            result: $Utils.Optional<PartieCountAggregateOutputType> | number
+            args: Prisma.GameCountArgs<ExtArgs>
+            result: $Utils.Optional<GameCountAggregateOutputType> | number
           }
         }
       }
-      Carte: {
-        payload: Prisma.$CartePayload<ExtArgs>
-        fields: Prisma.CarteFieldRefs
+      Card: {
+        payload: Prisma.$CardPayload<ExtArgs>
+        fields: Prisma.CardFieldRefs
         operations: {
           findUnique: {
-            args: Prisma.CarteFindUniqueArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$CartePayload> | null
+            args: Prisma.CardFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CardPayload> | null
           }
           findUniqueOrThrow: {
-            args: Prisma.CarteFindUniqueOrThrowArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$CartePayload>
+            args: Prisma.CardFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CardPayload>
           }
           findFirst: {
-            args: Prisma.CarteFindFirstArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$CartePayload> | null
+            args: Prisma.CardFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CardPayload> | null
           }
           findFirstOrThrow: {
-            args: Prisma.CarteFindFirstOrThrowArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$CartePayload>
+            args: Prisma.CardFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CardPayload>
           }
           findMany: {
-            args: Prisma.CarteFindManyArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$CartePayload>[]
+            args: Prisma.CardFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CardPayload>[]
           }
           create: {
-            args: Prisma.CarteCreateArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$CartePayload>
+            args: Prisma.CardCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CardPayload>
           }
           createMany: {
-            args: Prisma.CarteCreateManyArgs<ExtArgs>
+            args: Prisma.CardCreateManyArgs<ExtArgs>
             result: BatchPayload
           }
           delete: {
-            args: Prisma.CarteDeleteArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$CartePayload>
+            args: Prisma.CardDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CardPayload>
           }
           update: {
-            args: Prisma.CarteUpdateArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$CartePayload>
+            args: Prisma.CardUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CardPayload>
           }
           deleteMany: {
-            args: Prisma.CarteDeleteManyArgs<ExtArgs>
+            args: Prisma.CardDeleteManyArgs<ExtArgs>
             result: BatchPayload
           }
           updateMany: {
-            args: Prisma.CarteUpdateManyArgs<ExtArgs>
+            args: Prisma.CardUpdateManyArgs<ExtArgs>
             result: BatchPayload
           }
           upsert: {
-            args: Prisma.CarteUpsertArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$CartePayload>
+            args: Prisma.CardUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CardPayload>
           }
           aggregate: {
-            args: Prisma.CarteAggregateArgs<ExtArgs>
-            result: $Utils.Optional<AggregateCarte>
+            args: Prisma.CardAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateCard>
           }
           groupBy: {
-            args: Prisma.CarteGroupByArgs<ExtArgs>
-            result: $Utils.Optional<CarteGroupByOutputType>[]
+            args: Prisma.CardGroupByArgs<ExtArgs>
+            result: $Utils.Optional<CardGroupByOutputType>[]
           }
           count: {
-            args: Prisma.CarteCountArgs<ExtArgs>
-            result: $Utils.Optional<CarteCountAggregateOutputType> | number
+            args: Prisma.CardCountArgs<ExtArgs>
+            result: $Utils.Optional<CardCountAggregateOutputType> | number
           }
         }
       }
-      Choix: {
-        payload: Prisma.$ChoixPayload<ExtArgs>
-        fields: Prisma.ChoixFieldRefs
+      Choice: {
+        payload: Prisma.$ChoicePayload<ExtArgs>
+        fields: Prisma.ChoiceFieldRefs
         operations: {
           findUnique: {
-            args: Prisma.ChoixFindUniqueArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$ChoixPayload> | null
+            args: Prisma.ChoiceFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ChoicePayload> | null
           }
           findUniqueOrThrow: {
-            args: Prisma.ChoixFindUniqueOrThrowArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$ChoixPayload>
+            args: Prisma.ChoiceFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ChoicePayload>
           }
           findFirst: {
-            args: Prisma.ChoixFindFirstArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$ChoixPayload> | null
+            args: Prisma.ChoiceFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ChoicePayload> | null
           }
           findFirstOrThrow: {
-            args: Prisma.ChoixFindFirstOrThrowArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$ChoixPayload>
+            args: Prisma.ChoiceFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ChoicePayload>
           }
           findMany: {
-            args: Prisma.ChoixFindManyArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$ChoixPayload>[]
+            args: Prisma.ChoiceFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ChoicePayload>[]
           }
           create: {
-            args: Prisma.ChoixCreateArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$ChoixPayload>
+            args: Prisma.ChoiceCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ChoicePayload>
           }
           createMany: {
-            args: Prisma.ChoixCreateManyArgs<ExtArgs>
+            args: Prisma.ChoiceCreateManyArgs<ExtArgs>
             result: BatchPayload
           }
           delete: {
-            args: Prisma.ChoixDeleteArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$ChoixPayload>
+            args: Prisma.ChoiceDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ChoicePayload>
           }
           update: {
-            args: Prisma.ChoixUpdateArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$ChoixPayload>
+            args: Prisma.ChoiceUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ChoicePayload>
           }
           deleteMany: {
-            args: Prisma.ChoixDeleteManyArgs<ExtArgs>
+            args: Prisma.ChoiceDeleteManyArgs<ExtArgs>
             result: BatchPayload
           }
           updateMany: {
-            args: Prisma.ChoixUpdateManyArgs<ExtArgs>
+            args: Prisma.ChoiceUpdateManyArgs<ExtArgs>
             result: BatchPayload
           }
           upsert: {
-            args: Prisma.ChoixUpsertArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$ChoixPayload>
+            args: Prisma.ChoiceUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ChoicePayload>
           }
           aggregate: {
-            args: Prisma.ChoixAggregateArgs<ExtArgs>
-            result: $Utils.Optional<AggregateChoix>
+            args: Prisma.ChoiceAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateChoice>
           }
           groupBy: {
-            args: Prisma.ChoixGroupByArgs<ExtArgs>
-            result: $Utils.Optional<ChoixGroupByOutputType>[]
+            args: Prisma.ChoiceGroupByArgs<ExtArgs>
+            result: $Utils.Optional<ChoiceGroupByOutputType>[]
           }
           count: {
-            args: Prisma.ChoixCountArgs<ExtArgs>
-            result: $Utils.Optional<ChoixCountAggregateOutputType> | number
+            args: Prisma.ChoiceCountArgs<ExtArgs>
+            result: $Utils.Optional<ChoiceCountAggregateOutputType> | number
           }
         }
       }
@@ -1012,10 +1012,10 @@ export namespace Prisma {
     omit?: Prisma.GlobalOmitConfig
   }
   export type GlobalOmitConfig = {
-    joueur?: JoueurOmit
-    partie?: PartieOmit
-    carte?: CarteOmit
-    choix?: ChoixOmit
+    user?: UserOmit
+    game?: GameOmit
+    card?: CardOmit
+    choice?: ChoiceOmit
   }
 
   /* Types for Logging */
@@ -1106,104 +1106,104 @@ export namespace Prisma {
 
 
   /**
-   * Count Type JoueurCountOutputType
+   * Count Type UserCountOutputType
    */
 
-  export type JoueurCountOutputType = {
-    parties: number
+  export type UserCountOutputType = {
+    games: number
   }
 
-  export type JoueurCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    parties?: boolean | JoueurCountOutputTypeCountPartiesArgs
+  export type UserCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    games?: boolean | UserCountOutputTypeCountGamesArgs
   }
 
   // Custom InputTypes
   /**
-   * JoueurCountOutputType without action
+   * UserCountOutputType without action
    */
-  export type JoueurCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type UserCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the JoueurCountOutputType
+     * Select specific fields to fetch from the UserCountOutputType
      */
-    select?: JoueurCountOutputTypeSelect<ExtArgs> | null
+    select?: UserCountOutputTypeSelect<ExtArgs> | null
   }
 
   /**
-   * JoueurCountOutputType without action
+   * UserCountOutputType without action
    */
-  export type JoueurCountOutputTypeCountPartiesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: PartieWhereInput
+  export type UserCountOutputTypeCountGamesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: GameWhereInput
   }
 
 
   /**
-   * Count Type PartieCountOutputType
+   * Count Type GameCountOutputType
    */
 
-  export type PartieCountOutputType = {
-    cartes: number
+  export type GameCountOutputType = {
+    cards: number
   }
 
-  export type PartieCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    cartes?: boolean | PartieCountOutputTypeCountCartesArgs
+  export type GameCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    cards?: boolean | GameCountOutputTypeCountCardsArgs
   }
 
   // Custom InputTypes
   /**
-   * PartieCountOutputType without action
+   * GameCountOutputType without action
    */
-  export type PartieCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type GameCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the PartieCountOutputType
+     * Select specific fields to fetch from the GameCountOutputType
      */
-    select?: PartieCountOutputTypeSelect<ExtArgs> | null
+    select?: GameCountOutputTypeSelect<ExtArgs> | null
   }
 
   /**
-   * PartieCountOutputType without action
+   * GameCountOutputType without action
    */
-  export type PartieCountOutputTypeCountCartesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: CarteWhereInput
+  export type GameCountOutputTypeCountCardsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: CardWhereInput
   }
 
 
   /**
-   * Count Type CarteCountOutputType
+   * Count Type CardCountOutputType
    */
 
-  export type CarteCountOutputType = {
-    choix: number
+  export type CardCountOutputType = {
+    choice: number
     suivie_par: number
   }
 
-  export type CarteCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    choix?: boolean | CarteCountOutputTypeCountChoixArgs
-    suivie_par?: boolean | CarteCountOutputTypeCountSuivie_parArgs
+  export type CardCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    choice?: boolean | CardCountOutputTypeCountChoiceArgs
+    suivie_par?: boolean | CardCountOutputTypeCountSuivie_parArgs
   }
 
   // Custom InputTypes
   /**
-   * CarteCountOutputType without action
+   * CardCountOutputType without action
    */
-  export type CarteCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type CardCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the CarteCountOutputType
+     * Select specific fields to fetch from the CardCountOutputType
      */
-    select?: CarteCountOutputTypeSelect<ExtArgs> | null
+    select?: CardCountOutputTypeSelect<ExtArgs> | null
   }
 
   /**
-   * CarteCountOutputType without action
+   * CardCountOutputType without action
    */
-  export type CarteCountOutputTypeCountChoixArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: ChoixWhereInput
+  export type CardCountOutputTypeCountChoiceArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: ChoiceWhereInput
   }
 
   /**
-   * CarteCountOutputType without action
+   * CardCountOutputType without action
    */
-  export type CarteCountOutputTypeCountSuivie_parArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: ChoixWhereInput
+  export type CardCountOutputTypeCountSuivie_parArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: ChoiceWhereInput
   }
 
 
@@ -1212,371 +1212,371 @@ export namespace Prisma {
    */
 
   /**
-   * Model Joueur
+   * Model User
    */
 
-  export type AggregateJoueur = {
-    _count: JoueurCountAggregateOutputType | null
-    _avg: JoueurAvgAggregateOutputType | null
-    _sum: JoueurSumAggregateOutputType | null
-    _min: JoueurMinAggregateOutputType | null
-    _max: JoueurMaxAggregateOutputType | null
+  export type AggregateUser = {
+    _count: UserCountAggregateOutputType | null
+    _avg: UserAvgAggregateOutputType | null
+    _sum: UserSumAggregateOutputType | null
+    _min: UserMinAggregateOutputType | null
+    _max: UserMaxAggregateOutputType | null
   }
 
-  export type JoueurAvgAggregateOutputType = {
-    joueur_id: number | null
+  export type UserAvgAggregateOutputType = {
+    user_id: number | null
   }
 
-  export type JoueurSumAggregateOutputType = {
-    joueur_id: number | null
+  export type UserSumAggregateOutputType = {
+    user_id: number | null
   }
 
-  export type JoueurMinAggregateOutputType = {
-    joueur_id: number | null
+  export type UserMinAggregateOutputType = {
+    user_id: number | null
     email: string | null
-    mdp: string | null
+    password: string | null
     role: string | null
-    date_creation: Date | null
+    creation_date: Date | null
   }
 
-  export type JoueurMaxAggregateOutputType = {
-    joueur_id: number | null
+  export type UserMaxAggregateOutputType = {
+    user_id: number | null
     email: string | null
-    mdp: string | null
+    password: string | null
     role: string | null
-    date_creation: Date | null
+    creation_date: Date | null
   }
 
-  export type JoueurCountAggregateOutputType = {
-    joueur_id: number
+  export type UserCountAggregateOutputType = {
+    user_id: number
     email: number
-    mdp: number
+    password: number
     role: number
-    date_creation: number
+    creation_date: number
     _all: number
   }
 
 
-  export type JoueurAvgAggregateInputType = {
-    joueur_id?: true
+  export type UserAvgAggregateInputType = {
+    user_id?: true
   }
 
-  export type JoueurSumAggregateInputType = {
-    joueur_id?: true
+  export type UserSumAggregateInputType = {
+    user_id?: true
   }
 
-  export type JoueurMinAggregateInputType = {
-    joueur_id?: true
+  export type UserMinAggregateInputType = {
+    user_id?: true
     email?: true
-    mdp?: true
+    password?: true
     role?: true
-    date_creation?: true
+    creation_date?: true
   }
 
-  export type JoueurMaxAggregateInputType = {
-    joueur_id?: true
+  export type UserMaxAggregateInputType = {
+    user_id?: true
     email?: true
-    mdp?: true
+    password?: true
     role?: true
-    date_creation?: true
+    creation_date?: true
   }
 
-  export type JoueurCountAggregateInputType = {
-    joueur_id?: true
+  export type UserCountAggregateInputType = {
+    user_id?: true
     email?: true
-    mdp?: true
+    password?: true
     role?: true
-    date_creation?: true
+    creation_date?: true
     _all?: true
   }
 
-  export type JoueurAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type UserAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Filter which Joueur to aggregate.
+     * Filter which User to aggregate.
      */
-    where?: JoueurWhereInput
+    where?: UserWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of Joueurs to fetch.
+     * Determine the order of Users to fetch.
      */
-    orderBy?: JoueurOrderByWithRelationInput | JoueurOrderByWithRelationInput[]
+    orderBy?: UserOrderByWithRelationInput | UserOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
      * Sets the start position
      */
-    cursor?: JoueurWhereUniqueInput
+    cursor?: UserWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` Joueurs from the position of the cursor.
+     * Take `±n` Users from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` Joueurs.
+     * Skip the first `n` Users.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
-     * Count returned Joueurs
+     * Count returned Users
     **/
-    _count?: true | JoueurCountAggregateInputType
+    _count?: true | UserCountAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to average
     **/
-    _avg?: JoueurAvgAggregateInputType
+    _avg?: UserAvgAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to sum
     **/
-    _sum?: JoueurSumAggregateInputType
+    _sum?: UserSumAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to find the minimum value
     **/
-    _min?: JoueurMinAggregateInputType
+    _min?: UserMinAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to find the maximum value
     **/
-    _max?: JoueurMaxAggregateInputType
+    _max?: UserMaxAggregateInputType
   }
 
-  export type GetJoueurAggregateType<T extends JoueurAggregateArgs> = {
-        [P in keyof T & keyof AggregateJoueur]: P extends '_count' | 'count'
+  export type GetUserAggregateType<T extends UserAggregateArgs> = {
+        [P in keyof T & keyof AggregateUser]: P extends '_count' | 'count'
       ? T[P] extends true
         ? number
-        : GetScalarType<T[P], AggregateJoueur[P]>
-      : GetScalarType<T[P], AggregateJoueur[P]>
+        : GetScalarType<T[P], AggregateUser[P]>
+      : GetScalarType<T[P], AggregateUser[P]>
   }
 
 
 
 
-  export type JoueurGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: JoueurWhereInput
-    orderBy?: JoueurOrderByWithAggregationInput | JoueurOrderByWithAggregationInput[]
-    by: JoueurScalarFieldEnum[] | JoueurScalarFieldEnum
-    having?: JoueurScalarWhereWithAggregatesInput
+  export type UserGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: UserWhereInput
+    orderBy?: UserOrderByWithAggregationInput | UserOrderByWithAggregationInput[]
+    by: UserScalarFieldEnum[] | UserScalarFieldEnum
+    having?: UserScalarWhereWithAggregatesInput
     take?: number
     skip?: number
-    _count?: JoueurCountAggregateInputType | true
-    _avg?: JoueurAvgAggregateInputType
-    _sum?: JoueurSumAggregateInputType
-    _min?: JoueurMinAggregateInputType
-    _max?: JoueurMaxAggregateInputType
+    _count?: UserCountAggregateInputType | true
+    _avg?: UserAvgAggregateInputType
+    _sum?: UserSumAggregateInputType
+    _min?: UserMinAggregateInputType
+    _max?: UserMaxAggregateInputType
   }
 
-  export type JoueurGroupByOutputType = {
-    joueur_id: number
+  export type UserGroupByOutputType = {
+    user_id: number
     email: string
-    mdp: string
+    password: string
     role: string
-    date_creation: Date
-    _count: JoueurCountAggregateOutputType | null
-    _avg: JoueurAvgAggregateOutputType | null
-    _sum: JoueurSumAggregateOutputType | null
-    _min: JoueurMinAggregateOutputType | null
-    _max: JoueurMaxAggregateOutputType | null
+    creation_date: Date
+    _count: UserCountAggregateOutputType | null
+    _avg: UserAvgAggregateOutputType | null
+    _sum: UserSumAggregateOutputType | null
+    _min: UserMinAggregateOutputType | null
+    _max: UserMaxAggregateOutputType | null
   }
 
-  type GetJoueurGroupByPayload<T extends JoueurGroupByArgs> = Prisma.PrismaPromise<
+  type GetUserGroupByPayload<T extends UserGroupByArgs> = Prisma.PrismaPromise<
     Array<
-      PickEnumerable<JoueurGroupByOutputType, T['by']> &
+      PickEnumerable<UserGroupByOutputType, T['by']> &
         {
-          [P in ((keyof T) & (keyof JoueurGroupByOutputType))]: P extends '_count'
+          [P in ((keyof T) & (keyof UserGroupByOutputType))]: P extends '_count'
             ? T[P] extends boolean
               ? number
-              : GetScalarType<T[P], JoueurGroupByOutputType[P]>
-            : GetScalarType<T[P], JoueurGroupByOutputType[P]>
+              : GetScalarType<T[P], UserGroupByOutputType[P]>
+            : GetScalarType<T[P], UserGroupByOutputType[P]>
         }
       >
     >
 
 
-  export type JoueurSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
-    joueur_id?: boolean
+  export type UserSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    user_id?: boolean
     email?: boolean
-    mdp?: boolean
+    password?: boolean
     role?: boolean
-    date_creation?: boolean
-    parties?: boolean | Joueur$partiesArgs<ExtArgs>
-    _count?: boolean | JoueurCountOutputTypeDefaultArgs<ExtArgs>
-  }, ExtArgs["result"]["joueur"]>
+    creation_date?: boolean
+    games?: boolean | User$gamesArgs<ExtArgs>
+    _count?: boolean | UserCountOutputTypeDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["user"]>
 
 
 
-  export type JoueurSelectScalar = {
-    joueur_id?: boolean
+  export type UserSelectScalar = {
+    user_id?: boolean
     email?: boolean
-    mdp?: boolean
+    password?: boolean
     role?: boolean
-    date_creation?: boolean
+    creation_date?: boolean
   }
 
-  export type JoueurOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"joueur_id" | "email" | "mdp" | "role" | "date_creation", ExtArgs["result"]["joueur"]>
-  export type JoueurInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    parties?: boolean | Joueur$partiesArgs<ExtArgs>
-    _count?: boolean | JoueurCountOutputTypeDefaultArgs<ExtArgs>
+  export type UserOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"user_id" | "email" | "password" | "role" | "creation_date", ExtArgs["result"]["user"]>
+  export type UserInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    games?: boolean | User$gamesArgs<ExtArgs>
+    _count?: boolean | UserCountOutputTypeDefaultArgs<ExtArgs>
   }
 
-  export type $JoueurPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    name: "Joueur"
+  export type $UserPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "User"
     objects: {
-      parties: Prisma.$PartiePayload<ExtArgs>[]
+      games: Prisma.$GamePayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
-      joueur_id: number
+      user_id: number
       email: string
-      mdp: string
+      password: string
       role: string
-      date_creation: Date
-    }, ExtArgs["result"]["joueur"]>
+      creation_date: Date
+    }, ExtArgs["result"]["user"]>
     composites: {}
   }
 
-  type JoueurGetPayload<S extends boolean | null | undefined | JoueurDefaultArgs> = $Result.GetResult<Prisma.$JoueurPayload, S>
+  type UserGetPayload<S extends boolean | null | undefined | UserDefaultArgs> = $Result.GetResult<Prisma.$UserPayload, S>
 
-  type JoueurCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
-    Omit<JoueurFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
-      select?: JoueurCountAggregateInputType | true
+  type UserCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<UserFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: UserCountAggregateInputType | true
     }
 
-  export interface JoueurDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
-    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['Joueur'], meta: { name: 'Joueur' } }
+  export interface UserDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['User'], meta: { name: 'User' } }
     /**
-     * Find zero or one Joueur that matches the filter.
-     * @param {JoueurFindUniqueArgs} args - Arguments to find a Joueur
+     * Find zero or one User that matches the filter.
+     * @param {UserFindUniqueArgs} args - Arguments to find a User
      * @example
-     * // Get one Joueur
-     * const joueur = await prisma.joueur.findUnique({
+     * // Get one User
+     * const user = await prisma.user.findUnique({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findUnique<T extends JoueurFindUniqueArgs>(args: SelectSubset<T, JoueurFindUniqueArgs<ExtArgs>>): Prisma__JoueurClient<$Result.GetResult<Prisma.$JoueurPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    findUnique<T extends UserFindUniqueArgs>(args: SelectSubset<T, UserFindUniqueArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Find one Joueur that matches the filter or throw an error with `error.code='P2025'`
+     * Find one User that matches the filter or throw an error with `error.code='P2025'`
      * if no matches were found.
-     * @param {JoueurFindUniqueOrThrowArgs} args - Arguments to find a Joueur
+     * @param {UserFindUniqueOrThrowArgs} args - Arguments to find a User
      * @example
-     * // Get one Joueur
-     * const joueur = await prisma.joueur.findUniqueOrThrow({
+     * // Get one User
+     * const user = await prisma.user.findUniqueOrThrow({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findUniqueOrThrow<T extends JoueurFindUniqueOrThrowArgs>(args: SelectSubset<T, JoueurFindUniqueOrThrowArgs<ExtArgs>>): Prisma__JoueurClient<$Result.GetResult<Prisma.$JoueurPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    findUniqueOrThrow<T extends UserFindUniqueOrThrowArgs>(args: SelectSubset<T, UserFindUniqueOrThrowArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Find the first Joueur that matches the filter.
+     * Find the first User that matches the filter.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {JoueurFindFirstArgs} args - Arguments to find a Joueur
+     * @param {UserFindFirstArgs} args - Arguments to find a User
      * @example
-     * // Get one Joueur
-     * const joueur = await prisma.joueur.findFirst({
+     * // Get one User
+     * const user = await prisma.user.findFirst({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findFirst<T extends JoueurFindFirstArgs>(args?: SelectSubset<T, JoueurFindFirstArgs<ExtArgs>>): Prisma__JoueurClient<$Result.GetResult<Prisma.$JoueurPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    findFirst<T extends UserFindFirstArgs>(args?: SelectSubset<T, UserFindFirstArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Find the first Joueur that matches the filter or
+     * Find the first User that matches the filter or
      * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {JoueurFindFirstOrThrowArgs} args - Arguments to find a Joueur
+     * @param {UserFindFirstOrThrowArgs} args - Arguments to find a User
      * @example
-     * // Get one Joueur
-     * const joueur = await prisma.joueur.findFirstOrThrow({
+     * // Get one User
+     * const user = await prisma.user.findFirstOrThrow({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findFirstOrThrow<T extends JoueurFindFirstOrThrowArgs>(args?: SelectSubset<T, JoueurFindFirstOrThrowArgs<ExtArgs>>): Prisma__JoueurClient<$Result.GetResult<Prisma.$JoueurPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    findFirstOrThrow<T extends UserFindFirstOrThrowArgs>(args?: SelectSubset<T, UserFindFirstOrThrowArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Find zero or more Joueurs that matches the filter.
+     * Find zero or more Users that matches the filter.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {JoueurFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @param {UserFindManyArgs} args - Arguments to filter and select certain fields only.
      * @example
-     * // Get all Joueurs
-     * const joueurs = await prisma.joueur.findMany()
+     * // Get all Users
+     * const users = await prisma.user.findMany()
      * 
-     * // Get first 10 Joueurs
-     * const joueurs = await prisma.joueur.findMany({ take: 10 })
+     * // Get first 10 Users
+     * const users = await prisma.user.findMany({ take: 10 })
      * 
-     * // Only select the `joueur_id`
-     * const joueurWithJoueur_idOnly = await prisma.joueur.findMany({ select: { joueur_id: true } })
+     * // Only select the `user_id`
+     * const userWithUser_idOnly = await prisma.user.findMany({ select: { user_id: true } })
      * 
      */
-    findMany<T extends JoueurFindManyArgs>(args?: SelectSubset<T, JoueurFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$JoueurPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+    findMany<T extends UserFindManyArgs>(args?: SelectSubset<T, UserFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
 
     /**
-     * Create a Joueur.
-     * @param {JoueurCreateArgs} args - Arguments to create a Joueur.
+     * Create a User.
+     * @param {UserCreateArgs} args - Arguments to create a User.
      * @example
-     * // Create one Joueur
-     * const Joueur = await prisma.joueur.create({
+     * // Create one User
+     * const User = await prisma.user.create({
      *   data: {
-     *     // ... data to create a Joueur
+     *     // ... data to create a User
      *   }
      * })
      * 
      */
-    create<T extends JoueurCreateArgs>(args: SelectSubset<T, JoueurCreateArgs<ExtArgs>>): Prisma__JoueurClient<$Result.GetResult<Prisma.$JoueurPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    create<T extends UserCreateArgs>(args: SelectSubset<T, UserCreateArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Create many Joueurs.
-     * @param {JoueurCreateManyArgs} args - Arguments to create many Joueurs.
+     * Create many Users.
+     * @param {UserCreateManyArgs} args - Arguments to create many Users.
      * @example
-     * // Create many Joueurs
-     * const joueur = await prisma.joueur.createMany({
+     * // Create many Users
+     * const user = await prisma.user.createMany({
      *   data: [
      *     // ... provide data here
      *   ]
      * })
      *     
      */
-    createMany<T extends JoueurCreateManyArgs>(args?: SelectSubset<T, JoueurCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+    createMany<T extends UserCreateManyArgs>(args?: SelectSubset<T, UserCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
     /**
-     * Delete a Joueur.
-     * @param {JoueurDeleteArgs} args - Arguments to delete one Joueur.
+     * Delete a User.
+     * @param {UserDeleteArgs} args - Arguments to delete one User.
      * @example
-     * // Delete one Joueur
-     * const Joueur = await prisma.joueur.delete({
+     * // Delete one User
+     * const User = await prisma.user.delete({
      *   where: {
-     *     // ... filter to delete one Joueur
+     *     // ... filter to delete one User
      *   }
      * })
      * 
      */
-    delete<T extends JoueurDeleteArgs>(args: SelectSubset<T, JoueurDeleteArgs<ExtArgs>>): Prisma__JoueurClient<$Result.GetResult<Prisma.$JoueurPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    delete<T extends UserDeleteArgs>(args: SelectSubset<T, UserDeleteArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Update one Joueur.
-     * @param {JoueurUpdateArgs} args - Arguments to update one Joueur.
+     * Update one User.
+     * @param {UserUpdateArgs} args - Arguments to update one User.
      * @example
-     * // Update one Joueur
-     * const joueur = await prisma.joueur.update({
+     * // Update one User
+     * const user = await prisma.user.update({
      *   where: {
      *     // ... provide filter here
      *   },
@@ -1586,30 +1586,30 @@ export namespace Prisma {
      * })
      * 
      */
-    update<T extends JoueurUpdateArgs>(args: SelectSubset<T, JoueurUpdateArgs<ExtArgs>>): Prisma__JoueurClient<$Result.GetResult<Prisma.$JoueurPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    update<T extends UserUpdateArgs>(args: SelectSubset<T, UserUpdateArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Delete zero or more Joueurs.
-     * @param {JoueurDeleteManyArgs} args - Arguments to filter Joueurs to delete.
+     * Delete zero or more Users.
+     * @param {UserDeleteManyArgs} args - Arguments to filter Users to delete.
      * @example
-     * // Delete a few Joueurs
-     * const { count } = await prisma.joueur.deleteMany({
+     * // Delete a few Users
+     * const { count } = await prisma.user.deleteMany({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      * 
      */
-    deleteMany<T extends JoueurDeleteManyArgs>(args?: SelectSubset<T, JoueurDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+    deleteMany<T extends UserDeleteManyArgs>(args?: SelectSubset<T, UserDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
     /**
-     * Update zero or more Joueurs.
+     * Update zero or more Users.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {JoueurUpdateManyArgs} args - Arguments to update one or more rows.
+     * @param {UserUpdateManyArgs} args - Arguments to update one or more rows.
      * @example
-     * // Update many Joueurs
-     * const joueur = await prisma.joueur.updateMany({
+     * // Update many Users
+     * const user = await prisma.user.updateMany({
      *   where: {
      *     // ... provide filter here
      *   },
@@ -1619,56 +1619,56 @@ export namespace Prisma {
      * })
      * 
      */
-    updateMany<T extends JoueurUpdateManyArgs>(args: SelectSubset<T, JoueurUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+    updateMany<T extends UserUpdateManyArgs>(args: SelectSubset<T, UserUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
     /**
-     * Create or update one Joueur.
-     * @param {JoueurUpsertArgs} args - Arguments to update or create a Joueur.
+     * Create or update one User.
+     * @param {UserUpsertArgs} args - Arguments to update or create a User.
      * @example
-     * // Update or create a Joueur
-     * const joueur = await prisma.joueur.upsert({
+     * // Update or create a User
+     * const user = await prisma.user.upsert({
      *   create: {
-     *     // ... data to create a Joueur
+     *     // ... data to create a User
      *   },
      *   update: {
      *     // ... in case it already exists, update
      *   },
      *   where: {
-     *     // ... the filter for the Joueur we want to update
+     *     // ... the filter for the User we want to update
      *   }
      * })
      */
-    upsert<T extends JoueurUpsertArgs>(args: SelectSubset<T, JoueurUpsertArgs<ExtArgs>>): Prisma__JoueurClient<$Result.GetResult<Prisma.$JoueurPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    upsert<T extends UserUpsertArgs>(args: SelectSubset<T, UserUpsertArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
 
     /**
-     * Count the number of Joueurs.
+     * Count the number of Users.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {JoueurCountArgs} args - Arguments to filter Joueurs to count.
+     * @param {UserCountArgs} args - Arguments to filter Users to count.
      * @example
-     * // Count the number of Joueurs
-     * const count = await prisma.joueur.count({
+     * // Count the number of Users
+     * const count = await prisma.user.count({
      *   where: {
-     *     // ... the filter for the Joueurs we want to count
+     *     // ... the filter for the Users we want to count
      *   }
      * })
     **/
-    count<T extends JoueurCountArgs>(
-      args?: Subset<T, JoueurCountArgs>,
+    count<T extends UserCountArgs>(
+      args?: Subset<T, UserCountArgs>,
     ): Prisma.PrismaPromise<
       T extends $Utils.Record<'select', any>
         ? T['select'] extends true
           ? number
-          : GetScalarType<T['select'], JoueurCountAggregateOutputType>
+          : GetScalarType<T['select'], UserCountAggregateOutputType>
         : number
     >
 
     /**
-     * Allows you to perform aggregations operations on a Joueur.
+     * Allows you to perform aggregations operations on a User.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {JoueurAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @param {UserAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
      * @example
      * // Ordered by age ascending
      * // Where email contains prisma.io
@@ -1688,13 +1688,13 @@ export namespace Prisma {
      *   take: 10,
      * })
     **/
-    aggregate<T extends JoueurAggregateArgs>(args: Subset<T, JoueurAggregateArgs>): Prisma.PrismaPromise<GetJoueurAggregateType<T>>
+    aggregate<T extends UserAggregateArgs>(args: Subset<T, UserAggregateArgs>): Prisma.PrismaPromise<GetUserAggregateType<T>>
 
     /**
-     * Group by Joueur.
+     * Group by User.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {JoueurGroupByArgs} args - Group by arguments.
+     * @param {UserGroupByArgs} args - Group by arguments.
      * @example
      * // Group by city, order by createdAt, get count
      * const result = await prisma.user.groupBy({
@@ -1709,14 +1709,14 @@ export namespace Prisma {
      * 
     **/
     groupBy<
-      T extends JoueurGroupByArgs,
+      T extends UserGroupByArgs,
       HasSelectOrTake extends Or<
         Extends<'skip', Keys<T>>,
         Extends<'take', Keys<T>>
       >,
       OrderByArg extends True extends HasSelectOrTake
-        ? { orderBy: JoueurGroupByArgs['orderBy'] }
-        : { orderBy?: JoueurGroupByArgs['orderBy'] },
+        ? { orderBy: UserGroupByArgs['orderBy'] }
+        : { orderBy?: UserGroupByArgs['orderBy'] },
       OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
       ByFields extends MaybeTupleToUnion<T['by']>,
       ByValid extends Has<ByFields, OrderFields>,
@@ -1765,22 +1765,22 @@ export namespace Prisma {
             ? never
             : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
         }[OrderFields]
-    >(args: SubsetIntersection<T, JoueurGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetJoueurGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+    >(args: SubsetIntersection<T, UserGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetUserGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
   /**
-   * Fields of the Joueur model
+   * Fields of the User model
    */
-  readonly fields: JoueurFieldRefs;
+  readonly fields: UserFieldRefs;
   }
 
   /**
-   * The delegate class that acts as a "Promise-like" for Joueur.
+   * The delegate class that acts as a "Promise-like" for User.
    * Why is this prefixed with `Prisma__`?
    * Because we want to prevent naming conflicts as mentioned in
    * https://github.com/prisma/prisma-client-js/issues/707
    */
-  export interface Prisma__JoueurClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+  export interface Prisma__UserClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
-    parties<T extends Joueur$partiesArgs<ExtArgs> = {}>(args?: Subset<T, Joueur$partiesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$PartiePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    games<T extends User$gamesArgs<ExtArgs> = {}>(args?: Subset<T, User$gamesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$GamePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -1807,772 +1807,772 @@ export namespace Prisma {
 
 
   /**
-   * Fields of the Joueur model
+   * Fields of the User model
    */
-  interface JoueurFieldRefs {
-    readonly joueur_id: FieldRef<"Joueur", 'Int'>
-    readonly email: FieldRef<"Joueur", 'String'>
-    readonly mdp: FieldRef<"Joueur", 'String'>
-    readonly role: FieldRef<"Joueur", 'String'>
-    readonly date_creation: FieldRef<"Joueur", 'DateTime'>
+  interface UserFieldRefs {
+    readonly user_id: FieldRef<"User", 'Int'>
+    readonly email: FieldRef<"User", 'String'>
+    readonly password: FieldRef<"User", 'String'>
+    readonly role: FieldRef<"User", 'String'>
+    readonly creation_date: FieldRef<"User", 'DateTime'>
   }
     
 
   // Custom InputTypes
   /**
-   * Joueur findUnique
+   * User findUnique
    */
-  export type JoueurFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type UserFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Joueur
+     * Select specific fields to fetch from the User
      */
-    select?: JoueurSelect<ExtArgs> | null
+    select?: UserSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Joueur
+     * Omit specific fields from the User
      */
-    omit?: JoueurOmit<ExtArgs> | null
+    omit?: UserOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: JoueurInclude<ExtArgs> | null
+    include?: UserInclude<ExtArgs> | null
     /**
-     * Filter, which Joueur to fetch.
+     * Filter, which User to fetch.
      */
-    where: JoueurWhereUniqueInput
+    where: UserWhereUniqueInput
   }
 
   /**
-   * Joueur findUniqueOrThrow
+   * User findUniqueOrThrow
    */
-  export type JoueurFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type UserFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Joueur
+     * Select specific fields to fetch from the User
      */
-    select?: JoueurSelect<ExtArgs> | null
+    select?: UserSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Joueur
+     * Omit specific fields from the User
      */
-    omit?: JoueurOmit<ExtArgs> | null
+    omit?: UserOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: JoueurInclude<ExtArgs> | null
+    include?: UserInclude<ExtArgs> | null
     /**
-     * Filter, which Joueur to fetch.
+     * Filter, which User to fetch.
      */
-    where: JoueurWhereUniqueInput
+    where: UserWhereUniqueInput
   }
 
   /**
-   * Joueur findFirst
+   * User findFirst
    */
-  export type JoueurFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type UserFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Joueur
+     * Select specific fields to fetch from the User
      */
-    select?: JoueurSelect<ExtArgs> | null
+    select?: UserSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Joueur
+     * Omit specific fields from the User
      */
-    omit?: JoueurOmit<ExtArgs> | null
+    omit?: UserOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: JoueurInclude<ExtArgs> | null
+    include?: UserInclude<ExtArgs> | null
     /**
-     * Filter, which Joueur to fetch.
+     * Filter, which User to fetch.
      */
-    where?: JoueurWhereInput
+    where?: UserWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of Joueurs to fetch.
+     * Determine the order of Users to fetch.
      */
-    orderBy?: JoueurOrderByWithRelationInput | JoueurOrderByWithRelationInput[]
+    orderBy?: UserOrderByWithRelationInput | UserOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for searching for Joueurs.
+     * Sets the position for searching for Users.
      */
-    cursor?: JoueurWhereUniqueInput
+    cursor?: UserWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` Joueurs from the position of the cursor.
+     * Take `±n` Users from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` Joueurs.
+     * Skip the first `n` Users.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
      * 
-     * Filter by unique combinations of Joueurs.
+     * Filter by unique combinations of Users.
      */
-    distinct?: JoueurScalarFieldEnum | JoueurScalarFieldEnum[]
+    distinct?: UserScalarFieldEnum | UserScalarFieldEnum[]
   }
 
   /**
-   * Joueur findFirstOrThrow
+   * User findFirstOrThrow
    */
-  export type JoueurFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type UserFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Joueur
+     * Select specific fields to fetch from the User
      */
-    select?: JoueurSelect<ExtArgs> | null
+    select?: UserSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Joueur
+     * Omit specific fields from the User
      */
-    omit?: JoueurOmit<ExtArgs> | null
+    omit?: UserOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: JoueurInclude<ExtArgs> | null
+    include?: UserInclude<ExtArgs> | null
     /**
-     * Filter, which Joueur to fetch.
+     * Filter, which User to fetch.
      */
-    where?: JoueurWhereInput
+    where?: UserWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of Joueurs to fetch.
+     * Determine the order of Users to fetch.
      */
-    orderBy?: JoueurOrderByWithRelationInput | JoueurOrderByWithRelationInput[]
+    orderBy?: UserOrderByWithRelationInput | UserOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for searching for Joueurs.
+     * Sets the position for searching for Users.
      */
-    cursor?: JoueurWhereUniqueInput
+    cursor?: UserWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` Joueurs from the position of the cursor.
+     * Take `±n` Users from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` Joueurs.
+     * Skip the first `n` Users.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
      * 
-     * Filter by unique combinations of Joueurs.
+     * Filter by unique combinations of Users.
      */
-    distinct?: JoueurScalarFieldEnum | JoueurScalarFieldEnum[]
+    distinct?: UserScalarFieldEnum | UserScalarFieldEnum[]
   }
 
   /**
-   * Joueur findMany
+   * User findMany
    */
-  export type JoueurFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type UserFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Joueur
+     * Select specific fields to fetch from the User
      */
-    select?: JoueurSelect<ExtArgs> | null
+    select?: UserSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Joueur
+     * Omit specific fields from the User
      */
-    omit?: JoueurOmit<ExtArgs> | null
+    omit?: UserOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: JoueurInclude<ExtArgs> | null
+    include?: UserInclude<ExtArgs> | null
     /**
-     * Filter, which Joueurs to fetch.
+     * Filter, which Users to fetch.
      */
-    where?: JoueurWhereInput
+    where?: UserWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of Joueurs to fetch.
+     * Determine the order of Users to fetch.
      */
-    orderBy?: JoueurOrderByWithRelationInput | JoueurOrderByWithRelationInput[]
+    orderBy?: UserOrderByWithRelationInput | UserOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for listing Joueurs.
+     * Sets the position for listing Users.
      */
-    cursor?: JoueurWhereUniqueInput
+    cursor?: UserWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` Joueurs from the position of the cursor.
+     * Take `±n` Users from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` Joueurs.
+     * Skip the first `n` Users.
      */
     skip?: number
-    distinct?: JoueurScalarFieldEnum | JoueurScalarFieldEnum[]
+    distinct?: UserScalarFieldEnum | UserScalarFieldEnum[]
   }
 
   /**
-   * Joueur create
+   * User create
    */
-  export type JoueurCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type UserCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Joueur
+     * Select specific fields to fetch from the User
      */
-    select?: JoueurSelect<ExtArgs> | null
+    select?: UserSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Joueur
+     * Omit specific fields from the User
      */
-    omit?: JoueurOmit<ExtArgs> | null
+    omit?: UserOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: JoueurInclude<ExtArgs> | null
+    include?: UserInclude<ExtArgs> | null
     /**
-     * The data needed to create a Joueur.
+     * The data needed to create a User.
      */
-    data: XOR<JoueurCreateInput, JoueurUncheckedCreateInput>
+    data: XOR<UserCreateInput, UserUncheckedCreateInput>
   }
 
   /**
-   * Joueur createMany
+   * User createMany
    */
-  export type JoueurCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type UserCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * The data used to create many Joueurs.
+     * The data used to create many Users.
      */
-    data: JoueurCreateManyInput | JoueurCreateManyInput[]
+    data: UserCreateManyInput | UserCreateManyInput[]
     skipDuplicates?: boolean
   }
 
   /**
-   * Joueur update
+   * User update
    */
-  export type JoueurUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type UserUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Joueur
+     * Select specific fields to fetch from the User
      */
-    select?: JoueurSelect<ExtArgs> | null
+    select?: UserSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Joueur
+     * Omit specific fields from the User
      */
-    omit?: JoueurOmit<ExtArgs> | null
+    omit?: UserOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: JoueurInclude<ExtArgs> | null
+    include?: UserInclude<ExtArgs> | null
     /**
-     * The data needed to update a Joueur.
+     * The data needed to update a User.
      */
-    data: XOR<JoueurUpdateInput, JoueurUncheckedUpdateInput>
+    data: XOR<UserUpdateInput, UserUncheckedUpdateInput>
     /**
-     * Choose, which Joueur to update.
+     * Choose, which User to update.
      */
-    where: JoueurWhereUniqueInput
+    where: UserWhereUniqueInput
   }
 
   /**
-   * Joueur updateMany
+   * User updateMany
    */
-  export type JoueurUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type UserUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * The data used to update Joueurs.
+     * The data used to update Users.
      */
-    data: XOR<JoueurUpdateManyMutationInput, JoueurUncheckedUpdateManyInput>
+    data: XOR<UserUpdateManyMutationInput, UserUncheckedUpdateManyInput>
     /**
-     * Filter which Joueurs to update
+     * Filter which Users to update
      */
-    where?: JoueurWhereInput
+    where?: UserWhereInput
     /**
-     * Limit how many Joueurs to update.
+     * Limit how many Users to update.
      */
     limit?: number
   }
 
   /**
-   * Joueur upsert
+   * User upsert
    */
-  export type JoueurUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type UserUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Joueur
+     * Select specific fields to fetch from the User
      */
-    select?: JoueurSelect<ExtArgs> | null
+    select?: UserSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Joueur
+     * Omit specific fields from the User
      */
-    omit?: JoueurOmit<ExtArgs> | null
+    omit?: UserOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: JoueurInclude<ExtArgs> | null
+    include?: UserInclude<ExtArgs> | null
     /**
-     * The filter to search for the Joueur to update in case it exists.
+     * The filter to search for the User to update in case it exists.
      */
-    where: JoueurWhereUniqueInput
+    where: UserWhereUniqueInput
     /**
-     * In case the Joueur found by the `where` argument doesn't exist, create a new Joueur with this data.
+     * In case the User found by the `where` argument doesn't exist, create a new User with this data.
      */
-    create: XOR<JoueurCreateInput, JoueurUncheckedCreateInput>
+    create: XOR<UserCreateInput, UserUncheckedCreateInput>
     /**
-     * In case the Joueur was found with the provided `where` argument, update it with this data.
+     * In case the User was found with the provided `where` argument, update it with this data.
      */
-    update: XOR<JoueurUpdateInput, JoueurUncheckedUpdateInput>
+    update: XOR<UserUpdateInput, UserUncheckedUpdateInput>
   }
 
   /**
-   * Joueur delete
+   * User delete
    */
-  export type JoueurDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type UserDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Joueur
+     * Select specific fields to fetch from the User
      */
-    select?: JoueurSelect<ExtArgs> | null
+    select?: UserSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Joueur
+     * Omit specific fields from the User
      */
-    omit?: JoueurOmit<ExtArgs> | null
+    omit?: UserOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: JoueurInclude<ExtArgs> | null
+    include?: UserInclude<ExtArgs> | null
     /**
-     * Filter which Joueur to delete.
+     * Filter which User to delete.
      */
-    where: JoueurWhereUniqueInput
+    where: UserWhereUniqueInput
   }
 
   /**
-   * Joueur deleteMany
+   * User deleteMany
    */
-  export type JoueurDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type UserDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Filter which Joueurs to delete
+     * Filter which Users to delete
      */
-    where?: JoueurWhereInput
+    where?: UserWhereInput
     /**
-     * Limit how many Joueurs to delete.
+     * Limit how many Users to delete.
      */
     limit?: number
   }
 
   /**
-   * Joueur.parties
+   * User.games
    */
-  export type Joueur$partiesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type User$gamesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Partie
+     * Select specific fields to fetch from the Game
      */
-    select?: PartieSelect<ExtArgs> | null
+    select?: GameSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Partie
+     * Omit specific fields from the Game
      */
-    omit?: PartieOmit<ExtArgs> | null
+    omit?: GameOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: PartieInclude<ExtArgs> | null
-    where?: PartieWhereInput
-    orderBy?: PartieOrderByWithRelationInput | PartieOrderByWithRelationInput[]
-    cursor?: PartieWhereUniqueInput
+    include?: GameInclude<ExtArgs> | null
+    where?: GameWhereInput
+    orderBy?: GameOrderByWithRelationInput | GameOrderByWithRelationInput[]
+    cursor?: GameWhereUniqueInput
     take?: number
     skip?: number
-    distinct?: PartieScalarFieldEnum | PartieScalarFieldEnum[]
+    distinct?: GameScalarFieldEnum | GameScalarFieldEnum[]
   }
 
   /**
-   * Joueur without action
+   * User without action
    */
-  export type JoueurDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type UserDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Joueur
+     * Select specific fields to fetch from the User
      */
-    select?: JoueurSelect<ExtArgs> | null
+    select?: UserSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Joueur
+     * Omit specific fields from the User
      */
-    omit?: JoueurOmit<ExtArgs> | null
+    omit?: UserOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: JoueurInclude<ExtArgs> | null
+    include?: UserInclude<ExtArgs> | null
   }
 
 
   /**
-   * Model Partie
+   * Model Game
    */
 
-  export type AggregatePartie = {
-    _count: PartieCountAggregateOutputType | null
-    _avg: PartieAvgAggregateOutputType | null
-    _sum: PartieSumAggregateOutputType | null
-    _min: PartieMinAggregateOutputType | null
-    _max: PartieMaxAggregateOutputType | null
+  export type AggregateGame = {
+    _count: GameCountAggregateOutputType | null
+    _avg: GameAvgAggregateOutputType | null
+    _sum: GameSumAggregateOutputType | null
+    _min: GameMinAggregateOutputType | null
+    _max: GameMaxAggregateOutputType | null
   }
 
-  export type PartieAvgAggregateOutputType = {
-    partie_id: number | null
-    joueur_id: number | null
+  export type GameAvgAggregateOutputType = {
+    game_id: number | null
+    user_id: number | null
   }
 
-  export type PartieSumAggregateOutputType = {
-    partie_id: number | null
-    joueur_id: number | null
+  export type GameSumAggregateOutputType = {
+    game_id: number | null
+    user_id: number | null
   }
 
-  export type PartieMinAggregateOutputType = {
-    partie_id: number | null
-    date_debut_partie: Date | null
-    date_fin_partie: Date | null
-    statut: string | null
-    joueur_id: number | null
+  export type GameMinAggregateOutputType = {
+    game_id: number | null
+    game_start_date: Date | null
+    game_end_date: Date | null
+    status: string | null
+    user_id: number | null
   }
 
-  export type PartieMaxAggregateOutputType = {
-    partie_id: number | null
-    date_debut_partie: Date | null
-    date_fin_partie: Date | null
-    statut: string | null
-    joueur_id: number | null
+  export type GameMaxAggregateOutputType = {
+    game_id: number | null
+    game_start_date: Date | null
+    game_end_date: Date | null
+    status: string | null
+    user_id: number | null
   }
 
-  export type PartieCountAggregateOutputType = {
-    partie_id: number
-    date_debut_partie: number
-    date_fin_partie: number
-    statut: number
-    joueur_id: number
+  export type GameCountAggregateOutputType = {
+    game_id: number
+    game_start_date: number
+    game_end_date: number
+    status: number
+    user_id: number
     _all: number
   }
 
 
-  export type PartieAvgAggregateInputType = {
-    partie_id?: true
-    joueur_id?: true
+  export type GameAvgAggregateInputType = {
+    game_id?: true
+    user_id?: true
   }
 
-  export type PartieSumAggregateInputType = {
-    partie_id?: true
-    joueur_id?: true
+  export type GameSumAggregateInputType = {
+    game_id?: true
+    user_id?: true
   }
 
-  export type PartieMinAggregateInputType = {
-    partie_id?: true
-    date_debut_partie?: true
-    date_fin_partie?: true
-    statut?: true
-    joueur_id?: true
+  export type GameMinAggregateInputType = {
+    game_id?: true
+    game_start_date?: true
+    game_end_date?: true
+    status?: true
+    user_id?: true
   }
 
-  export type PartieMaxAggregateInputType = {
-    partie_id?: true
-    date_debut_partie?: true
-    date_fin_partie?: true
-    statut?: true
-    joueur_id?: true
+  export type GameMaxAggregateInputType = {
+    game_id?: true
+    game_start_date?: true
+    game_end_date?: true
+    status?: true
+    user_id?: true
   }
 
-  export type PartieCountAggregateInputType = {
-    partie_id?: true
-    date_debut_partie?: true
-    date_fin_partie?: true
-    statut?: true
-    joueur_id?: true
+  export type GameCountAggregateInputType = {
+    game_id?: true
+    game_start_date?: true
+    game_end_date?: true
+    status?: true
+    user_id?: true
     _all?: true
   }
 
-  export type PartieAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type GameAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Filter which Partie to aggregate.
+     * Filter which Game to aggregate.
      */
-    where?: PartieWhereInput
+    where?: GameWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of Parties to fetch.
+     * Determine the order of Games to fetch.
      */
-    orderBy?: PartieOrderByWithRelationInput | PartieOrderByWithRelationInput[]
+    orderBy?: GameOrderByWithRelationInput | GameOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
      * Sets the start position
      */
-    cursor?: PartieWhereUniqueInput
+    cursor?: GameWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` Parties from the position of the cursor.
+     * Take `±n` Games from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` Parties.
+     * Skip the first `n` Games.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
-     * Count returned Parties
+     * Count returned Games
     **/
-    _count?: true | PartieCountAggregateInputType
+    _count?: true | GameCountAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to average
     **/
-    _avg?: PartieAvgAggregateInputType
+    _avg?: GameAvgAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to sum
     **/
-    _sum?: PartieSumAggregateInputType
+    _sum?: GameSumAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to find the minimum value
     **/
-    _min?: PartieMinAggregateInputType
+    _min?: GameMinAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to find the maximum value
     **/
-    _max?: PartieMaxAggregateInputType
+    _max?: GameMaxAggregateInputType
   }
 
-  export type GetPartieAggregateType<T extends PartieAggregateArgs> = {
-        [P in keyof T & keyof AggregatePartie]: P extends '_count' | 'count'
+  export type GetGameAggregateType<T extends GameAggregateArgs> = {
+        [P in keyof T & keyof AggregateGame]: P extends '_count' | 'count'
       ? T[P] extends true
         ? number
-        : GetScalarType<T[P], AggregatePartie[P]>
-      : GetScalarType<T[P], AggregatePartie[P]>
+        : GetScalarType<T[P], AggregateGame[P]>
+      : GetScalarType<T[P], AggregateGame[P]>
   }
 
 
 
 
-  export type PartieGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: PartieWhereInput
-    orderBy?: PartieOrderByWithAggregationInput | PartieOrderByWithAggregationInput[]
-    by: PartieScalarFieldEnum[] | PartieScalarFieldEnum
-    having?: PartieScalarWhereWithAggregatesInput
+  export type GameGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: GameWhereInput
+    orderBy?: GameOrderByWithAggregationInput | GameOrderByWithAggregationInput[]
+    by: GameScalarFieldEnum[] | GameScalarFieldEnum
+    having?: GameScalarWhereWithAggregatesInput
     take?: number
     skip?: number
-    _count?: PartieCountAggregateInputType | true
-    _avg?: PartieAvgAggregateInputType
-    _sum?: PartieSumAggregateInputType
-    _min?: PartieMinAggregateInputType
-    _max?: PartieMaxAggregateInputType
+    _count?: GameCountAggregateInputType | true
+    _avg?: GameAvgAggregateInputType
+    _sum?: GameSumAggregateInputType
+    _min?: GameMinAggregateInputType
+    _max?: GameMaxAggregateInputType
   }
 
-  export type PartieGroupByOutputType = {
-    partie_id: number
-    date_debut_partie: Date
-    date_fin_partie: Date | null
-    statut: string
-    joueur_id: number
-    _count: PartieCountAggregateOutputType | null
-    _avg: PartieAvgAggregateOutputType | null
-    _sum: PartieSumAggregateOutputType | null
-    _min: PartieMinAggregateOutputType | null
-    _max: PartieMaxAggregateOutputType | null
+  export type GameGroupByOutputType = {
+    game_id: number
+    game_start_date: Date
+    game_end_date: Date | null
+    status: string
+    user_id: number
+    _count: GameCountAggregateOutputType | null
+    _avg: GameAvgAggregateOutputType | null
+    _sum: GameSumAggregateOutputType | null
+    _min: GameMinAggregateOutputType | null
+    _max: GameMaxAggregateOutputType | null
   }
 
-  type GetPartieGroupByPayload<T extends PartieGroupByArgs> = Prisma.PrismaPromise<
+  type GetGameGroupByPayload<T extends GameGroupByArgs> = Prisma.PrismaPromise<
     Array<
-      PickEnumerable<PartieGroupByOutputType, T['by']> &
+      PickEnumerable<GameGroupByOutputType, T['by']> &
         {
-          [P in ((keyof T) & (keyof PartieGroupByOutputType))]: P extends '_count'
+          [P in ((keyof T) & (keyof GameGroupByOutputType))]: P extends '_count'
             ? T[P] extends boolean
               ? number
-              : GetScalarType<T[P], PartieGroupByOutputType[P]>
-            : GetScalarType<T[P], PartieGroupByOutputType[P]>
+              : GetScalarType<T[P], GameGroupByOutputType[P]>
+            : GetScalarType<T[P], GameGroupByOutputType[P]>
         }
       >
     >
 
 
-  export type PartieSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
-    partie_id?: boolean
-    date_debut_partie?: boolean
-    date_fin_partie?: boolean
-    statut?: boolean
-    joueur_id?: boolean
-    joueur?: boolean | JoueurDefaultArgs<ExtArgs>
-    cartes?: boolean | Partie$cartesArgs<ExtArgs>
-    _count?: boolean | PartieCountOutputTypeDefaultArgs<ExtArgs>
-  }, ExtArgs["result"]["partie"]>
+  export type GameSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    game_id?: boolean
+    game_start_date?: boolean
+    game_end_date?: boolean
+    status?: boolean
+    user_id?: boolean
+    user?: boolean | UserDefaultArgs<ExtArgs>
+    cards?: boolean | Game$cardsArgs<ExtArgs>
+    _count?: boolean | GameCountOutputTypeDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["game"]>
 
 
 
-  export type PartieSelectScalar = {
-    partie_id?: boolean
-    date_debut_partie?: boolean
-    date_fin_partie?: boolean
-    statut?: boolean
-    joueur_id?: boolean
+  export type GameSelectScalar = {
+    game_id?: boolean
+    game_start_date?: boolean
+    game_end_date?: boolean
+    status?: boolean
+    user_id?: boolean
   }
 
-  export type PartieOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"partie_id" | "date_debut_partie" | "date_fin_partie" | "statut" | "joueur_id", ExtArgs["result"]["partie"]>
-  export type PartieInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    joueur?: boolean | JoueurDefaultArgs<ExtArgs>
-    cartes?: boolean | Partie$cartesArgs<ExtArgs>
-    _count?: boolean | PartieCountOutputTypeDefaultArgs<ExtArgs>
+  export type GameOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"game_id" | "game_start_date" | "game_end_date" | "status" | "user_id", ExtArgs["result"]["game"]>
+  export type GameInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    user?: boolean | UserDefaultArgs<ExtArgs>
+    cards?: boolean | Game$cardsArgs<ExtArgs>
+    _count?: boolean | GameCountOutputTypeDefaultArgs<ExtArgs>
   }
 
-  export type $PartiePayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    name: "Partie"
+  export type $GamePayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "Game"
     objects: {
-      joueur: Prisma.$JoueurPayload<ExtArgs>
-      cartes: Prisma.$CartePayload<ExtArgs>[]
+      user: Prisma.$UserPayload<ExtArgs>
+      cards: Prisma.$CardPayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
-      partie_id: number
-      date_debut_partie: Date
-      date_fin_partie: Date | null
-      statut: string
-      joueur_id: number
-    }, ExtArgs["result"]["partie"]>
+      game_id: number
+      game_start_date: Date
+      game_end_date: Date | null
+      status: string
+      user_id: number
+    }, ExtArgs["result"]["game"]>
     composites: {}
   }
 
-  type PartieGetPayload<S extends boolean | null | undefined | PartieDefaultArgs> = $Result.GetResult<Prisma.$PartiePayload, S>
+  type GameGetPayload<S extends boolean | null | undefined | GameDefaultArgs> = $Result.GetResult<Prisma.$GamePayload, S>
 
-  type PartieCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
-    Omit<PartieFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
-      select?: PartieCountAggregateInputType | true
+  type GameCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<GameFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: GameCountAggregateInputType | true
     }
 
-  export interface PartieDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
-    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['Partie'], meta: { name: 'Partie' } }
+  export interface GameDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['Game'], meta: { name: 'Game' } }
     /**
-     * Find zero or one Partie that matches the filter.
-     * @param {PartieFindUniqueArgs} args - Arguments to find a Partie
+     * Find zero or one Game that matches the filter.
+     * @param {GameFindUniqueArgs} args - Arguments to find a Game
      * @example
-     * // Get one Partie
-     * const partie = await prisma.partie.findUnique({
+     * // Get one Game
+     * const game = await prisma.game.findUnique({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findUnique<T extends PartieFindUniqueArgs>(args: SelectSubset<T, PartieFindUniqueArgs<ExtArgs>>): Prisma__PartieClient<$Result.GetResult<Prisma.$PartiePayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    findUnique<T extends GameFindUniqueArgs>(args: SelectSubset<T, GameFindUniqueArgs<ExtArgs>>): Prisma__GameClient<$Result.GetResult<Prisma.$GamePayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Find one Partie that matches the filter or throw an error with `error.code='P2025'`
+     * Find one Game that matches the filter or throw an error with `error.code='P2025'`
      * if no matches were found.
-     * @param {PartieFindUniqueOrThrowArgs} args - Arguments to find a Partie
+     * @param {GameFindUniqueOrThrowArgs} args - Arguments to find a Game
      * @example
-     * // Get one Partie
-     * const partie = await prisma.partie.findUniqueOrThrow({
+     * // Get one Game
+     * const game = await prisma.game.findUniqueOrThrow({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findUniqueOrThrow<T extends PartieFindUniqueOrThrowArgs>(args: SelectSubset<T, PartieFindUniqueOrThrowArgs<ExtArgs>>): Prisma__PartieClient<$Result.GetResult<Prisma.$PartiePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    findUniqueOrThrow<T extends GameFindUniqueOrThrowArgs>(args: SelectSubset<T, GameFindUniqueOrThrowArgs<ExtArgs>>): Prisma__GameClient<$Result.GetResult<Prisma.$GamePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Find the first Partie that matches the filter.
+     * Find the first Game that matches the filter.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {PartieFindFirstArgs} args - Arguments to find a Partie
+     * @param {GameFindFirstArgs} args - Arguments to find a Game
      * @example
-     * // Get one Partie
-     * const partie = await prisma.partie.findFirst({
+     * // Get one Game
+     * const game = await prisma.game.findFirst({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findFirst<T extends PartieFindFirstArgs>(args?: SelectSubset<T, PartieFindFirstArgs<ExtArgs>>): Prisma__PartieClient<$Result.GetResult<Prisma.$PartiePayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    findFirst<T extends GameFindFirstArgs>(args?: SelectSubset<T, GameFindFirstArgs<ExtArgs>>): Prisma__GameClient<$Result.GetResult<Prisma.$GamePayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Find the first Partie that matches the filter or
+     * Find the first Game that matches the filter or
      * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {PartieFindFirstOrThrowArgs} args - Arguments to find a Partie
+     * @param {GameFindFirstOrThrowArgs} args - Arguments to find a Game
      * @example
-     * // Get one Partie
-     * const partie = await prisma.partie.findFirstOrThrow({
+     * // Get one Game
+     * const game = await prisma.game.findFirstOrThrow({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findFirstOrThrow<T extends PartieFindFirstOrThrowArgs>(args?: SelectSubset<T, PartieFindFirstOrThrowArgs<ExtArgs>>): Prisma__PartieClient<$Result.GetResult<Prisma.$PartiePayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    findFirstOrThrow<T extends GameFindFirstOrThrowArgs>(args?: SelectSubset<T, GameFindFirstOrThrowArgs<ExtArgs>>): Prisma__GameClient<$Result.GetResult<Prisma.$GamePayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Find zero or more Parties that matches the filter.
+     * Find zero or more Games that matches the filter.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {PartieFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @param {GameFindManyArgs} args - Arguments to filter and select certain fields only.
      * @example
-     * // Get all Parties
-     * const parties = await prisma.partie.findMany()
+     * // Get all Games
+     * const games = await prisma.game.findMany()
      * 
-     * // Get first 10 Parties
-     * const parties = await prisma.partie.findMany({ take: 10 })
+     * // Get first 10 Games
+     * const games = await prisma.game.findMany({ take: 10 })
      * 
-     * // Only select the `partie_id`
-     * const partieWithPartie_idOnly = await prisma.partie.findMany({ select: { partie_id: true } })
+     * // Only select the `game_id`
+     * const gameWithGame_idOnly = await prisma.game.findMany({ select: { game_id: true } })
      * 
      */
-    findMany<T extends PartieFindManyArgs>(args?: SelectSubset<T, PartieFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$PartiePayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+    findMany<T extends GameFindManyArgs>(args?: SelectSubset<T, GameFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$GamePayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
 
     /**
-     * Create a Partie.
-     * @param {PartieCreateArgs} args - Arguments to create a Partie.
+     * Create a Game.
+     * @param {GameCreateArgs} args - Arguments to create a Game.
      * @example
-     * // Create one Partie
-     * const Partie = await prisma.partie.create({
+     * // Create one Game
+     * const Game = await prisma.game.create({
      *   data: {
-     *     // ... data to create a Partie
+     *     // ... data to create a Game
      *   }
      * })
      * 
      */
-    create<T extends PartieCreateArgs>(args: SelectSubset<T, PartieCreateArgs<ExtArgs>>): Prisma__PartieClient<$Result.GetResult<Prisma.$PartiePayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    create<T extends GameCreateArgs>(args: SelectSubset<T, GameCreateArgs<ExtArgs>>): Prisma__GameClient<$Result.GetResult<Prisma.$GamePayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Create many Parties.
-     * @param {PartieCreateManyArgs} args - Arguments to create many Parties.
+     * Create many Games.
+     * @param {GameCreateManyArgs} args - Arguments to create many Games.
      * @example
-     * // Create many Parties
-     * const partie = await prisma.partie.createMany({
+     * // Create many Games
+     * const game = await prisma.game.createMany({
      *   data: [
      *     // ... provide data here
      *   ]
      * })
      *     
      */
-    createMany<T extends PartieCreateManyArgs>(args?: SelectSubset<T, PartieCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+    createMany<T extends GameCreateManyArgs>(args?: SelectSubset<T, GameCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
     /**
-     * Delete a Partie.
-     * @param {PartieDeleteArgs} args - Arguments to delete one Partie.
+     * Delete a Game.
+     * @param {GameDeleteArgs} args - Arguments to delete one Game.
      * @example
-     * // Delete one Partie
-     * const Partie = await prisma.partie.delete({
+     * // Delete one Game
+     * const Game = await prisma.game.delete({
      *   where: {
-     *     // ... filter to delete one Partie
+     *     // ... filter to delete one Game
      *   }
      * })
      * 
      */
-    delete<T extends PartieDeleteArgs>(args: SelectSubset<T, PartieDeleteArgs<ExtArgs>>): Prisma__PartieClient<$Result.GetResult<Prisma.$PartiePayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    delete<T extends GameDeleteArgs>(args: SelectSubset<T, GameDeleteArgs<ExtArgs>>): Prisma__GameClient<$Result.GetResult<Prisma.$GamePayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Update one Partie.
-     * @param {PartieUpdateArgs} args - Arguments to update one Partie.
+     * Update one Game.
+     * @param {GameUpdateArgs} args - Arguments to update one Game.
      * @example
-     * // Update one Partie
-     * const partie = await prisma.partie.update({
+     * // Update one Game
+     * const game = await prisma.game.update({
      *   where: {
      *     // ... provide filter here
      *   },
@@ -2582,30 +2582,30 @@ export namespace Prisma {
      * })
      * 
      */
-    update<T extends PartieUpdateArgs>(args: SelectSubset<T, PartieUpdateArgs<ExtArgs>>): Prisma__PartieClient<$Result.GetResult<Prisma.$PartiePayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    update<T extends GameUpdateArgs>(args: SelectSubset<T, GameUpdateArgs<ExtArgs>>): Prisma__GameClient<$Result.GetResult<Prisma.$GamePayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Delete zero or more Parties.
-     * @param {PartieDeleteManyArgs} args - Arguments to filter Parties to delete.
+     * Delete zero or more Games.
+     * @param {GameDeleteManyArgs} args - Arguments to filter Games to delete.
      * @example
-     * // Delete a few Parties
-     * const { count } = await prisma.partie.deleteMany({
+     * // Delete a few Games
+     * const { count } = await prisma.game.deleteMany({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      * 
      */
-    deleteMany<T extends PartieDeleteManyArgs>(args?: SelectSubset<T, PartieDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+    deleteMany<T extends GameDeleteManyArgs>(args?: SelectSubset<T, GameDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
     /**
-     * Update zero or more Parties.
+     * Update zero or more Games.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {PartieUpdateManyArgs} args - Arguments to update one or more rows.
+     * @param {GameUpdateManyArgs} args - Arguments to update one or more rows.
      * @example
-     * // Update many Parties
-     * const partie = await prisma.partie.updateMany({
+     * // Update many Games
+     * const game = await prisma.game.updateMany({
      *   where: {
      *     // ... provide filter here
      *   },
@@ -2615,56 +2615,56 @@ export namespace Prisma {
      * })
      * 
      */
-    updateMany<T extends PartieUpdateManyArgs>(args: SelectSubset<T, PartieUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+    updateMany<T extends GameUpdateManyArgs>(args: SelectSubset<T, GameUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
     /**
-     * Create or update one Partie.
-     * @param {PartieUpsertArgs} args - Arguments to update or create a Partie.
+     * Create or update one Game.
+     * @param {GameUpsertArgs} args - Arguments to update or create a Game.
      * @example
-     * // Update or create a Partie
-     * const partie = await prisma.partie.upsert({
+     * // Update or create a Game
+     * const game = await prisma.game.upsert({
      *   create: {
-     *     // ... data to create a Partie
+     *     // ... data to create a Game
      *   },
      *   update: {
      *     // ... in case it already exists, update
      *   },
      *   where: {
-     *     // ... the filter for the Partie we want to update
+     *     // ... the filter for the Game we want to update
      *   }
      * })
      */
-    upsert<T extends PartieUpsertArgs>(args: SelectSubset<T, PartieUpsertArgs<ExtArgs>>): Prisma__PartieClient<$Result.GetResult<Prisma.$PartiePayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    upsert<T extends GameUpsertArgs>(args: SelectSubset<T, GameUpsertArgs<ExtArgs>>): Prisma__GameClient<$Result.GetResult<Prisma.$GamePayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
 
     /**
-     * Count the number of Parties.
+     * Count the number of Games.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {PartieCountArgs} args - Arguments to filter Parties to count.
+     * @param {GameCountArgs} args - Arguments to filter Games to count.
      * @example
-     * // Count the number of Parties
-     * const count = await prisma.partie.count({
+     * // Count the number of Games
+     * const count = await prisma.game.count({
      *   where: {
-     *     // ... the filter for the Parties we want to count
+     *     // ... the filter for the Games we want to count
      *   }
      * })
     **/
-    count<T extends PartieCountArgs>(
-      args?: Subset<T, PartieCountArgs>,
+    count<T extends GameCountArgs>(
+      args?: Subset<T, GameCountArgs>,
     ): Prisma.PrismaPromise<
       T extends $Utils.Record<'select', any>
         ? T['select'] extends true
           ? number
-          : GetScalarType<T['select'], PartieCountAggregateOutputType>
+          : GetScalarType<T['select'], GameCountAggregateOutputType>
         : number
     >
 
     /**
-     * Allows you to perform aggregations operations on a Partie.
+     * Allows you to perform aggregations operations on a Game.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {PartieAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @param {GameAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
      * @example
      * // Ordered by age ascending
      * // Where email contains prisma.io
@@ -2684,13 +2684,13 @@ export namespace Prisma {
      *   take: 10,
      * })
     **/
-    aggregate<T extends PartieAggregateArgs>(args: Subset<T, PartieAggregateArgs>): Prisma.PrismaPromise<GetPartieAggregateType<T>>
+    aggregate<T extends GameAggregateArgs>(args: Subset<T, GameAggregateArgs>): Prisma.PrismaPromise<GetGameAggregateType<T>>
 
     /**
-     * Group by Partie.
+     * Group by Game.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {PartieGroupByArgs} args - Group by arguments.
+     * @param {GameGroupByArgs} args - Group by arguments.
      * @example
      * // Group by city, order by createdAt, get count
      * const result = await prisma.user.groupBy({
@@ -2705,14 +2705,14 @@ export namespace Prisma {
      * 
     **/
     groupBy<
-      T extends PartieGroupByArgs,
+      T extends GameGroupByArgs,
       HasSelectOrTake extends Or<
         Extends<'skip', Keys<T>>,
         Extends<'take', Keys<T>>
       >,
       OrderByArg extends True extends HasSelectOrTake
-        ? { orderBy: PartieGroupByArgs['orderBy'] }
-        : { orderBy?: PartieGroupByArgs['orderBy'] },
+        ? { orderBy: GameGroupByArgs['orderBy'] }
+        : { orderBy?: GameGroupByArgs['orderBy'] },
       OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
       ByFields extends MaybeTupleToUnion<T['by']>,
       ByValid extends Has<ByFields, OrderFields>,
@@ -2761,23 +2761,23 @@ export namespace Prisma {
             ? never
             : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
         }[OrderFields]
-    >(args: SubsetIntersection<T, PartieGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetPartieGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+    >(args: SubsetIntersection<T, GameGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetGameGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
   /**
-   * Fields of the Partie model
+   * Fields of the Game model
    */
-  readonly fields: PartieFieldRefs;
+  readonly fields: GameFieldRefs;
   }
 
   /**
-   * The delegate class that acts as a "Promise-like" for Partie.
+   * The delegate class that acts as a "Promise-like" for Game.
    * Why is this prefixed with `Prisma__`?
    * Because we want to prevent naming conflicts as mentioned in
    * https://github.com/prisma/prisma-client-js/issues/707
    */
-  export interface Prisma__PartieClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+  export interface Prisma__GameClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
-    joueur<T extends JoueurDefaultArgs<ExtArgs> = {}>(args?: Subset<T, JoueurDefaultArgs<ExtArgs>>): Prisma__JoueurClient<$Result.GetResult<Prisma.$JoueurPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
-    cartes<T extends Partie$cartesArgs<ExtArgs> = {}>(args?: Subset<T, Partie$cartesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$CartePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    user<T extends UserDefaultArgs<ExtArgs> = {}>(args?: Subset<T, UserDefaultArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    cards<T extends Game$cardsArgs<ExtArgs> = {}>(args?: Subset<T, Game$cardsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$CardPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -2804,785 +2804,785 @@ export namespace Prisma {
 
 
   /**
-   * Fields of the Partie model
+   * Fields of the Game model
    */
-  interface PartieFieldRefs {
-    readonly partie_id: FieldRef<"Partie", 'Int'>
-    readonly date_debut_partie: FieldRef<"Partie", 'DateTime'>
-    readonly date_fin_partie: FieldRef<"Partie", 'DateTime'>
-    readonly statut: FieldRef<"Partie", 'String'>
-    readonly joueur_id: FieldRef<"Partie", 'Int'>
+  interface GameFieldRefs {
+    readonly game_id: FieldRef<"Game", 'Int'>
+    readonly game_start_date: FieldRef<"Game", 'DateTime'>
+    readonly game_end_date: FieldRef<"Game", 'DateTime'>
+    readonly status: FieldRef<"Game", 'String'>
+    readonly user_id: FieldRef<"Game", 'Int'>
   }
     
 
   // Custom InputTypes
   /**
-   * Partie findUnique
+   * Game findUnique
    */
-  export type PartieFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type GameFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Partie
+     * Select specific fields to fetch from the Game
      */
-    select?: PartieSelect<ExtArgs> | null
+    select?: GameSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Partie
+     * Omit specific fields from the Game
      */
-    omit?: PartieOmit<ExtArgs> | null
+    omit?: GameOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: PartieInclude<ExtArgs> | null
+    include?: GameInclude<ExtArgs> | null
     /**
-     * Filter, which Partie to fetch.
+     * Filter, which Game to fetch.
      */
-    where: PartieWhereUniqueInput
+    where: GameWhereUniqueInput
   }
 
   /**
-   * Partie findUniqueOrThrow
+   * Game findUniqueOrThrow
    */
-  export type PartieFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type GameFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Partie
+     * Select specific fields to fetch from the Game
      */
-    select?: PartieSelect<ExtArgs> | null
+    select?: GameSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Partie
+     * Omit specific fields from the Game
      */
-    omit?: PartieOmit<ExtArgs> | null
+    omit?: GameOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: PartieInclude<ExtArgs> | null
+    include?: GameInclude<ExtArgs> | null
     /**
-     * Filter, which Partie to fetch.
+     * Filter, which Game to fetch.
      */
-    where: PartieWhereUniqueInput
+    where: GameWhereUniqueInput
   }
 
   /**
-   * Partie findFirst
+   * Game findFirst
    */
-  export type PartieFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type GameFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Partie
+     * Select specific fields to fetch from the Game
      */
-    select?: PartieSelect<ExtArgs> | null
+    select?: GameSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Partie
+     * Omit specific fields from the Game
      */
-    omit?: PartieOmit<ExtArgs> | null
+    omit?: GameOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: PartieInclude<ExtArgs> | null
+    include?: GameInclude<ExtArgs> | null
     /**
-     * Filter, which Partie to fetch.
+     * Filter, which Game to fetch.
      */
-    where?: PartieWhereInput
+    where?: GameWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of Parties to fetch.
+     * Determine the order of Games to fetch.
      */
-    orderBy?: PartieOrderByWithRelationInput | PartieOrderByWithRelationInput[]
+    orderBy?: GameOrderByWithRelationInput | GameOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for searching for Parties.
+     * Sets the position for searching for Games.
      */
-    cursor?: PartieWhereUniqueInput
+    cursor?: GameWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` Parties from the position of the cursor.
+     * Take `±n` Games from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` Parties.
+     * Skip the first `n` Games.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
      * 
-     * Filter by unique combinations of Parties.
+     * Filter by unique combinations of Games.
      */
-    distinct?: PartieScalarFieldEnum | PartieScalarFieldEnum[]
+    distinct?: GameScalarFieldEnum | GameScalarFieldEnum[]
   }
 
   /**
-   * Partie findFirstOrThrow
+   * Game findFirstOrThrow
    */
-  export type PartieFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type GameFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Partie
+     * Select specific fields to fetch from the Game
      */
-    select?: PartieSelect<ExtArgs> | null
+    select?: GameSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Partie
+     * Omit specific fields from the Game
      */
-    omit?: PartieOmit<ExtArgs> | null
+    omit?: GameOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: PartieInclude<ExtArgs> | null
+    include?: GameInclude<ExtArgs> | null
     /**
-     * Filter, which Partie to fetch.
+     * Filter, which Game to fetch.
      */
-    where?: PartieWhereInput
+    where?: GameWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of Parties to fetch.
+     * Determine the order of Games to fetch.
      */
-    orderBy?: PartieOrderByWithRelationInput | PartieOrderByWithRelationInput[]
+    orderBy?: GameOrderByWithRelationInput | GameOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for searching for Parties.
+     * Sets the position for searching for Games.
      */
-    cursor?: PartieWhereUniqueInput
+    cursor?: GameWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` Parties from the position of the cursor.
+     * Take `±n` Games from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` Parties.
+     * Skip the first `n` Games.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
      * 
-     * Filter by unique combinations of Parties.
+     * Filter by unique combinations of Games.
      */
-    distinct?: PartieScalarFieldEnum | PartieScalarFieldEnum[]
+    distinct?: GameScalarFieldEnum | GameScalarFieldEnum[]
   }
 
   /**
-   * Partie findMany
+   * Game findMany
    */
-  export type PartieFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type GameFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Partie
+     * Select specific fields to fetch from the Game
      */
-    select?: PartieSelect<ExtArgs> | null
+    select?: GameSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Partie
+     * Omit specific fields from the Game
      */
-    omit?: PartieOmit<ExtArgs> | null
+    omit?: GameOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: PartieInclude<ExtArgs> | null
+    include?: GameInclude<ExtArgs> | null
     /**
-     * Filter, which Parties to fetch.
+     * Filter, which Games to fetch.
      */
-    where?: PartieWhereInput
+    where?: GameWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of Parties to fetch.
+     * Determine the order of Games to fetch.
      */
-    orderBy?: PartieOrderByWithRelationInput | PartieOrderByWithRelationInput[]
+    orderBy?: GameOrderByWithRelationInput | GameOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for listing Parties.
+     * Sets the position for listing Games.
      */
-    cursor?: PartieWhereUniqueInput
+    cursor?: GameWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` Parties from the position of the cursor.
+     * Take `±n` Games from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` Parties.
+     * Skip the first `n` Games.
      */
     skip?: number
-    distinct?: PartieScalarFieldEnum | PartieScalarFieldEnum[]
+    distinct?: GameScalarFieldEnum | GameScalarFieldEnum[]
   }
 
   /**
-   * Partie create
+   * Game create
    */
-  export type PartieCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type GameCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Partie
+     * Select specific fields to fetch from the Game
      */
-    select?: PartieSelect<ExtArgs> | null
+    select?: GameSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Partie
+     * Omit specific fields from the Game
      */
-    omit?: PartieOmit<ExtArgs> | null
+    omit?: GameOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: PartieInclude<ExtArgs> | null
+    include?: GameInclude<ExtArgs> | null
     /**
-     * The data needed to create a Partie.
+     * The data needed to create a Game.
      */
-    data: XOR<PartieCreateInput, PartieUncheckedCreateInput>
+    data: XOR<GameCreateInput, GameUncheckedCreateInput>
   }
 
   /**
-   * Partie createMany
+   * Game createMany
    */
-  export type PartieCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type GameCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * The data used to create many Parties.
+     * The data used to create many Games.
      */
-    data: PartieCreateManyInput | PartieCreateManyInput[]
+    data: GameCreateManyInput | GameCreateManyInput[]
     skipDuplicates?: boolean
   }
 
   /**
-   * Partie update
+   * Game update
    */
-  export type PartieUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type GameUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Partie
+     * Select specific fields to fetch from the Game
      */
-    select?: PartieSelect<ExtArgs> | null
+    select?: GameSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Partie
+     * Omit specific fields from the Game
      */
-    omit?: PartieOmit<ExtArgs> | null
+    omit?: GameOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: PartieInclude<ExtArgs> | null
+    include?: GameInclude<ExtArgs> | null
     /**
-     * The data needed to update a Partie.
+     * The data needed to update a Game.
      */
-    data: XOR<PartieUpdateInput, PartieUncheckedUpdateInput>
+    data: XOR<GameUpdateInput, GameUncheckedUpdateInput>
     /**
-     * Choose, which Partie to update.
+     * Choose, which Game to update.
      */
-    where: PartieWhereUniqueInput
+    where: GameWhereUniqueInput
   }
 
   /**
-   * Partie updateMany
+   * Game updateMany
    */
-  export type PartieUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type GameUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * The data used to update Parties.
+     * The data used to update Games.
      */
-    data: XOR<PartieUpdateManyMutationInput, PartieUncheckedUpdateManyInput>
+    data: XOR<GameUpdateManyMutationInput, GameUncheckedUpdateManyInput>
     /**
-     * Filter which Parties to update
+     * Filter which Games to update
      */
-    where?: PartieWhereInput
+    where?: GameWhereInput
     /**
-     * Limit how many Parties to update.
+     * Limit how many Games to update.
      */
     limit?: number
   }
 
   /**
-   * Partie upsert
+   * Game upsert
    */
-  export type PartieUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type GameUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Partie
+     * Select specific fields to fetch from the Game
      */
-    select?: PartieSelect<ExtArgs> | null
+    select?: GameSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Partie
+     * Omit specific fields from the Game
      */
-    omit?: PartieOmit<ExtArgs> | null
+    omit?: GameOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: PartieInclude<ExtArgs> | null
+    include?: GameInclude<ExtArgs> | null
     /**
-     * The filter to search for the Partie to update in case it exists.
+     * The filter to search for the Game to update in case it exists.
      */
-    where: PartieWhereUniqueInput
+    where: GameWhereUniqueInput
     /**
-     * In case the Partie found by the `where` argument doesn't exist, create a new Partie with this data.
+     * In case the Game found by the `where` argument doesn't exist, create a new Game with this data.
      */
-    create: XOR<PartieCreateInput, PartieUncheckedCreateInput>
+    create: XOR<GameCreateInput, GameUncheckedCreateInput>
     /**
-     * In case the Partie was found with the provided `where` argument, update it with this data.
+     * In case the Game was found with the provided `where` argument, update it with this data.
      */
-    update: XOR<PartieUpdateInput, PartieUncheckedUpdateInput>
+    update: XOR<GameUpdateInput, GameUncheckedUpdateInput>
   }
 
   /**
-   * Partie delete
+   * Game delete
    */
-  export type PartieDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type GameDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Partie
+     * Select specific fields to fetch from the Game
      */
-    select?: PartieSelect<ExtArgs> | null
+    select?: GameSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Partie
+     * Omit specific fields from the Game
      */
-    omit?: PartieOmit<ExtArgs> | null
+    omit?: GameOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: PartieInclude<ExtArgs> | null
+    include?: GameInclude<ExtArgs> | null
     /**
-     * Filter which Partie to delete.
+     * Filter which Game to delete.
      */
-    where: PartieWhereUniqueInput
+    where: GameWhereUniqueInput
   }
 
   /**
-   * Partie deleteMany
+   * Game deleteMany
    */
-  export type PartieDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type GameDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Filter which Parties to delete
+     * Filter which Games to delete
      */
-    where?: PartieWhereInput
+    where?: GameWhereInput
     /**
-     * Limit how many Parties to delete.
+     * Limit how many Games to delete.
      */
     limit?: number
   }
 
   /**
-   * Partie.cartes
+   * Game.cards
    */
-  export type Partie$cartesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type Game$cardsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Carte
+     * Select specific fields to fetch from the Card
      */
-    select?: CarteSelect<ExtArgs> | null
+    select?: CardSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Carte
+     * Omit specific fields from the Card
      */
-    omit?: CarteOmit<ExtArgs> | null
+    omit?: CardOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: CarteInclude<ExtArgs> | null
-    where?: CarteWhereInput
-    orderBy?: CarteOrderByWithRelationInput | CarteOrderByWithRelationInput[]
-    cursor?: CarteWhereUniqueInput
+    include?: CardInclude<ExtArgs> | null
+    where?: CardWhereInput
+    orderBy?: CardOrderByWithRelationInput | CardOrderByWithRelationInput[]
+    cursor?: CardWhereUniqueInput
     take?: number
     skip?: number
-    distinct?: CarteScalarFieldEnum | CarteScalarFieldEnum[]
+    distinct?: CardScalarFieldEnum | CardScalarFieldEnum[]
   }
 
   /**
-   * Partie without action
+   * Game without action
    */
-  export type PartieDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type GameDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Partie
+     * Select specific fields to fetch from the Game
      */
-    select?: PartieSelect<ExtArgs> | null
+    select?: GameSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Partie
+     * Omit specific fields from the Game
      */
-    omit?: PartieOmit<ExtArgs> | null
+    omit?: GameOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: PartieInclude<ExtArgs> | null
+    include?: GameInclude<ExtArgs> | null
   }
 
 
   /**
-   * Model Carte
+   * Model Card
    */
 
-  export type AggregateCarte = {
-    _count: CarteCountAggregateOutputType | null
-    _avg: CarteAvgAggregateOutputType | null
-    _sum: CarteSumAggregateOutputType | null
-    _min: CarteMinAggregateOutputType | null
-    _max: CarteMaxAggregateOutputType | null
+  export type AggregateCard = {
+    _count: CardCountAggregateOutputType | null
+    _avg: CardAvgAggregateOutputType | null
+    _sum: CardSumAggregateOutputType | null
+    _min: CardMinAggregateOutputType | null
+    _max: CardMaxAggregateOutputType | null
   }
 
-  export type CarteAvgAggregateOutputType = {
-    carte_id: number | null
-    partie_id: number | null
+  export type CardAvgAggregateOutputType = {
+    card_id: number | null
+    game_id: number | null
   }
 
-  export type CarteSumAggregateOutputType = {
-    carte_id: number | null
-    partie_id: number | null
+  export type CardSumAggregateOutputType = {
+    card_id: number | null
+    game_id: number | null
   }
 
-  export type CarteMinAggregateOutputType = {
-    carte_id: number | null
+  export type CardMinAggregateOutputType = {
+    card_id: number | null
     titre: string | null
     image_url: string | null
     texte: string | null
     is_over: boolean | null
-    partie_id: number | null
+    game_id: number | null
   }
 
-  export type CarteMaxAggregateOutputType = {
-    carte_id: number | null
+  export type CardMaxAggregateOutputType = {
+    card_id: number | null
     titre: string | null
     image_url: string | null
     texte: string | null
     is_over: boolean | null
-    partie_id: number | null
+    game_id: number | null
   }
 
-  export type CarteCountAggregateOutputType = {
-    carte_id: number
+  export type CardCountAggregateOutputType = {
+    card_id: number
     titre: number
     image_url: number
     texte: number
     is_over: number
-    partie_id: number
+    game_id: number
     _all: number
   }
 
 
-  export type CarteAvgAggregateInputType = {
-    carte_id?: true
-    partie_id?: true
+  export type CardAvgAggregateInputType = {
+    card_id?: true
+    game_id?: true
   }
 
-  export type CarteSumAggregateInputType = {
-    carte_id?: true
-    partie_id?: true
+  export type CardSumAggregateInputType = {
+    card_id?: true
+    game_id?: true
   }
 
-  export type CarteMinAggregateInputType = {
-    carte_id?: true
+  export type CardMinAggregateInputType = {
+    card_id?: true
     titre?: true
     image_url?: true
     texte?: true
     is_over?: true
-    partie_id?: true
+    game_id?: true
   }
 
-  export type CarteMaxAggregateInputType = {
-    carte_id?: true
+  export type CardMaxAggregateInputType = {
+    card_id?: true
     titre?: true
     image_url?: true
     texte?: true
     is_over?: true
-    partie_id?: true
+    game_id?: true
   }
 
-  export type CarteCountAggregateInputType = {
-    carte_id?: true
+  export type CardCountAggregateInputType = {
+    card_id?: true
     titre?: true
     image_url?: true
     texte?: true
     is_over?: true
-    partie_id?: true
+    game_id?: true
     _all?: true
   }
 
-  export type CarteAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type CardAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Filter which Carte to aggregate.
+     * Filter which Card to aggregate.
      */
-    where?: CarteWhereInput
+    where?: CardWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of Cartes to fetch.
+     * Determine the order of Cards to fetch.
      */
-    orderBy?: CarteOrderByWithRelationInput | CarteOrderByWithRelationInput[]
+    orderBy?: CardOrderByWithRelationInput | CardOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
      * Sets the start position
      */
-    cursor?: CarteWhereUniqueInput
+    cursor?: CardWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` Cartes from the position of the cursor.
+     * Take `±n` Cards from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` Cartes.
+     * Skip the first `n` Cards.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
-     * Count returned Cartes
+     * Count returned Cards
     **/
-    _count?: true | CarteCountAggregateInputType
+    _count?: true | CardCountAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to average
     **/
-    _avg?: CarteAvgAggregateInputType
+    _avg?: CardAvgAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to sum
     **/
-    _sum?: CarteSumAggregateInputType
+    _sum?: CardSumAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to find the minimum value
     **/
-    _min?: CarteMinAggregateInputType
+    _min?: CardMinAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to find the maximum value
     **/
-    _max?: CarteMaxAggregateInputType
+    _max?: CardMaxAggregateInputType
   }
 
-  export type GetCarteAggregateType<T extends CarteAggregateArgs> = {
-        [P in keyof T & keyof AggregateCarte]: P extends '_count' | 'count'
+  export type GetCardAggregateType<T extends CardAggregateArgs> = {
+        [P in keyof T & keyof AggregateCard]: P extends '_count' | 'count'
       ? T[P] extends true
         ? number
-        : GetScalarType<T[P], AggregateCarte[P]>
-      : GetScalarType<T[P], AggregateCarte[P]>
+        : GetScalarType<T[P], AggregateCard[P]>
+      : GetScalarType<T[P], AggregateCard[P]>
   }
 
 
 
 
-  export type CarteGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: CarteWhereInput
-    orderBy?: CarteOrderByWithAggregationInput | CarteOrderByWithAggregationInput[]
-    by: CarteScalarFieldEnum[] | CarteScalarFieldEnum
-    having?: CarteScalarWhereWithAggregatesInput
+  export type CardGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: CardWhereInput
+    orderBy?: CardOrderByWithAggregationInput | CardOrderByWithAggregationInput[]
+    by: CardScalarFieldEnum[] | CardScalarFieldEnum
+    having?: CardScalarWhereWithAggregatesInput
     take?: number
     skip?: number
-    _count?: CarteCountAggregateInputType | true
-    _avg?: CarteAvgAggregateInputType
-    _sum?: CarteSumAggregateInputType
-    _min?: CarteMinAggregateInputType
-    _max?: CarteMaxAggregateInputType
+    _count?: CardCountAggregateInputType | true
+    _avg?: CardAvgAggregateInputType
+    _sum?: CardSumAggregateInputType
+    _min?: CardMinAggregateInputType
+    _max?: CardMaxAggregateInputType
   }
 
-  export type CarteGroupByOutputType = {
-    carte_id: number
+  export type CardGroupByOutputType = {
+    card_id: number
     titre: string
     image_url: string | null
     texte: string
     is_over: boolean
-    partie_id: number
-    _count: CarteCountAggregateOutputType | null
-    _avg: CarteAvgAggregateOutputType | null
-    _sum: CarteSumAggregateOutputType | null
-    _min: CarteMinAggregateOutputType | null
-    _max: CarteMaxAggregateOutputType | null
+    game_id: number
+    _count: CardCountAggregateOutputType | null
+    _avg: CardAvgAggregateOutputType | null
+    _sum: CardSumAggregateOutputType | null
+    _min: CardMinAggregateOutputType | null
+    _max: CardMaxAggregateOutputType | null
   }
 
-  type GetCarteGroupByPayload<T extends CarteGroupByArgs> = Prisma.PrismaPromise<
+  type GetCardGroupByPayload<T extends CardGroupByArgs> = Prisma.PrismaPromise<
     Array<
-      PickEnumerable<CarteGroupByOutputType, T['by']> &
+      PickEnumerable<CardGroupByOutputType, T['by']> &
         {
-          [P in ((keyof T) & (keyof CarteGroupByOutputType))]: P extends '_count'
+          [P in ((keyof T) & (keyof CardGroupByOutputType))]: P extends '_count'
             ? T[P] extends boolean
               ? number
-              : GetScalarType<T[P], CarteGroupByOutputType[P]>
-            : GetScalarType<T[P], CarteGroupByOutputType[P]>
+              : GetScalarType<T[P], CardGroupByOutputType[P]>
+            : GetScalarType<T[P], CardGroupByOutputType[P]>
         }
       >
     >
 
 
-  export type CarteSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
-    carte_id?: boolean
+  export type CardSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    card_id?: boolean
     titre?: boolean
     image_url?: boolean
     texte?: boolean
     is_over?: boolean
-    partie_id?: boolean
-    partie?: boolean | PartieDefaultArgs<ExtArgs>
-    choix?: boolean | Carte$choixArgs<ExtArgs>
-    suivie_par?: boolean | Carte$suivie_parArgs<ExtArgs>
-    _count?: boolean | CarteCountOutputTypeDefaultArgs<ExtArgs>
-  }, ExtArgs["result"]["carte"]>
+    game_id?: boolean
+    game?: boolean | GameDefaultArgs<ExtArgs>
+    choice?: boolean | Card$choiceArgs<ExtArgs>
+    suivie_par?: boolean | Card$suivie_parArgs<ExtArgs>
+    _count?: boolean | CardCountOutputTypeDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["card"]>
 
 
 
-  export type CarteSelectScalar = {
-    carte_id?: boolean
+  export type CardSelectScalar = {
+    card_id?: boolean
     titre?: boolean
     image_url?: boolean
     texte?: boolean
     is_over?: boolean
-    partie_id?: boolean
+    game_id?: boolean
   }
 
-  export type CarteOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"carte_id" | "titre" | "image_url" | "texte" | "is_over" | "partie_id", ExtArgs["result"]["carte"]>
-  export type CarteInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    partie?: boolean | PartieDefaultArgs<ExtArgs>
-    choix?: boolean | Carte$choixArgs<ExtArgs>
-    suivie_par?: boolean | Carte$suivie_parArgs<ExtArgs>
-    _count?: boolean | CarteCountOutputTypeDefaultArgs<ExtArgs>
+  export type CardOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"card_id" | "titre" | "image_url" | "texte" | "is_over" | "game_id", ExtArgs["result"]["card"]>
+  export type CardInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    game?: boolean | GameDefaultArgs<ExtArgs>
+    choice?: boolean | Card$choiceArgs<ExtArgs>
+    suivie_par?: boolean | Card$suivie_parArgs<ExtArgs>
+    _count?: boolean | CardCountOutputTypeDefaultArgs<ExtArgs>
   }
 
-  export type $CartePayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    name: "Carte"
+  export type $CardPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "Card"
     objects: {
-      partie: Prisma.$PartiePayload<ExtArgs>
-      choix: Prisma.$ChoixPayload<ExtArgs>[]
-      suivie_par: Prisma.$ChoixPayload<ExtArgs>[]
+      game: Prisma.$GamePayload<ExtArgs>
+      choice: Prisma.$ChoicePayload<ExtArgs>[]
+      suivie_par: Prisma.$ChoicePayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
-      carte_id: number
+      card_id: number
       titre: string
       image_url: string | null
       texte: string
       is_over: boolean
-      partie_id: number
-    }, ExtArgs["result"]["carte"]>
+      game_id: number
+    }, ExtArgs["result"]["card"]>
     composites: {}
   }
 
-  type CarteGetPayload<S extends boolean | null | undefined | CarteDefaultArgs> = $Result.GetResult<Prisma.$CartePayload, S>
+  type CardGetPayload<S extends boolean | null | undefined | CardDefaultArgs> = $Result.GetResult<Prisma.$CardPayload, S>
 
-  type CarteCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
-    Omit<CarteFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
-      select?: CarteCountAggregateInputType | true
+  type CardCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<CardFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: CardCountAggregateInputType | true
     }
 
-  export interface CarteDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
-    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['Carte'], meta: { name: 'Carte' } }
+  export interface CardDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['Card'], meta: { name: 'Card' } }
     /**
-     * Find zero or one Carte that matches the filter.
-     * @param {CarteFindUniqueArgs} args - Arguments to find a Carte
+     * Find zero or one Card that matches the filter.
+     * @param {CardFindUniqueArgs} args - Arguments to find a Card
      * @example
-     * // Get one Carte
-     * const carte = await prisma.carte.findUnique({
+     * // Get one Card
+     * const card = await prisma.card.findUnique({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findUnique<T extends CarteFindUniqueArgs>(args: SelectSubset<T, CarteFindUniqueArgs<ExtArgs>>): Prisma__CarteClient<$Result.GetResult<Prisma.$CartePayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    findUnique<T extends CardFindUniqueArgs>(args: SelectSubset<T, CardFindUniqueArgs<ExtArgs>>): Prisma__CardClient<$Result.GetResult<Prisma.$CardPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Find one Carte that matches the filter or throw an error with `error.code='P2025'`
+     * Find one Card that matches the filter or throw an error with `error.code='P2025'`
      * if no matches were found.
-     * @param {CarteFindUniqueOrThrowArgs} args - Arguments to find a Carte
+     * @param {CardFindUniqueOrThrowArgs} args - Arguments to find a Card
      * @example
-     * // Get one Carte
-     * const carte = await prisma.carte.findUniqueOrThrow({
+     * // Get one Card
+     * const card = await prisma.card.findUniqueOrThrow({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findUniqueOrThrow<T extends CarteFindUniqueOrThrowArgs>(args: SelectSubset<T, CarteFindUniqueOrThrowArgs<ExtArgs>>): Prisma__CarteClient<$Result.GetResult<Prisma.$CartePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    findUniqueOrThrow<T extends CardFindUniqueOrThrowArgs>(args: SelectSubset<T, CardFindUniqueOrThrowArgs<ExtArgs>>): Prisma__CardClient<$Result.GetResult<Prisma.$CardPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Find the first Carte that matches the filter.
+     * Find the first Card that matches the filter.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {CarteFindFirstArgs} args - Arguments to find a Carte
+     * @param {CardFindFirstArgs} args - Arguments to find a Card
      * @example
-     * // Get one Carte
-     * const carte = await prisma.carte.findFirst({
+     * // Get one Card
+     * const card = await prisma.card.findFirst({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findFirst<T extends CarteFindFirstArgs>(args?: SelectSubset<T, CarteFindFirstArgs<ExtArgs>>): Prisma__CarteClient<$Result.GetResult<Prisma.$CartePayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    findFirst<T extends CardFindFirstArgs>(args?: SelectSubset<T, CardFindFirstArgs<ExtArgs>>): Prisma__CardClient<$Result.GetResult<Prisma.$CardPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Find the first Carte that matches the filter or
+     * Find the first Card that matches the filter or
      * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {CarteFindFirstOrThrowArgs} args - Arguments to find a Carte
+     * @param {CardFindFirstOrThrowArgs} args - Arguments to find a Card
      * @example
-     * // Get one Carte
-     * const carte = await prisma.carte.findFirstOrThrow({
+     * // Get one Card
+     * const card = await prisma.card.findFirstOrThrow({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findFirstOrThrow<T extends CarteFindFirstOrThrowArgs>(args?: SelectSubset<T, CarteFindFirstOrThrowArgs<ExtArgs>>): Prisma__CarteClient<$Result.GetResult<Prisma.$CartePayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    findFirstOrThrow<T extends CardFindFirstOrThrowArgs>(args?: SelectSubset<T, CardFindFirstOrThrowArgs<ExtArgs>>): Prisma__CardClient<$Result.GetResult<Prisma.$CardPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Find zero or more Cartes that matches the filter.
+     * Find zero or more Cards that matches the filter.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {CarteFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @param {CardFindManyArgs} args - Arguments to filter and select certain fields only.
      * @example
-     * // Get all Cartes
-     * const cartes = await prisma.carte.findMany()
+     * // Get all Cards
+     * const cards = await prisma.card.findMany()
      * 
-     * // Get first 10 Cartes
-     * const cartes = await prisma.carte.findMany({ take: 10 })
+     * // Get first 10 Cards
+     * const cards = await prisma.card.findMany({ take: 10 })
      * 
-     * // Only select the `carte_id`
-     * const carteWithCarte_idOnly = await prisma.carte.findMany({ select: { carte_id: true } })
+     * // Only select the `card_id`
+     * const cardWithCard_idOnly = await prisma.card.findMany({ select: { card_id: true } })
      * 
      */
-    findMany<T extends CarteFindManyArgs>(args?: SelectSubset<T, CarteFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$CartePayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+    findMany<T extends CardFindManyArgs>(args?: SelectSubset<T, CardFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$CardPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
 
     /**
-     * Create a Carte.
-     * @param {CarteCreateArgs} args - Arguments to create a Carte.
+     * Create a Card.
+     * @param {CardCreateArgs} args - Arguments to create a Card.
      * @example
-     * // Create one Carte
-     * const Carte = await prisma.carte.create({
+     * // Create one Card
+     * const Card = await prisma.card.create({
      *   data: {
-     *     // ... data to create a Carte
+     *     // ... data to create a Card
      *   }
      * })
      * 
      */
-    create<T extends CarteCreateArgs>(args: SelectSubset<T, CarteCreateArgs<ExtArgs>>): Prisma__CarteClient<$Result.GetResult<Prisma.$CartePayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    create<T extends CardCreateArgs>(args: SelectSubset<T, CardCreateArgs<ExtArgs>>): Prisma__CardClient<$Result.GetResult<Prisma.$CardPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Create many Cartes.
-     * @param {CarteCreateManyArgs} args - Arguments to create many Cartes.
+     * Create many Cards.
+     * @param {CardCreateManyArgs} args - Arguments to create many Cards.
      * @example
-     * // Create many Cartes
-     * const carte = await prisma.carte.createMany({
+     * // Create many Cards
+     * const card = await prisma.card.createMany({
      *   data: [
      *     // ... provide data here
      *   ]
      * })
      *     
      */
-    createMany<T extends CarteCreateManyArgs>(args?: SelectSubset<T, CarteCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+    createMany<T extends CardCreateManyArgs>(args?: SelectSubset<T, CardCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
     /**
-     * Delete a Carte.
-     * @param {CarteDeleteArgs} args - Arguments to delete one Carte.
+     * Delete a Card.
+     * @param {CardDeleteArgs} args - Arguments to delete one Card.
      * @example
-     * // Delete one Carte
-     * const Carte = await prisma.carte.delete({
+     * // Delete one Card
+     * const Card = await prisma.card.delete({
      *   where: {
-     *     // ... filter to delete one Carte
+     *     // ... filter to delete one Card
      *   }
      * })
      * 
      */
-    delete<T extends CarteDeleteArgs>(args: SelectSubset<T, CarteDeleteArgs<ExtArgs>>): Prisma__CarteClient<$Result.GetResult<Prisma.$CartePayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    delete<T extends CardDeleteArgs>(args: SelectSubset<T, CardDeleteArgs<ExtArgs>>): Prisma__CardClient<$Result.GetResult<Prisma.$CardPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Update one Carte.
-     * @param {CarteUpdateArgs} args - Arguments to update one Carte.
+     * Update one Card.
+     * @param {CardUpdateArgs} args - Arguments to update one Card.
      * @example
-     * // Update one Carte
-     * const carte = await prisma.carte.update({
+     * // Update one Card
+     * const card = await prisma.card.update({
      *   where: {
      *     // ... provide filter here
      *   },
@@ -3592,30 +3592,30 @@ export namespace Prisma {
      * })
      * 
      */
-    update<T extends CarteUpdateArgs>(args: SelectSubset<T, CarteUpdateArgs<ExtArgs>>): Prisma__CarteClient<$Result.GetResult<Prisma.$CartePayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    update<T extends CardUpdateArgs>(args: SelectSubset<T, CardUpdateArgs<ExtArgs>>): Prisma__CardClient<$Result.GetResult<Prisma.$CardPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Delete zero or more Cartes.
-     * @param {CarteDeleteManyArgs} args - Arguments to filter Cartes to delete.
+     * Delete zero or more Cards.
+     * @param {CardDeleteManyArgs} args - Arguments to filter Cards to delete.
      * @example
-     * // Delete a few Cartes
-     * const { count } = await prisma.carte.deleteMany({
+     * // Delete a few Cards
+     * const { count } = await prisma.card.deleteMany({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      * 
      */
-    deleteMany<T extends CarteDeleteManyArgs>(args?: SelectSubset<T, CarteDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+    deleteMany<T extends CardDeleteManyArgs>(args?: SelectSubset<T, CardDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
     /**
-     * Update zero or more Cartes.
+     * Update zero or more Cards.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {CarteUpdateManyArgs} args - Arguments to update one or more rows.
+     * @param {CardUpdateManyArgs} args - Arguments to update one or more rows.
      * @example
-     * // Update many Cartes
-     * const carte = await prisma.carte.updateMany({
+     * // Update many Cards
+     * const card = await prisma.card.updateMany({
      *   where: {
      *     // ... provide filter here
      *   },
@@ -3625,56 +3625,56 @@ export namespace Prisma {
      * })
      * 
      */
-    updateMany<T extends CarteUpdateManyArgs>(args: SelectSubset<T, CarteUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+    updateMany<T extends CardUpdateManyArgs>(args: SelectSubset<T, CardUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
     /**
-     * Create or update one Carte.
-     * @param {CarteUpsertArgs} args - Arguments to update or create a Carte.
+     * Create or update one Card.
+     * @param {CardUpsertArgs} args - Arguments to update or create a Card.
      * @example
-     * // Update or create a Carte
-     * const carte = await prisma.carte.upsert({
+     * // Update or create a Card
+     * const card = await prisma.card.upsert({
      *   create: {
-     *     // ... data to create a Carte
+     *     // ... data to create a Card
      *   },
      *   update: {
      *     // ... in case it already exists, update
      *   },
      *   where: {
-     *     // ... the filter for the Carte we want to update
+     *     // ... the filter for the Card we want to update
      *   }
      * })
      */
-    upsert<T extends CarteUpsertArgs>(args: SelectSubset<T, CarteUpsertArgs<ExtArgs>>): Prisma__CarteClient<$Result.GetResult<Prisma.$CartePayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    upsert<T extends CardUpsertArgs>(args: SelectSubset<T, CardUpsertArgs<ExtArgs>>): Prisma__CardClient<$Result.GetResult<Prisma.$CardPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
 
     /**
-     * Count the number of Cartes.
+     * Count the number of Cards.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {CarteCountArgs} args - Arguments to filter Cartes to count.
+     * @param {CardCountArgs} args - Arguments to filter Cards to count.
      * @example
-     * // Count the number of Cartes
-     * const count = await prisma.carte.count({
+     * // Count the number of Cards
+     * const count = await prisma.card.count({
      *   where: {
-     *     // ... the filter for the Cartes we want to count
+     *     // ... the filter for the Cards we want to count
      *   }
      * })
     **/
-    count<T extends CarteCountArgs>(
-      args?: Subset<T, CarteCountArgs>,
+    count<T extends CardCountArgs>(
+      args?: Subset<T, CardCountArgs>,
     ): Prisma.PrismaPromise<
       T extends $Utils.Record<'select', any>
         ? T['select'] extends true
           ? number
-          : GetScalarType<T['select'], CarteCountAggregateOutputType>
+          : GetScalarType<T['select'], CardCountAggregateOutputType>
         : number
     >
 
     /**
-     * Allows you to perform aggregations operations on a Carte.
+     * Allows you to perform aggregations operations on a Card.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {CarteAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @param {CardAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
      * @example
      * // Ordered by age ascending
      * // Where email contains prisma.io
@@ -3694,13 +3694,13 @@ export namespace Prisma {
      *   take: 10,
      * })
     **/
-    aggregate<T extends CarteAggregateArgs>(args: Subset<T, CarteAggregateArgs>): Prisma.PrismaPromise<GetCarteAggregateType<T>>
+    aggregate<T extends CardAggregateArgs>(args: Subset<T, CardAggregateArgs>): Prisma.PrismaPromise<GetCardAggregateType<T>>
 
     /**
-     * Group by Carte.
+     * Group by Card.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {CarteGroupByArgs} args - Group by arguments.
+     * @param {CardGroupByArgs} args - Group by arguments.
      * @example
      * // Group by city, order by createdAt, get count
      * const result = await prisma.user.groupBy({
@@ -3715,14 +3715,14 @@ export namespace Prisma {
      * 
     **/
     groupBy<
-      T extends CarteGroupByArgs,
+      T extends CardGroupByArgs,
       HasSelectOrTake extends Or<
         Extends<'skip', Keys<T>>,
         Extends<'take', Keys<T>>
       >,
       OrderByArg extends True extends HasSelectOrTake
-        ? { orderBy: CarteGroupByArgs['orderBy'] }
-        : { orderBy?: CarteGroupByArgs['orderBy'] },
+        ? { orderBy: CardGroupByArgs['orderBy'] }
+        : { orderBy?: CardGroupByArgs['orderBy'] },
       OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
       ByFields extends MaybeTupleToUnion<T['by']>,
       ByValid extends Has<ByFields, OrderFields>,
@@ -3771,24 +3771,24 @@ export namespace Prisma {
             ? never
             : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
         }[OrderFields]
-    >(args: SubsetIntersection<T, CarteGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetCarteGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+    >(args: SubsetIntersection<T, CardGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetCardGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
   /**
-   * Fields of the Carte model
+   * Fields of the Card model
    */
-  readonly fields: CarteFieldRefs;
+  readonly fields: CardFieldRefs;
   }
 
   /**
-   * The delegate class that acts as a "Promise-like" for Carte.
+   * The delegate class that acts as a "Promise-like" for Card.
    * Why is this prefixed with `Prisma__`?
    * Because we want to prevent naming conflicts as mentioned in
    * https://github.com/prisma/prisma-client-js/issues/707
    */
-  export interface Prisma__CarteClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+  export interface Prisma__CardClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
-    partie<T extends PartieDefaultArgs<ExtArgs> = {}>(args?: Subset<T, PartieDefaultArgs<ExtArgs>>): Prisma__PartieClient<$Result.GetResult<Prisma.$PartiePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
-    choix<T extends Carte$choixArgs<ExtArgs> = {}>(args?: Subset<T, Carte$choixArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ChoixPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
-    suivie_par<T extends Carte$suivie_parArgs<ExtArgs> = {}>(args?: Subset<T, Carte$suivie_parArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ChoixPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    game<T extends GameDefaultArgs<ExtArgs> = {}>(args?: Subset<T, GameDefaultArgs<ExtArgs>>): Prisma__GameClient<$Result.GetResult<Prisma.$GamePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    choice<T extends Card$choiceArgs<ExtArgs> = {}>(args?: Subset<T, Card$choiceArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ChoicePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    suivie_par<T extends Card$suivie_parArgs<ExtArgs> = {}>(args?: Subset<T, Card$suivie_parArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ChoicePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -3815,789 +3815,789 @@ export namespace Prisma {
 
 
   /**
-   * Fields of the Carte model
+   * Fields of the Card model
    */
-  interface CarteFieldRefs {
-    readonly carte_id: FieldRef<"Carte", 'Int'>
-    readonly titre: FieldRef<"Carte", 'String'>
-    readonly image_url: FieldRef<"Carte", 'String'>
-    readonly texte: FieldRef<"Carte", 'String'>
-    readonly is_over: FieldRef<"Carte", 'Boolean'>
-    readonly partie_id: FieldRef<"Carte", 'Int'>
+  interface CardFieldRefs {
+    readonly card_id: FieldRef<"Card", 'Int'>
+    readonly titre: FieldRef<"Card", 'String'>
+    readonly image_url: FieldRef<"Card", 'String'>
+    readonly texte: FieldRef<"Card", 'String'>
+    readonly is_over: FieldRef<"Card", 'Boolean'>
+    readonly game_id: FieldRef<"Card", 'Int'>
   }
     
 
   // Custom InputTypes
   /**
-   * Carte findUnique
+   * Card findUnique
    */
-  export type CarteFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type CardFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Carte
+     * Select specific fields to fetch from the Card
      */
-    select?: CarteSelect<ExtArgs> | null
+    select?: CardSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Carte
+     * Omit specific fields from the Card
      */
-    omit?: CarteOmit<ExtArgs> | null
+    omit?: CardOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: CarteInclude<ExtArgs> | null
+    include?: CardInclude<ExtArgs> | null
     /**
-     * Filter, which Carte to fetch.
+     * Filter, which Card to fetch.
      */
-    where: CarteWhereUniqueInput
+    where: CardWhereUniqueInput
   }
 
   /**
-   * Carte findUniqueOrThrow
+   * Card findUniqueOrThrow
    */
-  export type CarteFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type CardFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Carte
+     * Select specific fields to fetch from the Card
      */
-    select?: CarteSelect<ExtArgs> | null
+    select?: CardSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Carte
+     * Omit specific fields from the Card
      */
-    omit?: CarteOmit<ExtArgs> | null
+    omit?: CardOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: CarteInclude<ExtArgs> | null
+    include?: CardInclude<ExtArgs> | null
     /**
-     * Filter, which Carte to fetch.
+     * Filter, which Card to fetch.
      */
-    where: CarteWhereUniqueInput
+    where: CardWhereUniqueInput
   }
 
   /**
-   * Carte findFirst
+   * Card findFirst
    */
-  export type CarteFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type CardFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Carte
+     * Select specific fields to fetch from the Card
      */
-    select?: CarteSelect<ExtArgs> | null
+    select?: CardSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Carte
+     * Omit specific fields from the Card
      */
-    omit?: CarteOmit<ExtArgs> | null
+    omit?: CardOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: CarteInclude<ExtArgs> | null
+    include?: CardInclude<ExtArgs> | null
     /**
-     * Filter, which Carte to fetch.
+     * Filter, which Card to fetch.
      */
-    where?: CarteWhereInput
+    where?: CardWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of Cartes to fetch.
+     * Determine the order of Cards to fetch.
      */
-    orderBy?: CarteOrderByWithRelationInput | CarteOrderByWithRelationInput[]
+    orderBy?: CardOrderByWithRelationInput | CardOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for searching for Cartes.
+     * Sets the position for searching for Cards.
      */
-    cursor?: CarteWhereUniqueInput
+    cursor?: CardWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` Cartes from the position of the cursor.
+     * Take `±n` Cards from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` Cartes.
+     * Skip the first `n` Cards.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
      * 
-     * Filter by unique combinations of Cartes.
+     * Filter by unique combinations of Cards.
      */
-    distinct?: CarteScalarFieldEnum | CarteScalarFieldEnum[]
+    distinct?: CardScalarFieldEnum | CardScalarFieldEnum[]
   }
 
   /**
-   * Carte findFirstOrThrow
+   * Card findFirstOrThrow
    */
-  export type CarteFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type CardFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Carte
+     * Select specific fields to fetch from the Card
      */
-    select?: CarteSelect<ExtArgs> | null
+    select?: CardSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Carte
+     * Omit specific fields from the Card
      */
-    omit?: CarteOmit<ExtArgs> | null
+    omit?: CardOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: CarteInclude<ExtArgs> | null
+    include?: CardInclude<ExtArgs> | null
     /**
-     * Filter, which Carte to fetch.
+     * Filter, which Card to fetch.
      */
-    where?: CarteWhereInput
+    where?: CardWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of Cartes to fetch.
+     * Determine the order of Cards to fetch.
      */
-    orderBy?: CarteOrderByWithRelationInput | CarteOrderByWithRelationInput[]
+    orderBy?: CardOrderByWithRelationInput | CardOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for searching for Cartes.
+     * Sets the position for searching for Cards.
      */
-    cursor?: CarteWhereUniqueInput
+    cursor?: CardWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` Cartes from the position of the cursor.
+     * Take `±n` Cards from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` Cartes.
+     * Skip the first `n` Cards.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
      * 
-     * Filter by unique combinations of Cartes.
+     * Filter by unique combinations of Cards.
      */
-    distinct?: CarteScalarFieldEnum | CarteScalarFieldEnum[]
+    distinct?: CardScalarFieldEnum | CardScalarFieldEnum[]
   }
 
   /**
-   * Carte findMany
+   * Card findMany
    */
-  export type CarteFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type CardFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Carte
+     * Select specific fields to fetch from the Card
      */
-    select?: CarteSelect<ExtArgs> | null
+    select?: CardSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Carte
+     * Omit specific fields from the Card
      */
-    omit?: CarteOmit<ExtArgs> | null
+    omit?: CardOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: CarteInclude<ExtArgs> | null
+    include?: CardInclude<ExtArgs> | null
     /**
-     * Filter, which Cartes to fetch.
+     * Filter, which Cards to fetch.
      */
-    where?: CarteWhereInput
+    where?: CardWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of Cartes to fetch.
+     * Determine the order of Cards to fetch.
      */
-    orderBy?: CarteOrderByWithRelationInput | CarteOrderByWithRelationInput[]
+    orderBy?: CardOrderByWithRelationInput | CardOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for listing Cartes.
+     * Sets the position for listing Cards.
      */
-    cursor?: CarteWhereUniqueInput
+    cursor?: CardWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` Cartes from the position of the cursor.
+     * Take `±n` Cards from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` Cartes.
+     * Skip the first `n` Cards.
      */
     skip?: number
-    distinct?: CarteScalarFieldEnum | CarteScalarFieldEnum[]
+    distinct?: CardScalarFieldEnum | CardScalarFieldEnum[]
   }
 
   /**
-   * Carte create
+   * Card create
    */
-  export type CarteCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type CardCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Carte
+     * Select specific fields to fetch from the Card
      */
-    select?: CarteSelect<ExtArgs> | null
+    select?: CardSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Carte
+     * Omit specific fields from the Card
      */
-    omit?: CarteOmit<ExtArgs> | null
+    omit?: CardOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: CarteInclude<ExtArgs> | null
+    include?: CardInclude<ExtArgs> | null
     /**
-     * The data needed to create a Carte.
+     * The data needed to create a Card.
      */
-    data: XOR<CarteCreateInput, CarteUncheckedCreateInput>
+    data: XOR<CardCreateInput, CardUncheckedCreateInput>
   }
 
   /**
-   * Carte createMany
+   * Card createMany
    */
-  export type CarteCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type CardCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * The data used to create many Cartes.
+     * The data used to create many Cards.
      */
-    data: CarteCreateManyInput | CarteCreateManyInput[]
+    data: CardCreateManyInput | CardCreateManyInput[]
     skipDuplicates?: boolean
   }
 
   /**
-   * Carte update
+   * Card update
    */
-  export type CarteUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type CardUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Carte
+     * Select specific fields to fetch from the Card
      */
-    select?: CarteSelect<ExtArgs> | null
+    select?: CardSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Carte
+     * Omit specific fields from the Card
      */
-    omit?: CarteOmit<ExtArgs> | null
+    omit?: CardOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: CarteInclude<ExtArgs> | null
+    include?: CardInclude<ExtArgs> | null
     /**
-     * The data needed to update a Carte.
+     * The data needed to update a Card.
      */
-    data: XOR<CarteUpdateInput, CarteUncheckedUpdateInput>
+    data: XOR<CardUpdateInput, CardUncheckedUpdateInput>
     /**
-     * Choose, which Carte to update.
+     * Choose, which Card to update.
      */
-    where: CarteWhereUniqueInput
+    where: CardWhereUniqueInput
   }
 
   /**
-   * Carte updateMany
+   * Card updateMany
    */
-  export type CarteUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type CardUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * The data used to update Cartes.
+     * The data used to update Cards.
      */
-    data: XOR<CarteUpdateManyMutationInput, CarteUncheckedUpdateManyInput>
+    data: XOR<CardUpdateManyMutationInput, CardUncheckedUpdateManyInput>
     /**
-     * Filter which Cartes to update
+     * Filter which Cards to update
      */
-    where?: CarteWhereInput
+    where?: CardWhereInput
     /**
-     * Limit how many Cartes to update.
+     * Limit how many Cards to update.
      */
     limit?: number
   }
 
   /**
-   * Carte upsert
+   * Card upsert
    */
-  export type CarteUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type CardUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Carte
+     * Select specific fields to fetch from the Card
      */
-    select?: CarteSelect<ExtArgs> | null
+    select?: CardSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Carte
+     * Omit specific fields from the Card
      */
-    omit?: CarteOmit<ExtArgs> | null
+    omit?: CardOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: CarteInclude<ExtArgs> | null
+    include?: CardInclude<ExtArgs> | null
     /**
-     * The filter to search for the Carte to update in case it exists.
+     * The filter to search for the Card to update in case it exists.
      */
-    where: CarteWhereUniqueInput
+    where: CardWhereUniqueInput
     /**
-     * In case the Carte found by the `where` argument doesn't exist, create a new Carte with this data.
+     * In case the Card found by the `where` argument doesn't exist, create a new Card with this data.
      */
-    create: XOR<CarteCreateInput, CarteUncheckedCreateInput>
+    create: XOR<CardCreateInput, CardUncheckedCreateInput>
     /**
-     * In case the Carte was found with the provided `where` argument, update it with this data.
+     * In case the Card was found with the provided `where` argument, update it with this data.
      */
-    update: XOR<CarteUpdateInput, CarteUncheckedUpdateInput>
+    update: XOR<CardUpdateInput, CardUncheckedUpdateInput>
   }
 
   /**
-   * Carte delete
+   * Card delete
    */
-  export type CarteDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type CardDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Carte
+     * Select specific fields to fetch from the Card
      */
-    select?: CarteSelect<ExtArgs> | null
+    select?: CardSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Carte
+     * Omit specific fields from the Card
      */
-    omit?: CarteOmit<ExtArgs> | null
+    omit?: CardOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: CarteInclude<ExtArgs> | null
+    include?: CardInclude<ExtArgs> | null
     /**
-     * Filter which Carte to delete.
+     * Filter which Card to delete.
      */
-    where: CarteWhereUniqueInput
+    where: CardWhereUniqueInput
   }
 
   /**
-   * Carte deleteMany
+   * Card deleteMany
    */
-  export type CarteDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type CardDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Filter which Cartes to delete
+     * Filter which Cards to delete
      */
-    where?: CarteWhereInput
+    where?: CardWhereInput
     /**
-     * Limit how many Cartes to delete.
+     * Limit how many Cards to delete.
      */
     limit?: number
   }
 
   /**
-   * Carte.choix
+   * Card.choice
    */
-  export type Carte$choixArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type Card$choiceArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Choix
+     * Select specific fields to fetch from the Choice
      */
-    select?: ChoixSelect<ExtArgs> | null
+    select?: ChoiceSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Choix
+     * Omit specific fields from the Choice
      */
-    omit?: ChoixOmit<ExtArgs> | null
+    omit?: ChoiceOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: ChoixInclude<ExtArgs> | null
-    where?: ChoixWhereInput
-    orderBy?: ChoixOrderByWithRelationInput | ChoixOrderByWithRelationInput[]
-    cursor?: ChoixWhereUniqueInput
+    include?: ChoiceInclude<ExtArgs> | null
+    where?: ChoiceWhereInput
+    orderBy?: ChoiceOrderByWithRelationInput | ChoiceOrderByWithRelationInput[]
+    cursor?: ChoiceWhereUniqueInput
     take?: number
     skip?: number
-    distinct?: ChoixScalarFieldEnum | ChoixScalarFieldEnum[]
+    distinct?: ChoiceScalarFieldEnum | ChoiceScalarFieldEnum[]
   }
 
   /**
-   * Carte.suivie_par
+   * Card.suivie_par
    */
-  export type Carte$suivie_parArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type Card$suivie_parArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Choix
+     * Select specific fields to fetch from the Choice
      */
-    select?: ChoixSelect<ExtArgs> | null
+    select?: ChoiceSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Choix
+     * Omit specific fields from the Choice
      */
-    omit?: ChoixOmit<ExtArgs> | null
+    omit?: ChoiceOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: ChoixInclude<ExtArgs> | null
-    where?: ChoixWhereInput
-    orderBy?: ChoixOrderByWithRelationInput | ChoixOrderByWithRelationInput[]
-    cursor?: ChoixWhereUniqueInput
+    include?: ChoiceInclude<ExtArgs> | null
+    where?: ChoiceWhereInput
+    orderBy?: ChoiceOrderByWithRelationInput | ChoiceOrderByWithRelationInput[]
+    cursor?: ChoiceWhereUniqueInput
     take?: number
     skip?: number
-    distinct?: ChoixScalarFieldEnum | ChoixScalarFieldEnum[]
+    distinct?: ChoiceScalarFieldEnum | ChoiceScalarFieldEnum[]
   }
 
   /**
-   * Carte without action
+   * Card without action
    */
-  export type CarteDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type CardDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Carte
+     * Select specific fields to fetch from the Card
      */
-    select?: CarteSelect<ExtArgs> | null
+    select?: CardSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Carte
+     * Omit specific fields from the Card
      */
-    omit?: CarteOmit<ExtArgs> | null
+    omit?: CardOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: CarteInclude<ExtArgs> | null
+    include?: CardInclude<ExtArgs> | null
   }
 
 
   /**
-   * Model Choix
+   * Model Choice
    */
 
-  export type AggregateChoix = {
-    _count: ChoixCountAggregateOutputType | null
-    _avg: ChoixAvgAggregateOutputType | null
-    _sum: ChoixSumAggregateOutputType | null
-    _min: ChoixMinAggregateOutputType | null
-    _max: ChoixMaxAggregateOutputType | null
+  export type AggregateChoice = {
+    _count: ChoiceCountAggregateOutputType | null
+    _avg: ChoiceAvgAggregateOutputType | null
+    _sum: ChoiceSumAggregateOutputType | null
+    _min: ChoiceMinAggregateOutputType | null
+    _max: ChoiceMaxAggregateOutputType | null
   }
 
-  export type ChoixAvgAggregateOutputType = {
-    choix_id: number | null
-    carte_suivante_default: number | null
-    carte_id: number | null
+  export type ChoiceAvgAggregateOutputType = {
+    choice_id: number | null
+    default_next_card: number | null
+    card_id: number | null
   }
 
-  export type ChoixSumAggregateOutputType = {
-    choix_id: number | null
-    carte_suivante_default: number | null
-    carte_id: number | null
+  export type ChoiceSumAggregateOutputType = {
+    choice_id: number | null
+    default_next_card: number | null
+    card_id: number | null
   }
 
-  export type ChoixMinAggregateOutputType = {
-    choix_id: number | null
+  export type ChoiceMinAggregateOutputType = {
+    choice_id: number | null
     texte: string | null
-    carte_suivante_default: number | null
-    carte_id: number | null
+    default_next_card: number | null
+    card_id: number | null
   }
 
-  export type ChoixMaxAggregateOutputType = {
-    choix_id: number | null
+  export type ChoiceMaxAggregateOutputType = {
+    choice_id: number | null
     texte: string | null
-    carte_suivante_default: number | null
-    carte_id: number | null
+    default_next_card: number | null
+    card_id: number | null
   }
 
-  export type ChoixCountAggregateOutputType = {
-    choix_id: number
+  export type ChoiceCountAggregateOutputType = {
+    choice_id: number
     texte: number
-    carte_suivante_default: number
-    carte_id: number
+    default_next_card: number
+    card_id: number
     _all: number
   }
 
 
-  export type ChoixAvgAggregateInputType = {
-    choix_id?: true
-    carte_suivante_default?: true
-    carte_id?: true
+  export type ChoiceAvgAggregateInputType = {
+    choice_id?: true
+    default_next_card?: true
+    card_id?: true
   }
 
-  export type ChoixSumAggregateInputType = {
-    choix_id?: true
-    carte_suivante_default?: true
-    carte_id?: true
+  export type ChoiceSumAggregateInputType = {
+    choice_id?: true
+    default_next_card?: true
+    card_id?: true
   }
 
-  export type ChoixMinAggregateInputType = {
-    choix_id?: true
+  export type ChoiceMinAggregateInputType = {
+    choice_id?: true
     texte?: true
-    carte_suivante_default?: true
-    carte_id?: true
+    default_next_card?: true
+    card_id?: true
   }
 
-  export type ChoixMaxAggregateInputType = {
-    choix_id?: true
+  export type ChoiceMaxAggregateInputType = {
+    choice_id?: true
     texte?: true
-    carte_suivante_default?: true
-    carte_id?: true
+    default_next_card?: true
+    card_id?: true
   }
 
-  export type ChoixCountAggregateInputType = {
-    choix_id?: true
+  export type ChoiceCountAggregateInputType = {
+    choice_id?: true
     texte?: true
-    carte_suivante_default?: true
-    carte_id?: true
+    default_next_card?: true
+    card_id?: true
     _all?: true
   }
 
-  export type ChoixAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type ChoiceAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Filter which Choix to aggregate.
+     * Filter which Choice to aggregate.
      */
-    where?: ChoixWhereInput
+    where?: ChoiceWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of Choixes to fetch.
+     * Determine the order of Choices to fetch.
      */
-    orderBy?: ChoixOrderByWithRelationInput | ChoixOrderByWithRelationInput[]
+    orderBy?: ChoiceOrderByWithRelationInput | ChoiceOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
      * Sets the start position
      */
-    cursor?: ChoixWhereUniqueInput
+    cursor?: ChoiceWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` Choixes from the position of the cursor.
+     * Take `±n` Choices from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` Choixes.
+     * Skip the first `n` Choices.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
-     * Count returned Choixes
+     * Count returned Choices
     **/
-    _count?: true | ChoixCountAggregateInputType
+    _count?: true | ChoiceCountAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to average
     **/
-    _avg?: ChoixAvgAggregateInputType
+    _avg?: ChoiceAvgAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to sum
     **/
-    _sum?: ChoixSumAggregateInputType
+    _sum?: ChoiceSumAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to find the minimum value
     **/
-    _min?: ChoixMinAggregateInputType
+    _min?: ChoiceMinAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to find the maximum value
     **/
-    _max?: ChoixMaxAggregateInputType
+    _max?: ChoiceMaxAggregateInputType
   }
 
-  export type GetChoixAggregateType<T extends ChoixAggregateArgs> = {
-        [P in keyof T & keyof AggregateChoix]: P extends '_count' | 'count'
+  export type GetChoiceAggregateType<T extends ChoiceAggregateArgs> = {
+        [P in keyof T & keyof AggregateChoice]: P extends '_count' | 'count'
       ? T[P] extends true
         ? number
-        : GetScalarType<T[P], AggregateChoix[P]>
-      : GetScalarType<T[P], AggregateChoix[P]>
+        : GetScalarType<T[P], AggregateChoice[P]>
+      : GetScalarType<T[P], AggregateChoice[P]>
   }
 
 
 
 
-  export type ChoixGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: ChoixWhereInput
-    orderBy?: ChoixOrderByWithAggregationInput | ChoixOrderByWithAggregationInput[]
-    by: ChoixScalarFieldEnum[] | ChoixScalarFieldEnum
-    having?: ChoixScalarWhereWithAggregatesInput
+  export type ChoiceGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: ChoiceWhereInput
+    orderBy?: ChoiceOrderByWithAggregationInput | ChoiceOrderByWithAggregationInput[]
+    by: ChoiceScalarFieldEnum[] | ChoiceScalarFieldEnum
+    having?: ChoiceScalarWhereWithAggregatesInput
     take?: number
     skip?: number
-    _count?: ChoixCountAggregateInputType | true
-    _avg?: ChoixAvgAggregateInputType
-    _sum?: ChoixSumAggregateInputType
-    _min?: ChoixMinAggregateInputType
-    _max?: ChoixMaxAggregateInputType
+    _count?: ChoiceCountAggregateInputType | true
+    _avg?: ChoiceAvgAggregateInputType
+    _sum?: ChoiceSumAggregateInputType
+    _min?: ChoiceMinAggregateInputType
+    _max?: ChoiceMaxAggregateInputType
   }
 
-  export type ChoixGroupByOutputType = {
-    choix_id: number
+  export type ChoiceGroupByOutputType = {
+    choice_id: number
     texte: string
-    carte_suivante_default: number | null
-    carte_id: number
-    _count: ChoixCountAggregateOutputType | null
-    _avg: ChoixAvgAggregateOutputType | null
-    _sum: ChoixSumAggregateOutputType | null
-    _min: ChoixMinAggregateOutputType | null
-    _max: ChoixMaxAggregateOutputType | null
+    default_next_card: number | null
+    card_id: number
+    _count: ChoiceCountAggregateOutputType | null
+    _avg: ChoiceAvgAggregateOutputType | null
+    _sum: ChoiceSumAggregateOutputType | null
+    _min: ChoiceMinAggregateOutputType | null
+    _max: ChoiceMaxAggregateOutputType | null
   }
 
-  type GetChoixGroupByPayload<T extends ChoixGroupByArgs> = Prisma.PrismaPromise<
+  type GetChoiceGroupByPayload<T extends ChoiceGroupByArgs> = Prisma.PrismaPromise<
     Array<
-      PickEnumerable<ChoixGroupByOutputType, T['by']> &
+      PickEnumerable<ChoiceGroupByOutputType, T['by']> &
         {
-          [P in ((keyof T) & (keyof ChoixGroupByOutputType))]: P extends '_count'
+          [P in ((keyof T) & (keyof ChoiceGroupByOutputType))]: P extends '_count'
             ? T[P] extends boolean
               ? number
-              : GetScalarType<T[P], ChoixGroupByOutputType[P]>
-            : GetScalarType<T[P], ChoixGroupByOutputType[P]>
+              : GetScalarType<T[P], ChoiceGroupByOutputType[P]>
+            : GetScalarType<T[P], ChoiceGroupByOutputType[P]>
         }
       >
     >
 
 
-  export type ChoixSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
-    choix_id?: boolean
+  export type ChoiceSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    choice_id?: boolean
     texte?: boolean
-    carte_suivante_default?: boolean
-    carte_id?: boolean
-    carte_suivante?: boolean | Choix$carte_suivanteArgs<ExtArgs>
-    carte?: boolean | CarteDefaultArgs<ExtArgs>
-  }, ExtArgs["result"]["choix"]>
+    default_next_card?: boolean
+    card_id?: boolean
+    next_card?: boolean | Choice$next_cardArgs<ExtArgs>
+    card?: boolean | CardDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["choice"]>
 
 
 
-  export type ChoixSelectScalar = {
-    choix_id?: boolean
+  export type ChoiceSelectScalar = {
+    choice_id?: boolean
     texte?: boolean
-    carte_suivante_default?: boolean
-    carte_id?: boolean
+    default_next_card?: boolean
+    card_id?: boolean
   }
 
-  export type ChoixOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"choix_id" | "texte" | "carte_suivante_default" | "carte_id", ExtArgs["result"]["choix"]>
-  export type ChoixInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    carte_suivante?: boolean | Choix$carte_suivanteArgs<ExtArgs>
-    carte?: boolean | CarteDefaultArgs<ExtArgs>
+  export type ChoiceOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"choice_id" | "texte" | "default_next_card" | "card_id", ExtArgs["result"]["choice"]>
+  export type ChoiceInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    next_card?: boolean | Choice$next_cardArgs<ExtArgs>
+    card?: boolean | CardDefaultArgs<ExtArgs>
   }
 
-  export type $ChoixPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    name: "Choix"
+  export type $ChoicePayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "Choice"
     objects: {
-      carte_suivante: Prisma.$CartePayload<ExtArgs> | null
-      carte: Prisma.$CartePayload<ExtArgs>
+      next_card: Prisma.$CardPayload<ExtArgs> | null
+      card: Prisma.$CardPayload<ExtArgs>
     }
     scalars: $Extensions.GetPayloadResult<{
-      choix_id: number
+      choice_id: number
       texte: string
-      carte_suivante_default: number | null
-      carte_id: number
-    }, ExtArgs["result"]["choix"]>
+      default_next_card: number | null
+      card_id: number
+    }, ExtArgs["result"]["choice"]>
     composites: {}
   }
 
-  type ChoixGetPayload<S extends boolean | null | undefined | ChoixDefaultArgs> = $Result.GetResult<Prisma.$ChoixPayload, S>
+  type ChoiceGetPayload<S extends boolean | null | undefined | ChoiceDefaultArgs> = $Result.GetResult<Prisma.$ChoicePayload, S>
 
-  type ChoixCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
-    Omit<ChoixFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
-      select?: ChoixCountAggregateInputType | true
+  type ChoiceCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<ChoiceFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: ChoiceCountAggregateInputType | true
     }
 
-  export interface ChoixDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
-    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['Choix'], meta: { name: 'Choix' } }
+  export interface ChoiceDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['Choice'], meta: { name: 'Choice' } }
     /**
-     * Find zero or one Choix that matches the filter.
-     * @param {ChoixFindUniqueArgs} args - Arguments to find a Choix
+     * Find zero or one Choice that matches the filter.
+     * @param {ChoiceFindUniqueArgs} args - Arguments to find a Choice
      * @example
-     * // Get one Choix
-     * const choix = await prisma.choix.findUnique({
+     * // Get one Choice
+     * const choice = await prisma.choice.findUnique({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findUnique<T extends ChoixFindUniqueArgs>(args: SelectSubset<T, ChoixFindUniqueArgs<ExtArgs>>): Prisma__ChoixClient<$Result.GetResult<Prisma.$ChoixPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    findUnique<T extends ChoiceFindUniqueArgs>(args: SelectSubset<T, ChoiceFindUniqueArgs<ExtArgs>>): Prisma__ChoiceClient<$Result.GetResult<Prisma.$ChoicePayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Find one Choix that matches the filter or throw an error with `error.code='P2025'`
+     * Find one Choice that matches the filter or throw an error with `error.code='P2025'`
      * if no matches were found.
-     * @param {ChoixFindUniqueOrThrowArgs} args - Arguments to find a Choix
+     * @param {ChoiceFindUniqueOrThrowArgs} args - Arguments to find a Choice
      * @example
-     * // Get one Choix
-     * const choix = await prisma.choix.findUniqueOrThrow({
+     * // Get one Choice
+     * const choice = await prisma.choice.findUniqueOrThrow({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findUniqueOrThrow<T extends ChoixFindUniqueOrThrowArgs>(args: SelectSubset<T, ChoixFindUniqueOrThrowArgs<ExtArgs>>): Prisma__ChoixClient<$Result.GetResult<Prisma.$ChoixPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    findUniqueOrThrow<T extends ChoiceFindUniqueOrThrowArgs>(args: SelectSubset<T, ChoiceFindUniqueOrThrowArgs<ExtArgs>>): Prisma__ChoiceClient<$Result.GetResult<Prisma.$ChoicePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Find the first Choix that matches the filter.
+     * Find the first Choice that matches the filter.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {ChoixFindFirstArgs} args - Arguments to find a Choix
+     * @param {ChoiceFindFirstArgs} args - Arguments to find a Choice
      * @example
-     * // Get one Choix
-     * const choix = await prisma.choix.findFirst({
+     * // Get one Choice
+     * const choice = await prisma.choice.findFirst({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findFirst<T extends ChoixFindFirstArgs>(args?: SelectSubset<T, ChoixFindFirstArgs<ExtArgs>>): Prisma__ChoixClient<$Result.GetResult<Prisma.$ChoixPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    findFirst<T extends ChoiceFindFirstArgs>(args?: SelectSubset<T, ChoiceFindFirstArgs<ExtArgs>>): Prisma__ChoiceClient<$Result.GetResult<Prisma.$ChoicePayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Find the first Choix that matches the filter or
+     * Find the first Choice that matches the filter or
      * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {ChoixFindFirstOrThrowArgs} args - Arguments to find a Choix
+     * @param {ChoiceFindFirstOrThrowArgs} args - Arguments to find a Choice
      * @example
-     * // Get one Choix
-     * const choix = await prisma.choix.findFirstOrThrow({
+     * // Get one Choice
+     * const choice = await prisma.choice.findFirstOrThrow({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findFirstOrThrow<T extends ChoixFindFirstOrThrowArgs>(args?: SelectSubset<T, ChoixFindFirstOrThrowArgs<ExtArgs>>): Prisma__ChoixClient<$Result.GetResult<Prisma.$ChoixPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    findFirstOrThrow<T extends ChoiceFindFirstOrThrowArgs>(args?: SelectSubset<T, ChoiceFindFirstOrThrowArgs<ExtArgs>>): Prisma__ChoiceClient<$Result.GetResult<Prisma.$ChoicePayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Find zero or more Choixes that matches the filter.
+     * Find zero or more Choices that matches the filter.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {ChoixFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @param {ChoiceFindManyArgs} args - Arguments to filter and select certain fields only.
      * @example
-     * // Get all Choixes
-     * const choixes = await prisma.choix.findMany()
+     * // Get all Choices
+     * const choices = await prisma.choice.findMany()
      * 
-     * // Get first 10 Choixes
-     * const choixes = await prisma.choix.findMany({ take: 10 })
+     * // Get first 10 Choices
+     * const choices = await prisma.choice.findMany({ take: 10 })
      * 
-     * // Only select the `choix_id`
-     * const choixWithChoix_idOnly = await prisma.choix.findMany({ select: { choix_id: true } })
+     * // Only select the `choice_id`
+     * const choiceWithChoice_idOnly = await prisma.choice.findMany({ select: { choice_id: true } })
      * 
      */
-    findMany<T extends ChoixFindManyArgs>(args?: SelectSubset<T, ChoixFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ChoixPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+    findMany<T extends ChoiceFindManyArgs>(args?: SelectSubset<T, ChoiceFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ChoicePayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
 
     /**
-     * Create a Choix.
-     * @param {ChoixCreateArgs} args - Arguments to create a Choix.
+     * Create a Choice.
+     * @param {ChoiceCreateArgs} args - Arguments to create a Choice.
      * @example
-     * // Create one Choix
-     * const Choix = await prisma.choix.create({
+     * // Create one Choice
+     * const Choice = await prisma.choice.create({
      *   data: {
-     *     // ... data to create a Choix
+     *     // ... data to create a Choice
      *   }
      * })
      * 
      */
-    create<T extends ChoixCreateArgs>(args: SelectSubset<T, ChoixCreateArgs<ExtArgs>>): Prisma__ChoixClient<$Result.GetResult<Prisma.$ChoixPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    create<T extends ChoiceCreateArgs>(args: SelectSubset<T, ChoiceCreateArgs<ExtArgs>>): Prisma__ChoiceClient<$Result.GetResult<Prisma.$ChoicePayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Create many Choixes.
-     * @param {ChoixCreateManyArgs} args - Arguments to create many Choixes.
+     * Create many Choices.
+     * @param {ChoiceCreateManyArgs} args - Arguments to create many Choices.
      * @example
-     * // Create many Choixes
-     * const choix = await prisma.choix.createMany({
+     * // Create many Choices
+     * const choice = await prisma.choice.createMany({
      *   data: [
      *     // ... provide data here
      *   ]
      * })
      *     
      */
-    createMany<T extends ChoixCreateManyArgs>(args?: SelectSubset<T, ChoixCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+    createMany<T extends ChoiceCreateManyArgs>(args?: SelectSubset<T, ChoiceCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
     /**
-     * Delete a Choix.
-     * @param {ChoixDeleteArgs} args - Arguments to delete one Choix.
+     * Delete a Choice.
+     * @param {ChoiceDeleteArgs} args - Arguments to delete one Choice.
      * @example
-     * // Delete one Choix
-     * const Choix = await prisma.choix.delete({
+     * // Delete one Choice
+     * const Choice = await prisma.choice.delete({
      *   where: {
-     *     // ... filter to delete one Choix
+     *     // ... filter to delete one Choice
      *   }
      * })
      * 
      */
-    delete<T extends ChoixDeleteArgs>(args: SelectSubset<T, ChoixDeleteArgs<ExtArgs>>): Prisma__ChoixClient<$Result.GetResult<Prisma.$ChoixPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    delete<T extends ChoiceDeleteArgs>(args: SelectSubset<T, ChoiceDeleteArgs<ExtArgs>>): Prisma__ChoiceClient<$Result.GetResult<Prisma.$ChoicePayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Update one Choix.
-     * @param {ChoixUpdateArgs} args - Arguments to update one Choix.
+     * Update one Choice.
+     * @param {ChoiceUpdateArgs} args - Arguments to update one Choice.
      * @example
-     * // Update one Choix
-     * const choix = await prisma.choix.update({
+     * // Update one Choice
+     * const choice = await prisma.choice.update({
      *   where: {
      *     // ... provide filter here
      *   },
@@ -4607,30 +4607,30 @@ export namespace Prisma {
      * })
      * 
      */
-    update<T extends ChoixUpdateArgs>(args: SelectSubset<T, ChoixUpdateArgs<ExtArgs>>): Prisma__ChoixClient<$Result.GetResult<Prisma.$ChoixPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    update<T extends ChoiceUpdateArgs>(args: SelectSubset<T, ChoiceUpdateArgs<ExtArgs>>): Prisma__ChoiceClient<$Result.GetResult<Prisma.$ChoicePayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Delete zero or more Choixes.
-     * @param {ChoixDeleteManyArgs} args - Arguments to filter Choixes to delete.
+     * Delete zero or more Choices.
+     * @param {ChoiceDeleteManyArgs} args - Arguments to filter Choices to delete.
      * @example
-     * // Delete a few Choixes
-     * const { count } = await prisma.choix.deleteMany({
+     * // Delete a few Choices
+     * const { count } = await prisma.choice.deleteMany({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      * 
      */
-    deleteMany<T extends ChoixDeleteManyArgs>(args?: SelectSubset<T, ChoixDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+    deleteMany<T extends ChoiceDeleteManyArgs>(args?: SelectSubset<T, ChoiceDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
     /**
-     * Update zero or more Choixes.
+     * Update zero or more Choices.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {ChoixUpdateManyArgs} args - Arguments to update one or more rows.
+     * @param {ChoiceUpdateManyArgs} args - Arguments to update one or more rows.
      * @example
-     * // Update many Choixes
-     * const choix = await prisma.choix.updateMany({
+     * // Update many Choices
+     * const choice = await prisma.choice.updateMany({
      *   where: {
      *     // ... provide filter here
      *   },
@@ -4640,56 +4640,56 @@ export namespace Prisma {
      * })
      * 
      */
-    updateMany<T extends ChoixUpdateManyArgs>(args: SelectSubset<T, ChoixUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+    updateMany<T extends ChoiceUpdateManyArgs>(args: SelectSubset<T, ChoiceUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
     /**
-     * Create or update one Choix.
-     * @param {ChoixUpsertArgs} args - Arguments to update or create a Choix.
+     * Create or update one Choice.
+     * @param {ChoiceUpsertArgs} args - Arguments to update or create a Choice.
      * @example
-     * // Update or create a Choix
-     * const choix = await prisma.choix.upsert({
+     * // Update or create a Choice
+     * const choice = await prisma.choice.upsert({
      *   create: {
-     *     // ... data to create a Choix
+     *     // ... data to create a Choice
      *   },
      *   update: {
      *     // ... in case it already exists, update
      *   },
      *   where: {
-     *     // ... the filter for the Choix we want to update
+     *     // ... the filter for the Choice we want to update
      *   }
      * })
      */
-    upsert<T extends ChoixUpsertArgs>(args: SelectSubset<T, ChoixUpsertArgs<ExtArgs>>): Prisma__ChoixClient<$Result.GetResult<Prisma.$ChoixPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    upsert<T extends ChoiceUpsertArgs>(args: SelectSubset<T, ChoiceUpsertArgs<ExtArgs>>): Prisma__ChoiceClient<$Result.GetResult<Prisma.$ChoicePayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
 
     /**
-     * Count the number of Choixes.
+     * Count the number of Choices.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {ChoixCountArgs} args - Arguments to filter Choixes to count.
+     * @param {ChoiceCountArgs} args - Arguments to filter Choices to count.
      * @example
-     * // Count the number of Choixes
-     * const count = await prisma.choix.count({
+     * // Count the number of Choices
+     * const count = await prisma.choice.count({
      *   where: {
-     *     // ... the filter for the Choixes we want to count
+     *     // ... the filter for the Choices we want to count
      *   }
      * })
     **/
-    count<T extends ChoixCountArgs>(
-      args?: Subset<T, ChoixCountArgs>,
+    count<T extends ChoiceCountArgs>(
+      args?: Subset<T, ChoiceCountArgs>,
     ): Prisma.PrismaPromise<
       T extends $Utils.Record<'select', any>
         ? T['select'] extends true
           ? number
-          : GetScalarType<T['select'], ChoixCountAggregateOutputType>
+          : GetScalarType<T['select'], ChoiceCountAggregateOutputType>
         : number
     >
 
     /**
-     * Allows you to perform aggregations operations on a Choix.
+     * Allows you to perform aggregations operations on a Choice.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {ChoixAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @param {ChoiceAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
      * @example
      * // Ordered by age ascending
      * // Where email contains prisma.io
@@ -4709,13 +4709,13 @@ export namespace Prisma {
      *   take: 10,
      * })
     **/
-    aggregate<T extends ChoixAggregateArgs>(args: Subset<T, ChoixAggregateArgs>): Prisma.PrismaPromise<GetChoixAggregateType<T>>
+    aggregate<T extends ChoiceAggregateArgs>(args: Subset<T, ChoiceAggregateArgs>): Prisma.PrismaPromise<GetChoiceAggregateType<T>>
 
     /**
-     * Group by Choix.
+     * Group by Choice.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {ChoixGroupByArgs} args - Group by arguments.
+     * @param {ChoiceGroupByArgs} args - Group by arguments.
      * @example
      * // Group by city, order by createdAt, get count
      * const result = await prisma.user.groupBy({
@@ -4730,14 +4730,14 @@ export namespace Prisma {
      * 
     **/
     groupBy<
-      T extends ChoixGroupByArgs,
+      T extends ChoiceGroupByArgs,
       HasSelectOrTake extends Or<
         Extends<'skip', Keys<T>>,
         Extends<'take', Keys<T>>
       >,
       OrderByArg extends True extends HasSelectOrTake
-        ? { orderBy: ChoixGroupByArgs['orderBy'] }
-        : { orderBy?: ChoixGroupByArgs['orderBy'] },
+        ? { orderBy: ChoiceGroupByArgs['orderBy'] }
+        : { orderBy?: ChoiceGroupByArgs['orderBy'] },
       OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
       ByFields extends MaybeTupleToUnion<T['by']>,
       ByValid extends Has<ByFields, OrderFields>,
@@ -4786,23 +4786,23 @@ export namespace Prisma {
             ? never
             : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
         }[OrderFields]
-    >(args: SubsetIntersection<T, ChoixGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetChoixGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+    >(args: SubsetIntersection<T, ChoiceGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetChoiceGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
   /**
-   * Fields of the Choix model
+   * Fields of the Choice model
    */
-  readonly fields: ChoixFieldRefs;
+  readonly fields: ChoiceFieldRefs;
   }
 
   /**
-   * The delegate class that acts as a "Promise-like" for Choix.
+   * The delegate class that acts as a "Promise-like" for Choice.
    * Why is this prefixed with `Prisma__`?
    * Because we want to prevent naming conflicts as mentioned in
    * https://github.com/prisma/prisma-client-js/issues/707
    */
-  export interface Prisma__ChoixClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+  export interface Prisma__ChoiceClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
-    carte_suivante<T extends Choix$carte_suivanteArgs<ExtArgs> = {}>(args?: Subset<T, Choix$carte_suivanteArgs<ExtArgs>>): Prisma__CarteClient<$Result.GetResult<Prisma.$CartePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
-    carte<T extends CarteDefaultArgs<ExtArgs> = {}>(args?: Subset<T, CarteDefaultArgs<ExtArgs>>): Prisma__CarteClient<$Result.GetResult<Prisma.$CartePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    next_card<T extends Choice$next_cardArgs<ExtArgs> = {}>(args?: Subset<T, Choice$next_cardArgs<ExtArgs>>): Prisma__CardClient<$Result.GetResult<Prisma.$CardPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    card<T extends CardDefaultArgs<ExtArgs> = {}>(args?: Subset<T, CardDefaultArgs<ExtArgs>>): Prisma__CardClient<$Result.GetResult<Prisma.$CardPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -4829,390 +4829,390 @@ export namespace Prisma {
 
 
   /**
-   * Fields of the Choix model
+   * Fields of the Choice model
    */
-  interface ChoixFieldRefs {
-    readonly choix_id: FieldRef<"Choix", 'Int'>
-    readonly texte: FieldRef<"Choix", 'String'>
-    readonly carte_suivante_default: FieldRef<"Choix", 'Int'>
-    readonly carte_id: FieldRef<"Choix", 'Int'>
+  interface ChoiceFieldRefs {
+    readonly choice_id: FieldRef<"Choice", 'Int'>
+    readonly texte: FieldRef<"Choice", 'String'>
+    readonly default_next_card: FieldRef<"Choice", 'Int'>
+    readonly card_id: FieldRef<"Choice", 'Int'>
   }
     
 
   // Custom InputTypes
   /**
-   * Choix findUnique
+   * Choice findUnique
    */
-  export type ChoixFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type ChoiceFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Choix
+     * Select specific fields to fetch from the Choice
      */
-    select?: ChoixSelect<ExtArgs> | null
+    select?: ChoiceSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Choix
+     * Omit specific fields from the Choice
      */
-    omit?: ChoixOmit<ExtArgs> | null
+    omit?: ChoiceOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: ChoixInclude<ExtArgs> | null
+    include?: ChoiceInclude<ExtArgs> | null
     /**
-     * Filter, which Choix to fetch.
+     * Filter, which Choice to fetch.
      */
-    where: ChoixWhereUniqueInput
+    where: ChoiceWhereUniqueInput
   }
 
   /**
-   * Choix findUniqueOrThrow
+   * Choice findUniqueOrThrow
    */
-  export type ChoixFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type ChoiceFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Choix
+     * Select specific fields to fetch from the Choice
      */
-    select?: ChoixSelect<ExtArgs> | null
+    select?: ChoiceSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Choix
+     * Omit specific fields from the Choice
      */
-    omit?: ChoixOmit<ExtArgs> | null
+    omit?: ChoiceOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: ChoixInclude<ExtArgs> | null
+    include?: ChoiceInclude<ExtArgs> | null
     /**
-     * Filter, which Choix to fetch.
+     * Filter, which Choice to fetch.
      */
-    where: ChoixWhereUniqueInput
+    where: ChoiceWhereUniqueInput
   }
 
   /**
-   * Choix findFirst
+   * Choice findFirst
    */
-  export type ChoixFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type ChoiceFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Choix
+     * Select specific fields to fetch from the Choice
      */
-    select?: ChoixSelect<ExtArgs> | null
+    select?: ChoiceSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Choix
+     * Omit specific fields from the Choice
      */
-    omit?: ChoixOmit<ExtArgs> | null
+    omit?: ChoiceOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: ChoixInclude<ExtArgs> | null
+    include?: ChoiceInclude<ExtArgs> | null
     /**
-     * Filter, which Choix to fetch.
+     * Filter, which Choice to fetch.
      */
-    where?: ChoixWhereInput
+    where?: ChoiceWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of Choixes to fetch.
+     * Determine the order of Choices to fetch.
      */
-    orderBy?: ChoixOrderByWithRelationInput | ChoixOrderByWithRelationInput[]
+    orderBy?: ChoiceOrderByWithRelationInput | ChoiceOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for searching for Choixes.
+     * Sets the position for searching for Choices.
      */
-    cursor?: ChoixWhereUniqueInput
+    cursor?: ChoiceWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` Choixes from the position of the cursor.
+     * Take `±n` Choices from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` Choixes.
+     * Skip the first `n` Choices.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
      * 
-     * Filter by unique combinations of Choixes.
+     * Filter by unique combinations of Choices.
      */
-    distinct?: ChoixScalarFieldEnum | ChoixScalarFieldEnum[]
+    distinct?: ChoiceScalarFieldEnum | ChoiceScalarFieldEnum[]
   }
 
   /**
-   * Choix findFirstOrThrow
+   * Choice findFirstOrThrow
    */
-  export type ChoixFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type ChoiceFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Choix
+     * Select specific fields to fetch from the Choice
      */
-    select?: ChoixSelect<ExtArgs> | null
+    select?: ChoiceSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Choix
+     * Omit specific fields from the Choice
      */
-    omit?: ChoixOmit<ExtArgs> | null
+    omit?: ChoiceOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: ChoixInclude<ExtArgs> | null
+    include?: ChoiceInclude<ExtArgs> | null
     /**
-     * Filter, which Choix to fetch.
+     * Filter, which Choice to fetch.
      */
-    where?: ChoixWhereInput
+    where?: ChoiceWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of Choixes to fetch.
+     * Determine the order of Choices to fetch.
      */
-    orderBy?: ChoixOrderByWithRelationInput | ChoixOrderByWithRelationInput[]
+    orderBy?: ChoiceOrderByWithRelationInput | ChoiceOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for searching for Choixes.
+     * Sets the position for searching for Choices.
      */
-    cursor?: ChoixWhereUniqueInput
+    cursor?: ChoiceWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` Choixes from the position of the cursor.
+     * Take `±n` Choices from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` Choixes.
+     * Skip the first `n` Choices.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
      * 
-     * Filter by unique combinations of Choixes.
+     * Filter by unique combinations of Choices.
      */
-    distinct?: ChoixScalarFieldEnum | ChoixScalarFieldEnum[]
+    distinct?: ChoiceScalarFieldEnum | ChoiceScalarFieldEnum[]
   }
 
   /**
-   * Choix findMany
+   * Choice findMany
    */
-  export type ChoixFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type ChoiceFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Choix
+     * Select specific fields to fetch from the Choice
      */
-    select?: ChoixSelect<ExtArgs> | null
+    select?: ChoiceSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Choix
+     * Omit specific fields from the Choice
      */
-    omit?: ChoixOmit<ExtArgs> | null
+    omit?: ChoiceOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: ChoixInclude<ExtArgs> | null
+    include?: ChoiceInclude<ExtArgs> | null
     /**
-     * Filter, which Choixes to fetch.
+     * Filter, which Choices to fetch.
      */
-    where?: ChoixWhereInput
+    where?: ChoiceWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of Choixes to fetch.
+     * Determine the order of Choices to fetch.
      */
-    orderBy?: ChoixOrderByWithRelationInput | ChoixOrderByWithRelationInput[]
+    orderBy?: ChoiceOrderByWithRelationInput | ChoiceOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for listing Choixes.
+     * Sets the position for listing Choices.
      */
-    cursor?: ChoixWhereUniqueInput
+    cursor?: ChoiceWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` Choixes from the position of the cursor.
+     * Take `±n` Choices from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` Choixes.
+     * Skip the first `n` Choices.
      */
     skip?: number
-    distinct?: ChoixScalarFieldEnum | ChoixScalarFieldEnum[]
+    distinct?: ChoiceScalarFieldEnum | ChoiceScalarFieldEnum[]
   }
 
   /**
-   * Choix create
+   * Choice create
    */
-  export type ChoixCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type ChoiceCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Choix
+     * Select specific fields to fetch from the Choice
      */
-    select?: ChoixSelect<ExtArgs> | null
+    select?: ChoiceSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Choix
+     * Omit specific fields from the Choice
      */
-    omit?: ChoixOmit<ExtArgs> | null
+    omit?: ChoiceOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: ChoixInclude<ExtArgs> | null
+    include?: ChoiceInclude<ExtArgs> | null
     /**
-     * The data needed to create a Choix.
+     * The data needed to create a Choice.
      */
-    data: XOR<ChoixCreateInput, ChoixUncheckedCreateInput>
+    data: XOR<ChoiceCreateInput, ChoiceUncheckedCreateInput>
   }
 
   /**
-   * Choix createMany
+   * Choice createMany
    */
-  export type ChoixCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type ChoiceCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * The data used to create many Choixes.
+     * The data used to create many Choices.
      */
-    data: ChoixCreateManyInput | ChoixCreateManyInput[]
+    data: ChoiceCreateManyInput | ChoiceCreateManyInput[]
     skipDuplicates?: boolean
   }
 
   /**
-   * Choix update
+   * Choice update
    */
-  export type ChoixUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type ChoiceUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Choix
+     * Select specific fields to fetch from the Choice
      */
-    select?: ChoixSelect<ExtArgs> | null
+    select?: ChoiceSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Choix
+     * Omit specific fields from the Choice
      */
-    omit?: ChoixOmit<ExtArgs> | null
+    omit?: ChoiceOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: ChoixInclude<ExtArgs> | null
+    include?: ChoiceInclude<ExtArgs> | null
     /**
-     * The data needed to update a Choix.
+     * The data needed to update a Choice.
      */
-    data: XOR<ChoixUpdateInput, ChoixUncheckedUpdateInput>
+    data: XOR<ChoiceUpdateInput, ChoiceUncheckedUpdateInput>
     /**
-     * Choose, which Choix to update.
+     * Choose, which Choice to update.
      */
-    where: ChoixWhereUniqueInput
+    where: ChoiceWhereUniqueInput
   }
 
   /**
-   * Choix updateMany
+   * Choice updateMany
    */
-  export type ChoixUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type ChoiceUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * The data used to update Choixes.
+     * The data used to update Choices.
      */
-    data: XOR<ChoixUpdateManyMutationInput, ChoixUncheckedUpdateManyInput>
+    data: XOR<ChoiceUpdateManyMutationInput, ChoiceUncheckedUpdateManyInput>
     /**
-     * Filter which Choixes to update
+     * Filter which Choices to update
      */
-    where?: ChoixWhereInput
+    where?: ChoiceWhereInput
     /**
-     * Limit how many Choixes to update.
+     * Limit how many Choices to update.
      */
     limit?: number
   }
 
   /**
-   * Choix upsert
+   * Choice upsert
    */
-  export type ChoixUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type ChoiceUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Choix
+     * Select specific fields to fetch from the Choice
      */
-    select?: ChoixSelect<ExtArgs> | null
+    select?: ChoiceSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Choix
+     * Omit specific fields from the Choice
      */
-    omit?: ChoixOmit<ExtArgs> | null
+    omit?: ChoiceOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: ChoixInclude<ExtArgs> | null
+    include?: ChoiceInclude<ExtArgs> | null
     /**
-     * The filter to search for the Choix to update in case it exists.
+     * The filter to search for the Choice to update in case it exists.
      */
-    where: ChoixWhereUniqueInput
+    where: ChoiceWhereUniqueInput
     /**
-     * In case the Choix found by the `where` argument doesn't exist, create a new Choix with this data.
+     * In case the Choice found by the `where` argument doesn't exist, create a new Choice with this data.
      */
-    create: XOR<ChoixCreateInput, ChoixUncheckedCreateInput>
+    create: XOR<ChoiceCreateInput, ChoiceUncheckedCreateInput>
     /**
-     * In case the Choix was found with the provided `where` argument, update it with this data.
+     * In case the Choice was found with the provided `where` argument, update it with this data.
      */
-    update: XOR<ChoixUpdateInput, ChoixUncheckedUpdateInput>
+    update: XOR<ChoiceUpdateInput, ChoiceUncheckedUpdateInput>
   }
 
   /**
-   * Choix delete
+   * Choice delete
    */
-  export type ChoixDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type ChoiceDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Choix
+     * Select specific fields to fetch from the Choice
      */
-    select?: ChoixSelect<ExtArgs> | null
+    select?: ChoiceSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Choix
+     * Omit specific fields from the Choice
      */
-    omit?: ChoixOmit<ExtArgs> | null
+    omit?: ChoiceOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: ChoixInclude<ExtArgs> | null
+    include?: ChoiceInclude<ExtArgs> | null
     /**
-     * Filter which Choix to delete.
+     * Filter which Choice to delete.
      */
-    where: ChoixWhereUniqueInput
+    where: ChoiceWhereUniqueInput
   }
 
   /**
-   * Choix deleteMany
+   * Choice deleteMany
    */
-  export type ChoixDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type ChoiceDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Filter which Choixes to delete
+     * Filter which Choices to delete
      */
-    where?: ChoixWhereInput
+    where?: ChoiceWhereInput
     /**
-     * Limit how many Choixes to delete.
+     * Limit how many Choices to delete.
      */
     limit?: number
   }
 
   /**
-   * Choix.carte_suivante
+   * Choice.next_card
    */
-  export type Choix$carte_suivanteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type Choice$next_cardArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Carte
+     * Select specific fields to fetch from the Card
      */
-    select?: CarteSelect<ExtArgs> | null
+    select?: CardSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Carte
+     * Omit specific fields from the Card
      */
-    omit?: CarteOmit<ExtArgs> | null
+    omit?: CardOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: CarteInclude<ExtArgs> | null
-    where?: CarteWhereInput
+    include?: CardInclude<ExtArgs> | null
+    where?: CardWhereInput
   }
 
   /**
-   * Choix without action
+   * Choice without action
    */
-  export type ChoixDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type ChoiceDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Choix
+     * Select specific fields to fetch from the Choice
      */
-    select?: ChoixSelect<ExtArgs> | null
+    select?: ChoiceSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Choix
+     * Omit specific fields from the Choice
      */
-    omit?: ChoixOmit<ExtArgs> | null
+    omit?: ChoiceOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: ChoixInclude<ExtArgs> | null
+    include?: ChoiceInclude<ExtArgs> | null
   }
 
 
@@ -5230,48 +5230,48 @@ export namespace Prisma {
   export type TransactionIsolationLevel = (typeof TransactionIsolationLevel)[keyof typeof TransactionIsolationLevel]
 
 
-  export const JoueurScalarFieldEnum: {
-    joueur_id: 'joueur_id',
+  export const UserScalarFieldEnum: {
+    user_id: 'user_id',
     email: 'email',
-    mdp: 'mdp',
+    password: 'password',
     role: 'role',
-    date_creation: 'date_creation'
+    creation_date: 'creation_date'
   };
 
-  export type JoueurScalarFieldEnum = (typeof JoueurScalarFieldEnum)[keyof typeof JoueurScalarFieldEnum]
+  export type UserScalarFieldEnum = (typeof UserScalarFieldEnum)[keyof typeof UserScalarFieldEnum]
 
 
-  export const PartieScalarFieldEnum: {
-    partie_id: 'partie_id',
-    date_debut_partie: 'date_debut_partie',
-    date_fin_partie: 'date_fin_partie',
-    statut: 'statut',
-    joueur_id: 'joueur_id'
+  export const GameScalarFieldEnum: {
+    game_id: 'game_id',
+    game_start_date: 'game_start_date',
+    game_end_date: 'game_end_date',
+    status: 'status',
+    user_id: 'user_id'
   };
 
-  export type PartieScalarFieldEnum = (typeof PartieScalarFieldEnum)[keyof typeof PartieScalarFieldEnum]
+  export type GameScalarFieldEnum = (typeof GameScalarFieldEnum)[keyof typeof GameScalarFieldEnum]
 
 
-  export const CarteScalarFieldEnum: {
-    carte_id: 'carte_id',
+  export const CardScalarFieldEnum: {
+    card_id: 'card_id',
     titre: 'titre',
     image_url: 'image_url',
     texte: 'texte',
     is_over: 'is_over',
-    partie_id: 'partie_id'
+    game_id: 'game_id'
   };
 
-  export type CarteScalarFieldEnum = (typeof CarteScalarFieldEnum)[keyof typeof CarteScalarFieldEnum]
+  export type CardScalarFieldEnum = (typeof CardScalarFieldEnum)[keyof typeof CardScalarFieldEnum]
 
 
-  export const ChoixScalarFieldEnum: {
-    choix_id: 'choix_id',
+  export const ChoiceScalarFieldEnum: {
+    choice_id: 'choice_id',
     texte: 'texte',
-    carte_suivante_default: 'carte_suivante_default',
-    carte_id: 'carte_id'
+    default_next_card: 'default_next_card',
+    card_id: 'card_id'
   };
 
-  export type ChoixScalarFieldEnum = (typeof ChoixScalarFieldEnum)[keyof typeof ChoixScalarFieldEnum]
+  export type ChoiceScalarFieldEnum = (typeof ChoiceScalarFieldEnum)[keyof typeof ChoiceScalarFieldEnum]
 
 
   export const SortOrder: {
@@ -5282,13 +5282,13 @@ export namespace Prisma {
   export type SortOrder = (typeof SortOrder)[keyof typeof SortOrder]
 
 
-  export const JoueurOrderByRelevanceFieldEnum: {
+  export const UserOrderByRelevanceFieldEnum: {
     email: 'email',
-    mdp: 'mdp',
+    password: 'password',
     role: 'role'
   };
 
-  export type JoueurOrderByRelevanceFieldEnum = (typeof JoueurOrderByRelevanceFieldEnum)[keyof typeof JoueurOrderByRelevanceFieldEnum]
+  export type UserOrderByRelevanceFieldEnum = (typeof UserOrderByRelevanceFieldEnum)[keyof typeof UserOrderByRelevanceFieldEnum]
 
 
   export const NullsOrder: {
@@ -5299,27 +5299,27 @@ export namespace Prisma {
   export type NullsOrder = (typeof NullsOrder)[keyof typeof NullsOrder]
 
 
-  export const PartieOrderByRelevanceFieldEnum: {
-    statut: 'statut'
+  export const GameOrderByRelevanceFieldEnum: {
+    status: 'status'
   };
 
-  export type PartieOrderByRelevanceFieldEnum = (typeof PartieOrderByRelevanceFieldEnum)[keyof typeof PartieOrderByRelevanceFieldEnum]
+  export type GameOrderByRelevanceFieldEnum = (typeof GameOrderByRelevanceFieldEnum)[keyof typeof GameOrderByRelevanceFieldEnum]
 
 
-  export const CarteOrderByRelevanceFieldEnum: {
+  export const CardOrderByRelevanceFieldEnum: {
     titre: 'titre',
     image_url: 'image_url',
     texte: 'texte'
   };
 
-  export type CarteOrderByRelevanceFieldEnum = (typeof CarteOrderByRelevanceFieldEnum)[keyof typeof CarteOrderByRelevanceFieldEnum]
+  export type CardOrderByRelevanceFieldEnum = (typeof CardOrderByRelevanceFieldEnum)[keyof typeof CardOrderByRelevanceFieldEnum]
 
 
-  export const ChoixOrderByRelevanceFieldEnum: {
+  export const ChoiceOrderByRelevanceFieldEnum: {
     texte: 'texte'
   };
 
-  export type ChoixOrderByRelevanceFieldEnum = (typeof ChoixOrderByRelevanceFieldEnum)[keyof typeof ChoixOrderByRelevanceFieldEnum]
+  export type ChoiceOrderByRelevanceFieldEnum = (typeof ChoiceOrderByRelevanceFieldEnum)[keyof typeof ChoiceOrderByRelevanceFieldEnum]
 
 
   /**
@@ -5365,472 +5365,472 @@ export namespace Prisma {
    */
 
 
-  export type JoueurWhereInput = {
-    AND?: JoueurWhereInput | JoueurWhereInput[]
-    OR?: JoueurWhereInput[]
-    NOT?: JoueurWhereInput | JoueurWhereInput[]
-    joueur_id?: IntFilter<"Joueur"> | number
-    email?: StringFilter<"Joueur"> | string
-    mdp?: StringFilter<"Joueur"> | string
-    role?: StringFilter<"Joueur"> | string
-    date_creation?: DateTimeFilter<"Joueur"> | Date | string
-    parties?: PartieListRelationFilter
+  export type UserWhereInput = {
+    AND?: UserWhereInput | UserWhereInput[]
+    OR?: UserWhereInput[]
+    NOT?: UserWhereInput | UserWhereInput[]
+    user_id?: IntFilter<"User"> | number
+    email?: StringFilter<"User"> | string
+    password?: StringFilter<"User"> | string
+    role?: StringFilter<"User"> | string
+    creation_date?: DateTimeFilter<"User"> | Date | string
+    games?: GameListRelationFilter
   }
 
-  export type JoueurOrderByWithRelationInput = {
-    joueur_id?: SortOrder
+  export type UserOrderByWithRelationInput = {
+    user_id?: SortOrder
     email?: SortOrder
-    mdp?: SortOrder
+    password?: SortOrder
     role?: SortOrder
-    date_creation?: SortOrder
-    parties?: PartieOrderByRelationAggregateInput
-    _relevance?: JoueurOrderByRelevanceInput
+    creation_date?: SortOrder
+    games?: GameOrderByRelationAggregateInput
+    _relevance?: UserOrderByRelevanceInput
   }
 
-  export type JoueurWhereUniqueInput = Prisma.AtLeast<{
-    joueur_id?: number
+  export type UserWhereUniqueInput = Prisma.AtLeast<{
+    user_id?: number
     email?: string
-    AND?: JoueurWhereInput | JoueurWhereInput[]
-    OR?: JoueurWhereInput[]
-    NOT?: JoueurWhereInput | JoueurWhereInput[]
-    mdp?: StringFilter<"Joueur"> | string
-    role?: StringFilter<"Joueur"> | string
-    date_creation?: DateTimeFilter<"Joueur"> | Date | string
-    parties?: PartieListRelationFilter
-  }, "joueur_id" | "email">
+    AND?: UserWhereInput | UserWhereInput[]
+    OR?: UserWhereInput[]
+    NOT?: UserWhereInput | UserWhereInput[]
+    password?: StringFilter<"User"> | string
+    role?: StringFilter<"User"> | string
+    creation_date?: DateTimeFilter<"User"> | Date | string
+    games?: GameListRelationFilter
+  }, "user_id" | "email">
 
-  export type JoueurOrderByWithAggregationInput = {
-    joueur_id?: SortOrder
+  export type UserOrderByWithAggregationInput = {
+    user_id?: SortOrder
     email?: SortOrder
-    mdp?: SortOrder
+    password?: SortOrder
     role?: SortOrder
-    date_creation?: SortOrder
-    _count?: JoueurCountOrderByAggregateInput
-    _avg?: JoueurAvgOrderByAggregateInput
-    _max?: JoueurMaxOrderByAggregateInput
-    _min?: JoueurMinOrderByAggregateInput
-    _sum?: JoueurSumOrderByAggregateInput
+    creation_date?: SortOrder
+    _count?: UserCountOrderByAggregateInput
+    _avg?: UserAvgOrderByAggregateInput
+    _max?: UserMaxOrderByAggregateInput
+    _min?: UserMinOrderByAggregateInput
+    _sum?: UserSumOrderByAggregateInput
   }
 
-  export type JoueurScalarWhereWithAggregatesInput = {
-    AND?: JoueurScalarWhereWithAggregatesInput | JoueurScalarWhereWithAggregatesInput[]
-    OR?: JoueurScalarWhereWithAggregatesInput[]
-    NOT?: JoueurScalarWhereWithAggregatesInput | JoueurScalarWhereWithAggregatesInput[]
-    joueur_id?: IntWithAggregatesFilter<"Joueur"> | number
-    email?: StringWithAggregatesFilter<"Joueur"> | string
-    mdp?: StringWithAggregatesFilter<"Joueur"> | string
-    role?: StringWithAggregatesFilter<"Joueur"> | string
-    date_creation?: DateTimeWithAggregatesFilter<"Joueur"> | Date | string
+  export type UserScalarWhereWithAggregatesInput = {
+    AND?: UserScalarWhereWithAggregatesInput | UserScalarWhereWithAggregatesInput[]
+    OR?: UserScalarWhereWithAggregatesInput[]
+    NOT?: UserScalarWhereWithAggregatesInput | UserScalarWhereWithAggregatesInput[]
+    user_id?: IntWithAggregatesFilter<"User"> | number
+    email?: StringWithAggregatesFilter<"User"> | string
+    password?: StringWithAggregatesFilter<"User"> | string
+    role?: StringWithAggregatesFilter<"User"> | string
+    creation_date?: DateTimeWithAggregatesFilter<"User"> | Date | string
   }
 
-  export type PartieWhereInput = {
-    AND?: PartieWhereInput | PartieWhereInput[]
-    OR?: PartieWhereInput[]
-    NOT?: PartieWhereInput | PartieWhereInput[]
-    partie_id?: IntFilter<"Partie"> | number
-    date_debut_partie?: DateTimeFilter<"Partie"> | Date | string
-    date_fin_partie?: DateTimeNullableFilter<"Partie"> | Date | string | null
-    statut?: StringFilter<"Partie"> | string
-    joueur_id?: IntFilter<"Partie"> | number
-    joueur?: XOR<JoueurScalarRelationFilter, JoueurWhereInput>
-    cartes?: CarteListRelationFilter
+  export type GameWhereInput = {
+    AND?: GameWhereInput | GameWhereInput[]
+    OR?: GameWhereInput[]
+    NOT?: GameWhereInput | GameWhereInput[]
+    game_id?: IntFilter<"Game"> | number
+    game_start_date?: DateTimeFilter<"Game"> | Date | string
+    game_end_date?: DateTimeNullableFilter<"Game"> | Date | string | null
+    status?: StringFilter<"Game"> | string
+    user_id?: IntFilter<"Game"> | number
+    user?: XOR<UserScalarRelationFilter, UserWhereInput>
+    cards?: CardListRelationFilter
   }
 
-  export type PartieOrderByWithRelationInput = {
-    partie_id?: SortOrder
-    date_debut_partie?: SortOrder
-    date_fin_partie?: SortOrderInput | SortOrder
-    statut?: SortOrder
-    joueur_id?: SortOrder
-    joueur?: JoueurOrderByWithRelationInput
-    cartes?: CarteOrderByRelationAggregateInput
-    _relevance?: PartieOrderByRelevanceInput
+  export type GameOrderByWithRelationInput = {
+    game_id?: SortOrder
+    game_start_date?: SortOrder
+    game_end_date?: SortOrderInput | SortOrder
+    status?: SortOrder
+    user_id?: SortOrder
+    user?: UserOrderByWithRelationInput
+    cards?: CardOrderByRelationAggregateInput
+    _relevance?: GameOrderByRelevanceInput
   }
 
-  export type PartieWhereUniqueInput = Prisma.AtLeast<{
-    partie_id?: number
-    AND?: PartieWhereInput | PartieWhereInput[]
-    OR?: PartieWhereInput[]
-    NOT?: PartieWhereInput | PartieWhereInput[]
-    date_debut_partie?: DateTimeFilter<"Partie"> | Date | string
-    date_fin_partie?: DateTimeNullableFilter<"Partie"> | Date | string | null
-    statut?: StringFilter<"Partie"> | string
-    joueur_id?: IntFilter<"Partie"> | number
-    joueur?: XOR<JoueurScalarRelationFilter, JoueurWhereInput>
-    cartes?: CarteListRelationFilter
-  }, "partie_id">
+  export type GameWhereUniqueInput = Prisma.AtLeast<{
+    game_id?: number
+    AND?: GameWhereInput | GameWhereInput[]
+    OR?: GameWhereInput[]
+    NOT?: GameWhereInput | GameWhereInput[]
+    game_start_date?: DateTimeFilter<"Game"> | Date | string
+    game_end_date?: DateTimeNullableFilter<"Game"> | Date | string | null
+    status?: StringFilter<"Game"> | string
+    user_id?: IntFilter<"Game"> | number
+    user?: XOR<UserScalarRelationFilter, UserWhereInput>
+    cards?: CardListRelationFilter
+  }, "game_id">
 
-  export type PartieOrderByWithAggregationInput = {
-    partie_id?: SortOrder
-    date_debut_partie?: SortOrder
-    date_fin_partie?: SortOrderInput | SortOrder
-    statut?: SortOrder
-    joueur_id?: SortOrder
-    _count?: PartieCountOrderByAggregateInput
-    _avg?: PartieAvgOrderByAggregateInput
-    _max?: PartieMaxOrderByAggregateInput
-    _min?: PartieMinOrderByAggregateInput
-    _sum?: PartieSumOrderByAggregateInput
+  export type GameOrderByWithAggregationInput = {
+    game_id?: SortOrder
+    game_start_date?: SortOrder
+    game_end_date?: SortOrderInput | SortOrder
+    status?: SortOrder
+    user_id?: SortOrder
+    _count?: GameCountOrderByAggregateInput
+    _avg?: GameAvgOrderByAggregateInput
+    _max?: GameMaxOrderByAggregateInput
+    _min?: GameMinOrderByAggregateInput
+    _sum?: GameSumOrderByAggregateInput
   }
 
-  export type PartieScalarWhereWithAggregatesInput = {
-    AND?: PartieScalarWhereWithAggregatesInput | PartieScalarWhereWithAggregatesInput[]
-    OR?: PartieScalarWhereWithAggregatesInput[]
-    NOT?: PartieScalarWhereWithAggregatesInput | PartieScalarWhereWithAggregatesInput[]
-    partie_id?: IntWithAggregatesFilter<"Partie"> | number
-    date_debut_partie?: DateTimeWithAggregatesFilter<"Partie"> | Date | string
-    date_fin_partie?: DateTimeNullableWithAggregatesFilter<"Partie"> | Date | string | null
-    statut?: StringWithAggregatesFilter<"Partie"> | string
-    joueur_id?: IntWithAggregatesFilter<"Partie"> | number
+  export type GameScalarWhereWithAggregatesInput = {
+    AND?: GameScalarWhereWithAggregatesInput | GameScalarWhereWithAggregatesInput[]
+    OR?: GameScalarWhereWithAggregatesInput[]
+    NOT?: GameScalarWhereWithAggregatesInput | GameScalarWhereWithAggregatesInput[]
+    game_id?: IntWithAggregatesFilter<"Game"> | number
+    game_start_date?: DateTimeWithAggregatesFilter<"Game"> | Date | string
+    game_end_date?: DateTimeNullableWithAggregatesFilter<"Game"> | Date | string | null
+    status?: StringWithAggregatesFilter<"Game"> | string
+    user_id?: IntWithAggregatesFilter<"Game"> | number
   }
 
-  export type CarteWhereInput = {
-    AND?: CarteWhereInput | CarteWhereInput[]
-    OR?: CarteWhereInput[]
-    NOT?: CarteWhereInput | CarteWhereInput[]
-    carte_id?: IntFilter<"Carte"> | number
-    titre?: StringFilter<"Carte"> | string
-    image_url?: StringNullableFilter<"Carte"> | string | null
-    texte?: StringFilter<"Carte"> | string
-    is_over?: BoolFilter<"Carte"> | boolean
-    partie_id?: IntFilter<"Carte"> | number
-    partie?: XOR<PartieScalarRelationFilter, PartieWhereInput>
-    choix?: ChoixListRelationFilter
-    suivie_par?: ChoixListRelationFilter
+  export type CardWhereInput = {
+    AND?: CardWhereInput | CardWhereInput[]
+    OR?: CardWhereInput[]
+    NOT?: CardWhereInput | CardWhereInput[]
+    card_id?: IntFilter<"Card"> | number
+    titre?: StringFilter<"Card"> | string
+    image_url?: StringNullableFilter<"Card"> | string | null
+    texte?: StringFilter<"Card"> | string
+    is_over?: BoolFilter<"Card"> | boolean
+    game_id?: IntFilter<"Card"> | number
+    game?: XOR<GameScalarRelationFilter, GameWhereInput>
+    choice?: ChoiceListRelationFilter
+    suivie_par?: ChoiceListRelationFilter
   }
 
-  export type CarteOrderByWithRelationInput = {
-    carte_id?: SortOrder
+  export type CardOrderByWithRelationInput = {
+    card_id?: SortOrder
     titre?: SortOrder
     image_url?: SortOrderInput | SortOrder
     texte?: SortOrder
     is_over?: SortOrder
-    partie_id?: SortOrder
-    partie?: PartieOrderByWithRelationInput
-    choix?: ChoixOrderByRelationAggregateInput
-    suivie_par?: ChoixOrderByRelationAggregateInput
-    _relevance?: CarteOrderByRelevanceInput
+    game_id?: SortOrder
+    game?: GameOrderByWithRelationInput
+    choice?: ChoiceOrderByRelationAggregateInput
+    suivie_par?: ChoiceOrderByRelationAggregateInput
+    _relevance?: CardOrderByRelevanceInput
   }
 
-  export type CarteWhereUniqueInput = Prisma.AtLeast<{
-    carte_id?: number
-    AND?: CarteWhereInput | CarteWhereInput[]
-    OR?: CarteWhereInput[]
-    NOT?: CarteWhereInput | CarteWhereInput[]
-    titre?: StringFilter<"Carte"> | string
-    image_url?: StringNullableFilter<"Carte"> | string | null
-    texte?: StringFilter<"Carte"> | string
-    is_over?: BoolFilter<"Carte"> | boolean
-    partie_id?: IntFilter<"Carte"> | number
-    partie?: XOR<PartieScalarRelationFilter, PartieWhereInput>
-    choix?: ChoixListRelationFilter
-    suivie_par?: ChoixListRelationFilter
-  }, "carte_id">
+  export type CardWhereUniqueInput = Prisma.AtLeast<{
+    card_id?: number
+    AND?: CardWhereInput | CardWhereInput[]
+    OR?: CardWhereInput[]
+    NOT?: CardWhereInput | CardWhereInput[]
+    titre?: StringFilter<"Card"> | string
+    image_url?: StringNullableFilter<"Card"> | string | null
+    texte?: StringFilter<"Card"> | string
+    is_over?: BoolFilter<"Card"> | boolean
+    game_id?: IntFilter<"Card"> | number
+    game?: XOR<GameScalarRelationFilter, GameWhereInput>
+    choice?: ChoiceListRelationFilter
+    suivie_par?: ChoiceListRelationFilter
+  }, "card_id">
 
-  export type CarteOrderByWithAggregationInput = {
-    carte_id?: SortOrder
+  export type CardOrderByWithAggregationInput = {
+    card_id?: SortOrder
     titre?: SortOrder
     image_url?: SortOrderInput | SortOrder
     texte?: SortOrder
     is_over?: SortOrder
-    partie_id?: SortOrder
-    _count?: CarteCountOrderByAggregateInput
-    _avg?: CarteAvgOrderByAggregateInput
-    _max?: CarteMaxOrderByAggregateInput
-    _min?: CarteMinOrderByAggregateInput
-    _sum?: CarteSumOrderByAggregateInput
+    game_id?: SortOrder
+    _count?: CardCountOrderByAggregateInput
+    _avg?: CardAvgOrderByAggregateInput
+    _max?: CardMaxOrderByAggregateInput
+    _min?: CardMinOrderByAggregateInput
+    _sum?: CardSumOrderByAggregateInput
   }
 
-  export type CarteScalarWhereWithAggregatesInput = {
-    AND?: CarteScalarWhereWithAggregatesInput | CarteScalarWhereWithAggregatesInput[]
-    OR?: CarteScalarWhereWithAggregatesInput[]
-    NOT?: CarteScalarWhereWithAggregatesInput | CarteScalarWhereWithAggregatesInput[]
-    carte_id?: IntWithAggregatesFilter<"Carte"> | number
-    titre?: StringWithAggregatesFilter<"Carte"> | string
-    image_url?: StringNullableWithAggregatesFilter<"Carte"> | string | null
-    texte?: StringWithAggregatesFilter<"Carte"> | string
-    is_over?: BoolWithAggregatesFilter<"Carte"> | boolean
-    partie_id?: IntWithAggregatesFilter<"Carte"> | number
+  export type CardScalarWhereWithAggregatesInput = {
+    AND?: CardScalarWhereWithAggregatesInput | CardScalarWhereWithAggregatesInput[]
+    OR?: CardScalarWhereWithAggregatesInput[]
+    NOT?: CardScalarWhereWithAggregatesInput | CardScalarWhereWithAggregatesInput[]
+    card_id?: IntWithAggregatesFilter<"Card"> | number
+    titre?: StringWithAggregatesFilter<"Card"> | string
+    image_url?: StringNullableWithAggregatesFilter<"Card"> | string | null
+    texte?: StringWithAggregatesFilter<"Card"> | string
+    is_over?: BoolWithAggregatesFilter<"Card"> | boolean
+    game_id?: IntWithAggregatesFilter<"Card"> | number
   }
 
-  export type ChoixWhereInput = {
-    AND?: ChoixWhereInput | ChoixWhereInput[]
-    OR?: ChoixWhereInput[]
-    NOT?: ChoixWhereInput | ChoixWhereInput[]
-    choix_id?: IntFilter<"Choix"> | number
-    texte?: StringFilter<"Choix"> | string
-    carte_suivante_default?: IntNullableFilter<"Choix"> | number | null
-    carte_id?: IntFilter<"Choix"> | number
-    carte_suivante?: XOR<CarteNullableScalarRelationFilter, CarteWhereInput> | null
-    carte?: XOR<CarteScalarRelationFilter, CarteWhereInput>
+  export type ChoiceWhereInput = {
+    AND?: ChoiceWhereInput | ChoiceWhereInput[]
+    OR?: ChoiceWhereInput[]
+    NOT?: ChoiceWhereInput | ChoiceWhereInput[]
+    choice_id?: IntFilter<"Choice"> | number
+    texte?: StringFilter<"Choice"> | string
+    default_next_card?: IntNullableFilter<"Choice"> | number | null
+    card_id?: IntFilter<"Choice"> | number
+    next_card?: XOR<CardNullableScalarRelationFilter, CardWhereInput> | null
+    card?: XOR<CardScalarRelationFilter, CardWhereInput>
   }
 
-  export type ChoixOrderByWithRelationInput = {
-    choix_id?: SortOrder
+  export type ChoiceOrderByWithRelationInput = {
+    choice_id?: SortOrder
     texte?: SortOrder
-    carte_suivante_default?: SortOrderInput | SortOrder
-    carte_id?: SortOrder
-    carte_suivante?: CarteOrderByWithRelationInput
-    carte?: CarteOrderByWithRelationInput
-    _relevance?: ChoixOrderByRelevanceInput
+    default_next_card?: SortOrderInput | SortOrder
+    card_id?: SortOrder
+    next_card?: CardOrderByWithRelationInput
+    card?: CardOrderByWithRelationInput
+    _relevance?: ChoiceOrderByRelevanceInput
   }
 
-  export type ChoixWhereUniqueInput = Prisma.AtLeast<{
-    choix_id?: number
-    AND?: ChoixWhereInput | ChoixWhereInput[]
-    OR?: ChoixWhereInput[]
-    NOT?: ChoixWhereInput | ChoixWhereInput[]
-    texte?: StringFilter<"Choix"> | string
-    carte_suivante_default?: IntNullableFilter<"Choix"> | number | null
-    carte_id?: IntFilter<"Choix"> | number
-    carte_suivante?: XOR<CarteNullableScalarRelationFilter, CarteWhereInput> | null
-    carte?: XOR<CarteScalarRelationFilter, CarteWhereInput>
-  }, "choix_id">
+  export type ChoiceWhereUniqueInput = Prisma.AtLeast<{
+    choice_id?: number
+    AND?: ChoiceWhereInput | ChoiceWhereInput[]
+    OR?: ChoiceWhereInput[]
+    NOT?: ChoiceWhereInput | ChoiceWhereInput[]
+    texte?: StringFilter<"Choice"> | string
+    default_next_card?: IntNullableFilter<"Choice"> | number | null
+    card_id?: IntFilter<"Choice"> | number
+    next_card?: XOR<CardNullableScalarRelationFilter, CardWhereInput> | null
+    card?: XOR<CardScalarRelationFilter, CardWhereInput>
+  }, "choice_id">
 
-  export type ChoixOrderByWithAggregationInput = {
-    choix_id?: SortOrder
+  export type ChoiceOrderByWithAggregationInput = {
+    choice_id?: SortOrder
     texte?: SortOrder
-    carte_suivante_default?: SortOrderInput | SortOrder
-    carte_id?: SortOrder
-    _count?: ChoixCountOrderByAggregateInput
-    _avg?: ChoixAvgOrderByAggregateInput
-    _max?: ChoixMaxOrderByAggregateInput
-    _min?: ChoixMinOrderByAggregateInput
-    _sum?: ChoixSumOrderByAggregateInput
+    default_next_card?: SortOrderInput | SortOrder
+    card_id?: SortOrder
+    _count?: ChoiceCountOrderByAggregateInput
+    _avg?: ChoiceAvgOrderByAggregateInput
+    _max?: ChoiceMaxOrderByAggregateInput
+    _min?: ChoiceMinOrderByAggregateInput
+    _sum?: ChoiceSumOrderByAggregateInput
   }
 
-  export type ChoixScalarWhereWithAggregatesInput = {
-    AND?: ChoixScalarWhereWithAggregatesInput | ChoixScalarWhereWithAggregatesInput[]
-    OR?: ChoixScalarWhereWithAggregatesInput[]
-    NOT?: ChoixScalarWhereWithAggregatesInput | ChoixScalarWhereWithAggregatesInput[]
-    choix_id?: IntWithAggregatesFilter<"Choix"> | number
-    texte?: StringWithAggregatesFilter<"Choix"> | string
-    carte_suivante_default?: IntNullableWithAggregatesFilter<"Choix"> | number | null
-    carte_id?: IntWithAggregatesFilter<"Choix"> | number
+  export type ChoiceScalarWhereWithAggregatesInput = {
+    AND?: ChoiceScalarWhereWithAggregatesInput | ChoiceScalarWhereWithAggregatesInput[]
+    OR?: ChoiceScalarWhereWithAggregatesInput[]
+    NOT?: ChoiceScalarWhereWithAggregatesInput | ChoiceScalarWhereWithAggregatesInput[]
+    choice_id?: IntWithAggregatesFilter<"Choice"> | number
+    texte?: StringWithAggregatesFilter<"Choice"> | string
+    default_next_card?: IntNullableWithAggregatesFilter<"Choice"> | number | null
+    card_id?: IntWithAggregatesFilter<"Choice"> | number
   }
 
-  export type JoueurCreateInput = {
+  export type UserCreateInput = {
     email: string
-    mdp: string
+    password: string
     role?: string
-    date_creation?: Date | string
-    parties?: PartieCreateNestedManyWithoutJoueurInput
+    creation_date?: Date | string
+    games?: GameCreateNestedManyWithoutUserInput
   }
 
-  export type JoueurUncheckedCreateInput = {
-    joueur_id?: number
+  export type UserUncheckedCreateInput = {
+    user_id?: number
     email: string
-    mdp: string
+    password: string
     role?: string
-    date_creation?: Date | string
-    parties?: PartieUncheckedCreateNestedManyWithoutJoueurInput
+    creation_date?: Date | string
+    games?: GameUncheckedCreateNestedManyWithoutUserInput
   }
 
-  export type JoueurUpdateInput = {
+  export type UserUpdateInput = {
     email?: StringFieldUpdateOperationsInput | string
-    mdp?: StringFieldUpdateOperationsInput | string
+    password?: StringFieldUpdateOperationsInput | string
     role?: StringFieldUpdateOperationsInput | string
-    date_creation?: DateTimeFieldUpdateOperationsInput | Date | string
-    parties?: PartieUpdateManyWithoutJoueurNestedInput
+    creation_date?: DateTimeFieldUpdateOperationsInput | Date | string
+    games?: GameUpdateManyWithoutUserNestedInput
   }
 
-  export type JoueurUncheckedUpdateInput = {
-    joueur_id?: IntFieldUpdateOperationsInput | number
+  export type UserUncheckedUpdateInput = {
+    user_id?: IntFieldUpdateOperationsInput | number
     email?: StringFieldUpdateOperationsInput | string
-    mdp?: StringFieldUpdateOperationsInput | string
+    password?: StringFieldUpdateOperationsInput | string
     role?: StringFieldUpdateOperationsInput | string
-    date_creation?: DateTimeFieldUpdateOperationsInput | Date | string
-    parties?: PartieUncheckedUpdateManyWithoutJoueurNestedInput
+    creation_date?: DateTimeFieldUpdateOperationsInput | Date | string
+    games?: GameUncheckedUpdateManyWithoutUserNestedInput
   }
 
-  export type JoueurCreateManyInput = {
-    joueur_id?: number
+  export type UserCreateManyInput = {
+    user_id?: number
     email: string
-    mdp: string
+    password: string
     role?: string
-    date_creation?: Date | string
+    creation_date?: Date | string
   }
 
-  export type JoueurUpdateManyMutationInput = {
+  export type UserUpdateManyMutationInput = {
     email?: StringFieldUpdateOperationsInput | string
-    mdp?: StringFieldUpdateOperationsInput | string
+    password?: StringFieldUpdateOperationsInput | string
     role?: StringFieldUpdateOperationsInput | string
-    date_creation?: DateTimeFieldUpdateOperationsInput | Date | string
+    creation_date?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
-  export type JoueurUncheckedUpdateManyInput = {
-    joueur_id?: IntFieldUpdateOperationsInput | number
+  export type UserUncheckedUpdateManyInput = {
+    user_id?: IntFieldUpdateOperationsInput | number
     email?: StringFieldUpdateOperationsInput | string
-    mdp?: StringFieldUpdateOperationsInput | string
+    password?: StringFieldUpdateOperationsInput | string
     role?: StringFieldUpdateOperationsInput | string
-    date_creation?: DateTimeFieldUpdateOperationsInput | Date | string
+    creation_date?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
-  export type PartieCreateInput = {
-    date_debut_partie: Date | string
-    date_fin_partie?: Date | string | null
-    statut?: string
-    joueur: JoueurCreateNestedOneWithoutPartiesInput
-    cartes?: CarteCreateNestedManyWithoutPartieInput
+  export type GameCreateInput = {
+    game_start_date: Date | string
+    game_end_date?: Date | string | null
+    status?: string
+    user: UserCreateNestedOneWithoutGamesInput
+    cards?: CardCreateNestedManyWithoutGameInput
   }
 
-  export type PartieUncheckedCreateInput = {
-    partie_id?: number
-    date_debut_partie: Date | string
-    date_fin_partie?: Date | string | null
-    statut?: string
-    joueur_id: number
-    cartes?: CarteUncheckedCreateNestedManyWithoutPartieInput
+  export type GameUncheckedCreateInput = {
+    game_id?: number
+    game_start_date: Date | string
+    game_end_date?: Date | string | null
+    status?: string
+    user_id: number
+    cards?: CardUncheckedCreateNestedManyWithoutGameInput
   }
 
-  export type PartieUpdateInput = {
-    date_debut_partie?: DateTimeFieldUpdateOperationsInput | Date | string
-    date_fin_partie?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    statut?: StringFieldUpdateOperationsInput | string
-    joueur?: JoueurUpdateOneRequiredWithoutPartiesNestedInput
-    cartes?: CarteUpdateManyWithoutPartieNestedInput
+  export type GameUpdateInput = {
+    game_start_date?: DateTimeFieldUpdateOperationsInput | Date | string
+    game_end_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    status?: StringFieldUpdateOperationsInput | string
+    user?: UserUpdateOneRequiredWithoutGamesNestedInput
+    cards?: CardUpdateManyWithoutGameNestedInput
   }
 
-  export type PartieUncheckedUpdateInput = {
-    partie_id?: IntFieldUpdateOperationsInput | number
-    date_debut_partie?: DateTimeFieldUpdateOperationsInput | Date | string
-    date_fin_partie?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    statut?: StringFieldUpdateOperationsInput | string
-    joueur_id?: IntFieldUpdateOperationsInput | number
-    cartes?: CarteUncheckedUpdateManyWithoutPartieNestedInput
+  export type GameUncheckedUpdateInput = {
+    game_id?: IntFieldUpdateOperationsInput | number
+    game_start_date?: DateTimeFieldUpdateOperationsInput | Date | string
+    game_end_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    status?: StringFieldUpdateOperationsInput | string
+    user_id?: IntFieldUpdateOperationsInput | number
+    cards?: CardUncheckedUpdateManyWithoutGameNestedInput
   }
 
-  export type PartieCreateManyInput = {
-    partie_id?: number
-    date_debut_partie: Date | string
-    date_fin_partie?: Date | string | null
-    statut?: string
-    joueur_id: number
+  export type GameCreateManyInput = {
+    game_id?: number
+    game_start_date: Date | string
+    game_end_date?: Date | string | null
+    status?: string
+    user_id: number
   }
 
-  export type PartieUpdateManyMutationInput = {
-    date_debut_partie?: DateTimeFieldUpdateOperationsInput | Date | string
-    date_fin_partie?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    statut?: StringFieldUpdateOperationsInput | string
+  export type GameUpdateManyMutationInput = {
+    game_start_date?: DateTimeFieldUpdateOperationsInput | Date | string
+    game_end_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    status?: StringFieldUpdateOperationsInput | string
   }
 
-  export type PartieUncheckedUpdateManyInput = {
-    partie_id?: IntFieldUpdateOperationsInput | number
-    date_debut_partie?: DateTimeFieldUpdateOperationsInput | Date | string
-    date_fin_partie?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    statut?: StringFieldUpdateOperationsInput | string
-    joueur_id?: IntFieldUpdateOperationsInput | number
+  export type GameUncheckedUpdateManyInput = {
+    game_id?: IntFieldUpdateOperationsInput | number
+    game_start_date?: DateTimeFieldUpdateOperationsInput | Date | string
+    game_end_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    status?: StringFieldUpdateOperationsInput | string
+    user_id?: IntFieldUpdateOperationsInput | number
   }
 
-  export type CarteCreateInput = {
+  export type CardCreateInput = {
     titre: string
     image_url?: string | null
     texte: string
     is_over?: boolean
-    partie: PartieCreateNestedOneWithoutCartesInput
-    choix?: ChoixCreateNestedManyWithoutCarteInput
-    suivie_par?: ChoixCreateNestedManyWithoutCarte_suivanteInput
+    game: GameCreateNestedOneWithoutCardsInput
+    choice?: ChoiceCreateNestedManyWithoutCardInput
+    suivie_par?: ChoiceCreateNestedManyWithoutNext_cardInput
   }
 
-  export type CarteUncheckedCreateInput = {
-    carte_id?: number
+  export type CardUncheckedCreateInput = {
+    card_id?: number
     titre: string
     image_url?: string | null
     texte: string
     is_over?: boolean
-    partie_id: number
-    choix?: ChoixUncheckedCreateNestedManyWithoutCarteInput
-    suivie_par?: ChoixUncheckedCreateNestedManyWithoutCarte_suivanteInput
+    game_id: number
+    choice?: ChoiceUncheckedCreateNestedManyWithoutCardInput
+    suivie_par?: ChoiceUncheckedCreateNestedManyWithoutNext_cardInput
   }
 
-  export type CarteUpdateInput = {
+  export type CardUpdateInput = {
     titre?: StringFieldUpdateOperationsInput | string
     image_url?: NullableStringFieldUpdateOperationsInput | string | null
     texte?: StringFieldUpdateOperationsInput | string
     is_over?: BoolFieldUpdateOperationsInput | boolean
-    partie?: PartieUpdateOneRequiredWithoutCartesNestedInput
-    choix?: ChoixUpdateManyWithoutCarteNestedInput
-    suivie_par?: ChoixUpdateManyWithoutCarte_suivanteNestedInput
+    game?: GameUpdateOneRequiredWithoutCardsNestedInput
+    choice?: ChoiceUpdateManyWithoutCardNestedInput
+    suivie_par?: ChoiceUpdateManyWithoutNext_cardNestedInput
   }
 
-  export type CarteUncheckedUpdateInput = {
-    carte_id?: IntFieldUpdateOperationsInput | number
+  export type CardUncheckedUpdateInput = {
+    card_id?: IntFieldUpdateOperationsInput | number
     titre?: StringFieldUpdateOperationsInput | string
     image_url?: NullableStringFieldUpdateOperationsInput | string | null
     texte?: StringFieldUpdateOperationsInput | string
     is_over?: BoolFieldUpdateOperationsInput | boolean
-    partie_id?: IntFieldUpdateOperationsInput | number
-    choix?: ChoixUncheckedUpdateManyWithoutCarteNestedInput
-    suivie_par?: ChoixUncheckedUpdateManyWithoutCarte_suivanteNestedInput
+    game_id?: IntFieldUpdateOperationsInput | number
+    choice?: ChoiceUncheckedUpdateManyWithoutCardNestedInput
+    suivie_par?: ChoiceUncheckedUpdateManyWithoutNext_cardNestedInput
   }
 
-  export type CarteCreateManyInput = {
-    carte_id?: number
+  export type CardCreateManyInput = {
+    card_id?: number
     titre: string
     image_url?: string | null
     texte: string
     is_over?: boolean
-    partie_id: number
+    game_id: number
   }
 
-  export type CarteUpdateManyMutationInput = {
+  export type CardUpdateManyMutationInput = {
     titre?: StringFieldUpdateOperationsInput | string
     image_url?: NullableStringFieldUpdateOperationsInput | string | null
     texte?: StringFieldUpdateOperationsInput | string
     is_over?: BoolFieldUpdateOperationsInput | boolean
   }
 
-  export type CarteUncheckedUpdateManyInput = {
-    carte_id?: IntFieldUpdateOperationsInput | number
+  export type CardUncheckedUpdateManyInput = {
+    card_id?: IntFieldUpdateOperationsInput | number
     titre?: StringFieldUpdateOperationsInput | string
     image_url?: NullableStringFieldUpdateOperationsInput | string | null
     texte?: StringFieldUpdateOperationsInput | string
     is_over?: BoolFieldUpdateOperationsInput | boolean
-    partie_id?: IntFieldUpdateOperationsInput | number
+    game_id?: IntFieldUpdateOperationsInput | number
   }
 
-  export type ChoixCreateInput = {
+  export type ChoiceCreateInput = {
     texte: string
-    carte_suivante?: CarteCreateNestedOneWithoutSuivie_parInput
-    carte: CarteCreateNestedOneWithoutChoixInput
+    next_card?: CardCreateNestedOneWithoutSuivie_parInput
+    card: CardCreateNestedOneWithoutChoiceInput
   }
 
-  export type ChoixUncheckedCreateInput = {
-    choix_id?: number
+  export type ChoiceUncheckedCreateInput = {
+    choice_id?: number
     texte: string
-    carte_suivante_default?: number | null
-    carte_id: number
+    default_next_card?: number | null
+    card_id: number
   }
 
-  export type ChoixUpdateInput = {
+  export type ChoiceUpdateInput = {
     texte?: StringFieldUpdateOperationsInput | string
-    carte_suivante?: CarteUpdateOneWithoutSuivie_parNestedInput
-    carte?: CarteUpdateOneRequiredWithoutChoixNestedInput
+    next_card?: CardUpdateOneWithoutSuivie_parNestedInput
+    card?: CardUpdateOneRequiredWithoutChoiceNestedInput
   }
 
-  export type ChoixUncheckedUpdateInput = {
-    choix_id?: IntFieldUpdateOperationsInput | number
+  export type ChoiceUncheckedUpdateInput = {
+    choice_id?: IntFieldUpdateOperationsInput | number
     texte?: StringFieldUpdateOperationsInput | string
-    carte_suivante_default?: NullableIntFieldUpdateOperationsInput | number | null
-    carte_id?: IntFieldUpdateOperationsInput | number
+    default_next_card?: NullableIntFieldUpdateOperationsInput | number | null
+    card_id?: IntFieldUpdateOperationsInput | number
   }
 
-  export type ChoixCreateManyInput = {
-    choix_id?: number
+  export type ChoiceCreateManyInput = {
+    choice_id?: number
     texte: string
-    carte_suivante_default?: number | null
-    carte_id: number
+    default_next_card?: number | null
+    card_id: number
   }
 
-  export type ChoixUpdateManyMutationInput = {
+  export type ChoiceUpdateManyMutationInput = {
     texte?: StringFieldUpdateOperationsInput | string
   }
 
-  export type ChoixUncheckedUpdateManyInput = {
-    choix_id?: IntFieldUpdateOperationsInput | number
+  export type ChoiceUncheckedUpdateManyInput = {
+    choice_id?: IntFieldUpdateOperationsInput | number
     texte?: StringFieldUpdateOperationsInput | string
-    carte_suivante_default?: NullableIntFieldUpdateOperationsInput | number | null
-    carte_id?: IntFieldUpdateOperationsInput | number
+    default_next_card?: NullableIntFieldUpdateOperationsInput | number | null
+    card_id?: IntFieldUpdateOperationsInput | number
   }
 
   export type IntFilter<$PrismaModel = never> = {
@@ -5870,52 +5870,52 @@ export namespace Prisma {
     not?: NestedDateTimeFilter<$PrismaModel> | Date | string
   }
 
-  export type PartieListRelationFilter = {
-    every?: PartieWhereInput
-    some?: PartieWhereInput
-    none?: PartieWhereInput
+  export type GameListRelationFilter = {
+    every?: GameWhereInput
+    some?: GameWhereInput
+    none?: GameWhereInput
   }
 
-  export type PartieOrderByRelationAggregateInput = {
+  export type GameOrderByRelationAggregateInput = {
     _count?: SortOrder
   }
 
-  export type JoueurOrderByRelevanceInput = {
-    fields: JoueurOrderByRelevanceFieldEnum | JoueurOrderByRelevanceFieldEnum[]
+  export type UserOrderByRelevanceInput = {
+    fields: UserOrderByRelevanceFieldEnum | UserOrderByRelevanceFieldEnum[]
     sort: SortOrder
     search: string
   }
 
-  export type JoueurCountOrderByAggregateInput = {
-    joueur_id?: SortOrder
+  export type UserCountOrderByAggregateInput = {
+    user_id?: SortOrder
     email?: SortOrder
-    mdp?: SortOrder
+    password?: SortOrder
     role?: SortOrder
-    date_creation?: SortOrder
+    creation_date?: SortOrder
   }
 
-  export type JoueurAvgOrderByAggregateInput = {
-    joueur_id?: SortOrder
+  export type UserAvgOrderByAggregateInput = {
+    user_id?: SortOrder
   }
 
-  export type JoueurMaxOrderByAggregateInput = {
-    joueur_id?: SortOrder
+  export type UserMaxOrderByAggregateInput = {
+    user_id?: SortOrder
     email?: SortOrder
-    mdp?: SortOrder
+    password?: SortOrder
     role?: SortOrder
-    date_creation?: SortOrder
+    creation_date?: SortOrder
   }
 
-  export type JoueurMinOrderByAggregateInput = {
-    joueur_id?: SortOrder
+  export type UserMinOrderByAggregateInput = {
+    user_id?: SortOrder
     email?: SortOrder
-    mdp?: SortOrder
+    password?: SortOrder
     role?: SortOrder
-    date_creation?: SortOrder
+    creation_date?: SortOrder
   }
 
-  export type JoueurSumOrderByAggregateInput = {
-    joueur_id?: SortOrder
+  export type UserSumOrderByAggregateInput = {
+    user_id?: SortOrder
   }
 
   export type IntWithAggregatesFilter<$PrismaModel = never> = {
@@ -5977,15 +5977,15 @@ export namespace Prisma {
     not?: NestedDateTimeNullableFilter<$PrismaModel> | Date | string | null
   }
 
-  export type JoueurScalarRelationFilter = {
-    is?: JoueurWhereInput
-    isNot?: JoueurWhereInput
+  export type UserScalarRelationFilter = {
+    is?: UserWhereInput
+    isNot?: UserWhereInput
   }
 
-  export type CarteListRelationFilter = {
-    every?: CarteWhereInput
-    some?: CarteWhereInput
-    none?: CarteWhereInput
+  export type CardListRelationFilter = {
+    every?: CardWhereInput
+    some?: CardWhereInput
+    none?: CardWhereInput
   }
 
   export type SortOrderInput = {
@@ -5993,48 +5993,48 @@ export namespace Prisma {
     nulls?: NullsOrder
   }
 
-  export type CarteOrderByRelationAggregateInput = {
+  export type CardOrderByRelationAggregateInput = {
     _count?: SortOrder
   }
 
-  export type PartieOrderByRelevanceInput = {
-    fields: PartieOrderByRelevanceFieldEnum | PartieOrderByRelevanceFieldEnum[]
+  export type GameOrderByRelevanceInput = {
+    fields: GameOrderByRelevanceFieldEnum | GameOrderByRelevanceFieldEnum[]
     sort: SortOrder
     search: string
   }
 
-  export type PartieCountOrderByAggregateInput = {
-    partie_id?: SortOrder
-    date_debut_partie?: SortOrder
-    date_fin_partie?: SortOrder
-    statut?: SortOrder
-    joueur_id?: SortOrder
+  export type GameCountOrderByAggregateInput = {
+    game_id?: SortOrder
+    game_start_date?: SortOrder
+    game_end_date?: SortOrder
+    status?: SortOrder
+    user_id?: SortOrder
   }
 
-  export type PartieAvgOrderByAggregateInput = {
-    partie_id?: SortOrder
-    joueur_id?: SortOrder
+  export type GameAvgOrderByAggregateInput = {
+    game_id?: SortOrder
+    user_id?: SortOrder
   }
 
-  export type PartieMaxOrderByAggregateInput = {
-    partie_id?: SortOrder
-    date_debut_partie?: SortOrder
-    date_fin_partie?: SortOrder
-    statut?: SortOrder
-    joueur_id?: SortOrder
+  export type GameMaxOrderByAggregateInput = {
+    game_id?: SortOrder
+    game_start_date?: SortOrder
+    game_end_date?: SortOrder
+    status?: SortOrder
+    user_id?: SortOrder
   }
 
-  export type PartieMinOrderByAggregateInput = {
-    partie_id?: SortOrder
-    date_debut_partie?: SortOrder
-    date_fin_partie?: SortOrder
-    statut?: SortOrder
-    joueur_id?: SortOrder
+  export type GameMinOrderByAggregateInput = {
+    game_id?: SortOrder
+    game_start_date?: SortOrder
+    game_end_date?: SortOrder
+    status?: SortOrder
+    user_id?: SortOrder
   }
 
-  export type PartieSumOrderByAggregateInput = {
-    partie_id?: SortOrder
-    joueur_id?: SortOrder
+  export type GameSumOrderByAggregateInput = {
+    game_id?: SortOrder
+    user_id?: SortOrder
   }
 
   export type DateTimeNullableWithAggregatesFilter<$PrismaModel = never> = {
@@ -6071,62 +6071,62 @@ export namespace Prisma {
     not?: NestedBoolFilter<$PrismaModel> | boolean
   }
 
-  export type PartieScalarRelationFilter = {
-    is?: PartieWhereInput
-    isNot?: PartieWhereInput
+  export type GameScalarRelationFilter = {
+    is?: GameWhereInput
+    isNot?: GameWhereInput
   }
 
-  export type ChoixListRelationFilter = {
-    every?: ChoixWhereInput
-    some?: ChoixWhereInput
-    none?: ChoixWhereInput
+  export type ChoiceListRelationFilter = {
+    every?: ChoiceWhereInput
+    some?: ChoiceWhereInput
+    none?: ChoiceWhereInput
   }
 
-  export type ChoixOrderByRelationAggregateInput = {
+  export type ChoiceOrderByRelationAggregateInput = {
     _count?: SortOrder
   }
 
-  export type CarteOrderByRelevanceInput = {
-    fields: CarteOrderByRelevanceFieldEnum | CarteOrderByRelevanceFieldEnum[]
+  export type CardOrderByRelevanceInput = {
+    fields: CardOrderByRelevanceFieldEnum | CardOrderByRelevanceFieldEnum[]
     sort: SortOrder
     search: string
   }
 
-  export type CarteCountOrderByAggregateInput = {
-    carte_id?: SortOrder
+  export type CardCountOrderByAggregateInput = {
+    card_id?: SortOrder
     titre?: SortOrder
     image_url?: SortOrder
     texte?: SortOrder
     is_over?: SortOrder
-    partie_id?: SortOrder
+    game_id?: SortOrder
   }
 
-  export type CarteAvgOrderByAggregateInput = {
-    carte_id?: SortOrder
-    partie_id?: SortOrder
+  export type CardAvgOrderByAggregateInput = {
+    card_id?: SortOrder
+    game_id?: SortOrder
   }
 
-  export type CarteMaxOrderByAggregateInput = {
-    carte_id?: SortOrder
+  export type CardMaxOrderByAggregateInput = {
+    card_id?: SortOrder
     titre?: SortOrder
     image_url?: SortOrder
     texte?: SortOrder
     is_over?: SortOrder
-    partie_id?: SortOrder
+    game_id?: SortOrder
   }
 
-  export type CarteMinOrderByAggregateInput = {
-    carte_id?: SortOrder
+  export type CardMinOrderByAggregateInput = {
+    card_id?: SortOrder
     titre?: SortOrder
     image_url?: SortOrder
     texte?: SortOrder
     is_over?: SortOrder
-    partie_id?: SortOrder
+    game_id?: SortOrder
   }
 
-  export type CarteSumOrderByAggregateInput = {
-    carte_id?: SortOrder
-    partie_id?: SortOrder
+  export type CardSumOrderByAggregateInput = {
+    card_id?: SortOrder
+    game_id?: SortOrder
   }
 
   export type StringNullableWithAggregatesFilter<$PrismaModel = never> = {
@@ -6166,53 +6166,53 @@ export namespace Prisma {
     not?: NestedIntNullableFilter<$PrismaModel> | number | null
   }
 
-  export type CarteNullableScalarRelationFilter = {
-    is?: CarteWhereInput | null
-    isNot?: CarteWhereInput | null
+  export type CardNullableScalarRelationFilter = {
+    is?: CardWhereInput | null
+    isNot?: CardWhereInput | null
   }
 
-  export type CarteScalarRelationFilter = {
-    is?: CarteWhereInput
-    isNot?: CarteWhereInput
+  export type CardScalarRelationFilter = {
+    is?: CardWhereInput
+    isNot?: CardWhereInput
   }
 
-  export type ChoixOrderByRelevanceInput = {
-    fields: ChoixOrderByRelevanceFieldEnum | ChoixOrderByRelevanceFieldEnum[]
+  export type ChoiceOrderByRelevanceInput = {
+    fields: ChoiceOrderByRelevanceFieldEnum | ChoiceOrderByRelevanceFieldEnum[]
     sort: SortOrder
     search: string
   }
 
-  export type ChoixCountOrderByAggregateInput = {
-    choix_id?: SortOrder
+  export type ChoiceCountOrderByAggregateInput = {
+    choice_id?: SortOrder
     texte?: SortOrder
-    carte_suivante_default?: SortOrder
-    carte_id?: SortOrder
+    default_next_card?: SortOrder
+    card_id?: SortOrder
   }
 
-  export type ChoixAvgOrderByAggregateInput = {
-    choix_id?: SortOrder
-    carte_suivante_default?: SortOrder
-    carte_id?: SortOrder
+  export type ChoiceAvgOrderByAggregateInput = {
+    choice_id?: SortOrder
+    default_next_card?: SortOrder
+    card_id?: SortOrder
   }
 
-  export type ChoixMaxOrderByAggregateInput = {
-    choix_id?: SortOrder
+  export type ChoiceMaxOrderByAggregateInput = {
+    choice_id?: SortOrder
     texte?: SortOrder
-    carte_suivante_default?: SortOrder
-    carte_id?: SortOrder
+    default_next_card?: SortOrder
+    card_id?: SortOrder
   }
 
-  export type ChoixMinOrderByAggregateInput = {
-    choix_id?: SortOrder
+  export type ChoiceMinOrderByAggregateInput = {
+    choice_id?: SortOrder
     texte?: SortOrder
-    carte_suivante_default?: SortOrder
-    carte_id?: SortOrder
+    default_next_card?: SortOrder
+    card_id?: SortOrder
   }
 
-  export type ChoixSumOrderByAggregateInput = {
-    choix_id?: SortOrder
-    carte_suivante_default?: SortOrder
-    carte_id?: SortOrder
+  export type ChoiceSumOrderByAggregateInput = {
+    choice_id?: SortOrder
+    default_next_card?: SortOrder
+    card_id?: SortOrder
   }
 
   export type IntNullableWithAggregatesFilter<$PrismaModel = never> = {
@@ -6231,18 +6231,18 @@ export namespace Prisma {
     _max?: NestedIntNullableFilter<$PrismaModel>
   }
 
-  export type PartieCreateNestedManyWithoutJoueurInput = {
-    create?: XOR<PartieCreateWithoutJoueurInput, PartieUncheckedCreateWithoutJoueurInput> | PartieCreateWithoutJoueurInput[] | PartieUncheckedCreateWithoutJoueurInput[]
-    connectOrCreate?: PartieCreateOrConnectWithoutJoueurInput | PartieCreateOrConnectWithoutJoueurInput[]
-    createMany?: PartieCreateManyJoueurInputEnvelope
-    connect?: PartieWhereUniqueInput | PartieWhereUniqueInput[]
+  export type GameCreateNestedManyWithoutUserInput = {
+    create?: XOR<GameCreateWithoutUserInput, GameUncheckedCreateWithoutUserInput> | GameCreateWithoutUserInput[] | GameUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: GameCreateOrConnectWithoutUserInput | GameCreateOrConnectWithoutUserInput[]
+    createMany?: GameCreateManyUserInputEnvelope
+    connect?: GameWhereUniqueInput | GameWhereUniqueInput[]
   }
 
-  export type PartieUncheckedCreateNestedManyWithoutJoueurInput = {
-    create?: XOR<PartieCreateWithoutJoueurInput, PartieUncheckedCreateWithoutJoueurInput> | PartieCreateWithoutJoueurInput[] | PartieUncheckedCreateWithoutJoueurInput[]
-    connectOrCreate?: PartieCreateOrConnectWithoutJoueurInput | PartieCreateOrConnectWithoutJoueurInput[]
-    createMany?: PartieCreateManyJoueurInputEnvelope
-    connect?: PartieWhereUniqueInput | PartieWhereUniqueInput[]
+  export type GameUncheckedCreateNestedManyWithoutUserInput = {
+    create?: XOR<GameCreateWithoutUserInput, GameUncheckedCreateWithoutUserInput> | GameCreateWithoutUserInput[] | GameUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: GameCreateOrConnectWithoutUserInput | GameCreateOrConnectWithoutUserInput[]
+    createMany?: GameCreateManyUserInputEnvelope
+    connect?: GameWhereUniqueInput | GameWhereUniqueInput[]
   }
 
   export type StringFieldUpdateOperationsInput = {
@@ -6253,18 +6253,18 @@ export namespace Prisma {
     set?: Date | string
   }
 
-  export type PartieUpdateManyWithoutJoueurNestedInput = {
-    create?: XOR<PartieCreateWithoutJoueurInput, PartieUncheckedCreateWithoutJoueurInput> | PartieCreateWithoutJoueurInput[] | PartieUncheckedCreateWithoutJoueurInput[]
-    connectOrCreate?: PartieCreateOrConnectWithoutJoueurInput | PartieCreateOrConnectWithoutJoueurInput[]
-    upsert?: PartieUpsertWithWhereUniqueWithoutJoueurInput | PartieUpsertWithWhereUniqueWithoutJoueurInput[]
-    createMany?: PartieCreateManyJoueurInputEnvelope
-    set?: PartieWhereUniqueInput | PartieWhereUniqueInput[]
-    disconnect?: PartieWhereUniqueInput | PartieWhereUniqueInput[]
-    delete?: PartieWhereUniqueInput | PartieWhereUniqueInput[]
-    connect?: PartieWhereUniqueInput | PartieWhereUniqueInput[]
-    update?: PartieUpdateWithWhereUniqueWithoutJoueurInput | PartieUpdateWithWhereUniqueWithoutJoueurInput[]
-    updateMany?: PartieUpdateManyWithWhereWithoutJoueurInput | PartieUpdateManyWithWhereWithoutJoueurInput[]
-    deleteMany?: PartieScalarWhereInput | PartieScalarWhereInput[]
+  export type GameUpdateManyWithoutUserNestedInput = {
+    create?: XOR<GameCreateWithoutUserInput, GameUncheckedCreateWithoutUserInput> | GameCreateWithoutUserInput[] | GameUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: GameCreateOrConnectWithoutUserInput | GameCreateOrConnectWithoutUserInput[]
+    upsert?: GameUpsertWithWhereUniqueWithoutUserInput | GameUpsertWithWhereUniqueWithoutUserInput[]
+    createMany?: GameCreateManyUserInputEnvelope
+    set?: GameWhereUniqueInput | GameWhereUniqueInput[]
+    disconnect?: GameWhereUniqueInput | GameWhereUniqueInput[]
+    delete?: GameWhereUniqueInput | GameWhereUniqueInput[]
+    connect?: GameWhereUniqueInput | GameWhereUniqueInput[]
+    update?: GameUpdateWithWhereUniqueWithoutUserInput | GameUpdateWithWhereUniqueWithoutUserInput[]
+    updateMany?: GameUpdateManyWithWhereWithoutUserInput | GameUpdateManyWithWhereWithoutUserInput[]
+    deleteMany?: GameScalarWhereInput | GameScalarWhereInput[]
   }
 
   export type IntFieldUpdateOperationsInput = {
@@ -6275,112 +6275,112 @@ export namespace Prisma {
     divide?: number
   }
 
-  export type PartieUncheckedUpdateManyWithoutJoueurNestedInput = {
-    create?: XOR<PartieCreateWithoutJoueurInput, PartieUncheckedCreateWithoutJoueurInput> | PartieCreateWithoutJoueurInput[] | PartieUncheckedCreateWithoutJoueurInput[]
-    connectOrCreate?: PartieCreateOrConnectWithoutJoueurInput | PartieCreateOrConnectWithoutJoueurInput[]
-    upsert?: PartieUpsertWithWhereUniqueWithoutJoueurInput | PartieUpsertWithWhereUniqueWithoutJoueurInput[]
-    createMany?: PartieCreateManyJoueurInputEnvelope
-    set?: PartieWhereUniqueInput | PartieWhereUniqueInput[]
-    disconnect?: PartieWhereUniqueInput | PartieWhereUniqueInput[]
-    delete?: PartieWhereUniqueInput | PartieWhereUniqueInput[]
-    connect?: PartieWhereUniqueInput | PartieWhereUniqueInput[]
-    update?: PartieUpdateWithWhereUniqueWithoutJoueurInput | PartieUpdateWithWhereUniqueWithoutJoueurInput[]
-    updateMany?: PartieUpdateManyWithWhereWithoutJoueurInput | PartieUpdateManyWithWhereWithoutJoueurInput[]
-    deleteMany?: PartieScalarWhereInput | PartieScalarWhereInput[]
+  export type GameUncheckedUpdateManyWithoutUserNestedInput = {
+    create?: XOR<GameCreateWithoutUserInput, GameUncheckedCreateWithoutUserInput> | GameCreateWithoutUserInput[] | GameUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: GameCreateOrConnectWithoutUserInput | GameCreateOrConnectWithoutUserInput[]
+    upsert?: GameUpsertWithWhereUniqueWithoutUserInput | GameUpsertWithWhereUniqueWithoutUserInput[]
+    createMany?: GameCreateManyUserInputEnvelope
+    set?: GameWhereUniqueInput | GameWhereUniqueInput[]
+    disconnect?: GameWhereUniqueInput | GameWhereUniqueInput[]
+    delete?: GameWhereUniqueInput | GameWhereUniqueInput[]
+    connect?: GameWhereUniqueInput | GameWhereUniqueInput[]
+    update?: GameUpdateWithWhereUniqueWithoutUserInput | GameUpdateWithWhereUniqueWithoutUserInput[]
+    updateMany?: GameUpdateManyWithWhereWithoutUserInput | GameUpdateManyWithWhereWithoutUserInput[]
+    deleteMany?: GameScalarWhereInput | GameScalarWhereInput[]
   }
 
-  export type JoueurCreateNestedOneWithoutPartiesInput = {
-    create?: XOR<JoueurCreateWithoutPartiesInput, JoueurUncheckedCreateWithoutPartiesInput>
-    connectOrCreate?: JoueurCreateOrConnectWithoutPartiesInput
-    connect?: JoueurWhereUniqueInput
+  export type UserCreateNestedOneWithoutGamesInput = {
+    create?: XOR<UserCreateWithoutGamesInput, UserUncheckedCreateWithoutGamesInput>
+    connectOrCreate?: UserCreateOrConnectWithoutGamesInput
+    connect?: UserWhereUniqueInput
   }
 
-  export type CarteCreateNestedManyWithoutPartieInput = {
-    create?: XOR<CarteCreateWithoutPartieInput, CarteUncheckedCreateWithoutPartieInput> | CarteCreateWithoutPartieInput[] | CarteUncheckedCreateWithoutPartieInput[]
-    connectOrCreate?: CarteCreateOrConnectWithoutPartieInput | CarteCreateOrConnectWithoutPartieInput[]
-    createMany?: CarteCreateManyPartieInputEnvelope
-    connect?: CarteWhereUniqueInput | CarteWhereUniqueInput[]
+  export type CardCreateNestedManyWithoutGameInput = {
+    create?: XOR<CardCreateWithoutGameInput, CardUncheckedCreateWithoutGameInput> | CardCreateWithoutGameInput[] | CardUncheckedCreateWithoutGameInput[]
+    connectOrCreate?: CardCreateOrConnectWithoutGameInput | CardCreateOrConnectWithoutGameInput[]
+    createMany?: CardCreateManyGameInputEnvelope
+    connect?: CardWhereUniqueInput | CardWhereUniqueInput[]
   }
 
-  export type CarteUncheckedCreateNestedManyWithoutPartieInput = {
-    create?: XOR<CarteCreateWithoutPartieInput, CarteUncheckedCreateWithoutPartieInput> | CarteCreateWithoutPartieInput[] | CarteUncheckedCreateWithoutPartieInput[]
-    connectOrCreate?: CarteCreateOrConnectWithoutPartieInput | CarteCreateOrConnectWithoutPartieInput[]
-    createMany?: CarteCreateManyPartieInputEnvelope
-    connect?: CarteWhereUniqueInput | CarteWhereUniqueInput[]
+  export type CardUncheckedCreateNestedManyWithoutGameInput = {
+    create?: XOR<CardCreateWithoutGameInput, CardUncheckedCreateWithoutGameInput> | CardCreateWithoutGameInput[] | CardUncheckedCreateWithoutGameInput[]
+    connectOrCreate?: CardCreateOrConnectWithoutGameInput | CardCreateOrConnectWithoutGameInput[]
+    createMany?: CardCreateManyGameInputEnvelope
+    connect?: CardWhereUniqueInput | CardWhereUniqueInput[]
   }
 
   export type NullableDateTimeFieldUpdateOperationsInput = {
     set?: Date | string | null
   }
 
-  export type JoueurUpdateOneRequiredWithoutPartiesNestedInput = {
-    create?: XOR<JoueurCreateWithoutPartiesInput, JoueurUncheckedCreateWithoutPartiesInput>
-    connectOrCreate?: JoueurCreateOrConnectWithoutPartiesInput
-    upsert?: JoueurUpsertWithoutPartiesInput
-    connect?: JoueurWhereUniqueInput
-    update?: XOR<XOR<JoueurUpdateToOneWithWhereWithoutPartiesInput, JoueurUpdateWithoutPartiesInput>, JoueurUncheckedUpdateWithoutPartiesInput>
+  export type UserUpdateOneRequiredWithoutGamesNestedInput = {
+    create?: XOR<UserCreateWithoutGamesInput, UserUncheckedCreateWithoutGamesInput>
+    connectOrCreate?: UserCreateOrConnectWithoutGamesInput
+    upsert?: UserUpsertWithoutGamesInput
+    connect?: UserWhereUniqueInput
+    update?: XOR<XOR<UserUpdateToOneWithWhereWithoutGamesInput, UserUpdateWithoutGamesInput>, UserUncheckedUpdateWithoutGamesInput>
   }
 
-  export type CarteUpdateManyWithoutPartieNestedInput = {
-    create?: XOR<CarteCreateWithoutPartieInput, CarteUncheckedCreateWithoutPartieInput> | CarteCreateWithoutPartieInput[] | CarteUncheckedCreateWithoutPartieInput[]
-    connectOrCreate?: CarteCreateOrConnectWithoutPartieInput | CarteCreateOrConnectWithoutPartieInput[]
-    upsert?: CarteUpsertWithWhereUniqueWithoutPartieInput | CarteUpsertWithWhereUniqueWithoutPartieInput[]
-    createMany?: CarteCreateManyPartieInputEnvelope
-    set?: CarteWhereUniqueInput | CarteWhereUniqueInput[]
-    disconnect?: CarteWhereUniqueInput | CarteWhereUniqueInput[]
-    delete?: CarteWhereUniqueInput | CarteWhereUniqueInput[]
-    connect?: CarteWhereUniqueInput | CarteWhereUniqueInput[]
-    update?: CarteUpdateWithWhereUniqueWithoutPartieInput | CarteUpdateWithWhereUniqueWithoutPartieInput[]
-    updateMany?: CarteUpdateManyWithWhereWithoutPartieInput | CarteUpdateManyWithWhereWithoutPartieInput[]
-    deleteMany?: CarteScalarWhereInput | CarteScalarWhereInput[]
+  export type CardUpdateManyWithoutGameNestedInput = {
+    create?: XOR<CardCreateWithoutGameInput, CardUncheckedCreateWithoutGameInput> | CardCreateWithoutGameInput[] | CardUncheckedCreateWithoutGameInput[]
+    connectOrCreate?: CardCreateOrConnectWithoutGameInput | CardCreateOrConnectWithoutGameInput[]
+    upsert?: CardUpsertWithWhereUniqueWithoutGameInput | CardUpsertWithWhereUniqueWithoutGameInput[]
+    createMany?: CardCreateManyGameInputEnvelope
+    set?: CardWhereUniqueInput | CardWhereUniqueInput[]
+    disconnect?: CardWhereUniqueInput | CardWhereUniqueInput[]
+    delete?: CardWhereUniqueInput | CardWhereUniqueInput[]
+    connect?: CardWhereUniqueInput | CardWhereUniqueInput[]
+    update?: CardUpdateWithWhereUniqueWithoutGameInput | CardUpdateWithWhereUniqueWithoutGameInput[]
+    updateMany?: CardUpdateManyWithWhereWithoutGameInput | CardUpdateManyWithWhereWithoutGameInput[]
+    deleteMany?: CardScalarWhereInput | CardScalarWhereInput[]
   }
 
-  export type CarteUncheckedUpdateManyWithoutPartieNestedInput = {
-    create?: XOR<CarteCreateWithoutPartieInput, CarteUncheckedCreateWithoutPartieInput> | CarteCreateWithoutPartieInput[] | CarteUncheckedCreateWithoutPartieInput[]
-    connectOrCreate?: CarteCreateOrConnectWithoutPartieInput | CarteCreateOrConnectWithoutPartieInput[]
-    upsert?: CarteUpsertWithWhereUniqueWithoutPartieInput | CarteUpsertWithWhereUniqueWithoutPartieInput[]
-    createMany?: CarteCreateManyPartieInputEnvelope
-    set?: CarteWhereUniqueInput | CarteWhereUniqueInput[]
-    disconnect?: CarteWhereUniqueInput | CarteWhereUniqueInput[]
-    delete?: CarteWhereUniqueInput | CarteWhereUniqueInput[]
-    connect?: CarteWhereUniqueInput | CarteWhereUniqueInput[]
-    update?: CarteUpdateWithWhereUniqueWithoutPartieInput | CarteUpdateWithWhereUniqueWithoutPartieInput[]
-    updateMany?: CarteUpdateManyWithWhereWithoutPartieInput | CarteUpdateManyWithWhereWithoutPartieInput[]
-    deleteMany?: CarteScalarWhereInput | CarteScalarWhereInput[]
+  export type CardUncheckedUpdateManyWithoutGameNestedInput = {
+    create?: XOR<CardCreateWithoutGameInput, CardUncheckedCreateWithoutGameInput> | CardCreateWithoutGameInput[] | CardUncheckedCreateWithoutGameInput[]
+    connectOrCreate?: CardCreateOrConnectWithoutGameInput | CardCreateOrConnectWithoutGameInput[]
+    upsert?: CardUpsertWithWhereUniqueWithoutGameInput | CardUpsertWithWhereUniqueWithoutGameInput[]
+    createMany?: CardCreateManyGameInputEnvelope
+    set?: CardWhereUniqueInput | CardWhereUniqueInput[]
+    disconnect?: CardWhereUniqueInput | CardWhereUniqueInput[]
+    delete?: CardWhereUniqueInput | CardWhereUniqueInput[]
+    connect?: CardWhereUniqueInput | CardWhereUniqueInput[]
+    update?: CardUpdateWithWhereUniqueWithoutGameInput | CardUpdateWithWhereUniqueWithoutGameInput[]
+    updateMany?: CardUpdateManyWithWhereWithoutGameInput | CardUpdateManyWithWhereWithoutGameInput[]
+    deleteMany?: CardScalarWhereInput | CardScalarWhereInput[]
   }
 
-  export type PartieCreateNestedOneWithoutCartesInput = {
-    create?: XOR<PartieCreateWithoutCartesInput, PartieUncheckedCreateWithoutCartesInput>
-    connectOrCreate?: PartieCreateOrConnectWithoutCartesInput
-    connect?: PartieWhereUniqueInput
+  export type GameCreateNestedOneWithoutCardsInput = {
+    create?: XOR<GameCreateWithoutCardsInput, GameUncheckedCreateWithoutCardsInput>
+    connectOrCreate?: GameCreateOrConnectWithoutCardsInput
+    connect?: GameWhereUniqueInput
   }
 
-  export type ChoixCreateNestedManyWithoutCarteInput = {
-    create?: XOR<ChoixCreateWithoutCarteInput, ChoixUncheckedCreateWithoutCarteInput> | ChoixCreateWithoutCarteInput[] | ChoixUncheckedCreateWithoutCarteInput[]
-    connectOrCreate?: ChoixCreateOrConnectWithoutCarteInput | ChoixCreateOrConnectWithoutCarteInput[]
-    createMany?: ChoixCreateManyCarteInputEnvelope
-    connect?: ChoixWhereUniqueInput | ChoixWhereUniqueInput[]
+  export type ChoiceCreateNestedManyWithoutCardInput = {
+    create?: XOR<ChoiceCreateWithoutCardInput, ChoiceUncheckedCreateWithoutCardInput> | ChoiceCreateWithoutCardInput[] | ChoiceUncheckedCreateWithoutCardInput[]
+    connectOrCreate?: ChoiceCreateOrConnectWithoutCardInput | ChoiceCreateOrConnectWithoutCardInput[]
+    createMany?: ChoiceCreateManyCardInputEnvelope
+    connect?: ChoiceWhereUniqueInput | ChoiceWhereUniqueInput[]
   }
 
-  export type ChoixCreateNestedManyWithoutCarte_suivanteInput = {
-    create?: XOR<ChoixCreateWithoutCarte_suivanteInput, ChoixUncheckedCreateWithoutCarte_suivanteInput> | ChoixCreateWithoutCarte_suivanteInput[] | ChoixUncheckedCreateWithoutCarte_suivanteInput[]
-    connectOrCreate?: ChoixCreateOrConnectWithoutCarte_suivanteInput | ChoixCreateOrConnectWithoutCarte_suivanteInput[]
-    createMany?: ChoixCreateManyCarte_suivanteInputEnvelope
-    connect?: ChoixWhereUniqueInput | ChoixWhereUniqueInput[]
+  export type ChoiceCreateNestedManyWithoutNext_cardInput = {
+    create?: XOR<ChoiceCreateWithoutNext_cardInput, ChoiceUncheckedCreateWithoutNext_cardInput> | ChoiceCreateWithoutNext_cardInput[] | ChoiceUncheckedCreateWithoutNext_cardInput[]
+    connectOrCreate?: ChoiceCreateOrConnectWithoutNext_cardInput | ChoiceCreateOrConnectWithoutNext_cardInput[]
+    createMany?: ChoiceCreateManyNext_cardInputEnvelope
+    connect?: ChoiceWhereUniqueInput | ChoiceWhereUniqueInput[]
   }
 
-  export type ChoixUncheckedCreateNestedManyWithoutCarteInput = {
-    create?: XOR<ChoixCreateWithoutCarteInput, ChoixUncheckedCreateWithoutCarteInput> | ChoixCreateWithoutCarteInput[] | ChoixUncheckedCreateWithoutCarteInput[]
-    connectOrCreate?: ChoixCreateOrConnectWithoutCarteInput | ChoixCreateOrConnectWithoutCarteInput[]
-    createMany?: ChoixCreateManyCarteInputEnvelope
-    connect?: ChoixWhereUniqueInput | ChoixWhereUniqueInput[]
+  export type ChoiceUncheckedCreateNestedManyWithoutCardInput = {
+    create?: XOR<ChoiceCreateWithoutCardInput, ChoiceUncheckedCreateWithoutCardInput> | ChoiceCreateWithoutCardInput[] | ChoiceUncheckedCreateWithoutCardInput[]
+    connectOrCreate?: ChoiceCreateOrConnectWithoutCardInput | ChoiceCreateOrConnectWithoutCardInput[]
+    createMany?: ChoiceCreateManyCardInputEnvelope
+    connect?: ChoiceWhereUniqueInput | ChoiceWhereUniqueInput[]
   }
 
-  export type ChoixUncheckedCreateNestedManyWithoutCarte_suivanteInput = {
-    create?: XOR<ChoixCreateWithoutCarte_suivanteInput, ChoixUncheckedCreateWithoutCarte_suivanteInput> | ChoixCreateWithoutCarte_suivanteInput[] | ChoixUncheckedCreateWithoutCarte_suivanteInput[]
-    connectOrCreate?: ChoixCreateOrConnectWithoutCarte_suivanteInput | ChoixCreateOrConnectWithoutCarte_suivanteInput[]
-    createMany?: ChoixCreateManyCarte_suivanteInputEnvelope
-    connect?: ChoixWhereUniqueInput | ChoixWhereUniqueInput[]
+  export type ChoiceUncheckedCreateNestedManyWithoutNext_cardInput = {
+    create?: XOR<ChoiceCreateWithoutNext_cardInput, ChoiceUncheckedCreateWithoutNext_cardInput> | ChoiceCreateWithoutNext_cardInput[] | ChoiceUncheckedCreateWithoutNext_cardInput[]
+    connectOrCreate?: ChoiceCreateOrConnectWithoutNext_cardInput | ChoiceCreateOrConnectWithoutNext_cardInput[]
+    createMany?: ChoiceCreateManyNext_cardInputEnvelope
+    connect?: ChoiceWhereUniqueInput | ChoiceWhereUniqueInput[]
   }
 
   export type NullableStringFieldUpdateOperationsInput = {
@@ -6391,98 +6391,98 @@ export namespace Prisma {
     set?: boolean
   }
 
-  export type PartieUpdateOneRequiredWithoutCartesNestedInput = {
-    create?: XOR<PartieCreateWithoutCartesInput, PartieUncheckedCreateWithoutCartesInput>
-    connectOrCreate?: PartieCreateOrConnectWithoutCartesInput
-    upsert?: PartieUpsertWithoutCartesInput
-    connect?: PartieWhereUniqueInput
-    update?: XOR<XOR<PartieUpdateToOneWithWhereWithoutCartesInput, PartieUpdateWithoutCartesInput>, PartieUncheckedUpdateWithoutCartesInput>
+  export type GameUpdateOneRequiredWithoutCardsNestedInput = {
+    create?: XOR<GameCreateWithoutCardsInput, GameUncheckedCreateWithoutCardsInput>
+    connectOrCreate?: GameCreateOrConnectWithoutCardsInput
+    upsert?: GameUpsertWithoutCardsInput
+    connect?: GameWhereUniqueInput
+    update?: XOR<XOR<GameUpdateToOneWithWhereWithoutCardsInput, GameUpdateWithoutCardsInput>, GameUncheckedUpdateWithoutCardsInput>
   }
 
-  export type ChoixUpdateManyWithoutCarteNestedInput = {
-    create?: XOR<ChoixCreateWithoutCarteInput, ChoixUncheckedCreateWithoutCarteInput> | ChoixCreateWithoutCarteInput[] | ChoixUncheckedCreateWithoutCarteInput[]
-    connectOrCreate?: ChoixCreateOrConnectWithoutCarteInput | ChoixCreateOrConnectWithoutCarteInput[]
-    upsert?: ChoixUpsertWithWhereUniqueWithoutCarteInput | ChoixUpsertWithWhereUniqueWithoutCarteInput[]
-    createMany?: ChoixCreateManyCarteInputEnvelope
-    set?: ChoixWhereUniqueInput | ChoixWhereUniqueInput[]
-    disconnect?: ChoixWhereUniqueInput | ChoixWhereUniqueInput[]
-    delete?: ChoixWhereUniqueInput | ChoixWhereUniqueInput[]
-    connect?: ChoixWhereUniqueInput | ChoixWhereUniqueInput[]
-    update?: ChoixUpdateWithWhereUniqueWithoutCarteInput | ChoixUpdateWithWhereUniqueWithoutCarteInput[]
-    updateMany?: ChoixUpdateManyWithWhereWithoutCarteInput | ChoixUpdateManyWithWhereWithoutCarteInput[]
-    deleteMany?: ChoixScalarWhereInput | ChoixScalarWhereInput[]
+  export type ChoiceUpdateManyWithoutCardNestedInput = {
+    create?: XOR<ChoiceCreateWithoutCardInput, ChoiceUncheckedCreateWithoutCardInput> | ChoiceCreateWithoutCardInput[] | ChoiceUncheckedCreateWithoutCardInput[]
+    connectOrCreate?: ChoiceCreateOrConnectWithoutCardInput | ChoiceCreateOrConnectWithoutCardInput[]
+    upsert?: ChoiceUpsertWithWhereUniqueWithoutCardInput | ChoiceUpsertWithWhereUniqueWithoutCardInput[]
+    createMany?: ChoiceCreateManyCardInputEnvelope
+    set?: ChoiceWhereUniqueInput | ChoiceWhereUniqueInput[]
+    disconnect?: ChoiceWhereUniqueInput | ChoiceWhereUniqueInput[]
+    delete?: ChoiceWhereUniqueInput | ChoiceWhereUniqueInput[]
+    connect?: ChoiceWhereUniqueInput | ChoiceWhereUniqueInput[]
+    update?: ChoiceUpdateWithWhereUniqueWithoutCardInput | ChoiceUpdateWithWhereUniqueWithoutCardInput[]
+    updateMany?: ChoiceUpdateManyWithWhereWithoutCardInput | ChoiceUpdateManyWithWhereWithoutCardInput[]
+    deleteMany?: ChoiceScalarWhereInput | ChoiceScalarWhereInput[]
   }
 
-  export type ChoixUpdateManyWithoutCarte_suivanteNestedInput = {
-    create?: XOR<ChoixCreateWithoutCarte_suivanteInput, ChoixUncheckedCreateWithoutCarte_suivanteInput> | ChoixCreateWithoutCarte_suivanteInput[] | ChoixUncheckedCreateWithoutCarte_suivanteInput[]
-    connectOrCreate?: ChoixCreateOrConnectWithoutCarte_suivanteInput | ChoixCreateOrConnectWithoutCarte_suivanteInput[]
-    upsert?: ChoixUpsertWithWhereUniqueWithoutCarte_suivanteInput | ChoixUpsertWithWhereUniqueWithoutCarte_suivanteInput[]
-    createMany?: ChoixCreateManyCarte_suivanteInputEnvelope
-    set?: ChoixWhereUniqueInput | ChoixWhereUniqueInput[]
-    disconnect?: ChoixWhereUniqueInput | ChoixWhereUniqueInput[]
-    delete?: ChoixWhereUniqueInput | ChoixWhereUniqueInput[]
-    connect?: ChoixWhereUniqueInput | ChoixWhereUniqueInput[]
-    update?: ChoixUpdateWithWhereUniqueWithoutCarte_suivanteInput | ChoixUpdateWithWhereUniqueWithoutCarte_suivanteInput[]
-    updateMany?: ChoixUpdateManyWithWhereWithoutCarte_suivanteInput | ChoixUpdateManyWithWhereWithoutCarte_suivanteInput[]
-    deleteMany?: ChoixScalarWhereInput | ChoixScalarWhereInput[]
+  export type ChoiceUpdateManyWithoutNext_cardNestedInput = {
+    create?: XOR<ChoiceCreateWithoutNext_cardInput, ChoiceUncheckedCreateWithoutNext_cardInput> | ChoiceCreateWithoutNext_cardInput[] | ChoiceUncheckedCreateWithoutNext_cardInput[]
+    connectOrCreate?: ChoiceCreateOrConnectWithoutNext_cardInput | ChoiceCreateOrConnectWithoutNext_cardInput[]
+    upsert?: ChoiceUpsertWithWhereUniqueWithoutNext_cardInput | ChoiceUpsertWithWhereUniqueWithoutNext_cardInput[]
+    createMany?: ChoiceCreateManyNext_cardInputEnvelope
+    set?: ChoiceWhereUniqueInput | ChoiceWhereUniqueInput[]
+    disconnect?: ChoiceWhereUniqueInput | ChoiceWhereUniqueInput[]
+    delete?: ChoiceWhereUniqueInput | ChoiceWhereUniqueInput[]
+    connect?: ChoiceWhereUniqueInput | ChoiceWhereUniqueInput[]
+    update?: ChoiceUpdateWithWhereUniqueWithoutNext_cardInput | ChoiceUpdateWithWhereUniqueWithoutNext_cardInput[]
+    updateMany?: ChoiceUpdateManyWithWhereWithoutNext_cardInput | ChoiceUpdateManyWithWhereWithoutNext_cardInput[]
+    deleteMany?: ChoiceScalarWhereInput | ChoiceScalarWhereInput[]
   }
 
-  export type ChoixUncheckedUpdateManyWithoutCarteNestedInput = {
-    create?: XOR<ChoixCreateWithoutCarteInput, ChoixUncheckedCreateWithoutCarteInput> | ChoixCreateWithoutCarteInput[] | ChoixUncheckedCreateWithoutCarteInput[]
-    connectOrCreate?: ChoixCreateOrConnectWithoutCarteInput | ChoixCreateOrConnectWithoutCarteInput[]
-    upsert?: ChoixUpsertWithWhereUniqueWithoutCarteInput | ChoixUpsertWithWhereUniqueWithoutCarteInput[]
-    createMany?: ChoixCreateManyCarteInputEnvelope
-    set?: ChoixWhereUniqueInput | ChoixWhereUniqueInput[]
-    disconnect?: ChoixWhereUniqueInput | ChoixWhereUniqueInput[]
-    delete?: ChoixWhereUniqueInput | ChoixWhereUniqueInput[]
-    connect?: ChoixWhereUniqueInput | ChoixWhereUniqueInput[]
-    update?: ChoixUpdateWithWhereUniqueWithoutCarteInput | ChoixUpdateWithWhereUniqueWithoutCarteInput[]
-    updateMany?: ChoixUpdateManyWithWhereWithoutCarteInput | ChoixUpdateManyWithWhereWithoutCarteInput[]
-    deleteMany?: ChoixScalarWhereInput | ChoixScalarWhereInput[]
+  export type ChoiceUncheckedUpdateManyWithoutCardNestedInput = {
+    create?: XOR<ChoiceCreateWithoutCardInput, ChoiceUncheckedCreateWithoutCardInput> | ChoiceCreateWithoutCardInput[] | ChoiceUncheckedCreateWithoutCardInput[]
+    connectOrCreate?: ChoiceCreateOrConnectWithoutCardInput | ChoiceCreateOrConnectWithoutCardInput[]
+    upsert?: ChoiceUpsertWithWhereUniqueWithoutCardInput | ChoiceUpsertWithWhereUniqueWithoutCardInput[]
+    createMany?: ChoiceCreateManyCardInputEnvelope
+    set?: ChoiceWhereUniqueInput | ChoiceWhereUniqueInput[]
+    disconnect?: ChoiceWhereUniqueInput | ChoiceWhereUniqueInput[]
+    delete?: ChoiceWhereUniqueInput | ChoiceWhereUniqueInput[]
+    connect?: ChoiceWhereUniqueInput | ChoiceWhereUniqueInput[]
+    update?: ChoiceUpdateWithWhereUniqueWithoutCardInput | ChoiceUpdateWithWhereUniqueWithoutCardInput[]
+    updateMany?: ChoiceUpdateManyWithWhereWithoutCardInput | ChoiceUpdateManyWithWhereWithoutCardInput[]
+    deleteMany?: ChoiceScalarWhereInput | ChoiceScalarWhereInput[]
   }
 
-  export type ChoixUncheckedUpdateManyWithoutCarte_suivanteNestedInput = {
-    create?: XOR<ChoixCreateWithoutCarte_suivanteInput, ChoixUncheckedCreateWithoutCarte_suivanteInput> | ChoixCreateWithoutCarte_suivanteInput[] | ChoixUncheckedCreateWithoutCarte_suivanteInput[]
-    connectOrCreate?: ChoixCreateOrConnectWithoutCarte_suivanteInput | ChoixCreateOrConnectWithoutCarte_suivanteInput[]
-    upsert?: ChoixUpsertWithWhereUniqueWithoutCarte_suivanteInput | ChoixUpsertWithWhereUniqueWithoutCarte_suivanteInput[]
-    createMany?: ChoixCreateManyCarte_suivanteInputEnvelope
-    set?: ChoixWhereUniqueInput | ChoixWhereUniqueInput[]
-    disconnect?: ChoixWhereUniqueInput | ChoixWhereUniqueInput[]
-    delete?: ChoixWhereUniqueInput | ChoixWhereUniqueInput[]
-    connect?: ChoixWhereUniqueInput | ChoixWhereUniqueInput[]
-    update?: ChoixUpdateWithWhereUniqueWithoutCarte_suivanteInput | ChoixUpdateWithWhereUniqueWithoutCarte_suivanteInput[]
-    updateMany?: ChoixUpdateManyWithWhereWithoutCarte_suivanteInput | ChoixUpdateManyWithWhereWithoutCarte_suivanteInput[]
-    deleteMany?: ChoixScalarWhereInput | ChoixScalarWhereInput[]
+  export type ChoiceUncheckedUpdateManyWithoutNext_cardNestedInput = {
+    create?: XOR<ChoiceCreateWithoutNext_cardInput, ChoiceUncheckedCreateWithoutNext_cardInput> | ChoiceCreateWithoutNext_cardInput[] | ChoiceUncheckedCreateWithoutNext_cardInput[]
+    connectOrCreate?: ChoiceCreateOrConnectWithoutNext_cardInput | ChoiceCreateOrConnectWithoutNext_cardInput[]
+    upsert?: ChoiceUpsertWithWhereUniqueWithoutNext_cardInput | ChoiceUpsertWithWhereUniqueWithoutNext_cardInput[]
+    createMany?: ChoiceCreateManyNext_cardInputEnvelope
+    set?: ChoiceWhereUniqueInput | ChoiceWhereUniqueInput[]
+    disconnect?: ChoiceWhereUniqueInput | ChoiceWhereUniqueInput[]
+    delete?: ChoiceWhereUniqueInput | ChoiceWhereUniqueInput[]
+    connect?: ChoiceWhereUniqueInput | ChoiceWhereUniqueInput[]
+    update?: ChoiceUpdateWithWhereUniqueWithoutNext_cardInput | ChoiceUpdateWithWhereUniqueWithoutNext_cardInput[]
+    updateMany?: ChoiceUpdateManyWithWhereWithoutNext_cardInput | ChoiceUpdateManyWithWhereWithoutNext_cardInput[]
+    deleteMany?: ChoiceScalarWhereInput | ChoiceScalarWhereInput[]
   }
 
-  export type CarteCreateNestedOneWithoutSuivie_parInput = {
-    create?: XOR<CarteCreateWithoutSuivie_parInput, CarteUncheckedCreateWithoutSuivie_parInput>
-    connectOrCreate?: CarteCreateOrConnectWithoutSuivie_parInput
-    connect?: CarteWhereUniqueInput
+  export type CardCreateNestedOneWithoutSuivie_parInput = {
+    create?: XOR<CardCreateWithoutSuivie_parInput, CardUncheckedCreateWithoutSuivie_parInput>
+    connectOrCreate?: CardCreateOrConnectWithoutSuivie_parInput
+    connect?: CardWhereUniqueInput
   }
 
-  export type CarteCreateNestedOneWithoutChoixInput = {
-    create?: XOR<CarteCreateWithoutChoixInput, CarteUncheckedCreateWithoutChoixInput>
-    connectOrCreate?: CarteCreateOrConnectWithoutChoixInput
-    connect?: CarteWhereUniqueInput
+  export type CardCreateNestedOneWithoutChoiceInput = {
+    create?: XOR<CardCreateWithoutChoiceInput, CardUncheckedCreateWithoutChoiceInput>
+    connectOrCreate?: CardCreateOrConnectWithoutChoiceInput
+    connect?: CardWhereUniqueInput
   }
 
-  export type CarteUpdateOneWithoutSuivie_parNestedInput = {
-    create?: XOR<CarteCreateWithoutSuivie_parInput, CarteUncheckedCreateWithoutSuivie_parInput>
-    connectOrCreate?: CarteCreateOrConnectWithoutSuivie_parInput
-    upsert?: CarteUpsertWithoutSuivie_parInput
-    disconnect?: CarteWhereInput | boolean
-    delete?: CarteWhereInput | boolean
-    connect?: CarteWhereUniqueInput
-    update?: XOR<XOR<CarteUpdateToOneWithWhereWithoutSuivie_parInput, CarteUpdateWithoutSuivie_parInput>, CarteUncheckedUpdateWithoutSuivie_parInput>
+  export type CardUpdateOneWithoutSuivie_parNestedInput = {
+    create?: XOR<CardCreateWithoutSuivie_parInput, CardUncheckedCreateWithoutSuivie_parInput>
+    connectOrCreate?: CardCreateOrConnectWithoutSuivie_parInput
+    upsert?: CardUpsertWithoutSuivie_parInput
+    disconnect?: CardWhereInput | boolean
+    delete?: CardWhereInput | boolean
+    connect?: CardWhereUniqueInput
+    update?: XOR<XOR<CardUpdateToOneWithWhereWithoutSuivie_parInput, CardUpdateWithoutSuivie_parInput>, CardUncheckedUpdateWithoutSuivie_parInput>
   }
 
-  export type CarteUpdateOneRequiredWithoutChoixNestedInput = {
-    create?: XOR<CarteCreateWithoutChoixInput, CarteUncheckedCreateWithoutChoixInput>
-    connectOrCreate?: CarteCreateOrConnectWithoutChoixInput
-    upsert?: CarteUpsertWithoutChoixInput
-    connect?: CarteWhereUniqueInput
-    update?: XOR<XOR<CarteUpdateToOneWithWhereWithoutChoixInput, CarteUpdateWithoutChoixInput>, CarteUncheckedUpdateWithoutChoixInput>
+  export type CardUpdateOneRequiredWithoutChoiceNestedInput = {
+    create?: XOR<CardCreateWithoutChoiceInput, CardUncheckedCreateWithoutChoiceInput>
+    connectOrCreate?: CardCreateOrConnectWithoutChoiceInput
+    upsert?: CardUpsertWithoutChoiceInput
+    connect?: CardWhereUniqueInput
+    update?: XOR<XOR<CardUpdateToOneWithWhereWithoutChoiceInput, CardUpdateWithoutChoiceInput>, CardUncheckedUpdateWithoutChoiceInput>
   }
 
   export type NullableIntFieldUpdateOperationsInput = {
@@ -6698,507 +6698,507 @@ export namespace Prisma {
     not?: NestedFloatNullableFilter<$PrismaModel> | number | null
   }
 
-  export type PartieCreateWithoutJoueurInput = {
-    date_debut_partie: Date | string
-    date_fin_partie?: Date | string | null
-    statut?: string
-    cartes?: CarteCreateNestedManyWithoutPartieInput
+  export type GameCreateWithoutUserInput = {
+    game_start_date: Date | string
+    game_end_date?: Date | string | null
+    status?: string
+    cards?: CardCreateNestedManyWithoutGameInput
   }
 
-  export type PartieUncheckedCreateWithoutJoueurInput = {
-    partie_id?: number
-    date_debut_partie: Date | string
-    date_fin_partie?: Date | string | null
-    statut?: string
-    cartes?: CarteUncheckedCreateNestedManyWithoutPartieInput
+  export type GameUncheckedCreateWithoutUserInput = {
+    game_id?: number
+    game_start_date: Date | string
+    game_end_date?: Date | string | null
+    status?: string
+    cards?: CardUncheckedCreateNestedManyWithoutGameInput
   }
 
-  export type PartieCreateOrConnectWithoutJoueurInput = {
-    where: PartieWhereUniqueInput
-    create: XOR<PartieCreateWithoutJoueurInput, PartieUncheckedCreateWithoutJoueurInput>
+  export type GameCreateOrConnectWithoutUserInput = {
+    where: GameWhereUniqueInput
+    create: XOR<GameCreateWithoutUserInput, GameUncheckedCreateWithoutUserInput>
   }
 
-  export type PartieCreateManyJoueurInputEnvelope = {
-    data: PartieCreateManyJoueurInput | PartieCreateManyJoueurInput[]
+  export type GameCreateManyUserInputEnvelope = {
+    data: GameCreateManyUserInput | GameCreateManyUserInput[]
     skipDuplicates?: boolean
   }
 
-  export type PartieUpsertWithWhereUniqueWithoutJoueurInput = {
-    where: PartieWhereUniqueInput
-    update: XOR<PartieUpdateWithoutJoueurInput, PartieUncheckedUpdateWithoutJoueurInput>
-    create: XOR<PartieCreateWithoutJoueurInput, PartieUncheckedCreateWithoutJoueurInput>
+  export type GameUpsertWithWhereUniqueWithoutUserInput = {
+    where: GameWhereUniqueInput
+    update: XOR<GameUpdateWithoutUserInput, GameUncheckedUpdateWithoutUserInput>
+    create: XOR<GameCreateWithoutUserInput, GameUncheckedCreateWithoutUserInput>
   }
 
-  export type PartieUpdateWithWhereUniqueWithoutJoueurInput = {
-    where: PartieWhereUniqueInput
-    data: XOR<PartieUpdateWithoutJoueurInput, PartieUncheckedUpdateWithoutJoueurInput>
+  export type GameUpdateWithWhereUniqueWithoutUserInput = {
+    where: GameWhereUniqueInput
+    data: XOR<GameUpdateWithoutUserInput, GameUncheckedUpdateWithoutUserInput>
   }
 
-  export type PartieUpdateManyWithWhereWithoutJoueurInput = {
-    where: PartieScalarWhereInput
-    data: XOR<PartieUpdateManyMutationInput, PartieUncheckedUpdateManyWithoutJoueurInput>
+  export type GameUpdateManyWithWhereWithoutUserInput = {
+    where: GameScalarWhereInput
+    data: XOR<GameUpdateManyMutationInput, GameUncheckedUpdateManyWithoutUserInput>
   }
 
-  export type PartieScalarWhereInput = {
-    AND?: PartieScalarWhereInput | PartieScalarWhereInput[]
-    OR?: PartieScalarWhereInput[]
-    NOT?: PartieScalarWhereInput | PartieScalarWhereInput[]
-    partie_id?: IntFilter<"Partie"> | number
-    date_debut_partie?: DateTimeFilter<"Partie"> | Date | string
-    date_fin_partie?: DateTimeNullableFilter<"Partie"> | Date | string | null
-    statut?: StringFilter<"Partie"> | string
-    joueur_id?: IntFilter<"Partie"> | number
+  export type GameScalarWhereInput = {
+    AND?: GameScalarWhereInput | GameScalarWhereInput[]
+    OR?: GameScalarWhereInput[]
+    NOT?: GameScalarWhereInput | GameScalarWhereInput[]
+    game_id?: IntFilter<"Game"> | number
+    game_start_date?: DateTimeFilter<"Game"> | Date | string
+    game_end_date?: DateTimeNullableFilter<"Game"> | Date | string | null
+    status?: StringFilter<"Game"> | string
+    user_id?: IntFilter<"Game"> | number
   }
 
-  export type JoueurCreateWithoutPartiesInput = {
+  export type UserCreateWithoutGamesInput = {
     email: string
-    mdp: string
+    password: string
     role?: string
-    date_creation?: Date | string
+    creation_date?: Date | string
   }
 
-  export type JoueurUncheckedCreateWithoutPartiesInput = {
-    joueur_id?: number
+  export type UserUncheckedCreateWithoutGamesInput = {
+    user_id?: number
     email: string
-    mdp: string
+    password: string
     role?: string
-    date_creation?: Date | string
+    creation_date?: Date | string
   }
 
-  export type JoueurCreateOrConnectWithoutPartiesInput = {
-    where: JoueurWhereUniqueInput
-    create: XOR<JoueurCreateWithoutPartiesInput, JoueurUncheckedCreateWithoutPartiesInput>
+  export type UserCreateOrConnectWithoutGamesInput = {
+    where: UserWhereUniqueInput
+    create: XOR<UserCreateWithoutGamesInput, UserUncheckedCreateWithoutGamesInput>
   }
 
-  export type CarteCreateWithoutPartieInput = {
+  export type CardCreateWithoutGameInput = {
     titre: string
     image_url?: string | null
     texte: string
     is_over?: boolean
-    choix?: ChoixCreateNestedManyWithoutCarteInput
-    suivie_par?: ChoixCreateNestedManyWithoutCarte_suivanteInput
+    choice?: ChoiceCreateNestedManyWithoutCardInput
+    suivie_par?: ChoiceCreateNestedManyWithoutNext_cardInput
   }
 
-  export type CarteUncheckedCreateWithoutPartieInput = {
-    carte_id?: number
+  export type CardUncheckedCreateWithoutGameInput = {
+    card_id?: number
     titre: string
     image_url?: string | null
     texte: string
     is_over?: boolean
-    choix?: ChoixUncheckedCreateNestedManyWithoutCarteInput
-    suivie_par?: ChoixUncheckedCreateNestedManyWithoutCarte_suivanteInput
+    choice?: ChoiceUncheckedCreateNestedManyWithoutCardInput
+    suivie_par?: ChoiceUncheckedCreateNestedManyWithoutNext_cardInput
   }
 
-  export type CarteCreateOrConnectWithoutPartieInput = {
-    where: CarteWhereUniqueInput
-    create: XOR<CarteCreateWithoutPartieInput, CarteUncheckedCreateWithoutPartieInput>
+  export type CardCreateOrConnectWithoutGameInput = {
+    where: CardWhereUniqueInput
+    create: XOR<CardCreateWithoutGameInput, CardUncheckedCreateWithoutGameInput>
   }
 
-  export type CarteCreateManyPartieInputEnvelope = {
-    data: CarteCreateManyPartieInput | CarteCreateManyPartieInput[]
+  export type CardCreateManyGameInputEnvelope = {
+    data: CardCreateManyGameInput | CardCreateManyGameInput[]
     skipDuplicates?: boolean
   }
 
-  export type JoueurUpsertWithoutPartiesInput = {
-    update: XOR<JoueurUpdateWithoutPartiesInput, JoueurUncheckedUpdateWithoutPartiesInput>
-    create: XOR<JoueurCreateWithoutPartiesInput, JoueurUncheckedCreateWithoutPartiesInput>
-    where?: JoueurWhereInput
+  export type UserUpsertWithoutGamesInput = {
+    update: XOR<UserUpdateWithoutGamesInput, UserUncheckedUpdateWithoutGamesInput>
+    create: XOR<UserCreateWithoutGamesInput, UserUncheckedCreateWithoutGamesInput>
+    where?: UserWhereInput
   }
 
-  export type JoueurUpdateToOneWithWhereWithoutPartiesInput = {
-    where?: JoueurWhereInput
-    data: XOR<JoueurUpdateWithoutPartiesInput, JoueurUncheckedUpdateWithoutPartiesInput>
+  export type UserUpdateToOneWithWhereWithoutGamesInput = {
+    where?: UserWhereInput
+    data: XOR<UserUpdateWithoutGamesInput, UserUncheckedUpdateWithoutGamesInput>
   }
 
-  export type JoueurUpdateWithoutPartiesInput = {
+  export type UserUpdateWithoutGamesInput = {
     email?: StringFieldUpdateOperationsInput | string
-    mdp?: StringFieldUpdateOperationsInput | string
+    password?: StringFieldUpdateOperationsInput | string
     role?: StringFieldUpdateOperationsInput | string
-    date_creation?: DateTimeFieldUpdateOperationsInput | Date | string
+    creation_date?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
-  export type JoueurUncheckedUpdateWithoutPartiesInput = {
-    joueur_id?: IntFieldUpdateOperationsInput | number
+  export type UserUncheckedUpdateWithoutGamesInput = {
+    user_id?: IntFieldUpdateOperationsInput | number
     email?: StringFieldUpdateOperationsInput | string
-    mdp?: StringFieldUpdateOperationsInput | string
+    password?: StringFieldUpdateOperationsInput | string
     role?: StringFieldUpdateOperationsInput | string
-    date_creation?: DateTimeFieldUpdateOperationsInput | Date | string
+    creation_date?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
-  export type CarteUpsertWithWhereUniqueWithoutPartieInput = {
-    where: CarteWhereUniqueInput
-    update: XOR<CarteUpdateWithoutPartieInput, CarteUncheckedUpdateWithoutPartieInput>
-    create: XOR<CarteCreateWithoutPartieInput, CarteUncheckedCreateWithoutPartieInput>
+  export type CardUpsertWithWhereUniqueWithoutGameInput = {
+    where: CardWhereUniqueInput
+    update: XOR<CardUpdateWithoutGameInput, CardUncheckedUpdateWithoutGameInput>
+    create: XOR<CardCreateWithoutGameInput, CardUncheckedCreateWithoutGameInput>
   }
 
-  export type CarteUpdateWithWhereUniqueWithoutPartieInput = {
-    where: CarteWhereUniqueInput
-    data: XOR<CarteUpdateWithoutPartieInput, CarteUncheckedUpdateWithoutPartieInput>
+  export type CardUpdateWithWhereUniqueWithoutGameInput = {
+    where: CardWhereUniqueInput
+    data: XOR<CardUpdateWithoutGameInput, CardUncheckedUpdateWithoutGameInput>
   }
 
-  export type CarteUpdateManyWithWhereWithoutPartieInput = {
-    where: CarteScalarWhereInput
-    data: XOR<CarteUpdateManyMutationInput, CarteUncheckedUpdateManyWithoutPartieInput>
+  export type CardUpdateManyWithWhereWithoutGameInput = {
+    where: CardScalarWhereInput
+    data: XOR<CardUpdateManyMutationInput, CardUncheckedUpdateManyWithoutGameInput>
   }
 
-  export type CarteScalarWhereInput = {
-    AND?: CarteScalarWhereInput | CarteScalarWhereInput[]
-    OR?: CarteScalarWhereInput[]
-    NOT?: CarteScalarWhereInput | CarteScalarWhereInput[]
-    carte_id?: IntFilter<"Carte"> | number
-    titre?: StringFilter<"Carte"> | string
-    image_url?: StringNullableFilter<"Carte"> | string | null
-    texte?: StringFilter<"Carte"> | string
-    is_over?: BoolFilter<"Carte"> | boolean
-    partie_id?: IntFilter<"Carte"> | number
+  export type CardScalarWhereInput = {
+    AND?: CardScalarWhereInput | CardScalarWhereInput[]
+    OR?: CardScalarWhereInput[]
+    NOT?: CardScalarWhereInput | CardScalarWhereInput[]
+    card_id?: IntFilter<"Card"> | number
+    titre?: StringFilter<"Card"> | string
+    image_url?: StringNullableFilter<"Card"> | string | null
+    texte?: StringFilter<"Card"> | string
+    is_over?: BoolFilter<"Card"> | boolean
+    game_id?: IntFilter<"Card"> | number
   }
 
-  export type PartieCreateWithoutCartesInput = {
-    date_debut_partie: Date | string
-    date_fin_partie?: Date | string | null
-    statut?: string
-    joueur: JoueurCreateNestedOneWithoutPartiesInput
+  export type GameCreateWithoutCardsInput = {
+    game_start_date: Date | string
+    game_end_date?: Date | string | null
+    status?: string
+    user: UserCreateNestedOneWithoutGamesInput
   }
 
-  export type PartieUncheckedCreateWithoutCartesInput = {
-    partie_id?: number
-    date_debut_partie: Date | string
-    date_fin_partie?: Date | string | null
-    statut?: string
-    joueur_id: number
+  export type GameUncheckedCreateWithoutCardsInput = {
+    game_id?: number
+    game_start_date: Date | string
+    game_end_date?: Date | string | null
+    status?: string
+    user_id: number
   }
 
-  export type PartieCreateOrConnectWithoutCartesInput = {
-    where: PartieWhereUniqueInput
-    create: XOR<PartieCreateWithoutCartesInput, PartieUncheckedCreateWithoutCartesInput>
+  export type GameCreateOrConnectWithoutCardsInput = {
+    where: GameWhereUniqueInput
+    create: XOR<GameCreateWithoutCardsInput, GameUncheckedCreateWithoutCardsInput>
   }
 
-  export type ChoixCreateWithoutCarteInput = {
+  export type ChoiceCreateWithoutCardInput = {
     texte: string
-    carte_suivante?: CarteCreateNestedOneWithoutSuivie_parInput
+    next_card?: CardCreateNestedOneWithoutSuivie_parInput
   }
 
-  export type ChoixUncheckedCreateWithoutCarteInput = {
-    choix_id?: number
+  export type ChoiceUncheckedCreateWithoutCardInput = {
+    choice_id?: number
     texte: string
-    carte_suivante_default?: number | null
+    default_next_card?: number | null
   }
 
-  export type ChoixCreateOrConnectWithoutCarteInput = {
-    where: ChoixWhereUniqueInput
-    create: XOR<ChoixCreateWithoutCarteInput, ChoixUncheckedCreateWithoutCarteInput>
+  export type ChoiceCreateOrConnectWithoutCardInput = {
+    where: ChoiceWhereUniqueInput
+    create: XOR<ChoiceCreateWithoutCardInput, ChoiceUncheckedCreateWithoutCardInput>
   }
 
-  export type ChoixCreateManyCarteInputEnvelope = {
-    data: ChoixCreateManyCarteInput | ChoixCreateManyCarteInput[]
+  export type ChoiceCreateManyCardInputEnvelope = {
+    data: ChoiceCreateManyCardInput | ChoiceCreateManyCardInput[]
     skipDuplicates?: boolean
   }
 
-  export type ChoixCreateWithoutCarte_suivanteInput = {
+  export type ChoiceCreateWithoutNext_cardInput = {
     texte: string
-    carte: CarteCreateNestedOneWithoutChoixInput
+    card: CardCreateNestedOneWithoutChoiceInput
   }
 
-  export type ChoixUncheckedCreateWithoutCarte_suivanteInput = {
-    choix_id?: number
+  export type ChoiceUncheckedCreateWithoutNext_cardInput = {
+    choice_id?: number
     texte: string
-    carte_id: number
+    card_id: number
   }
 
-  export type ChoixCreateOrConnectWithoutCarte_suivanteInput = {
-    where: ChoixWhereUniqueInput
-    create: XOR<ChoixCreateWithoutCarte_suivanteInput, ChoixUncheckedCreateWithoutCarte_suivanteInput>
+  export type ChoiceCreateOrConnectWithoutNext_cardInput = {
+    where: ChoiceWhereUniqueInput
+    create: XOR<ChoiceCreateWithoutNext_cardInput, ChoiceUncheckedCreateWithoutNext_cardInput>
   }
 
-  export type ChoixCreateManyCarte_suivanteInputEnvelope = {
-    data: ChoixCreateManyCarte_suivanteInput | ChoixCreateManyCarte_suivanteInput[]
+  export type ChoiceCreateManyNext_cardInputEnvelope = {
+    data: ChoiceCreateManyNext_cardInput | ChoiceCreateManyNext_cardInput[]
     skipDuplicates?: boolean
   }
 
-  export type PartieUpsertWithoutCartesInput = {
-    update: XOR<PartieUpdateWithoutCartesInput, PartieUncheckedUpdateWithoutCartesInput>
-    create: XOR<PartieCreateWithoutCartesInput, PartieUncheckedCreateWithoutCartesInput>
-    where?: PartieWhereInput
+  export type GameUpsertWithoutCardsInput = {
+    update: XOR<GameUpdateWithoutCardsInput, GameUncheckedUpdateWithoutCardsInput>
+    create: XOR<GameCreateWithoutCardsInput, GameUncheckedCreateWithoutCardsInput>
+    where?: GameWhereInput
   }
 
-  export type PartieUpdateToOneWithWhereWithoutCartesInput = {
-    where?: PartieWhereInput
-    data: XOR<PartieUpdateWithoutCartesInput, PartieUncheckedUpdateWithoutCartesInput>
+  export type GameUpdateToOneWithWhereWithoutCardsInput = {
+    where?: GameWhereInput
+    data: XOR<GameUpdateWithoutCardsInput, GameUncheckedUpdateWithoutCardsInput>
   }
 
-  export type PartieUpdateWithoutCartesInput = {
-    date_debut_partie?: DateTimeFieldUpdateOperationsInput | Date | string
-    date_fin_partie?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    statut?: StringFieldUpdateOperationsInput | string
-    joueur?: JoueurUpdateOneRequiredWithoutPartiesNestedInput
+  export type GameUpdateWithoutCardsInput = {
+    game_start_date?: DateTimeFieldUpdateOperationsInput | Date | string
+    game_end_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    status?: StringFieldUpdateOperationsInput | string
+    user?: UserUpdateOneRequiredWithoutGamesNestedInput
   }
 
-  export type PartieUncheckedUpdateWithoutCartesInput = {
-    partie_id?: IntFieldUpdateOperationsInput | number
-    date_debut_partie?: DateTimeFieldUpdateOperationsInput | Date | string
-    date_fin_partie?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    statut?: StringFieldUpdateOperationsInput | string
-    joueur_id?: IntFieldUpdateOperationsInput | number
+  export type GameUncheckedUpdateWithoutCardsInput = {
+    game_id?: IntFieldUpdateOperationsInput | number
+    game_start_date?: DateTimeFieldUpdateOperationsInput | Date | string
+    game_end_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    status?: StringFieldUpdateOperationsInput | string
+    user_id?: IntFieldUpdateOperationsInput | number
   }
 
-  export type ChoixUpsertWithWhereUniqueWithoutCarteInput = {
-    where: ChoixWhereUniqueInput
-    update: XOR<ChoixUpdateWithoutCarteInput, ChoixUncheckedUpdateWithoutCarteInput>
-    create: XOR<ChoixCreateWithoutCarteInput, ChoixUncheckedCreateWithoutCarteInput>
+  export type ChoiceUpsertWithWhereUniqueWithoutCardInput = {
+    where: ChoiceWhereUniqueInput
+    update: XOR<ChoiceUpdateWithoutCardInput, ChoiceUncheckedUpdateWithoutCardInput>
+    create: XOR<ChoiceCreateWithoutCardInput, ChoiceUncheckedCreateWithoutCardInput>
   }
 
-  export type ChoixUpdateWithWhereUniqueWithoutCarteInput = {
-    where: ChoixWhereUniqueInput
-    data: XOR<ChoixUpdateWithoutCarteInput, ChoixUncheckedUpdateWithoutCarteInput>
+  export type ChoiceUpdateWithWhereUniqueWithoutCardInput = {
+    where: ChoiceWhereUniqueInput
+    data: XOR<ChoiceUpdateWithoutCardInput, ChoiceUncheckedUpdateWithoutCardInput>
   }
 
-  export type ChoixUpdateManyWithWhereWithoutCarteInput = {
-    where: ChoixScalarWhereInput
-    data: XOR<ChoixUpdateManyMutationInput, ChoixUncheckedUpdateManyWithoutCarteInput>
+  export type ChoiceUpdateManyWithWhereWithoutCardInput = {
+    where: ChoiceScalarWhereInput
+    data: XOR<ChoiceUpdateManyMutationInput, ChoiceUncheckedUpdateManyWithoutCardInput>
   }
 
-  export type ChoixScalarWhereInput = {
-    AND?: ChoixScalarWhereInput | ChoixScalarWhereInput[]
-    OR?: ChoixScalarWhereInput[]
-    NOT?: ChoixScalarWhereInput | ChoixScalarWhereInput[]
-    choix_id?: IntFilter<"Choix"> | number
-    texte?: StringFilter<"Choix"> | string
-    carte_suivante_default?: IntNullableFilter<"Choix"> | number | null
-    carte_id?: IntFilter<"Choix"> | number
+  export type ChoiceScalarWhereInput = {
+    AND?: ChoiceScalarWhereInput | ChoiceScalarWhereInput[]
+    OR?: ChoiceScalarWhereInput[]
+    NOT?: ChoiceScalarWhereInput | ChoiceScalarWhereInput[]
+    choice_id?: IntFilter<"Choice"> | number
+    texte?: StringFilter<"Choice"> | string
+    default_next_card?: IntNullableFilter<"Choice"> | number | null
+    card_id?: IntFilter<"Choice"> | number
   }
 
-  export type ChoixUpsertWithWhereUniqueWithoutCarte_suivanteInput = {
-    where: ChoixWhereUniqueInput
-    update: XOR<ChoixUpdateWithoutCarte_suivanteInput, ChoixUncheckedUpdateWithoutCarte_suivanteInput>
-    create: XOR<ChoixCreateWithoutCarte_suivanteInput, ChoixUncheckedCreateWithoutCarte_suivanteInput>
+  export type ChoiceUpsertWithWhereUniqueWithoutNext_cardInput = {
+    where: ChoiceWhereUniqueInput
+    update: XOR<ChoiceUpdateWithoutNext_cardInput, ChoiceUncheckedUpdateWithoutNext_cardInput>
+    create: XOR<ChoiceCreateWithoutNext_cardInput, ChoiceUncheckedCreateWithoutNext_cardInput>
   }
 
-  export type ChoixUpdateWithWhereUniqueWithoutCarte_suivanteInput = {
-    where: ChoixWhereUniqueInput
-    data: XOR<ChoixUpdateWithoutCarte_suivanteInput, ChoixUncheckedUpdateWithoutCarte_suivanteInput>
+  export type ChoiceUpdateWithWhereUniqueWithoutNext_cardInput = {
+    where: ChoiceWhereUniqueInput
+    data: XOR<ChoiceUpdateWithoutNext_cardInput, ChoiceUncheckedUpdateWithoutNext_cardInput>
   }
 
-  export type ChoixUpdateManyWithWhereWithoutCarte_suivanteInput = {
-    where: ChoixScalarWhereInput
-    data: XOR<ChoixUpdateManyMutationInput, ChoixUncheckedUpdateManyWithoutCarte_suivanteInput>
+  export type ChoiceUpdateManyWithWhereWithoutNext_cardInput = {
+    where: ChoiceScalarWhereInput
+    data: XOR<ChoiceUpdateManyMutationInput, ChoiceUncheckedUpdateManyWithoutNext_cardInput>
   }
 
-  export type CarteCreateWithoutSuivie_parInput = {
+  export type CardCreateWithoutSuivie_parInput = {
     titre: string
     image_url?: string | null
     texte: string
     is_over?: boolean
-    partie: PartieCreateNestedOneWithoutCartesInput
-    choix?: ChoixCreateNestedManyWithoutCarteInput
+    game: GameCreateNestedOneWithoutCardsInput
+    choice?: ChoiceCreateNestedManyWithoutCardInput
   }
 
-  export type CarteUncheckedCreateWithoutSuivie_parInput = {
-    carte_id?: number
+  export type CardUncheckedCreateWithoutSuivie_parInput = {
+    card_id?: number
     titre: string
     image_url?: string | null
     texte: string
     is_over?: boolean
-    partie_id: number
-    choix?: ChoixUncheckedCreateNestedManyWithoutCarteInput
+    game_id: number
+    choice?: ChoiceUncheckedCreateNestedManyWithoutCardInput
   }
 
-  export type CarteCreateOrConnectWithoutSuivie_parInput = {
-    where: CarteWhereUniqueInput
-    create: XOR<CarteCreateWithoutSuivie_parInput, CarteUncheckedCreateWithoutSuivie_parInput>
+  export type CardCreateOrConnectWithoutSuivie_parInput = {
+    where: CardWhereUniqueInput
+    create: XOR<CardCreateWithoutSuivie_parInput, CardUncheckedCreateWithoutSuivie_parInput>
   }
 
-  export type CarteCreateWithoutChoixInput = {
+  export type CardCreateWithoutChoiceInput = {
     titre: string
     image_url?: string | null
     texte: string
     is_over?: boolean
-    partie: PartieCreateNestedOneWithoutCartesInput
-    suivie_par?: ChoixCreateNestedManyWithoutCarte_suivanteInput
+    game: GameCreateNestedOneWithoutCardsInput
+    suivie_par?: ChoiceCreateNestedManyWithoutNext_cardInput
   }
 
-  export type CarteUncheckedCreateWithoutChoixInput = {
-    carte_id?: number
+  export type CardUncheckedCreateWithoutChoiceInput = {
+    card_id?: number
     titre: string
     image_url?: string | null
     texte: string
     is_over?: boolean
-    partie_id: number
-    suivie_par?: ChoixUncheckedCreateNestedManyWithoutCarte_suivanteInput
+    game_id: number
+    suivie_par?: ChoiceUncheckedCreateNestedManyWithoutNext_cardInput
   }
 
-  export type CarteCreateOrConnectWithoutChoixInput = {
-    where: CarteWhereUniqueInput
-    create: XOR<CarteCreateWithoutChoixInput, CarteUncheckedCreateWithoutChoixInput>
+  export type CardCreateOrConnectWithoutChoiceInput = {
+    where: CardWhereUniqueInput
+    create: XOR<CardCreateWithoutChoiceInput, CardUncheckedCreateWithoutChoiceInput>
   }
 
-  export type CarteUpsertWithoutSuivie_parInput = {
-    update: XOR<CarteUpdateWithoutSuivie_parInput, CarteUncheckedUpdateWithoutSuivie_parInput>
-    create: XOR<CarteCreateWithoutSuivie_parInput, CarteUncheckedCreateWithoutSuivie_parInput>
-    where?: CarteWhereInput
+  export type CardUpsertWithoutSuivie_parInput = {
+    update: XOR<CardUpdateWithoutSuivie_parInput, CardUncheckedUpdateWithoutSuivie_parInput>
+    create: XOR<CardCreateWithoutSuivie_parInput, CardUncheckedCreateWithoutSuivie_parInput>
+    where?: CardWhereInput
   }
 
-  export type CarteUpdateToOneWithWhereWithoutSuivie_parInput = {
-    where?: CarteWhereInput
-    data: XOR<CarteUpdateWithoutSuivie_parInput, CarteUncheckedUpdateWithoutSuivie_parInput>
+  export type CardUpdateToOneWithWhereWithoutSuivie_parInput = {
+    where?: CardWhereInput
+    data: XOR<CardUpdateWithoutSuivie_parInput, CardUncheckedUpdateWithoutSuivie_parInput>
   }
 
-  export type CarteUpdateWithoutSuivie_parInput = {
+  export type CardUpdateWithoutSuivie_parInput = {
     titre?: StringFieldUpdateOperationsInput | string
     image_url?: NullableStringFieldUpdateOperationsInput | string | null
     texte?: StringFieldUpdateOperationsInput | string
     is_over?: BoolFieldUpdateOperationsInput | boolean
-    partie?: PartieUpdateOneRequiredWithoutCartesNestedInput
-    choix?: ChoixUpdateManyWithoutCarteNestedInput
+    game?: GameUpdateOneRequiredWithoutCardsNestedInput
+    choice?: ChoiceUpdateManyWithoutCardNestedInput
   }
 
-  export type CarteUncheckedUpdateWithoutSuivie_parInput = {
-    carte_id?: IntFieldUpdateOperationsInput | number
+  export type CardUncheckedUpdateWithoutSuivie_parInput = {
+    card_id?: IntFieldUpdateOperationsInput | number
     titre?: StringFieldUpdateOperationsInput | string
     image_url?: NullableStringFieldUpdateOperationsInput | string | null
     texte?: StringFieldUpdateOperationsInput | string
     is_over?: BoolFieldUpdateOperationsInput | boolean
-    partie_id?: IntFieldUpdateOperationsInput | number
-    choix?: ChoixUncheckedUpdateManyWithoutCarteNestedInput
+    game_id?: IntFieldUpdateOperationsInput | number
+    choice?: ChoiceUncheckedUpdateManyWithoutCardNestedInput
   }
 
-  export type CarteUpsertWithoutChoixInput = {
-    update: XOR<CarteUpdateWithoutChoixInput, CarteUncheckedUpdateWithoutChoixInput>
-    create: XOR<CarteCreateWithoutChoixInput, CarteUncheckedCreateWithoutChoixInput>
-    where?: CarteWhereInput
+  export type CardUpsertWithoutChoiceInput = {
+    update: XOR<CardUpdateWithoutChoiceInput, CardUncheckedUpdateWithoutChoiceInput>
+    create: XOR<CardCreateWithoutChoiceInput, CardUncheckedCreateWithoutChoiceInput>
+    where?: CardWhereInput
   }
 
-  export type CarteUpdateToOneWithWhereWithoutChoixInput = {
-    where?: CarteWhereInput
-    data: XOR<CarteUpdateWithoutChoixInput, CarteUncheckedUpdateWithoutChoixInput>
+  export type CardUpdateToOneWithWhereWithoutChoiceInput = {
+    where?: CardWhereInput
+    data: XOR<CardUpdateWithoutChoiceInput, CardUncheckedUpdateWithoutChoiceInput>
   }
 
-  export type CarteUpdateWithoutChoixInput = {
+  export type CardUpdateWithoutChoiceInput = {
     titre?: StringFieldUpdateOperationsInput | string
     image_url?: NullableStringFieldUpdateOperationsInput | string | null
     texte?: StringFieldUpdateOperationsInput | string
     is_over?: BoolFieldUpdateOperationsInput | boolean
-    partie?: PartieUpdateOneRequiredWithoutCartesNestedInput
-    suivie_par?: ChoixUpdateManyWithoutCarte_suivanteNestedInput
+    game?: GameUpdateOneRequiredWithoutCardsNestedInput
+    suivie_par?: ChoiceUpdateManyWithoutNext_cardNestedInput
   }
 
-  export type CarteUncheckedUpdateWithoutChoixInput = {
-    carte_id?: IntFieldUpdateOperationsInput | number
+  export type CardUncheckedUpdateWithoutChoiceInput = {
+    card_id?: IntFieldUpdateOperationsInput | number
     titre?: StringFieldUpdateOperationsInput | string
     image_url?: NullableStringFieldUpdateOperationsInput | string | null
     texte?: StringFieldUpdateOperationsInput | string
     is_over?: BoolFieldUpdateOperationsInput | boolean
-    partie_id?: IntFieldUpdateOperationsInput | number
-    suivie_par?: ChoixUncheckedUpdateManyWithoutCarte_suivanteNestedInput
+    game_id?: IntFieldUpdateOperationsInput | number
+    suivie_par?: ChoiceUncheckedUpdateManyWithoutNext_cardNestedInput
   }
 
-  export type PartieCreateManyJoueurInput = {
-    partie_id?: number
-    date_debut_partie: Date | string
-    date_fin_partie?: Date | string | null
-    statut?: string
+  export type GameCreateManyUserInput = {
+    game_id?: number
+    game_start_date: Date | string
+    game_end_date?: Date | string | null
+    status?: string
   }
 
-  export type PartieUpdateWithoutJoueurInput = {
-    date_debut_partie?: DateTimeFieldUpdateOperationsInput | Date | string
-    date_fin_partie?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    statut?: StringFieldUpdateOperationsInput | string
-    cartes?: CarteUpdateManyWithoutPartieNestedInput
+  export type GameUpdateWithoutUserInput = {
+    game_start_date?: DateTimeFieldUpdateOperationsInput | Date | string
+    game_end_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    status?: StringFieldUpdateOperationsInput | string
+    cards?: CardUpdateManyWithoutGameNestedInput
   }
 
-  export type PartieUncheckedUpdateWithoutJoueurInput = {
-    partie_id?: IntFieldUpdateOperationsInput | number
-    date_debut_partie?: DateTimeFieldUpdateOperationsInput | Date | string
-    date_fin_partie?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    statut?: StringFieldUpdateOperationsInput | string
-    cartes?: CarteUncheckedUpdateManyWithoutPartieNestedInput
+  export type GameUncheckedUpdateWithoutUserInput = {
+    game_id?: IntFieldUpdateOperationsInput | number
+    game_start_date?: DateTimeFieldUpdateOperationsInput | Date | string
+    game_end_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    status?: StringFieldUpdateOperationsInput | string
+    cards?: CardUncheckedUpdateManyWithoutGameNestedInput
   }
 
-  export type PartieUncheckedUpdateManyWithoutJoueurInput = {
-    partie_id?: IntFieldUpdateOperationsInput | number
-    date_debut_partie?: DateTimeFieldUpdateOperationsInput | Date | string
-    date_fin_partie?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    statut?: StringFieldUpdateOperationsInput | string
+  export type GameUncheckedUpdateManyWithoutUserInput = {
+    game_id?: IntFieldUpdateOperationsInput | number
+    game_start_date?: DateTimeFieldUpdateOperationsInput | Date | string
+    game_end_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    status?: StringFieldUpdateOperationsInput | string
   }
 
-  export type CarteCreateManyPartieInput = {
-    carte_id?: number
+  export type CardCreateManyGameInput = {
+    card_id?: number
     titre: string
     image_url?: string | null
     texte: string
     is_over?: boolean
   }
 
-  export type CarteUpdateWithoutPartieInput = {
+  export type CardUpdateWithoutGameInput = {
     titre?: StringFieldUpdateOperationsInput | string
     image_url?: NullableStringFieldUpdateOperationsInput | string | null
     texte?: StringFieldUpdateOperationsInput | string
     is_over?: BoolFieldUpdateOperationsInput | boolean
-    choix?: ChoixUpdateManyWithoutCarteNestedInput
-    suivie_par?: ChoixUpdateManyWithoutCarte_suivanteNestedInput
+    choice?: ChoiceUpdateManyWithoutCardNestedInput
+    suivie_par?: ChoiceUpdateManyWithoutNext_cardNestedInput
   }
 
-  export type CarteUncheckedUpdateWithoutPartieInput = {
-    carte_id?: IntFieldUpdateOperationsInput | number
+  export type CardUncheckedUpdateWithoutGameInput = {
+    card_id?: IntFieldUpdateOperationsInput | number
     titre?: StringFieldUpdateOperationsInput | string
     image_url?: NullableStringFieldUpdateOperationsInput | string | null
     texte?: StringFieldUpdateOperationsInput | string
     is_over?: BoolFieldUpdateOperationsInput | boolean
-    choix?: ChoixUncheckedUpdateManyWithoutCarteNestedInput
-    suivie_par?: ChoixUncheckedUpdateManyWithoutCarte_suivanteNestedInput
+    choice?: ChoiceUncheckedUpdateManyWithoutCardNestedInput
+    suivie_par?: ChoiceUncheckedUpdateManyWithoutNext_cardNestedInput
   }
 
-  export type CarteUncheckedUpdateManyWithoutPartieInput = {
-    carte_id?: IntFieldUpdateOperationsInput | number
+  export type CardUncheckedUpdateManyWithoutGameInput = {
+    card_id?: IntFieldUpdateOperationsInput | number
     titre?: StringFieldUpdateOperationsInput | string
     image_url?: NullableStringFieldUpdateOperationsInput | string | null
     texte?: StringFieldUpdateOperationsInput | string
     is_over?: BoolFieldUpdateOperationsInput | boolean
   }
 
-  export type ChoixCreateManyCarteInput = {
-    choix_id?: number
+  export type ChoiceCreateManyCardInput = {
+    choice_id?: number
     texte: string
-    carte_suivante_default?: number | null
+    default_next_card?: number | null
   }
 
-  export type ChoixCreateManyCarte_suivanteInput = {
-    choix_id?: number
+  export type ChoiceCreateManyNext_cardInput = {
+    choice_id?: number
     texte: string
-    carte_id: number
+    card_id: number
   }
 
-  export type ChoixUpdateWithoutCarteInput = {
+  export type ChoiceUpdateWithoutCardInput = {
     texte?: StringFieldUpdateOperationsInput | string
-    carte_suivante?: CarteUpdateOneWithoutSuivie_parNestedInput
+    next_card?: CardUpdateOneWithoutSuivie_parNestedInput
   }
 
-  export type ChoixUncheckedUpdateWithoutCarteInput = {
-    choix_id?: IntFieldUpdateOperationsInput | number
+  export type ChoiceUncheckedUpdateWithoutCardInput = {
+    choice_id?: IntFieldUpdateOperationsInput | number
     texte?: StringFieldUpdateOperationsInput | string
-    carte_suivante_default?: NullableIntFieldUpdateOperationsInput | number | null
+    default_next_card?: NullableIntFieldUpdateOperationsInput | number | null
   }
 
-  export type ChoixUncheckedUpdateManyWithoutCarteInput = {
-    choix_id?: IntFieldUpdateOperationsInput | number
+  export type ChoiceUncheckedUpdateManyWithoutCardInput = {
+    choice_id?: IntFieldUpdateOperationsInput | number
     texte?: StringFieldUpdateOperationsInput | string
-    carte_suivante_default?: NullableIntFieldUpdateOperationsInput | number | null
+    default_next_card?: NullableIntFieldUpdateOperationsInput | number | null
   }
 
-  export type ChoixUpdateWithoutCarte_suivanteInput = {
+  export type ChoiceUpdateWithoutNext_cardInput = {
     texte?: StringFieldUpdateOperationsInput | string
-    carte?: CarteUpdateOneRequiredWithoutChoixNestedInput
+    card?: CardUpdateOneRequiredWithoutChoiceNestedInput
   }
 
-  export type ChoixUncheckedUpdateWithoutCarte_suivanteInput = {
-    choix_id?: IntFieldUpdateOperationsInput | number
+  export type ChoiceUncheckedUpdateWithoutNext_cardInput = {
+    choice_id?: IntFieldUpdateOperationsInput | number
     texte?: StringFieldUpdateOperationsInput | string
-    carte_id?: IntFieldUpdateOperationsInput | number
+    card_id?: IntFieldUpdateOperationsInput | number
   }
 
-  export type ChoixUncheckedUpdateManyWithoutCarte_suivanteInput = {
-    choix_id?: IntFieldUpdateOperationsInput | number
+  export type ChoiceUncheckedUpdateManyWithoutNext_cardInput = {
+    choice_id?: IntFieldUpdateOperationsInput | number
     texte?: StringFieldUpdateOperationsInput | string
-    carte_id?: IntFieldUpdateOperationsInput | number
+    card_id?: IntFieldUpdateOperationsInput | number
   }
 
 

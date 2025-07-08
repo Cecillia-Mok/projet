@@ -1,24 +1,69 @@
 'use client'
-import Link from 'next/link'
 import { useState } from 'react';
+import { useRouter } from 'next/navigation';
 import Button from '../../components/button';
 
-export default function Inscription() {
+export default function Inscription({ onClick }: Readonly<{ onClick?: () => void }>) {
+  const router = useRouter();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
-  const [error, setError] = useState('');
+  const [success, setSuccess] = useState<string | null>(null);
+  const [errors, setErrors] = useState<{ email?: string; password?: string; server?: string }>({});
 
   const togglePasswordVisibility = () => {
     setShowPassword(!showPassword);
   };
 
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault() // empêche le rechargement de la page
+    setErrors({}) // réinitialise les erreurs
+    setSuccess(null);
+
+    try {
+      // Envoi des infos de l'inscription
+      const res = await fetch('/api/inscription', {
+        method: 'POST',
+        body: JSON.stringify({ email, password }), // envoie les données au format json
+        headers: { 'Content-Type': 'application/json' }, // précise qu'on envoie du json
+      });
+
+      let data; // let permet de définir data ultérieurement
+      try {
+        data = await res.json();  // on tente de parser la réponse en json
+      } catch (err) {
+        console.error('Erreur JSON:', err); // message d'erreur si le parsing json échoue
+        setErrors({ server: data?.error ?? "Erreur serveur." }); // réponse invalide
+        return; // fin d'exécution
+      }
+
+      if (!res.ok) {
+        if (data?.errors) {
+          setErrors(data.errors); // plusieurs erreurs : { email, password }
+        } else if (data?.error) {
+          setErrors({ server: data.error }); // erreur unique
+        } else {
+          setErrors({ server: "Erreur serveur." });
+        }
+        return;
+      }
+
+      setSuccess('Inscription réussie.');
+      setEmail('')
+      setPassword('')
+      router.push('/connexion')
+
+    } catch (err) {
+      console.error('Erreur de connexion :', err)
+      setErrors({ server: "Erreur serveur ou réseau." })
+    }
+  }
+
   return (
     <main className="flex-1 place-content-center text-center">
       <div className="relative p-6 my-auto bg-radial from-[#F7EAD9] from-50% to-[#F4D7B7] to-120% shadow-[0_0_20px_rgba(185,104,31,0.3)] rounded-lg md:max-w-[400px] md:mx-auto">
         <h2 className="text-2xl mb-4 text-center">Inscription</h2>
-        {error && <p className="text-[#C20615] text-center mb-4">{error}</p>}
-        <form className="space-y-4"> {/* onSubmit={handleLogin} */}
+        <form onSubmit={handleSubmit} className="space-y-4">
           <div className="text-left">
             <label>Email{/* */}
               <div className="relative">
@@ -33,6 +78,7 @@ export default function Inscription() {
                 />
               </div>
             </label>
+            {errors.email && <p className="text-[#C20615] text-center mb-4">{errors.email}</p>}
           </div>
           <div className="text-left">
             <label>Mot de passe{/* */}
@@ -60,6 +106,9 @@ export default function Inscription() {
               </div>
             </label>
           </div>
+          {errors.password && <p className="text-[#C20615] text-center my-2">{errors.password}</p>}
+          {errors.server && <p className="text-[#C20615] text-center my-2">{errors.server}</p>}
+          {success && <p className="text-[#4DA451] text-center my-2">{success}</p>}
           <Button text="S'inscrire" />
         </form >
       </div >

@@ -1,13 +1,15 @@
 'use client'
 import Link from 'next/link'
 import { useState } from 'react';
+import { useRouter } from 'next/navigation';
 import Button from '@/components/button';
 
 export default function Connexion({ onClick }: Readonly<{ onClick?: () => void }>) {
+  const router = useRouter();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
-  const [error, setError] = useState<string | null>(null);
+  const [errors, setErrors] = useState<string | null>(null);
 
   const togglePasswordVisibility = () => {
     setShowPassword(!showPassword);
@@ -15,7 +17,7 @@ export default function Connexion({ onClick }: Readonly<{ onClick?: () => void }
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault() // empêche le rechargement de la page
-    setError(null) // réinitialise les erreurs
+    setErrors(null) // réinitialise les erreurs
 
     try {
       // Envoi des infos de connexion
@@ -26,27 +28,36 @@ export default function Connexion({ onClick }: Readonly<{ onClick?: () => void }
         credentials: 'include', // Important pour que le cookie soit bien envoyé
       })
 
-      const data = await res.json()
-
-      if (!res.ok) {
-        setError(data.error ?? 'Échec de la connexion.')
-        return
+      let data; // let permet de définir data ultérieurement
+      try {
+        data = await res.json();  // on tente de parser la réponse en json
+      } catch (err) {
+        console.error('Erreur JSON:', err); // message d'erreur si le parsing json échoue
+        setErrors("Échec de la connexion."); // réponse invalide
+        return; // fin d'exécution
       }
 
-      const meRes = await fetch('/api/me', { method: 'GET' });
+      // Récupération des infos de l'utilisateur connecté
+      const meRes = await fetch('/api/me', {
+        method: 'GET',
+        credentials: 'include',
+      });
+
+      const meData = await meRes.json();
 
       if (!meRes.ok) {
-        // gérer les erreurs
-      } else {
-        const data = await res.json();
-        console.log(data.user); // id, email, role
+        setErrors(meData.errors ?? 'Échec de la récupération des infos utilisateur.');
+        return;
       }
+
+      console.log(meData.user); // utilisateur connecté (id, email, role)
 
       setEmail('')
       setPassword('')
+      router.push('/')
     } catch (err) {
       console.error('Erreur de connexion :', err)
-      setError('Erreur réseau ou serveur.')
+      setErrors('Erreur réseau ou serveur.')
     }
   }
 
@@ -54,7 +65,6 @@ export default function Connexion({ onClick }: Readonly<{ onClick?: () => void }
     <main className="flex-1 place-content-center text-center">
       <div className="relative p-6 bg-radial from-[#F7EAD9] from-50% to-[#F4D7B7] to-120% shadow-[0_0_20px_rgba(185,104,31,0.3)] rounded-lg md:max-w-[400px] md:mx-auto">
         <h2 className="text-2xl mb-4 text-center">Connexion</h2>
-        {error && <p className="text-[#C20615] text-center mb-4">{error}</p>}
         <form onSubmit={handleSubmit} className="space-y-4">
           <div className="text-left">
             <label>Email{/* */}
@@ -96,6 +106,7 @@ export default function Connexion({ onClick }: Readonly<{ onClick?: () => void }
                 />
               </div>
             </label>
+            {errors && <p className="text-[#C20615] text-center mb-4">{errors}</p>}
           </div>
           <Button text="Se Connecter" />
         </form >

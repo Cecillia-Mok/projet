@@ -54,7 +54,7 @@ export default function Connexion({ onClick }: Readonly<{ onClick?: () => void }
 
       setEmail('')
       setPassword('')
-      router.push('/')
+      router.push('/commencer')
     } catch (err) {
       console.error('Erreur de connexion :', err)
       setErrors('Erreur réseau ou serveur.')

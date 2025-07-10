@@ -35,15 +35,21 @@ export async function POST(req: Request) {
 
         const { email, password } = parsed.data;
 
-        // Vérifie si l'utilisateur existe déjà et si le mdp est correct
+        // Vérifie si l'utilisateur existe déjà
         const user = await prisma.user.findUnique({ where: { email } });
-        const passwordIsValid = await bcrypt.compare(password, user.password);
-        if (!user || ! passwordIsValid) {
+        if (!user) {
             return NextResponse.json({ error: "Email ou mot de passe incorrect." }, { status: 401 });
         }
 
+        // Vérifie si le mdp est correct
+        const passwordIsValid = await bcrypt.compare(password, user.password);
+        if (!passwordIsValid) {
+            return NextResponse.json({ error: "Email ou mot de passe incorrect." }, { status: 401 });
+        }
+
+
         // Génération du token
-        const token = generateToken({ id: user.user_id, role: user.role });
+        const token = generateToken({ id: String(user.user_id), role: user.role });
 
         // Création de la réponse avec cookie
         const response = NextResponse.json({

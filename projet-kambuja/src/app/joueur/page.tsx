@@ -1,5 +1,21 @@
 'use client'
+import Loader from "@/components/loader";
+import { useEffect } from 'react';
+import { useRouter } from 'next/navigation';
+import { useAuth } from '@/context/authContext';
+
 export default function Joueur() {
+  const { user, loading } = useAuth();
+  const router = useRouter();
+
+  // Redirection si non connecté
+  useEffect(() => {
+    if (!loading && !user) {
+      router.push('/connexion'); // Redirige vers la page de connexion
+    }
+  }, [loading, user, router]);
+
+  if (loading || !user) return <Loader />;
   return (
     <main className="flex-1 text-center">
       <section className="flex flex-col gap-10 mt-10">

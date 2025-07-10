@@ -33,7 +33,7 @@ export default function Inscription({ onClick }: Readonly<{ onClick?: () => void
         data = await res.json();  // on tente de parser la réponse en json
       } catch (err) {
         console.error('Erreur JSON:', err); // message d'erreur si le parsing json échoue
-        setErrors({ server: data?.error ?? "Erreur serveur." }); // réponse invalide
+        setErrors({ server: data?.error ?? "Erreur serveur.1" }); // réponse invalide
         return; // fin d'exécution
       }
 

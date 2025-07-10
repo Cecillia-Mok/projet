@@ -45,6 +45,7 @@ export async function POST(req: Request) {
         const user = await prisma.user.create({
             data: { email, password: hashed }
         });
+        return NextResponse.json({ message: "Compte créé avec succès." }, { status: 201 });
 
     } catch (err) {
         console.error("Erreur dans /api/inscription:", err);

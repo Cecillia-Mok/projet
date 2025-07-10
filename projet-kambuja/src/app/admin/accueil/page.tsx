@@ -1,8 +1,6 @@
 'use client'
-import Image from 'next/image';
-import { useState } from 'react';
 
-export default function Connexion() {
+export default function DashboardAdmin() {
 
     return (
         <main className="flex-1 flex flex-col">

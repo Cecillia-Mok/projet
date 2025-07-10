@@ -1,16 +1,19 @@
 'use client'
 import { useRouter } from 'next/navigation';
+import { useAuth } from '@/context/authContext';
 
 export default function LogoutButton() {
-  const router = useRouter();
+    const { refresh } = useAuth()
 
-  const handleLogout = async () => {
-    await fetch('/api/deconnexion', {
-      method: 'POST',
-    });
-
-    router.push('/'); // Redirige vers la page de connexion
-  };
+    const router = useRouter();
+    const handleLogout = async () => {
+        await fetch('/api/deconnexion', {
+            method: 'POST',
+        });
+        
+        await refresh();
+        router.push('/'); // Redirige vers la page d'accueil'
+    };
 
   return (
     <button onClick={handleLogout} className="cursor-pointer">

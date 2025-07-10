@@ -1,10 +1,13 @@
 'use client'
 import Link from 'next/link'
 import { useState } from 'react';
-import { useRouter } from 'next/navigation';
 import Button from '@/components/button';
+import { useRouter } from 'next/navigation';
+import { useAuth } from '@/context/authContext';
+import Loader from '@/components/loader';
 
 export default function Connexion({ onClick }: Readonly<{ onClick?: () => void }>) {
+  const { loading, refresh } = useAuth();
   const router = useRouter();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -28,14 +31,24 @@ export default function Connexion({ onClick }: Readonly<{ onClick?: () => void }
         credentials: 'include', // Important pour que le cookie soit bien envoyé
       })
 
+      if (loading) return <Loader />;
+
       let data; // let permet de définir data ultérieurement
       try {
         data = await res.json();  // on tente de parser la réponse en json
       } catch (err) {
         console.error('Erreur JSON:', err); // message d'erreur si le parsing json échoue
         setErrors("Échec de la connexion."); // réponse invalide
-        return; // fin d'exécution
+        return;
       }
+
+      if (!res.ok) {
+        setErrors(data.errors ?? 'Échec de la connexion.');
+        return;
+      }
+
+      // Appelle refresh() pour mettre à jour user et loading
+      await refresh();    
 
       // Récupération des infos de l'utilisateur connecté
       const meRes = await fetch('/api/me', {
@@ -54,7 +67,14 @@ export default function Connexion({ onClick }: Readonly<{ onClick?: () => void }
 
       setEmail('')
       setPassword('')
-      router.push('/commencer')
+
+      // Redirection selon le rôle
+      const role = meData.user.role;
+      if (role === 'admin') {
+        router.push('/admin/accueil');
+      } else {
+        router.push('/partie');
+      }
     } catch (err) {
       console.error('Erreur de connexion :', err)
       setErrors('Erreur réseau ou serveur.')
@@ -84,13 +104,13 @@ export default function Connexion({ onClick }: Readonly<{ onClick?: () => void }
           <div className="text-left">
             <label>Mot de passe{/* */}
               <div className="relative">
-                <button className={`absolute left-3.75 top-2.5 w-5 cursor-pointer ${showPassword ? "hidden" : ""}`}
+                <button className={`absolute left-3.75 top-2.5 w-5 cursor-pointer focus:none ${showPassword ? "hidden" : ""}`}
                   onClick={togglePasswordVisibility} // Si showPassword à true, on cache l'icone eye, sinon on l'affiche
                 >
                   <img src="/eye.svg" alt="afficher le mot de passe" />
                 </button>
                 <button
-                  className={`absolute left-3.75 top-2.5 w-5 cursor-pointer ${showPassword ? "" : "hidden"}`}
+                  className={`absolute left-3.75 top-2.5 w-5 cursor-pointer focus:none ${showPassword ? "" : "hidden"}`}
                   onClick={togglePasswordVisibility} // Si showPassword à true, on affiche l'icone eye, sinon on le cache
                 >
                   <img src="/eye-off.svg" alt="cacher le mot de passe" />

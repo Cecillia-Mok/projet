@@ -105,7 +105,7 @@ export default function EditUser() {
             }} />
             <h2 className="text-4xl mb-10 text-center">Dashboard</h2>
             <div className="flex-1 w-[90%] mx-auto">
-                <h3 className="text-2xl mb-5 text-left">Modifier le rôle de <strong>{user?.email}</strong></h3>
+                <h3 className="text-2xl mb-5 text-left">Modifier le rôle de <strong>{user?.pseudo}</strong></h3>
                 <div className="p-6 bg-radial from-[#F7EAD9] from-50% to-[#F4D7B7] to-120% shadow-[0_0_10px_rgba(185,104,31,0.3)] rounded-lg">
                     <form onSubmit={handleSubmit} className="space-y-4">
                         <div className="text-left">

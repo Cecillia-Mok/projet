@@ -93,7 +93,7 @@ export default function DashboardAdmin() {
                     {users.map((user) => (
                         <div key={user.user_id} id={`user-${user.user_id}`} className="flex justify-between overflow-visible w-full mx-auto p-6 bg-radial from-[#F7EAD9] from-50% to-[#F4D7B7] to-120% shadow-[0_0_10px_rgba(185,104,31,0.3)] rounded-lg">
                             <div>
-                                <p><strong>Email :</strong> {user.email}</p>
+                                <p><strong>Pseudo :</strong> {user.pseudo}</p>
                                 <p><strong>Rôle :</strong> {user.role}</p>
                             </div>
                             <div className="flex gap-4 items-center">

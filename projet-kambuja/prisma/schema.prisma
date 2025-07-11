@@ -22,12 +22,13 @@ model Game {
   game_id         Int       @id @default(autoincrement())
   game_start_date DateTime
   game_end_date   DateTime?
-  status          String    @default("en cours")
+  statut          String    @default("en cours")
 
   user_id Int
   user    User @relation(fields: [user_id], references: [user_id], onDelete: Cascade)
 
-  cards Card[] // 1-n relation
+  cards    Card[] // 1-n relation
+  GameCard GameCard[]
 }
 
 model Card {
@@ -37,11 +38,22 @@ model Card {
   texte     String
   statut    String  @default("continuer")
 
-  game_id Int
-  game    Game @relation(fields: [game_id], references: [game_id], onDelete: Cascade)
-
   choice     Choice[] // 1-n relation
   suivie_par Choice[] @relation("NextCard")
+
+  gameCards   GameCard[]
+  Game        Game?      @relation(fields: [gameGame_id], references: [game_id])
+  gameGame_id Int?
+}
+
+model GameCard {
+  game_id Int
+  card_id Int
+
+  game Game @relation(fields: [game_id], references: [game_id], onDelete: Cascade)
+  card Card @relation(fields: [card_id], references: [card_id], onDelete: Cascade)
+
+  @@id([game_id, card_id]) // clé primaire composite
 }
 
 model Choice {

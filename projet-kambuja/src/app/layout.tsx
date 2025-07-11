@@ -1,10 +1,11 @@
 // src/app/layout.tsx
 import './globals.css';
-import Footer from '../components/footer';
-import Loader from '../components/loader';
 import Nav from '../components/nav';
 import type { Metadata } from 'next';
 import React, { Suspense } from 'react';
+import Loader from '../components/loader';
+import Footer from '../components/footer';
+import { AuthProvider } from '@/context/authContext';
 import { Milonga, Spectral } from 'next/font/google';
 
 export const milonga = Milonga({
@@ -25,11 +26,7 @@ export const metadata: Metadata = {
   description: 'Le jeu où vous incarnez le roi de Kambuja.',
 };
 
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="fr">
       <body className="spectral h-screen text-[#553920] bg-radial from-[#F7EAD9] from-40% to-[#F4D7B7] to-80%">
@@ -47,11 +44,13 @@ export default function RootLayout({
 
           {/* Main au centre */}
           <main className="flex-1 flex flex-col place-content-center text-center m-15 md:mb-0">
+             <AuthProvider>
             <Nav />
               <Suspense fallback={<Loader />}>
                 {children}
               </Suspense>
-            <Footer></Footer>
+            <Footer />
+            </AuthProvider>
           </main>
         </div>
       </body>

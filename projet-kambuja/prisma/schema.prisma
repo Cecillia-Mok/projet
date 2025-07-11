@@ -1,6 +1,5 @@
 generator client {
   provider = "prisma-client-js"
-  output   = "../src/generated/prisma"
 }
 
 datasource db {
@@ -8,191 +7,49 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model Armement {
-  id Int @id @default(autoincrement())
-}
-
-model Cartes {
-  carte_id      Int             @id @default(autoincrement())
-  image_url     String?
-  texte         String
-  Decision      Decision[]
-  affiche_carte affiche_carte[]
-  propose       propose[]
-}
-
-model Choix {
-  choix_id               Int        @id @default(autoincrement())
-  texte                  String
-  effet_finances         String?
-  effet_ressources       String?
-  effet_popularite       String?
-  effet_armement         String?
-  carte_suivante_default Int?
-  Decision               Decision[]
-  propose                propose[]
-}
-
-model Decision {
-  decision_id Int     @id @default(autoincrement())
-  type        Boolean
-  partie_id   Int
-  carte_id    Int
-  choix_id    Int
-  Cartes      Cartes  @relation(fields: [carte_id], references: [carte_id])
-  Choix       Choix   @relation(fields: [choix_id], references: [choix_id])
-  Partie      Partie  @relation(fields: [partie_id], references: [partie_id])
-
-  @@index([carte_id], map: "Decision_carte_id_fkey")
-  @@index([choix_id], map: "Decision_choix_id_fkey")
-  @@index([partie_id], map: "Decision_partie_id_fkey")
-}
-
-model Etat_Armement {
-  etat_arm_id      Int                @id @default(autoincrement())
-  valeur           Int
-  moment           DateTime
-  affiche_armement affiche_armement[]
-}
-
-model Etat_Finances {
-  etat_finan_id    Int                @id @default(autoincrement())
-  moment           DateTime
-  valeur           Int
-  affiche_finances affiche_finances[]
-}
-
-model Etat_Popularite {
-  etat_pop_id Int           @id @default(autoincrement())
-  valeur      Int
-  moment      DateTime
-  affiche_pop affiche_pop[]
-}
-
-model Etat_Ressources {
-  etat_res_id        Int                  @id @default(autoincrement())
-  valeur             Int
-  moment             DateTime
-  affiche_ressources affiche_ressources[]
-}
-
-model Finances {
-  id Int @id @default(autoincrement())
-}
-
-model Fins {
-  fin_id Int      @id @default(autoincrement())
-  titre  String
-  texte  String
-  type   Boolean
-  Partie Partie[]
-}
-
-model Joueur {
-  joueur_id     Int      @id @default(autoincrement())
+model User {
+  user_id       Int      @id @default(autoincrement())
   email         String   @unique
-  role          String
-  mdp           String
-  date_creation DateTime
-  lancer        lancer[]
+  password      String
+  role          String   @default("user")
+  creation_date DateTime @default(now())
+
+  games Game[] // 1-n relation
 }
 
-model Partie {
-  partie_id          Int                  @id @default(autoincrement())
-  date_debut_partie  DateTime
-  date_fin_partie    DateTime
-  statut             String
-  fin_id             Int?
-  Decision           Decision[]
-  Fins               Fins?                @relation(fields: [fin_id], references: [fin_id])
-  affiche_armement   affiche_armement[]
-  affiche_carte      affiche_carte[]
-  affiche_finances   affiche_finances[]
-  affiche_pop        affiche_pop[]
-  affiche_ressources affiche_ressources[]
-  lancer             lancer[]
+model Game {
+  game_id         Int       @id @default(autoincrement())
+  game_start_date DateTime
+  game_end_date   DateTime?
+  status          String    @default("en cours")
 
-  @@index([fin_id], map: "Partie_fin_id_fkey")
+  user_id Int
+  user    User @relation(fields: [user_id], references: [user_id], onDelete: Cascade)
+
+  cards Card[] // 1-n relation
 }
 
-model Popularite {
-  id Int @id @default(autoincrement())
+model Card {
+  card_id   Int     @id @default(autoincrement())
+  titre     String
+  image_url String?
+  texte     String
+  is_over   Boolean @default(false)
+
+  game_id Int
+  game    Game @relation(fields: [game_id], references: [game_id], onDelete: Cascade)
+
+  choice     Choice[] // 1-n relation
+  suivie_par Choice[] @relation("NextCard")
 }
 
-model Ressources {
-  id Int @id @default(autoincrement())
-}
+model Choice {
+  choice_id Int    @id @default(autoincrement())
+  texte     String
 
-model affiche_armement {
-  partie_id     Int
-  id            Int
-  etat_arm_id   Int
-  Etat_Armement Etat_Armement @relation(fields: [etat_arm_id], references: [etat_arm_id])
-  Partie        Partie        @relation(fields: [partie_id], references: [partie_id])
+  default_next_card Int?
+  next_card         Card? @relation("NextCard", fields: [default_next_card], references: [card_id], onDelete: SetNull)
 
-  @@id([partie_id, id])
-  @@index([etat_arm_id], map: "affiche_armement_etat_arm_id_fkey")
-}
-
-model affiche_carte {
-  partie_id Int
-  carte_id  Int
-  Cartes    Cartes @relation(fields: [carte_id], references: [carte_id])
-  Partie    Partie @relation(fields: [partie_id], references: [partie_id])
-
-  @@id([partie_id, carte_id])
-  @@index([carte_id], map: "affiche_carte_carte_id_fkey")
-}
-
-model affiche_finances {
-  partie_id     Int
-  id            Int
-  etat_finan_id Int
-  Etat_Finances Etat_Finances @relation(fields: [etat_finan_id], references: [etat_finan_id])
-  Partie        Partie        @relation(fields: [partie_id], references: [partie_id])
-
-  @@id([partie_id, id])
-  @@index([etat_finan_id], map: "affiche_finances_etat_finan_id_fkey")
-}
-
-model affiche_pop {
-  partie_id       Int
-  id              Int
-  etat_pop_id     Int
-  Etat_Popularite Etat_Popularite @relation(fields: [etat_pop_id], references: [etat_pop_id])
-  Partie          Partie          @relation(fields: [partie_id], references: [partie_id])
-
-  @@id([partie_id, id])
-  @@index([etat_pop_id], map: "affiche_pop_etat_pop_id_fkey")
-}
-
-model affiche_ressources {
-  partie_id       Int
-  id              Int
-  etat_res_id     Int
-  Etat_Ressources Etat_Ressources @relation(fields: [etat_res_id], references: [etat_res_id])
-  Partie          Partie          @relation(fields: [partie_id], references: [partie_id])
-
-  @@id([partie_id, id])
-  @@index([etat_res_id], map: "affiche_ressources_etat_res_id_fkey")
-}
-
-model lancer {
-  partie_id Int
-  joueur_id Int
-  Joueur    Joueur @relation(fields: [joueur_id], references: [joueur_id])
-  Partie    Partie @relation(fields: [partie_id], references: [partie_id])
-
-  @@id([partie_id, joueur_id])
-  @@index([joueur_id], map: "lancer_joueur_id_fkey")
-}
-
-model propose {
-  carte_id Int
-  choix_id Int
-  Cartes   Cartes @relation(fields: [carte_id], references: [carte_id])
-  Choix    Choix  @relation(fields: [choix_id], references: [choix_id])
-
-  @@id([carte_id, choix_id])
-  @@index([choix_id], map: "propose_choix_id_fkey")
+  card_id Int
+  card    Card @relation(fields: [card_id], references: [card_id], onDelete: Cascade)
 }

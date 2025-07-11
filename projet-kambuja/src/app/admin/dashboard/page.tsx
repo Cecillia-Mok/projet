@@ -5,6 +5,7 @@ import toast, { Toaster } from 'react-hot-toast';
 
 interface User {
     user_id: number;
+    pseudo: number;
     email: string;
     role: string;
 }
@@ -70,13 +71,13 @@ export default function DashboardAdmin() {
                 },
                 success: {
                     iconTheme: {
-                        primary: '#553920',
+                        primary: '#2E7D32',
                         secondary: '#F7EAD9',
                     },
                 },
                 error: {
                     iconTheme: {
-                        primary: '#553920',
+                        primary: '#8C0410',
                         secondary: '#F7EAD9',
                     },
                 },

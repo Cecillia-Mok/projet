@@ -7,6 +7,9 @@ const prisma = new PrismaClient();
 
 // Schema pour l'inscription et la connexion
 const zodSchema = z.object({
+    pseudo: z.string()
+        .max(10, { message: "Le pseudo doit faire moins de 10 caractères." })
+        .trim(),
     email: z.string()
         .email({ message: "Email invalide." })
         .trim(),
@@ -32,7 +35,7 @@ export async function POST(req: Request) {
             return NextResponse.json({ errors: zodErrors }, { status: 400 });
         }
 
-        const { email, password } = parsed.data;
+        const { pseudo, email, password } = parsed.data;
 
         // Vérifie si l'utilisateur existe déjà
         const existing = await prisma.user.findUnique({ where: { email } });
@@ -43,7 +46,7 @@ export async function POST(req: Request) {
         // Création du nouvel utilisateur
         const hashed = await bcrypt.hash(password, 10);
         const user = await prisma.user.create({
-            data: { email, password: hashed }
+            data: { pseudo, email, password: hashed }
         });
         return NextResponse.json({ message: "Compte créé avec succès." }, { status: 201 });
 

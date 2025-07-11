@@ -71,7 +71,7 @@ export default function Connexion({ onClick }: Readonly<{ onClick?: () => void }
       // Redirection selon le rôle
       const role = meData.user.role;
       if (role === 'admin') {
-        router.push('/admin/accueil');
+        router.push('/admin/dashboard');
       } else {
         router.push('/partie');
       }

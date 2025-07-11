@@ -17,6 +17,26 @@ function isAdmin(req: NextRequest): { id: string; role: string } | null {
 export async function GET(req: NextRequest) {
   const auth = isAdmin(req);
   if (!auth) return NextResponse.json({ error: 'Non autorisé' }, { status: 401 });
+ const { searchParams } = new URL(req.url);
+  const userIdParam = searchParams.get("id");
+
+  if (userIdParam) {
+    const user_id = parseInt(userIdParam);
+    const user = await prisma.user.findUnique({
+      where: { user_id },
+      select: {
+        user_id: true,
+        email: true,
+        role: true,
+      },
+    });
+
+    if (!user) {
+      return NextResponse.json({ error: 'Utilisateur non trouvé' }, { status: 404 });
+    }
+
+    return NextResponse.json({ user });
+  }
 
   const users = await prisma.user.findMany({
     select: {
@@ -26,7 +46,7 @@ export async function GET(req: NextRequest) {
     },
   });
 
-  return NextResponse.json(users);
+  return NextResponse.json({ users });
 }
 
 // Modifier les données de l'utilisateur
@@ -36,7 +56,7 @@ export async function PATCH(req: NextRequest) {
 
   const body = await req.json();
   const user_id = parseInt(body.user_id);
-   const role = body.role;
+  const role = body.role;
   if (!user_id || !role) {
     return NextResponse.json({ error: 'Champs manquants' }, { status: 400 });
   }

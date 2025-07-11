@@ -5,7 +5,7 @@ import Loader from './loader';
 import { useAuth } from '@/context/authContext';
 
 export default function NavLinks({ onClick }: Readonly<{ onClick?: () => void }>) {
-    const { user, isAdmin, loading, refresh } = useAuth()
+    const { user, isAdmin, loading } = useAuth()
 
     if(loading) { return <Loader /> }
 
@@ -14,7 +14,7 @@ export default function NavLinks({ onClick }: Readonly<{ onClick?: () => void }>
             {isAdmin && ( // si un admin est connecté
                 <>
                     <li className="hover:bg-[#F7EAD9] ">
-                        <Link href="/admin/accueil" onClick={onClick}>
+                        <Link href="/admin/dashboard" onClick={onClick}>
                             Dashboard Admin
                         </Link>
                     </li>

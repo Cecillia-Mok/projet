@@ -57,8 +57,9 @@ model GameCard {
 }
 
 model Choice {
-  choice_id Int    @id @default(autoincrement())
-  texte     String
+  choice_id   Int    @id @default(autoincrement())
+  texte       String
+  consequence String?
 
   default_next_card Int?
   next_card         Card? @relation("NextCard", fields: [default_next_card], references: [card_id], onDelete: SetNull)

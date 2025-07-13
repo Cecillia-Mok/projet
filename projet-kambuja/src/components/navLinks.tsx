@@ -19,7 +19,7 @@ export default function NavLinks({ onClick }: Readonly<{ onClick?: () => void }>
                         </Link>
                     </li>
                     <li className="hover:bg-[#F7EAD9] ">
-                        <Link href="/admin/carte" onClick={onClick}>
+                        <Link href="/admin/cartes" onClick={onClick}>
                             Carte
                         </Link>
                     </li>

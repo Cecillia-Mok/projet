@@ -32,11 +32,11 @@ export default function NavLinks({ onClick }: Readonly<{ onClick?: () => void }>
                             Commencer une partie
                         </Link>
                     </li>
-                    <li className="hover:bg-[#F7EAD9] ">
+                    {/* <li className="hover:bg-[#F7EAD9] ">
                         <Link href="/joueur" onClick={onClick}>
                             Profil
                         </Link>
-                    </li>
+                    </li> */}
                     <li className="hover:bg-[#F7EAD9]" onClick={onClick}>
                         <LogoutButton />
                     </li>

@@ -42,8 +42,8 @@ model Card {
   suivie_par Choice[] @relation("NextCard")
 
   gameCards   GameCard[]
-  Game        Game?      @relation(fields: [gameGame_id], references: [game_id])
-  gameGame_id Int?
+  Game        Game?      @relation(fields: [game_id], references: [game_id])
+  game_id Int?
 }
 
 model GameCard {

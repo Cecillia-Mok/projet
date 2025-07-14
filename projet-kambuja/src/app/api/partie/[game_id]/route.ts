@@ -42,6 +42,66 @@ export async function GET(req: NextRequest, { params }: { params: { game_id: str
     }
 }
 
+export async function PATCH(req: NextRequest, { params }: { params: { game_id: string } }) {
+  const auth = getAuthUser(req);
+  if (!auth) return NextResponse.json({ error: 'Non autorisé' }, { status: 401 });
+
+  const user_id = parseInt(auth.id);
+  const game_id = parseInt(params.game_id);
+  
+  try {
+    const body = await req.json();
+    console.log(body);
+    const { card_id, choice_id } = body;
+    
+    if (!card_id || !choice_id) {
+      return NextResponse.json({ error: 'card_id et choice_id requis' }, { status: 400 });
+    }
+
+    const game = await prisma.game.findUnique({ where: { game_id } });
+    if (!game) return NextResponse.json({ error: 'Partie introuvable' }, { status: 404 });
+    if (game.user_id !== user_id) return NextResponse.json({ error: 'Accès interdit' }, { status: 403 });
+
+  // Vérifie que le choix appartient bien à la carte
+    const choice = await prisma.choice.findUnique({
+      where: { choice_id },
+      include: { card: true }
+    });
+
+    if (!choice || choice.card.card_id !== card_id) {
+      return NextResponse.json({ error: 'Choix invalide pour cette carte' }, { status: 400 });
+    }
+
+    // Enregistre le choix dans GameChoice
+    // await prisma.gameChoice.create({
+    //   data: {
+    //     game_id,
+    //     card_id,
+    //     choice_id
+    //   }
+    // });
+
+    // Vérifie si la carte mène à une fin
+    const card = await prisma.card.findUnique({ where: { card_id } });
+
+    if (card?.statut === 'fin de partie') {
+      // Met fin à la partie
+      await prisma.game.update({
+        where: { game_id },
+        data: {
+          statut: 'terminée',
+          game_end_date: new Date()
+        }
+      });
+    }
+
+    return NextResponse.json({ message: 'Choix enregistré' });
+  } catch (err) {
+    console.error('Erreur PATCH /partie/[game_id]', err);
+    return NextResponse.json({ error: 'Erreur serveur' }, { status: 500 });
+  }
+}
+
 export async function DELETE(req: NextRequest, { params }: { params: { game_id: string } }) {
     const auth = getAuthUser(req);
     if (!auth) return NextResponse.json({ error: 'Non autorisé' }, { status: 401 });

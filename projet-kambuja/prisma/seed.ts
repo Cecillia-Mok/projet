@@ -11,9 +11,9 @@ async function main() {
     // 1. Créer une partie avec un utilisateur
     const user = await prisma.user.create({
         data: {
-            pseudo: "pili",
-            email: "pili@pili.com",
-            password: "$2b$10$4k/xG5yz9aDhgxkS/l7WLuq8zLTPOWiaboCf4I4J7GppEFz6nqy3.",
+            pseudo: "ceci",
+            email: "ceci@ceci.com",
+            password: "$2b$10$Ax79vt4.Q3Wqaj1OCwpzteb/3qWTQctMPZXp96BhddmeSHvL3rjnu",
         },
     });
 

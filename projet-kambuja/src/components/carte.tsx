@@ -18,10 +18,13 @@ type Card = {
     image_url?: string;
     choice: Choice[];
     statut: string;
-    initialCardId?: number
 };
 
-export default function Carte({ initialCardId = 1 }: Card) {
+type CarteProps = {
+    initialCardId?: number
+}
+
+export default function Carte({ initialCardId = 1 }: CarteProps) {
     const [card, setCard] = useState<Card | null>(null);
     const [loading, setLoading] = useState(true);
     const router = useRouter();
@@ -53,10 +56,7 @@ export default function Carte({ initialCardId = 1 }: Card) {
     //     const lastId = hist.length > 0 ? hist[hist.length - 1] : 1;
     //     fetchCard(lastId);
     // }, []);
-    useEffect(() => {
-        fetchCard(initialCardId)
-    }, [initialCardId])
-
+    
     const handleChoice = (nextId: number | null) => {
         if (nextId) {
             fetchCard(nextId);
@@ -64,17 +64,20 @@ export default function Carte({ initialCardId = 1 }: Card) {
             alert("Fin de l'histoire !");
         }
     };
-
+    
     const handleRecommencer = () => {
         localStorage.removeItem("historique");
         fetchCard(1); // Recharger la carte de départ
     };
-
+    
     const handleVoirHistorique = () => {
         router.push('/joueur'); // ou une autre page dédiée
     };
 
-
+    useEffect(() => {
+        fetchCard(initialCardId)
+    }, [initialCardId])
+    
     if (loading || !card) return <Loader />;
 
     return (
@@ -84,25 +87,25 @@ export default function Carte({ initialCardId = 1 }: Card) {
             <p className="mb-4">{card.texte}</p>
 
             <div className="space-y-2">
-                {card.choice.map((c) => (
+                {card.choice?.map((c) => (
                     <button
                         key={c.choice_id}
                         onClick={() => handleChoice(c.default_next_card)}
-                        className="w-full bg-blue-600 text-white py-2 px-4 rounded hover:bg-blue-700"
+                        className="w-full bg-amber-600 text-white py-2 px-4 rounded hover:bg-amber-700"
                     >
                         {c.texte}
                     </button>
                 ))}
             </div>
 
-            {card.statut === "fin de partie" && card.titre === "Fin du règne" && (
+            {card.statut === "fin de partie" && (
                 <div className="mt-4 space-x-2">
                     <button onClick={handleRecommencer} className="w-full">
                         <p className="mt-2.5 text-white bg-[#DA933C] transition duration-300 ease-in-out hover:bg-[#C4802D] px-4 py-2 font-semibold rounded-lg cursor-pointer">Recommencer</p>
                     </button>
-                    <button onClick={handleVoirHistorique} className="w-full">
+                    {/* <button onClick={handleVoirHistorique} className="w-full">
                         <p className="mt-2.5 text-white bg-[#DA933C] transition duration-300 ease-in-out hover:bg-[#C4802D] px-4 py-2 font-semibold rounded-lg cursor-pointer">Voir l'historique sur mon profil</p>
-                    </button>
+                    </button> */}
                 </div>
             )}
         </div>

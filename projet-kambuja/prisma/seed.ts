@@ -3,14 +3,23 @@ import { PrismaClient } from '@prisma/client';
 const prisma = new PrismaClient();
 
 async function main() {
+    await prisma.gameCard.deleteMany()
+    await prisma.choice.deleteMany()
+    await prisma.card.deleteMany()
+    await prisma.game.deleteMany()
+    // await prisma.user.deleteMany()
     // 1. Créer une partie avec un utilisateur
     const user = await prisma.user.create({
         data: {
-            pseudo: "lili",
-            email: "lili@lili.com",
-            password: "$2b$10$z9aSsHgEFZXui14Q0Ge6G.Mus42DBCY.5wr4WIIB1fPxuXEIghqj6",
+            pseudo: "pili",
+            email: "pili@pili.com",
+            password: "$2b$10$4k/xG5yz9aDhgxkS/l7WLuq8zLTPOWiaboCf4I4J7GppEFz6nqy3.",
         },
     });
+
+    if (!user) {
+        throw new Error("Utilisateur non trouvé.");
+    }
 
     const game = await prisma.game.create({
         data: {
@@ -223,28 +232,12 @@ async function main() {
     const carte4I = await prisma.card.create({
         data: {
             titre: "L’entrée vietnamienne",
-            texte: "Les troupes vietnamiennes arrivent pour déloger les hauts palcés du parti communiste khmer.",
+            texte: "Les troupes vietnamiennes arrivent pour déloger les hauts placés du parti communiste khmer.",
             statut: "continuer",
         },
     });
 
     const carte4J = await prisma.card.create({
-        data: {
-            titre: "Fin de règne",
-            texte: "Les troupes vietnamiennes arrivent pour déloger les hauts palcés du parti communiste khmer.",
-            statut: "continuer",
-        },
-    });
-
-    const carte4K = await prisma.card.create({
-        data: {
-            titre: "Fin de règne",
-            texte: "Les troupes vietnamiennes arrivent pour déloger les hauts palcés du parti communiste khmer.",
-            statut: "continuer",
-        },
-    });
-
-    const carte4L = await prisma.card.create({
         data: {
             titre: "À suivre...",
             texte: "Vous êtes arrivé jusque là votre majesté, félicitation. Mais ce n'est pas la fin, le royaume est encore à reconstruire !",
@@ -252,7 +245,7 @@ async function main() {
         },
     });
 
-    // 3. Associer les 25 cartes à la partie
+    // 3. Associer les cartes à la partie
     await prisma.gameCard.createMany({
         data: [
             { game_id: game.game_id, card_id: carte1A.card_id },
@@ -282,12 +275,10 @@ async function main() {
             { game_id: game.game_id, card_id: carte4H.card_id },
             { game_id: game.game_id, card_id: carte4I.card_id },
             { game_id: game.game_id, card_id: carte4J.card_id },
-            { game_id: game.game_id, card_id: carte4K.card_id },
-            { game_id: game.game_id, card_id: carte4L.card_id },
         ],
     });
 
-    // 4. Créer les choix pour la carte 1
+    // 4. Créer les choix
     await prisma.choice.createMany({
         data: [
             {
@@ -496,18 +487,7 @@ async function main() {
                 texte: "Aidez-les à identifier les camps de la mort.",
                 consequence: "La vérité émerge.",
                 card_id: carte4I.card_id,
-                default_next_card: carte4K.card_id,
-            },
-            {
-                texte: "Et ensuite...",
-                card_id: carte4J.card_id,
-                default_next_card: carte4L.card_id,
-            },
-            {
-                texte: "Et ensuite...",
-                consequence: "La vérité émerge.",
-                card_id: carte4K.card_id,
-                default_next_card: carte4L.card_id,
+                default_next_card: carte4J.card_id,
             },
         ],
     });

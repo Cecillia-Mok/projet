@@ -1,23 +1,31 @@
-import { NextResponse } from 'next/server';
+import { NextRequest, NextResponse } from 'next/server';
 import { PrismaClient } from '@prisma/client';
+import { verifyToken } from '@/lib/auth';
 
 const prisma = new PrismaClient();
 
-// Créer une partie en récupérant l'id du user 
-export async function POST(req: Request) {
-    try {
-        const body = await req.json();
-        const { user_id } = body;
+function getAuthUser(req: NextRequest): { id: string; role: string } | null {
+    const token = req.cookies.get('token')?.value; // récupération du token dans le cookie
+    const payload = token ? verifyToken(token) : null; // vérifie que le token ne soit pas null
 
-        if (!user_id) {
+    return payload; // retourne les donnée user associé au token
+}
+
+// Créer une partie en récupérant l'id du user 
+export async function POST(req: NextRequest) {
+    const auth = getAuthUser(req);
+    if (!auth) {
+        return NextResponse.json({ error: "Non autorisé" }, { status: 401 });
+    }
+    try {
+        if (!parseInt(auth.id)) {
             return NextResponse.json({ error: "user_id manquant" }, { status: 400 });
         }
 
         const game = await prisma.game.create({
             data: {
-                user_id: parseInt(user_id),
+                user_id: parseInt(auth.id),
                 game_start_date: new Date(), // maintenant
-                // status est par défaut à "en cours"
             },
         });
 
@@ -29,5 +37,27 @@ export async function POST(req: Request) {
     };
 }
 
-// Récupérer les parties qui ont le statut en cours || qui n'ont pas de date de fin
-// Reprendre à la carte qui était affichée en dernière
+// Récupérer la liste des parties
+export async function GET(req: NextRequest) {
+    const auth = getAuthUser(req);
+    if (!auth) {
+        return NextResponse.json({ error: "Non autorisé" }, { status: 401 });
+    }
+
+    try {
+    const games = await prisma.game.findMany({
+      where: { user_id: parseInt(auth.id) },
+      include: {
+        GameCard: {
+          include: { card: true },
+        },
+      },
+      orderBy: { game_start_date: 'desc' },
+    });
+
+    return NextResponse.json({ games }, { status: 200 });
+  } catch (err) {
+    console.error("Erreur à la récupération des parties", err);
+    return NextResponse.json({ error: "Erreur serveur" }, { status: 500 });
+  }
+}

@@ -4,12 +4,12 @@ import { NextRequest, NextResponse } from 'next/server'
 const prisma = new PrismaClient()
 
 export async function GET(
-  req: NextRequest,
-  context: { params: { id: string } }
+  _req: NextRequest,
+  { params }: { params: { id: string } }
 ) {
-  const cardId = parseInt(context.params.id)
+  const cardId = Number(params.id)
 
-  if (isNaN(cardId)) {
+  if (!Number.isInteger(cardId)) {
     return NextResponse.json({ error: 'ID invalide' }, { status: 400 })
   }
 
@@ -31,7 +31,7 @@ export async function GET(
 
     return NextResponse.json(carte)
   } catch (error) {
-    console.error('Erreur récupération carte', error)
+    console.error('Erreur récupération carte :', error)
     return NextResponse.json({ error: 'Erreur serveur' }, { status: 500 })
   }
 }

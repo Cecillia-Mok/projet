@@ -73,7 +73,7 @@ export default function Connexion({ onClick }: Readonly<{ onClick?: () => void }
       if (role === 'admin') {
         router.push('/admin/dashboard');
       } else {
-        router.push('/partie');
+        router.push('/commencer');
       }
     } catch (err) {
       console.error('Erreur de connexion :', err)

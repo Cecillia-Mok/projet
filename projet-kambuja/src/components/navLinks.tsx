@@ -19,7 +19,7 @@ export default function NavLinks({ onClick }: Readonly<{ onClick?: () => void }>
                         </Link>
                     </li>
                     <li className="hover:bg-[#F7EAD9] ">
-                        <Link href="/admin/carte" onClick={onClick}>
+                        <Link href="/admin/cartes" onClick={onClick}>
                             Carte
                         </Link>
                     </li>
@@ -28,15 +28,15 @@ export default function NavLinks({ onClick }: Readonly<{ onClick?: () => void }>
             {user ? ( // si le user est connecté
                 <>
                     <li className="hover:bg-[#F7EAD9] ">
-                        <Link href="/partie" onClick={onClick}>
-                            Commencer une partie
+                        <Link href="/commencer" onClick={onClick}>
+                            Commencer
                         </Link>
                     </li>
-                    <li className="hover:bg-[#F7EAD9] ">
+                    {/* <li className="hover:bg-[#F7EAD9] ">
                         <Link href="/joueur" onClick={onClick}>
                             Profil
                         </Link>
-                    </li>
+                    </li> */}
                     <li className="hover:bg-[#F7EAD9]" onClick={onClick}>
                         <LogoutButton />
                     </li>

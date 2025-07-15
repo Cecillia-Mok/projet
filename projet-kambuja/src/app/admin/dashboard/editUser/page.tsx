@@ -7,6 +7,7 @@ import toast, { Toaster } from 'react-hot-toast';
 
 interface User {
     user_id: number;
+    pseudo: number;
     email: string;
     role: string;
 }
@@ -91,25 +92,25 @@ export default function EditUser() {
                 },
                 success: {
                     iconTheme: {
-                        primary: '#553920',
+                        primary: '#2E7D32',
                         secondary: '#F7EAD9',
                     },
                 },
                 error: {
                     iconTheme: {
-                        primary: '#553920',
+                        primary: '#8C0410',
                         secondary: '#F7EAD9',
                     },
                 },
             }} />
             <h2 className="text-4xl mb-10 text-center">Dashboard</h2>
             <div className="flex-1 w-[90%] mx-auto">
-                <h3 className="text-2xl mb-5 text-left">Modifier le rôle de <strong>{user?.email}</strong></h3>
+                <h3 className="text-2xl mb-5 text-left">Modifier le rôle de <strong>{user?.pseudo}</strong></h3>
                 <div className="p-6 bg-radial from-[#F7EAD9] from-50% to-[#F4D7B7] to-120% shadow-[0_0_10px_rgba(185,104,31,0.3)] rounded-lg">
                     <form onSubmit={handleSubmit} className="space-y-4">
                         <div className="text-left">
 
-                            <label htmlFor="user-role">Role</label>
+                            <label htmlFor="user-role">Rôle</label>
                             <select
                                 id="user-role"
                                 className="block w-full mt-1 p-2 border rounded"

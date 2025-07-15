@@ -46,7 +46,7 @@ export default function Nav({ onClick }: Readonly<{ onClick?: () => void }>) {
             <AnimatePresence initial={false}> {/* pour éviter l'affichage de la nav lors du premier chargement de la page */}
                 {menuOpen && (
                     <motion.div
-                        className="absolute z-10 top-30 left-0 w-full md:w-[50%] lg:w-[40%] md:left-1/2 md:transform md:-translate-x-1/2 md:-translate-y-1/2"
+                        className="absolute z-10 top-30 left-0 w-full md:w-[292px] md:left-1/2 md:transform md:-translate-x-1/2 md:-translate-y-1/2"
                         key="menu"
                         initial="hidden"
                         animate="visible"

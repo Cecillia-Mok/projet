@@ -44,12 +44,14 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
 
           {/* Main au centre */}
           <main className="flex-1 flex flex-col place-content-center text-center m-15 md:mb-0">
-             <AuthProvider>
-            <Nav />
-              <Suspense fallback={<Loader />}>
-                {children}
-              </Suspense>
-            <Footer />
+            <AuthProvider>
+              <Nav />
+              <div className="flex-1 place-content-center">
+                <Suspense fallback={<Loader />}>
+                  {children}
+                </Suspense>
+              </div>
+              <Footer />
             </AuthProvider>
           </main>
         </div>

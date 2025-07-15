@@ -17,7 +17,7 @@ function isAdmin(req: NextRequest): { id: string; role: string } | null {
 export async function GET(req: NextRequest) {
   const auth = isAdmin(req);
   if (!auth) return NextResponse.json({ error: 'Non autorisé' }, { status: 401 });
- const { searchParams } = new URL(req.url);
+  const { searchParams } = new URL(req.url);
   const userIdParam = searchParams.get("id");
 
   if (userIdParam) {
@@ -26,6 +26,7 @@ export async function GET(req: NextRequest) {
       where: { user_id },
       select: {
         user_id: true,
+        pseudo: true,
         email: true,
         role: true,
       },
@@ -41,6 +42,7 @@ export async function GET(req: NextRequest) {
   const users = await prisma.user.findMany({
     select: {
       user_id: true,
+      pseudo: true,
       email: true,
       role: true,
     },
@@ -56,16 +58,21 @@ export async function PATCH(req: NextRequest) {
 
   const body = await req.json();
   const user_id = parseInt(body.user_id);
-  const role = body.role;
-  if (!user_id || !role) {
+  const { role, pseudo } = body;
+
+  if (!user_id || (!role && !pseudo)) {
     return NextResponse.json({ error: 'Champs manquants' }, { status: 400 });
   }
 
   try {
     const updated = await prisma.user.update({
       where: { user_id },
-      data: { role },
+      data: {
+        ...(role && { role }),
+        ...(pseudo && { pseudo }),
+      },
     });
+
 
     return NextResponse.json({ message: 'Rôle mis à jour', user: updated });
   } catch (error) {

@@ -5,11 +5,12 @@ import Button from '../../components/button';
 
 export default function Inscription({ onClick }: Readonly<{ onClick?: () => void }>) {
   const router = useRouter();
+  const [pseudo, setPseudo] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
   const [success, setSuccess] = useState<string | null>(null);
-  const [errors, setErrors] = useState<{ email?: string; password?: string; server?: string }>({});
+  const [errors, setErrors] = useState<{ pseudo?: string; email?: string; password?: string; server?: string }>({});
 
   const togglePasswordVisibility = () => {
     setShowPassword(!showPassword);
@@ -24,7 +25,7 @@ export default function Inscription({ onClick }: Readonly<{ onClick?: () => void
       // Envoi des infos de l'inscription
       const res = await fetch('/api/inscription', {
         method: 'POST',
-        body: JSON.stringify({ email, password }), // envoie les données au format json
+        body: JSON.stringify({ pseudo, email, password }), // envoie les données au format json
         headers: { 'Content-Type': 'application/json' }, // précise qu'on envoie du json
       });
 
@@ -49,6 +50,7 @@ export default function Inscription({ onClick }: Readonly<{ onClick?: () => void
       }
 
       setSuccess('Inscription réussie.');
+      setPseudo('')
       setEmail('')
       setPassword('')
       router.push('/connexion')
@@ -64,6 +66,22 @@ export default function Inscription({ onClick }: Readonly<{ onClick?: () => void
       <div className="relative p-6 my-auto bg-radial from-[#F7EAD9] from-50% to-[#F4D7B7] to-120% shadow-[0_0_20px_rgba(185,104,31,0.3)] rounded-lg md:max-w-[400px] md:mx-auto">
         <h2 className="text-2xl mb-4 text-center">Inscription</h2>
         <form onSubmit={handleSubmit} className="space-y-4">
+          <div className="text-left">
+            <label>Pseudo{/* */}
+              <div className="relative">
+                <img src="pen-tool.svg" alt="" className="absolute left-3.75 top-2.5 w-5" />
+                <input
+                  type="pseudo"
+                  value={pseudo}
+                  onChange={(e) => setPseudo(e.target.value)}
+                  placeholder='Votre pseudo'
+                  className="w-full pl-11 pr-4 py-2 bg-[#F7EAD9] border border-[#DA933C] rounded-lg focus:outline-none"
+                  required
+                />
+              </div>
+            </label>
+            {errors.email && <p className="text-[#C20615] text-center mb-4">{errors.email}</p>}
+          </div>
           <div className="text-left">
             <label>Email{/* */}
               <div className="relative">

@@ -4,10 +4,12 @@ import Button from "./button";
 import Loader from "./loader";
 import { useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
+import toast, { Toaster } from "react-hot-toast";
 
 type Choice = {
     choice_id: number;
     texte: string;
+    consequence: string;
     default_next_card: number | null;
 };
 
@@ -36,6 +38,7 @@ export default function Carte({ initialCardId = 1 }: CarteProps) {
         try {
             const res = await fetch(`/api/cartes/${cardId}`);
             const data = await res.json();
+            console.log(data);
             setCard(data);
             updateHistorique(cardId);
         } catch (err) {
@@ -57,9 +60,11 @@ export default function Carte({ initialCardId = 1 }: CarteProps) {
     //     fetchCard(lastId);
     // }, []);
 
-    const handleChoice = (nextId: number | null) => {
+    const handleChoice = (nextId: number | null, consequence: string | null) => {
         if (nextId) {
-            fetchCard(nextId);
+            if (consequence && consequence.trim() !== "") {
+                toast(<p>{consequence}</p>);
+            } fetchCard(nextId);
         } else {
             alert("Fin de l'histoire !");
         }
@@ -86,15 +91,24 @@ export default function Carte({ initialCardId = 1 }: CarteProps) {
 
     return (
         <div className="flex flex-col gap-5 mx-auto md:w-[55%]">
+            <Toaster toastOptions={{
+                duration: 6000,
+                style: {
+                    border: '1px solid #553920',
+                    padding: '16px',
+                    color: '#553920',
+                    background: '#F7EAD9',
+                },
+            }} />
             <h2 className="text-xl font-bold mb-2">{card.titre}</h2>
-            {card.image_url && <img src={card.image_url} alt="" className="mb-2 rounded mx-auto w-[75%] md:w-[60%] lg:w-[40%] shadow-lg" />}
+            {card.image_url && <img src={card.image_url} alt="" className="mb-2 rounded mx-auto w-[75%] md:w-[60%] lg:w-[30%] shadow-lg" />}
             <p className="mb-4">{card.texte}</p>
 
             <div className="space-y-2">
                 {card.choice?.map((c) => (
                     <button
                         key={c.choice_id}
-                        onClick={() => handleChoice(c.default_next_card)}
+                        onClick={() => handleChoice(c.default_next_card, c.consequence)}
                         className="w-full bg-[#DA933C] text-white py-2 px-4 rounded hover:bg-[#C4802D] cursor-pointer"
                     >
                         {c.texte}

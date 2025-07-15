@@ -1,13 +1,13 @@
 import { PrismaClient } from '@prisma/client'
-import { NextResponse } from 'next/server'
+import { NextRequest, NextResponse } from 'next/server'
 
 const prisma = new PrismaClient()
 
 export async function GET(
-  req: Request,
-  { params }: { params: { id: string } }
+  req: NextRequest,
+  context: { params: { id: string } }
 ) {
-  const cardId = parseInt(params.id)
+  const cardId = parseInt(context.params.id)
 
   if (isNaN(cardId)) {
     return NextResponse.json({ error: 'ID invalide' }, { status: 400 })

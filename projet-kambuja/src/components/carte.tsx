@@ -56,7 +56,7 @@ export default function Carte({ initialCardId = 1 }: CarteProps) {
     //     const lastId = hist.length > 0 ? hist[hist.length - 1] : 1;
     //     fetchCard(lastId);
     // }, []);
-    
+
     const handleChoice = (nextId: number | null) => {
         if (nextId) {
             fetchCard(nextId);
@@ -64,12 +64,16 @@ export default function Carte({ initialCardId = 1 }: CarteProps) {
             alert("Fin de l'histoire !");
         }
     };
-    
+
     const handleRecommencer = () => {
         localStorage.removeItem("historique");
         fetchCard(1); // Recharger la carte de départ
     };
-    
+
+    const handleRedirectHome = () => {
+        router.push('/commencer'); // ou une autre page dédiée
+    };
+
     const handleVoirHistorique = () => {
         router.push('/joueur'); // ou une autre page dédiée
     };
@@ -77,13 +81,13 @@ export default function Carte({ initialCardId = 1 }: CarteProps) {
     useEffect(() => {
         fetchCard(initialCardId)
     }, [initialCardId])
-    
+
     if (loading || !card) return <Loader />;
 
     return (
-        <div className="flex flex-col gap-5">
+        <div className="flex flex-col gap-5 mx-auto md:w-[55%]">
             <h2 className="text-xl font-bold mb-2">{card.titre}</h2>
-            {card.image_url && <img src={card.image_url} alt="" className="mb-2 rounded" />}
+            {card.image_url && <img src={card.image_url} alt="" className="mb-2 rounded mx-auto w-[75%] md:w-[60%] lg:w-[40%] shadow-lg" />}
             <p className="mb-4">{card.texte}</p>
 
             <div className="space-y-2">
@@ -91,7 +95,7 @@ export default function Carte({ initialCardId = 1 }: CarteProps) {
                     <button
                         key={c.choice_id}
                         onClick={() => handleChoice(c.default_next_card)}
-                        className="w-full bg-amber-600 text-white py-2 px-4 rounded hover:bg-amber-700"
+                        className="w-full bg-[#DA933C] text-white py-2 px-4 rounded hover:bg-[#C4802D] cursor-pointer"
                     >
                         {c.texte}
                     </button>
@@ -99,9 +103,12 @@ export default function Carte({ initialCardId = 1 }: CarteProps) {
             </div>
 
             {card.statut === "fin de partie" && (
-                <div className="mt-4 space-x-2">
+                <div className="space-x-2">
                     <button onClick={handleRecommencer} className="w-full">
-                        <p className="mt-2.5 text-white bg-[#DA933C] transition duration-300 ease-in-out hover:bg-[#C4802D] px-4 py-2 font-semibold rounded-lg cursor-pointer">Recommencer</p>
+                        <p className="text-white bg-[#DA933C] transition duration-300 ease-in-out hover:bg-[#C4802D] px-4 py-2 font-semibold rounded-lg cursor-pointer">Recommencer</p>
+                    </button>
+                    <button onClick={handleRedirectHome} className="w-full">
+                        <p className="mt-2.5 text-white bg-[#DA933C] transition duration-300 ease-in-out hover:bg-[#C4802D] px-4 py-2 font-semibold rounded-lg cursor-pointer">Retourner sur l'accueil</p>
                     </button>
                     {/* <button onClick={handleVoirHistorique} className="w-full">
                         <p className="mt-2.5 text-white bg-[#DA933C] transition duration-300 ease-in-out hover:bg-[#C4802D] px-4 py-2 font-semibold rounded-lg cursor-pointer">Voir l'historique sur mon profil</p>

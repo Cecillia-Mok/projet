@@ -74,7 +74,7 @@ export default function Inscription({ onClick }: Readonly<{ onClick?: () => void
                   type="pseudo"
                   value={pseudo}
                   onChange={(e) => setPseudo(e.target.value)}
-                  placeholder='Votre email'
+                  placeholder='Votre pseudo'
                   className="w-full pl-11 pr-4 py-2 bg-[#F7EAD9] border border-[#DA933C] rounded-lg focus:outline-none"
                   required
                 />

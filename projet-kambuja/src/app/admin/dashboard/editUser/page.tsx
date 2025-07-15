@@ -110,7 +110,7 @@ export default function EditUser() {
                     <form onSubmit={handleSubmit} className="space-y-4">
                         <div className="text-left">
 
-                            <label htmlFor="user-role">Role</label>
+                            <label htmlFor="user-role">Rôle</label>
                             <select
                                 id="user-role"
                                 className="block w-full mt-1 p-2 border rounded"

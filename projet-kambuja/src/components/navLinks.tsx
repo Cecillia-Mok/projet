@@ -28,8 +28,8 @@ export default function NavLinks({ onClick }: Readonly<{ onClick?: () => void }>
             {user ? ( // si le user est connecté
                 <>
                     <li className="hover:bg-[#F7EAD9] ">
-                        <Link href="/partie" onClick={onClick}>
-                            Commencer une partie
+                        <Link href="/commencer" onClick={onClick}>
+                            Commencer
                         </Link>
                     </li>
                     {/* <li className="hover:bg-[#F7EAD9] ">

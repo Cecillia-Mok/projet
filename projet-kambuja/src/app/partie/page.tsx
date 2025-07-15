@@ -9,9 +9,9 @@ export default function Partie() {
   const router = useRouter()
   const { user, loading } = useAuth()
 
-  const [gameStarted, setGameStarted] = useState(false)
-  const [lastCardId, setLastCardId] = useState<number | null>(null);
-  const [canResume, setCanResume] = useState(false)
+  // const [gameStarted, setGameStarted] = useState(false)
+  // const [lastCardId, setLastCardId] = useState<number | null>(null);
+  // const [canResume, setCanResume] = useState(false)
 
   // Redirige si l’utilisateur n’est pas connecté
   useEffect(() => {
@@ -21,46 +21,46 @@ export default function Partie() {
   }, [loading, user, router])
 
   // Récupère la dernière carte saved dans le localstorage pour l'afficher si on reprend la dernière partie
-  useEffect(() => {
-    const checkLastCard = async () => {
-      const historique = JSON.parse(localStorage.getItem("historique") || "[]");
-      if (historique.length === 0) return;
+  // useEffect(() => {
+  //   const checkLastCard = async () => {
+  //     const historique = JSON.parse(localStorage.getItem("historique") || "[]");
+  //     if (historique.length === 0) return;
 
-      const lastId = historique[historique.length - 1];
+  //     const lastId = historique[historique.length - 1];
 
-      try {
-        const res = await fetch(`/api/cartes/${lastId}`);
-        const data = await res.json();
+  //     try {
+  //       const res = await fetch(`/api/cartes/${lastId}`);
+  //       const data = await res.json();
 
-        if (data.statut !== "fin de partie") {
-          setLastCardId(lastId);
-          setCanResume(true)
-        }
-      } catch (err) {
-        console.error("Erreur lors de la récupération de la dernière carte", err);
-      }
-    };
+  //       if (data.statut !== "fin de partie") {
+  //         setLastCardId(lastId);
+  //         setCanResume(true)
+  //       }
+  //     } catch (err) {
+  //       console.error("Erreur lors de la récupération de la dernière carte", err);
+  //     }
+  //   };
 
-    checkLastCard();
-  }, []);
+  //   checkLastCard();
+  // }, []);
 
   // Fonction pour démarrer la partie
-  const startGame = () => {
-    localStorage.removeItem("historique")
-    setLastCardId(1)
-    setGameStarted(true)
-  }
+  // const startGame = () => {
+  //   localStorage.removeItem("historique")
+  //   setLastCardId(1)
+  //   setGameStarted(true)
+  // }
 
   // Reprendre la dernière partie en cours
-  const resumeGame = () => {
-    setGameStarted(true)
-  }
+  // const resumeGame = () => {
+  //   setGameStarted(true)
+  // }
 
   if (loading || !user) return <Loader />
 
   return (
     <main className="flex-1 text-center">
-      {!gameStarted ? (
+      {/* {!gameStarted ? (
         <div>
           <h1 className="text-4xl m-10">Prêt à débuter votre règne ?</h1>
 
@@ -82,7 +82,8 @@ export default function Partie() {
         </div>
       ) : (
         <Carte initialCardId={lastCardId ?? 1} />
-      )}
+      )} */}
+      <Carte initialCardId={1} />
     </main>
   )
 }

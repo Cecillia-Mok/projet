@@ -5,9 +5,9 @@ const prisma = new PrismaClient()
 
 export async function GET(
   _req: NextRequest,
-  { params }: { params: { id: string } }
+  context: { params: Record<string, string> } 
 ) {
-  const cardId = Number(params.id)
+  const cardId = Number(context.params.id)
 
   if (!Number.isInteger(cardId)) {
     return NextResponse.json({ error: 'ID invalide' }, { status: 400 })

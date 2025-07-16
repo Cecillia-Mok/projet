@@ -1,4 +1,3 @@
-// src/app/layout.tsx
 import './globals.css';
 import Nav from '../components/nav';
 import type { Metadata } from 'next';
@@ -8,13 +7,14 @@ import Footer from '../components/footer';
 import { AuthProvider } from '@/context/authContext';
 import { Milonga, Spectral } from 'next/font/google';
 
-export const milonga = Milonga({
+// Définition des fonts sans export
+const milonga = Milonga({
   subsets: ['latin'],
   weight: '400',
   display: 'swap',
 });
 
-export const spectral = Spectral({
+const spectral = Spectral({
   subsets: ['latin'],
   weight: ['400', '500', '700'],
   style: ['normal', 'italic'],
@@ -29,7 +29,7 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="fr">
-      <body className="spectral h-screen text-[#553920] bg-radial from-[#F7EAD9] from-40% to-[#F4D7B7] to-80%">
+      <body className={`${spectral.className} h-screen text-[#553920] bg-radial from-[#F7EAD9] from-40% to-[#F4D7B7] to-80%`}>
         <div className="relative flex h-screen overflow-hidden">
 
           {/* Décoration haut / gauche */}

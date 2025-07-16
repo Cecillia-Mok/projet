@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import Button from '../../components/button';
 
-export default function Inscription({ onClick }: Readonly<{ onClick?: () => void }>) {
+export default function Inscription() {
   const router = useRouter();
   const [pseudo, setPseudo] = useState('');
   const [email, setEmail] = useState('');

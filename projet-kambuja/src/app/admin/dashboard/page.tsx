@@ -13,15 +13,33 @@ interface User {
 export default function DashboardAdmin() {
     const [users, setUsers] = useState<User[]>([]);
     const fetchUsers = async () => {
-        const res = await fetch('/api/users', { credentials: 'include' });
-        const data = await res.json();
-        setUsers(data.users);
+        try {
+            const res = await fetch('/api/users', { credentials: 'include' });
+
+            if (res.status === 401) {
+                // Redirection vers la page de connexion si non connecté
+                window.location.href = '/connexion';
+                return;
+            }
+
+            if (!res.ok) {
+                toast.error('Erreur serveur');
+                return;
+            }
+
+            const data = await res.json();
+            setUsers(data.users || []);
+        } catch (err) {
+            console.error('Erreur réseau :', err);
+            toast.error('Erreur réseau');
+        }
     };
+
     useEffect(() => {
         fetchUsers();
     }, []);
 
-    if (users.length === 0) return <p className="flex-1 text-center mt-10">Aucun utilisateur trouvé.</p>;
+    if (!users || users.length === 0) return <p className="flex-1 text-center mt-10">Aucun utilisateur trouvé.</p>;
 
     const handleDelete = async (user_id: number, role: string) => {
         if (role === 'admin') {
@@ -81,7 +99,7 @@ export default function DashboardAdmin() {
                         secondary: '#F7EAD9',
                     },
                 },
-            }}/>
+            }} />
             <h2 className="text-4xl mb-10 text-center">Dashboard</h2>
             <div className="relative w-full h-[70vh] flex flex-col justify-evenly md:w-[75%] mx-auto bg-radial from-[#855A34] from-30% to-[#553920] to-80% rounded-lg">
                 <img src="/orange-corner.png" alt="" className="absolute -top-2 -left-2 size-8 lg:size-13 rotate-90" />

@@ -6,7 +6,7 @@ import { useRouter } from 'next/navigation';
 import { useAuth } from '@/context/authContext';
 import Loader from '@/components/loader';
 
-export default function Connexion({ onClick }: Readonly<{ onClick?: () => void }>) {
+export default function Connexion() {
   const { loading, refresh } = useAuth();
   const router = useRouter();
   const [email, setEmail] = useState('');

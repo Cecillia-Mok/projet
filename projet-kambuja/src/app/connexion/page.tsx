@@ -13,7 +13,6 @@ export default function Connexion() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
-  const [errors, setErrors] = useState<string | null>(null);
 
   const togglePasswordVisibility = () => {
     setShowPassword(!showPassword);
@@ -21,7 +20,6 @@ export default function Connexion() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault() // empêche le rechargement de la page
-    setErrors(null) // réinitialise les erreurs
 
     try {
       // Envoi des infos de connexion
@@ -44,28 +42,26 @@ export default function Connexion() {
       }
 
       if (!res.ok) {
-        toast.error(data.errors ?? 'Échec de la connexion.');
+        toast.error('Échec de la connexion.');
         return;
       }
-
+      
       // Appelle refresh() pour mettre à jour user et loading
       await refresh();
-
+      
       // Récupération des infos de l'utilisateur connecté
       const meRes = await fetch('/api/me', {
         method: 'GET',
         credentials: 'include',
       });
-
+      
       const meData = await meRes.json();
-
+      
       if (!meRes.ok) {
-        toast.error(meData.errors ?? 'Échec de la récupération des infos utilisateur.');
+        toast.error('Échec de la récupération des infos utilisateur.');
         return;
       }
-
-      console.log(meData.user); // utilisateur connecté (id, email, role)
-
+      
       setEmail('')
       setPassword('')
 
@@ -141,7 +137,6 @@ export default function Connexion() {
                 />
               </div>
             </label>
-            {errors && <p className="text-[#C20615] text-center mb-4">{errors}</p>}
           </div>
           <Button text="Se Connecter" />
         </form >

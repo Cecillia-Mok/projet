@@ -2,6 +2,7 @@
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import Button from '../../components/button';
+import toast, { Toaster } from 'react-hot-toast';
 
 export default function Inscription() {
   const router = useRouter();
@@ -34,7 +35,7 @@ export default function Inscription() {
         data = await res.json();  // on tente de parser la réponse en json
       } catch (err) {
         console.error('Erreur JSON:', err); // message d'erreur si le parsing json échoue
-        setErrors({ server: data?.error ?? "Erreur serveur.1" }); // réponse invalide
+        setErrors({ server: data?.error ?? "Erreur serveur." }); // réponse invalide
         return; // fin d'exécution
       }
 
@@ -49,7 +50,7 @@ export default function Inscription() {
         return;
       }
 
-      setSuccess('Inscription réussie.');
+      toast.success("Inscription réussie.");
       setPseudo('')
       setEmail('')
       setPassword('')
@@ -57,12 +58,32 @@ export default function Inscription() {
 
     } catch (err) {
       console.error('Erreur de connexion :', err)
-      setErrors({ server: "Erreur serveur ou réseau." })
+      toast.error("Erreur serveur ou réseau.")
     }
   }
 
   return (
     <main className="flex-1 place-content-center text-center">
+      <Toaster toastOptions={{
+        style: {
+          border: '1px solid #553920',
+          padding: '16px',
+          color: '#553920',
+          background: '#F7EAD9',
+        },
+        success: {
+          iconTheme: {
+            primary: '#2E7D32',
+            secondary: '#F7EAD9',
+          },
+        },
+        error: {
+          iconTheme: {
+            primary: '#8C0410',
+            secondary: '#F7EAD9',
+          },
+        },
+      }} />
       <div className="relative p-6 my-auto bg-radial from-[#F7EAD9] from-50% to-[#F4D7B7] to-120% shadow-[0_0_20px_rgba(185,104,31,0.3)] rounded-lg md:max-w-[400px] md:mx-auto">
         <h2 className="text-2xl mb-4 text-center">Inscription</h2>
         <form onSubmit={handleSubmit} className="space-y-4">
@@ -80,7 +101,7 @@ export default function Inscription() {
                 />
               </div>
             </label>
-            {errors.email && <p className="text-[#C20615] text-center mb-4">{errors.email}</p>}
+            {errors.pseudo && <p className="text-[#C20615] text-center mb-4">{errors.pseudo}</p>}
           </div>
           <div className="text-left">
             <label>Email{/* */}

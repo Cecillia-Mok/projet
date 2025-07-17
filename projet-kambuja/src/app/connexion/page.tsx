@@ -5,6 +5,7 @@ import Button from '@/components/button';
 import { useRouter } from 'next/navigation';
 import { useAuth } from '@/context/authContext';
 import Loader from '@/components/loader';
+import toast, { Toaster } from 'react-hot-toast';
 
 export default function Connexion() {
   const { loading, refresh } = useAuth();
@@ -38,17 +39,17 @@ export default function Connexion() {
         data = await res.json();  // on tente de parser la réponse en json
       } catch (err) {
         console.error('Erreur JSON:', err); // message d'erreur si le parsing json échoue
-        setErrors("Échec de la connexion."); // réponse invalide
+        toast.error("Échec de la connexion."); // réponse invalide
         return;
       }
 
       if (!res.ok) {
-        setErrors(data.errors ?? 'Échec de la connexion.');
+        toast.error(data.errors ?? 'Échec de la connexion.');
         return;
       }
 
       // Appelle refresh() pour mettre à jour user et loading
-      await refresh();    
+      await refresh();
 
       // Récupération des infos de l'utilisateur connecté
       const meRes = await fetch('/api/me', {
@@ -59,7 +60,7 @@ export default function Connexion() {
       const meData = await meRes.json();
 
       if (!meRes.ok) {
-        setErrors(meData.errors ?? 'Échec de la récupération des infos utilisateur.');
+        toast.error(meData.errors ?? 'Échec de la récupération des infos utilisateur.');
         return;
       }
 
@@ -77,12 +78,26 @@ export default function Connexion() {
       }
     } catch (err) {
       console.error('Erreur de connexion :', err)
-      setErrors('Erreur réseau ou serveur.')
+      toast.error('Erreur réseau ou serveur.')
     }
   }
 
   return (
     <main className="flex-1 place-content-center text-center">
+      <Toaster toastOptions={{
+        style: {
+          border: '1px solid #553920',
+          padding: '16px',
+          color: '#553920',
+          background: '#F7EAD9',
+        },
+        error: {
+          iconTheme: {
+            primary: '#8C0410',
+            secondary: '#F7EAD9',
+          },
+        },
+      }} />
       <div className="relative p-6 bg-radial from-[#F7EAD9] from-50% to-[#F4D7B7] to-120% shadow-[0_0_20px_rgba(185,104,31,0.3)] rounded-lg md:max-w-[400px] md:mx-auto">
         <h2 className="text-2xl mb-4 text-center">Connexion</h2>
         <form onSubmit={handleSubmit} className="space-y-4">

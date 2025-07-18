@@ -68,7 +68,7 @@ export default function Partie() {
             onClick={startGame}
             className="mt-2.5 text-white bg-[#DA933C] transition duration-300 ease-in-out hover:bg-[#C4802D] px-4 py-2 font-semibold rounded-lg cursor-pointer"
           >
-            Commencer l'aventure.
+            Commencer
           </button>
 
           {canResume &&
@@ -76,7 +76,7 @@ export default function Partie() {
               onClick={resumeGame}
               className="mt-2.5 text-white bg-[#DA933C] transition duration-300 ease-in-out hover:bg-[#C4802D] px-4 py-2 font-semibold rounded-lg cursor-pointer"
             >
-              Reprendre l'aventure.
+              Reprendre
             </button>
           }
         </div>

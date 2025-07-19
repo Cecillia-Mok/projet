@@ -7,7 +7,7 @@ export async function GET() {
   try {
     const cartes = await prisma.card.findMany({
       include: {
-        choice: {
+        choices: {
           include: {
             next_card: true, // récupère la carte suivante
           },

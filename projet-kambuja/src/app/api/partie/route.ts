@@ -48,7 +48,7 @@ export async function GET(req: NextRequest) {
     const games = await prisma.game.findMany({
       where: { user_id: parseInt(auth.id) },
       include: {
-        GameCard: {
+        gameCards: {
           include: { card: true },
         },
       },

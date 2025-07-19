@@ -41,7 +41,7 @@ export default function NavLinks({ onClick }: Readonly<{ onClick?: () => void }>
                         <LogoutButton />
                     </li>
                 </>
-            ) : ( // s'in n'est pas connecté
+            ) : ( // s'il n'est pas connecté
                 <>
                     <li className="hover:bg-[#F7EAD9] ">
                         <Link href="/" onClick={onClick}>

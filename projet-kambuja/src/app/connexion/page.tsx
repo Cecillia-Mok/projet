@@ -1,10 +1,10 @@
 'use client'
 import Link from 'next/link'
-import { useState } from 'react';
 import Button from '@/components/button';
+import Loader from '@/components/loader';
+import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { useAuth } from '@/context/authContext';
-import Loader from '@/components/loader';
 import toast, { Toaster } from 'react-hot-toast';
 
 export default function Connexion() {
@@ -13,6 +13,7 @@ export default function Connexion() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const togglePasswordVisibility = () => {
     setShowPassword(!showPassword);
@@ -20,6 +21,7 @@ export default function Connexion() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault() // empêche le rechargement de la page
+    setIsSubmitting(true);
 
     try {
       // Envoi des infos de connexion
@@ -30,43 +32,45 @@ export default function Connexion() {
         credentials: 'include', // Important pour que le cookie soit bien envoyé
       })
 
-      if (loading) return <Loader />;
-
       let data; // let permet de définir data ultérieurement
       try {
         data = await res.json();  // on tente de parser la réponse en json
       } catch (err) {
         console.error('Erreur JSON:', err); // message d'erreur si le parsing json échoue
         toast.error("Échec de la connexion."); // réponse invalide
+        setIsSubmitting(false);
         return;
       }
 
       if (!res.ok) {
         toast.error('Échec de la connexion.');
+        setIsSubmitting(false);
         return;
       }
-      
+
       // Appelle refresh() pour mettre à jour user et loading
       await refresh();
-      
+
       // Récupération des infos de l'utilisateur connecté
       const meRes = await fetch('/api/me', {
         method: 'GET',
         credentials: 'include',
       });
-      
+
       const meData = await meRes.json();
-      
+
       if (!meRes.ok) {
         toast.error('Échec de la récupération des infos utilisateur.');
+        setIsSubmitting(false);
         return;
       }
-      
+
       setEmail('')
       setPassword('')
 
       // Redirection selon le rôle
       const role = meData.user.role;
+      setIsSubmitting(false);
       if (role === 'admin') {
         router.push('/admin/dashboard');
       } else {
@@ -75,8 +79,11 @@ export default function Connexion() {
     } catch (err) {
       console.error('Erreur de connexion :', err)
       toast.error('Erreur réseau ou serveur.')
+      setIsSubmitting(false);
     }
   }
+
+    if (isSubmitting || loading) return <Loader />;
 
   return (
     <main className="flex-1 place-content-center text-center">

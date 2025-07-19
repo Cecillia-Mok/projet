@@ -15,55 +15,70 @@ model User {
   role          String   @default("user")
   creation_date DateTime @default(now())
 
-  games Game[] // 1-n relation
+  games Game[]
 }
 
 model Game {
   game_id         Int       @id @default(autoincrement())
   game_start_date DateTime
   game_end_date   DateTime?
-  statut          String    @default("en cours")
+  status          String    @default("en cours")
 
   user_id Int
   user    User @relation(fields: [user_id], references: [user_id], onDelete: Cascade)
 
-  cards    Card[] // 1-n relation
-  GameCard GameCard[]
+  gameCards    GameCard[]
+  gameChoices  GameChoice[]
 }
 
 model Card {
   card_id   Int     @id @default(autoincrement())
-  titre     String
+  title     String
   image_url String?
-  texte     String
-  statut    String  @default("continuer")
+  text      String
+  status    String  @default("continuer")
 
-  choice     Choice[] // 1-n relation
-  suivie_par Choice[] @relation("NextCard")
-
+  choices     Choice[]
+  suivie_par  Choice[] @relation("NextCard") // lien inverse du next_card_id
   gameCards   GameCard[]
-  Game        Game?      @relation(fields: [game_id], references: [game_id])
-  game_id Int?
-}
-
-model GameCard {
-  game_id Int
-  card_id Int
-
-  game Game @relation(fields: [game_id], references: [game_id], onDelete: Cascade)
-  card Card @relation(fields: [card_id], references: [card_id], onDelete: Cascade)
-
-  @@id([game_id, card_id]) // clé primaire composite
+  gameChoices GameChoice[]
 }
 
 model Choice {
-  choice_id   Int    @id @default(autoincrement())
-  texte       String
+  choice_id Int    @id @default(autoincrement())
+  text      String
   consequence String?
 
-  default_next_card Int?
-  next_card         Card? @relation("NextCard", fields: [default_next_card], references: [card_id], onDelete: SetNull)
+  next_card_id Int?
+  next_card    Card?  @relation("NextCard", fields: [next_card_id], references: [card_id])
 
   card_id Int
+  card    Card @relation(fields: [card_id], references: [card_id])
+
+  gameChoices GameChoice[]
+}
+
+model GameCard {
+  game    Game @relation(fields: [game_id], references: [game_id], onDelete: Cascade)
+  game_id Int
+
   card    Card @relation(fields: [card_id], references: [card_id], onDelete: Cascade)
+  card_id Int
+
+  @@id([game_id, card_id])
+}
+
+model GameChoice {
+  game      Game   @relation(fields: [game_id], references: [game_id], onDelete: Cascade)
+  game_id   Int
+
+  card      Card   @relation(fields: [card_id], references: [card_id], onDelete: Cascade)
+  card_id   Int
+
+  choice    Choice @relation(fields: [choice_id], references: [choice_id], onDelete: Cascade)
+  choice_id Int
+
+  createdAt DateTime @default(now())
+
+  @@id([game_id, card_id, choice_id], name: "game_id_card_id_choice_id")
 }

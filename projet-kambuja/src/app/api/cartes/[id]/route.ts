@@ -17,7 +17,7 @@ export async function GET(req: NextRequest) {
     const carte = await prisma.card.findUnique({
       where: { card_id: cardId },
       include: {
-        choice: {
+        choices: {
           include: {
             next_card: true,
           },

@@ -8,6 +8,7 @@ const prisma = new PrismaClient();
 function getAuthUser(req: NextRequest): { id: string; role: string } | null {
   const token = req.cookies.get('token')?.value; // récupération du token dans le cookie
   const payload = token ? verifyToken(token) : null; // vérifie que le token ne soit pas null
+  if (!payload || typeof payload !== 'object') return null;
 
   return payload; // retourne les donnée user associé au token
 }
@@ -22,14 +23,41 @@ export async function GET(
     return NextResponse.json({ error: "Non autorisé" }, { status: 401 });
   }
 
+  const user_id = parseInt(auth.id);
   const game_id = parseInt(context.params.game_id);
 
   try {
     const game = await prisma.game.findUnique({
       where: { game_id },
       include: {
-        GameCard: {
-          include: { card: true },
+        gameChoices: {
+          include: {
+            choice: {
+              select: {
+                choice_id: true,
+                text: true,
+                consequence: true,
+              },
+            },
+            card: {
+              select: {
+                card_id: true,
+                title: true,
+                text: true,
+              },
+            },
+          },
+        },
+        gameCards: {
+          include: {
+            card: {
+              select: {
+                card_id: true,
+                title: true,
+                status: true,
+              },
+            },
+          },
         },
       },
     });
@@ -38,7 +66,24 @@ export async function GET(
       return NextResponse.json({ error: "Partie non trouvée" }, { status: 404 });
     }
 
-    return NextResponse.json({ game });
+    if (game.user_id !== user_id) {
+      return NextResponse.json({ error: "Accès interdit" }, { status: 403 });
+    }
+
+    // Organiser la réponse
+    const response = {
+      game_id: game.game_id,
+      status: game.status,
+      start_date: game.game_start_date,
+      end_date: game.game_end_date,
+      cards_played: game.gameCards.map(gc => gc.card),
+      choices_made: game.gameChoices.map(gc => ({
+        card: gc.card,
+        choice: gc.choice
+      })),
+    };
+
+    return NextResponse.json(response);
   } catch (err) {
     console.error(err);
     return NextResponse.json({ error: "Erreur serveur" }, { status: 500 });
@@ -78,24 +123,39 @@ export async function PATCH(
       return NextResponse.json({ error: 'Choix invalide pour cette carte' }, { status: 400 });
     }
 
-    // Enregistre le choix dans GameChoice
-    // await prisma.gameChoice.create({
-    //   data: {
-    //     game_id,
-    //     card_id,
-    //     choice_id
-    //   }
-    // });
+    // Vérifie si le choix a déjà été enregistré
+    const existingChoice = await prisma.gameChoice.findUnique({
+      where: {
+        game_id_card_id_choice_id: {
+          game_id,
+          card_id,
+          choice_id
+        }
+      }
+    });
+
+    if (existingChoice) {
+      return NextResponse.json({ error: 'Ce choix a déjà été enregistré.' }, { status: 400 });
+    }
+
+    // Enregistre le choix dans gameChoices
+    await prisma.gameChoice.create({
+      data: {
+        game_id,
+        card_id,
+        choice_id
+      }
+    });
 
     // Vérifie si la carte mène à une fin
     const card = await prisma.card.findUnique({ where: { card_id } });
 
-    if (card?.statut === 'fin de partie') {
+    if (card?.status === 'fin de partie') {
       // Met fin à la partie
       await prisma.game.update({
         where: { game_id },
         data: {
-          statut: 'terminée',
+          status: 'terminée',
           game_end_date: new Date()
         }
       });

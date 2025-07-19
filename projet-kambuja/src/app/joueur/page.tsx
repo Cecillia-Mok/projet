@@ -17,11 +17,11 @@ export default function Joueur() {
 
   if (loading || !user) return <Loader />;
   return (
-    <main className="flex-1 text-center">
-      <section className="flex flex-col gap-10 mt-10">
+    <section className="flex-1 text-center">
+      <div className="flex flex-col gap-10 mt-10">
         <div>
           <h1 className="text-4xl">Bibliothèque</h1>
-          <p>La page où le joueur peut consulter ses parties passées.</p>
+          <p>La page où le joueur peut consulter son profil et ses parties passées.</p>
         </div>
         <div>
           <h2>Accomplissements</h2>
@@ -36,7 +36,15 @@ export default function Joueur() {
             <li>Partie 3 <button>Consulter la partie</button></li>
           </ul>
         </div>
-      </section>
-    </main>
+        <div>
+          <h2>Reprendre une partie</h2>
+          <ul>
+            <li>Partie 4 <button>Reprendre la partie</button></li>
+            <li>Partie 5 <button>Reprendre la partie</button></li>
+            <li>Partie 6 <button>Reprendre la partie</button></li>
+          </ul>
+        </div>
+      </div>
+    </section>
   )
 }

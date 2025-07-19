@@ -5,14 +5,14 @@ import React, { useEffect, useState } from 'react';
 
 type Carte = {
   card_id: number;
-  titre: string;
-  texte: string;
-  choice: {
+  title: string;
+  text: string;
+  choices: {
     choice_id: number;
-    texte: string;
+    text: string;
     next_card?: {
       card_id: number;
-      titre: string;
+      title: string;
     } | null;
   }[];
 };
@@ -27,6 +27,7 @@ export default function CartesPage() {
       .then(data => {
         setCartes(data);
         setLoading(false);
+        console.log(data);
       })
       .catch(err => {
         console.error('Erreur fetch cartes:', err);
@@ -49,19 +50,19 @@ export default function CartesPage() {
           {cartes.map(carte => (
             <div key={carte.card_id} className="flex flex-col justify-between overflow-visible w-full mx-auto p-6 bg-radial from-[#F7EAD9] from-50% to-[#F4D7B7] to-120% shadow-[0_0_10px_rgba(185,104,31,0.3)] rounded-lg">
               <div>
-                <h2 className="text-xl font-semibold">{carte.titre}</h2>
-                <p className="mb-2">{carte.texte}</p>
+                <h2 className="text-xl font-semibold">{carte.title}</h2>
+                <p className="mb-2">{carte.text}</p>
               </div>
 
               <h3 className="font-semibold">Choix :</h3>
               <ul className=" ml-5">
-                {carte.choice.length > 0 ? (
-                  carte.choice.map(choix => (
-                    <li key={choix.choice_id}>
-                      {choix.texte}
-                      {choix.next_card && (
+                {carte.choices.length > 0 ? (
+                  carte.choices.map((c) => (
+                    <li key={c.choice_id}>
+                      {c.text}
+                      {c.next_card && (
                         <span className="ml-2 text-sm text-amber-600">
-                          ► mène à <strong>{choix.next_card.titre}</strong>
+                          ► mène à <strong>{c.next_card.title}</strong>
                         </span>
                       )}
                     </li>

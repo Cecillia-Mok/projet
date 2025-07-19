@@ -8,18 +8,18 @@ import toast, { Toaster } from "react-hot-toast";
 
 type Choice = {
     choice_id: number;
-    texte: string;
+    text: string;
     consequence: string;
-    default_next_card: number | null;
+    next_card_id: number | null;
 };
 
 type Card = {
     card_id: number;
-    titre: string;
-    texte: string;
+    title: string;
+    text: string;
     image_url?: string;
-    choice: Choice[];
-    statut: string;
+    choices: Choice[];
+    status: string;
 };
 
 type CarteProps = {
@@ -100,23 +100,23 @@ export default function Carte({ initialCardId = 1 }: CarteProps) {
                     background: '#F7EAD9',
                 },
             }} />
-            <h2 className="text-xl font-bold mb-2">{card.titre}</h2>
+            <h2 className="text-xl font-bold mb-2">{card.title}</h2>
             {card.image_url && <img src={card.image_url} alt="" className="mb-2 rounded mx-auto w-[75%] md:w-[60%] lg:w-[30%] shadow-lg" />}
-            <p className="mb-4">{card.texte}</p>
+            <p className="mb-4">{card.text}</p>
 
             <div className="space-y-2">
-                {card.choice?.map((c) => (
+                {card.choices?.map((c) => (
                     <button
                         key={c.choice_id}
-                        onClick={() => handleChoice(c.default_next_card, c.consequence)}
+                        onClick={() => handleChoice(c.next_card_id, c.consequence)}
                         className="w-full bg-[#DA933C] text-white py-2 px-4 rounded hover:bg-[#C4802D] cursor-pointer"
                     >
-                        {c.texte}
+                        {c.text}
                     </button>
                 ))}
             </div>
 
-            {card.statut === "fin de partie" && (
+            {card.status === "fin de partie" && (
                 <div className="space-x-2">
                     <button onClick={handleRecommencer} className="w-full">
                         <p className="text-white bg-[#DA933C] transition duration-300 ease-in-out hover:bg-[#C4802D] px-4 py-2 font-semibold rounded-lg cursor-pointer">Recommencer</p>
@@ -133,22 +133,22 @@ export default function Carte({ initialCardId = 1 }: CarteProps) {
     );
     // return (
     //     <div className="flex flex-col gap-5">
-    //         <h2 className="text-xl font-bold mb-2">{card.titre}</h2>
+    //         <h2 className="text-xl font-bold mb-2">{card.title}</h2>
     //         {card.image_url && <img src={card.image_url} alt="" className="mb-2 rounded" />}
-    //         <p className="mb-4">{card.texte}</p>
+    //         <p className="mb-4">{card.text}</p>
 
     //         <div className="space-y-2">
     //             {card.choice.map((c) => (
     //                 <Button
     //                     key={c.choice_id}
-    //                     text={c.texte}
-    //                     onClick={() => handleChoice(c.default_next_card)}
+    //                     text={c.text}
+    //                     onClick={() => handleChoice(c.next_card_id)}
     //                     className="w-full bg-blue-600 text-white py-2 px-4 rounded hover:bg-blue-700"
     //                 />
     //             ))}
     //         </div>
 
-    //         {card.statut === "fin de partie" && card.titre === "Fin du règne" && (
+    //         {card.status === "fin de partie" && card.title === "Fin du règne" && (
     //             <div className="mt-4 space-x-2">
     //                 <Button type="button" text="Recommencer" onClick={() => handleRecommencer()} />
     //                 <Button type="button" text="Voir historique de mes parties" onClick={() => handleVoirHistorique()} />

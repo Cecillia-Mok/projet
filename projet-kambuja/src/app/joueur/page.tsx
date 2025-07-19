@@ -18,11 +18,15 @@ export default function Joueur() {
   if (loading || !user) return <Loader />;
   return (
     <section className="flex-1 text-center">
-      <div className="flex flex-col gap-10 mt-10">
+      <h2 className="text-4xl mb-10">Bibliothèque</h2>
+      <div className="flex gap-5 text-left justify-center">
+        <img src="/rumduol.svg" alt="" className="bg-[#553920] p-2 rounded-xl"/>
         <div>
-          <h1 className="text-4xl">Bibliothèque</h1>
-          <p>La page où le joueur peut consulter son profil et ses parties passées.</p>
+          <h2>Pseudo</h2>
+          <p>email@example.com</p>
         </div>
+      </div>
+      <div className="flex flex-col gap-10 mt-10">
         <div>
           <h2>Accomplissements</h2>
           <p>Nombre de parties jouées</p>

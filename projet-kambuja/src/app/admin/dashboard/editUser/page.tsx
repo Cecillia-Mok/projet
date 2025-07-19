@@ -4,7 +4,6 @@ import Button from "@/components/button";
 import { useRouter, useSearchParams } from 'next/navigation';
 import toast, { Toaster } from 'react-hot-toast';
 
-
 interface User {
     user_id: number;
     pseudo: number;

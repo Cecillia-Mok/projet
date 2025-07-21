@@ -20,7 +20,7 @@ export default function Joueur() {
     <section className="flex-1 text-center">
       <h2 className="text-4xl mb-10">Bibliothèque</h2>
       <div className="flex gap-5 text-left justify-center">
-        <img src="/rumduol.svg" alt="" className="bg-[#553920] p-2 rounded-xl"/>
+        <img src="/rumduol.svg" alt="user icon" className="bg-[#553920] p-2 rounded-xl"/>
         <div>
           <h2>Pseudo</h2>
           <p>email@example.com</p>

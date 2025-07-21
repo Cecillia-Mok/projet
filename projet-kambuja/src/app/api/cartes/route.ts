@@ -9,7 +9,7 @@ export async function GET() {
       include: {
         choices: {
           include: {
-            next_card: true, // récupère la carte suivante
+            next_card: true,
           },
         },
       },

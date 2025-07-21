@@ -23,6 +23,7 @@ export async function POST(req: Request) {
         // Validation Zod
         const parsed = zodSchema.safeParse(body);
 
+        // Si la validation échoue, extrait les messages d’erreurs Zod pour chaque champ (email, password)
         if (!parsed.success) {
             const zodErrors = parsed.error.errors.reduce((acc, err) => {
                 const key = err.path[0]; // 'email' ou 'password'
@@ -46,7 +47,6 @@ export async function POST(req: Request) {
         if (!passwordIsValid) {
             return NextResponse.json({ error: "Email ou mot de passe incorrect." }, { status: 401 });
         }
-
 
         // Génération du token
         const token = generateToken({ id: String(user.user_id), role: user.role });

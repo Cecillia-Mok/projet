@@ -25,6 +25,7 @@ export async function POST(req: Request) {
         // Validation Zod
         const parsed = zodSchema.safeParse(body);
 
+        // Affichage des messages d'erreur zod
         if (!parsed.success) {
             const zodErrors = parsed.error.errors.reduce((acc, err) => {
                 const key = err.path[0]; // 'email' ou 'password'

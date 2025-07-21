@@ -7,7 +7,6 @@ import Footer from '../components/footer';
 import { AuthProvider } from '@/context/authContext';
 import { Milonga, Spectral } from 'next/font/google';
 
-// Définition des fonts sans export
 const milonga = Milonga({
   subsets: ['latin'],
   weight: '400',
@@ -22,7 +21,7 @@ const spectral = Spectral({
 });
 
 export const metadata: Metadata = {
-  title: 'Kambuja Kingdom',
+  title: 'Royaume de Kambuja',
   description: 'Le jeu où vous incarnez le roi de Kambuja.',
 };
 

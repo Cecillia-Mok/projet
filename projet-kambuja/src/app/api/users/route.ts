@@ -1,6 +1,6 @@
 import { verifyToken } from "@/lib/auth";
-import { NextRequest, NextResponse } from "next/server";
 import { PrismaClient } from '@prisma/client';
+import { NextRequest, NextResponse } from "next/server";
 
 const prisma = new PrismaClient();
 
@@ -13,6 +13,14 @@ function isAdmin(req: NextRequest): { id: string; role: string } | null {
   return payload; // retourne les donnée user associé au token
 }
 
+const userSafeSelect = {
+  user_id: true,
+  email: true,
+  pseudo: true,
+  role: true,
+  creation_date: true,
+};
+
 // Récupérer la liste des utilisateurs
 export async function GET(req: NextRequest) {
   const auth = isAdmin(req);
@@ -24,12 +32,7 @@ export async function GET(req: NextRequest) {
     const user_id = parseInt(userIdParam);
     const user = await prisma.user.findUnique({
       where: { user_id },
-      select: {
-        user_id: true,
-        pseudo: true,
-        email: true,
-        role: true,
-      },
+      select: userSafeSelect,
     });
 
     if (!user) {
@@ -40,12 +43,7 @@ export async function GET(req: NextRequest) {
   }
 
   const users = await prisma.user.findMany({
-    select: {
-      user_id: true,
-      pseudo: true,
-      email: true,
-      role: true,
-    },
+    select: userSafeSelect,
   });
 
   return NextResponse.json({ users });
@@ -71,6 +69,7 @@ export async function PATCH(req: NextRequest) {
         ...(role && { role }),
         ...(pseudo && { pseudo }),
       },
+      select: userSafeSelect,
     });
 
 

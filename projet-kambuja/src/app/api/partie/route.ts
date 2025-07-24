@@ -18,20 +18,37 @@ export async function POST(req: NextRequest) {
   if (!auth) {
     return NextResponse.json({ error: "Non autorisé" }, { status: 401 });
   }
-  
+
   try {
     if (!parseInt(auth.id)) {
       return NextResponse.json({ error: "user_id manquant" }, { status: 400 });
     }
 
+    // Créer la partie
     const game = await prisma.game.create({
       data: {
         user_id: parseInt(auth.id),
-        game_start_date: new Date(), // maintenant
+        game_start_date: new Date(),
       },
     });
 
-    return NextResponse.json({ message: "Partie créée", game }, { status: 201 });
+    // Récupérer la carte de départ
+    const startingCard = await prisma.card.findFirst({
+      where: { title: "Messagers du Nord" },
+    });
+
+    if (!startingCard) {
+      return NextResponse.json({ error: "Aucune carte de départ trouvée" }, { status: 500 });
+    }
+
+    await prisma.gameCard.create({
+      data: {
+        game_id: game.game_id,
+        card_id: startingCard.card_id,
+      },
+    });
+
+    return NextResponse.json({ message: "Partie créée", game, startingCard }, { status: 201 });
 
   } catch (err) {
     console.error("Erreur au lancement de la partie", err);
@@ -39,7 +56,7 @@ export async function POST(req: NextRequest) {
   };
 }
 
-// Récupérer la liste des parties
+// Récupérer la liste des parties d'un user
 export async function GET(req: NextRequest) {
   const auth = getAuthUser(req);
   if (!auth) {

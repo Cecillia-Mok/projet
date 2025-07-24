@@ -74,7 +74,7 @@ export default function Connexion() {
       if (role === 'admin') {
         router.push('/admin/dashboard');
       } else {
-        router.push('/commencer');
+        router.push('/partie');
       }
     } catch (err) {
       console.error('Erreur de connexion :', err)

@@ -18,10 +18,6 @@ async function main() {
         },
     });
 
-    if (!user) {
-        throw new Error("Utilisateur non trouvé.");
-    }
-
     const game = await prisma.game.create({
         data: {
             game_start_date: new Date(),

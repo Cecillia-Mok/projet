@@ -18,7 +18,7 @@ export default function ClientAdminWrapper({ children }: { children: React.React
       if (!user) {
         router.push('/connexion');
       } else if (!isAdmin) {
-        router.push('/commencer');
+        router.push('/partie');
       }
     }
   }, [loading, isAdmin, user, router]);

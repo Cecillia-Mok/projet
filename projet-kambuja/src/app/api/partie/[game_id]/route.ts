@@ -105,13 +105,13 @@ export async function PATCH(
     console.log(body);
     const { card_id, choice_id } = body;
 
-    if (!card_id || !choice_id) {
-      return NextResponse.json({ error: 'card_id et choice_id requis' }, { status: 400 });
-    }
+    // if (!card_id || !choice_id) {
+    //   return NextResponse.json({ error: 'card_id et choice_id requis' }, { status: 400 });
+    // }
 
-    const game = await prisma.game.findUnique({ where: { game_id } });
-    if (!game) return NextResponse.json({ error: 'Partie introuvable' }, { status: 404 });
-    if (game.user_id !== user_id) return NextResponse.json({ error: 'Accès interdit' }, { status: 403 });
+    // const game = await prisma.game.findUnique({ where: { game_id } });
+    // if (!game) return NextResponse.json({ error: 'Partie introuvable' }, { status: 404 });
+    // if (game.user_id !== user_id) return NextResponse.json({ error: 'Accès interdit' }, { status: 403 });
 
     // Vérifie que le choix appartient bien à la carte
     const choice = await prisma.choice.findUnique({
@@ -145,6 +145,21 @@ export async function PATCH(
         card_id,
         choice_id
       }
+    });
+
+    // Enregistre la carte jouée dans GameCard (si pas déjà enregistrée)
+    await prisma.gameCard.upsert({
+      where: {
+        game_id_card_id: {
+          game_id,
+          card_id,
+        },
+      },
+      update: {},
+      create: {
+        game_id,
+        card_id,
+      },
     });
 
     // Vérifie si la carte mène à une fin

@@ -1,6 +1,4 @@
 'use client'
-import Image from "next/image";
-import Button from "./button";
 import Loader from "./loader";
 import { useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
@@ -23,14 +21,14 @@ type Card = {
 };
 
 type CarteProps = {
-    initialCardId?: number
+    initialCardId: any;
+    gameId: any;
 }
 
-export default function Carte({ initialCardId = 1 }: CarteProps) {
+export default function Carte({ initialCardId, gameId }: CarteProps) {
     const [card, setCard] = useState<Card | null>(null);
     const [loading, setLoading] = useState(true);
     const router = useRouter();
-
 
     // Fonction pour récupérer une carte
     const fetchCard = async (cardId: number) => {
@@ -40,48 +38,53 @@ export default function Carte({ initialCardId = 1 }: CarteProps) {
             const data = await res.json();
             console.log(data);
             setCard(data);
-            updateHistorique(cardId);
+            // updateHistorique(cardId);
         } catch (err) {
             console.error("Erreur lors du chargement de la carte", err);
         }
         setLoading(false);
     };
 
-    // Historique local
-    const updateHistorique = (id: number) => {
-        const hist = JSON.parse(localStorage.getItem('historique') || '[]');
-        hist.push(id);
-        localStorage.setItem('historique', JSON.stringify(hist));
-    };
+    // Ajoute les cartes et choix dans 
+    const handleChoice = async (nextId: number | null, consequence: string | null, choiceId: number) => {
+        try {
+            const res = await fetch(`/api/partie/${gameId}`, {
+                method: 'PATCH',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    choice_id: choiceId,
+                    card_id: card?.card_id
+                }),
+            });
 
-    // useEffect(() => {
-    //     const hist = JSON.parse(localStorage.getItem('historique') || '[]');
-    //     const lastId = hist.length > 0 ? hist[hist.length - 1] : 1;
-    //     fetchCard(lastId);
-    // }, []);
+            const choice = await res.json();
+            if (!res.ok) throw new Error(choice.error || "Erreur");
 
-    const handleChoice = (nextId: number | null, consequence: string | null) => {
-        if (nextId) {
-            if (consequence && consequence.trim() !== "") {
-                toast(<p>{consequence}</p>);
-            } fetchCard(nextId);
-        } else {
-            alert("Fin de l'histoire !");
+            if (nextId) {
+                if (consequence && consequence.trim() !== "") {
+                    toast(<p>{consequence}</p>);
+                }
+                fetchCard(nextId);
+            }
+        } catch (err) {
+            console.error("Erreur lors de la sauvegarde du choix :", err);
         }
     };
 
-    const handleRecommencer = () => {
-        localStorage.removeItem("historique");
-        fetchCard(1); // Recharger la carte de départ
-    };
+    // const handleRecommencer = () => {
+    //     localStorage.removeItem("historique");
+    //     fetchCard(1); // Recharger la carte de départ
+    // };
 
     const handleRedirectHome = () => {
-        router.push('/commencer'); // ou une autre page dédiée
+        router.push('/partie'); // ou une autre page dédiée
     };
 
-    const handleVoirHistorique = () => {
-        router.push('/joueur'); // ou une autre page dédiée
-    };
+    // const handleVoirHistorique = () => {
+    //     router.push('/joueur'); // ou une autre page dédiée
+    // };
 
     useEffect(() => {
         fetchCard(initialCardId)
@@ -108,7 +111,7 @@ export default function Carte({ initialCardId = 1 }: CarteProps) {
                 {card.choices?.map((c) => (
                     <button
                         key={c.choice_id}
-                        onClick={() => handleChoice(c.next_card_id, c.consequence)}
+                        onClick={() => handleChoice(c.next_card_id, c.consequence, c.choice_id)}
                         className="w-full bg-[#DA933C] text-white py-2 px-4 rounded hover:bg-[#C4802D] cursor-pointer"
                     >
                         {c.text}
@@ -118,9 +121,9 @@ export default function Carte({ initialCardId = 1 }: CarteProps) {
 
             {card.status === "fin de partie" && (
                 <div className="space-x-2">
-                    <button onClick={handleRecommencer} className="w-full">
+                    {/* <button onClick={handleRecommencer} className="w-full">
                         <p className="text-white bg-[#DA933C] transition duration-300 ease-in-out hover:bg-[#C4802D] px-4 py-2 font-semibold rounded-lg cursor-pointer">Recommencer</p>
-                    </button>
+                    </button> */}
                     <button onClick={handleRedirectHome} className="w-full">
                         <p className="mt-2.5 text-white bg-[#DA933C] transition duration-300 ease-in-out hover:bg-[#C4802D] px-4 py-2 font-semibold rounded-lg cursor-pointer">Retourner sur l'accueil</p>
                     </button>

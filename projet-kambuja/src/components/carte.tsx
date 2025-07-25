@@ -78,10 +78,6 @@ export default function Carte({ initialCardId, gameId }: CarteProps) {
     //     fetchCard(1); // Recharger la carte de départ
     // };
 
-    const handleRedirectHome = () => {
-        router.push('/partie'); // ou une autre page dédiée
-    };
-
     // const handleVoirHistorique = () => {
     //     router.push('/joueur'); // ou une autre page dédiée
     // };
@@ -121,14 +117,14 @@ export default function Carte({ initialCardId, gameId }: CarteProps) {
 
             {card.status === "fin de partie" && (
                 <div className="space-x-2">
-                    {/* <button onClick={handleRecommencer} className="w-full">
-                        <p className="text-white bg-[#DA933C] transition duration-300 ease-in-out hover:bg-[#C4802D] px-4 py-2 font-semibold rounded-lg cursor-pointer">Recommencer</p>
+                    {/* <button onClick={handleRecommencer} className="w-full mt-2.5 text-white bg-[#DA933C] transition duration-300 ease-in-out hover:bg-[#C4802D] px-4 py-2 font-semibold rounded-lg cursor-pointer">
+                        Recommencer
                     </button> */}
-                    <button onClick={handleRedirectHome} className="w-full">
-                        <p className="mt-2.5 text-white bg-[#DA933C] transition duration-300 ease-in-out hover:bg-[#C4802D] px-4 py-2 font-semibold rounded-lg cursor-pointer">Retourner sur l'accueil</p>
+                    <button onClick={() => window.location.reload()} className="w-full mt-2.5 text-white bg-[#DA933C] transition duration-300 ease-in-out hover:bg-[#C4802D] px-4 py-2 font-semibold rounded-lg cursor-pointer">
+                        Retourner sur l'accueil
                     </button>
-                    {/* <button onClick={handleVoirHistorique} className="w-full">
-                        <p className="mt-2.5 text-white bg-[#DA933C] transition duration-300 ease-in-out hover:bg-[#C4802D] px-4 py-2 font-semibold rounded-lg cursor-pointer">Voir l'historique sur mon profil</p>
+                    {/* <button onClick={handleVoirHistorique} className="w-full mt-2.5 text-white bg-[#DA933C] transition duration-300 ease-in-out hover:bg-[#C4802D] px-4 py-2 font-semibold rounded-lg cursor-pointer">
+                        Voir l'historique sur mon profil
                     </button> */}
                 </div>
             )}

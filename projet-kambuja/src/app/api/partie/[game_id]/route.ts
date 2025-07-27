@@ -102,52 +102,15 @@ export async function PATCH(
 
   try {
     const body = await req.json();
-    console.log(body);
     const { card_id, choice_id } = body;
 
-    // if (!card_id || !choice_id) {
-    //   return NextResponse.json({ error: 'card_id et choice_id requis' }, { status: 400 });
-    // }
-
-    // const game = await prisma.game.findUnique({ where: { game_id } });
-    // if (!game) return NextResponse.json({ error: 'Partie introuvable' }, { status: 404 });
-    // if (game.user_id !== user_id) return NextResponse.json({ error: 'Accès interdit' }, { status: 403 });
-
-    // Vérifie que le choix appartient bien à la carte
-    const choice = await prisma.choice.findUnique({
-      where: { choice_id },
-      include: { card: true }
-    });
-
-    if (!choice || choice.card.card_id !== card_id) {
-      return NextResponse.json({ error: 'Choix invalide pour cette carte' }, { status: 400 });
+    // Vérifie que la partie appartient au joueur
+    const game = await prisma.game.findUnique({ where: { game_id } });
+    if (!game || game.user_id !== user_id) {
+      return NextResponse.json({ error: 'Accès interdit ou partie introuvable' }, { status: 403 });
     }
 
-    // Vérifie si le choix a déjà été enregistré
-    const existingChoice = await prisma.gameChoice.findUnique({
-      where: {
-        game_id_card_id_choice_id: {
-          game_id,
-          card_id,
-          choice_id
-        }
-      }
-    });
-
-    if (existingChoice) {
-      return NextResponse.json({ error: 'Ce choix a déjà été enregistré.' }, { status: 400 });
-    }
-
-    // Enregistre le choix dans gameChoices
-    await prisma.gameChoice.create({
-      data: {
-        game_id,
-        card_id,
-        choice_id
-      }
-    });
-
-    // Enregistre la carte jouée dans GameCard (si pas déjà enregistrée)
+    // Enregistre la carte dans gameCards (si pas déjà présente)
     await prisma.gameCard.upsert({
       where: {
         game_id_card_id: {
@@ -162,26 +125,92 @@ export async function PATCH(
       },
     });
 
-    // Vérifie si la carte mène à une fin
-    const card = await prisma.card.findUnique({ where: { card_id } });
-
-    if (card?.status === 'fin de partie') {
-      // Met fin à la partie
-      await prisma.game.update({
-        where: { game_id },
-        data: {
-          status: 'terminée',
-          game_end_date: new Date()
-        }
+    // Si un choix est sélectionné
+    if (choice_id) {
+      const choice = await prisma.choice.findUnique({
+        where: { choice_id },
+        include: {
+          card: true,
+          next_card: true,
+        },
       });
+
+      if (!choice || choice.card.card_id !== card_id) {
+        return NextResponse.json({ error: 'Choix invalide pour cette carte' }, { status: 400 });
+      }
+
+      // Vérifie si le choix a déjà été enregistré
+      const existingChoice = await prisma.gameChoice.findUnique({
+        where: {
+          game_id_card_id_choice_id: {
+            game_id,
+            card_id,
+            choice_id,
+          },
+        },
+      });
+
+      if (existingChoice) {
+        return NextResponse.json({ error: 'Ce choix a déjà été enregistré.' }, { status: 400 });
+      }
+
+      // Enregistre le choix
+      await prisma.gameChoice.create({
+        data: {
+          game_id,
+          card_id,
+          choice_id,
+        },
+      });
+
+      // Enregistre la next_card si elle existe
+      if (choice.next_card) {
+        await prisma.gameCard.upsert({
+          where: {
+            game_id_card_id: {
+              game_id,
+              card_id: choice.next_card.card_id,
+            },
+          },
+          update: {},
+          create: {
+            game_id,
+            card_id: choice.next_card.card_id,
+          },
+        });
+
+        // Si la next_card est une fin de partie
+        if (choice.next_card.status === 'fin de partie') {
+          await prisma.game.update({
+            where: { game_id },
+            data: {
+              status: 'terminée',
+              game_end_date: new Date(),
+            },
+          });
+        }
+      }
+    } else {
+      // Si la carte actuelle n'a pas de choix, vérifier si elle est une fin de partie
+      const card = await prisma.card.findUnique({ where: { card_id } });
+      if (card?.status === 'fin de partie') {
+        await prisma.game.update({
+          where: { game_id },
+          data: {
+            status: 'terminée',
+            game_end_date: new Date(),
+          },
+        });
+      }
     }
 
-    return NextResponse.json({ message: 'Choix enregistré' });
+    return NextResponse.json({ message: 'Carte et choix enregistrés' });
   } catch (err) {
     console.error('Erreur PATCH /partie/[game_id]', err);
     return NextResponse.json({ error: 'Erreur serveur' }, { status: 500 });
   }
 }
+
 
 export async function DELETE(
   req: NextRequest,

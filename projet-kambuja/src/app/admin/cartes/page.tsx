@@ -72,7 +72,7 @@ export default function CartesPage() {
                   <li className="text-amber-600">► Fin de partie</li>
                 )}
               </ul>
-              <button className="w-full md:w-[10%] bg-[#DA933C] text-white mt-2 py-2 px-4 rounded hover:bg-[#C4802D] cursor-pointer">
+              <button className="w-full md:w-fit bg-[#DA933C] text-white mt-2 py-2 px-4 rounded hover:bg-[#C4802D] cursor-pointer">
                 <Link href={`/admin/cartes/${carte.card_id}`}>
                   Modifier
                 </Link>

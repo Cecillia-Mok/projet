@@ -13,7 +13,10 @@ function isAdmin(req: NextRequest): { id: string; role: string } | null {
   return payload; // retourne les donnée user associé au token
 }
 
+// Récupère les données d'une carte pour le formulaire de modification
 export async function GET(req: NextRequest) {
+  const auth = isAdmin(req);
+  if (!auth) return NextResponse.json({ error: 'Non autorisé' }, { status: 401 });
 
   const url = req.nextUrl;
   const pathname = url.pathname; // ex: /api/cartes/42
@@ -47,6 +50,7 @@ export async function GET(req: NextRequest) {
   }
 }
 
+// Modification des données d'une carte
 export async function PATCH(req: NextRequest, context: any) {
   const auth = isAdmin(req);
   if (!auth) return NextResponse.json({ error: 'Non autorisé' }, { status: 401 });

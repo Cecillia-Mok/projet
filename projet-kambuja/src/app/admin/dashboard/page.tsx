@@ -100,7 +100,7 @@ export default function DashboardAdmin() {
                     },
                 },
             }} />
-            <h2 className="text-4xl mb-10 text-center">Dashboard</h2>
+            <h2 className="text-4xl mb-10 text-center">Gestion des utilisateurs</h2>
             <div className="relative w-full h-[70vh] flex flex-col justify-evenly md:w-[75%] mx-auto bg-radial from-[#855A34] from-30% to-[#553920] to-80% rounded-lg">
                 <img src="/orange-corner.png" alt="" className="absolute -top-2 -left-2 size-8 lg:size-13 rotate-90" />
                 <img src="/orange-corner.png" alt="" className="absolute -top-2 -right-2 size-8 lg:size-13 rotate-180" />

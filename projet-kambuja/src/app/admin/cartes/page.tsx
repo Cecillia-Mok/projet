@@ -1,5 +1,6 @@
-'use client';
+'use client'
 
+import Link from 'next/link';
 import Loader from '@/components/loader';
 import React, { useEffect, useState } from 'react';
 
@@ -71,6 +72,11 @@ export default function CartesPage() {
                   <li className="text-amber-600">► Fin de partie</li>
                 )}
               </ul>
+              <button className="w-full md:w-[10%] bg-[#DA933C] text-white mt-2 py-2 px-4 rounded hover:bg-[#C4802D] cursor-pointer">
+                <Link href={`/admin/cartes/${carte.card_id}`}>
+                  Modifier
+                </Link>
+              </button>
             </div>
           ))}
         </div>

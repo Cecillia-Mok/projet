@@ -15,12 +15,12 @@ export default function NavLinks({ onClick }: Readonly<{ onClick?: () => void }>
                 <>
                     <li className="hover:bg-[#F7EAD9] ">
                         <Link href="/admin/dashboard" onClick={onClick}>
-                            Dashboard Admin
+                            Gestion des utilisateurs
                         </Link>
                     </li>
                     <li className="hover:bg-[#F7EAD9] ">
                         <Link href="/admin/cartes" onClick={onClick}>
-                            Carte
+                            Gestion des cartes
                         </Link>
                     </li>
                 </>

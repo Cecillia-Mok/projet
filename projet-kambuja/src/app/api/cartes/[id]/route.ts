@@ -40,7 +40,7 @@ export async function GET(req: NextRequest) {
       return NextResponse.json({ error: 'Carte introuvable' }, { status: 404 });
     }
 
-    return NextResponse.json(carte);
+    return NextResponse.json({ card: carte });
   } catch (error) {
     console.error('Erreur récupération carte :', error);
     return NextResponse.json({ error: 'Erreur serveur' }, { status: 500 });

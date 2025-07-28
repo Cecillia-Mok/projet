@@ -73,13 +73,13 @@ export async function PATCH(req: NextRequest) {
     });
 
 
-    return NextResponse.json({ message: 'Rôle mis à jour', user: updated });
+    return NextResponse.json({ message: 'Utilisateur mis à jour', user: updated });
   } catch (error) {
     return NextResponse.json({ error: 'Utilisateur introuvable ou erreur' }, { status: 500 });
   }
 }
 
-// Modifier les données de l'utilisateur
+// Supprimer les données de l'utilisateur
 export async function DELETE(req: NextRequest) {
   const auth = isAdmin(req);
   if (!auth) return NextResponse.json({ error: 'Non autorisé' }, { status: 401 });

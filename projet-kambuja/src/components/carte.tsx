@@ -34,7 +34,7 @@ export default function Carte({ initialCardId, gameId }: CarteProps) {
     const fetchCard = async (cardId: number) => {
         setLoading(true);
         try {
-            const res = await fetch(`/api/cartes/${cardId}`);
+            const res = await fetch(`/api/carte/${cardId}`);
             const data = await res.json();
             console.log(data);
             setCard(data);
